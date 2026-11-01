@@ -1,4 +1,4 @@
-# vaanisetu
+# VaaniSetu
 
 A new Flutter project.
 
