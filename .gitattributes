@@ -1,2 +1,6 @@
 assets/models/**/*.onnx filter=lfs diff=lfs merge=lfs -text
 assets/models/**/*.onnx.data filter=lfs diff=lfs merge=lfs -text
+
+# Small enough to live in git directly; keeping it out of LFS means a clone
+# without git-lfs still gets a working VAD instead of a 133-byte pointer.
+assets/models/vad/silero_vad.onnx -filter -diff -merge

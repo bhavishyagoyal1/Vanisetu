@@ -65,6 +65,15 @@ class TestNumbers(unittest.TestCase):
     def test_hundreds_are_composed(self):
         self.assertEqual(normalize("150"), "एक सौ पचास।")
 
+    def test_long_digit_runs_are_read_digit_by_digit(self):
+        # A phone-number-length run is not a quantity, and composing it would
+        # overflow a 64-bit int in the Dart port. Reading it digit by digit is
+        # both safe and how such a string is actually spoken.
+        self.assertEqual(normalize("9876543210"), "नौ आठ सात छह पाँच चार तीन दो एक शून्य।")
+
+    def test_absurdly_long_digit_run_does_not_raise(self):
+        normalize("1" * 40)
+
     def test_no_ascii_digits_survive(self):
         self.assertNotRegex(normalize("कक्षा 3 में 40 बच्चे हैं"), r"[0-9]")
 

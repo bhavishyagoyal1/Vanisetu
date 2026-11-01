@@ -17,6 +17,8 @@ import numpy as np
 import sounddevice as sd
 
 from asr import SAMPLE_RATE, build_recognizer
+from audio import AudioConditioner
+from normalize import normalize
 
 BLOCK = SAMPLE_RATE // 10     # 100 ms
 DEAD_MIC_BLOCKS = 20          # 2 s of bit-exact zeros => denied mic, not silence
@@ -68,9 +70,10 @@ def meter(device):
             print(f"\rRMS {rms:.5f} |{'#' * int(min(rms * 400, 50)):<50}|", end="", flush=True)
 
 
-def listen(device):
+def listen(device, use_vad=True):
     rec = build_recognizer(endpointing=True)
     stream = rec.create_stream()
+    conditioner = AudioConditioner(enable_vad=use_vad)
     print("Listening. Speak Hindi or Hinglish; pause to commit. Ctrl-C to stop.\n")
 
     last = ""
@@ -83,22 +86,21 @@ def listen(device):
                 print("\n[warn] input overflow - dropped audio", file=sys.stderr)
             samples = data[:, 0]
 
-            # Bit-exact zeros drive the log-mel frontend into a degenerate state
-            # and the model hallucinates tokens. Never drop the block though -
-            # that desyncs the stream clock and endpoint detection stops firing.
-            # Substitute inaudible dither, and treat a sustained run of exact
-            # zeros as a mic the OS has silently muted.
+            # A sustained run of bit-exact zeros is a mic the OS has silently
+            # muted, not silence. Only this check can say so; the conditioner
+            # handles the audio itself (VAD gating, gain, dither) and never
+            # drops a block, because dropping blocks desyncs the stream clock
+            # and endpoint detection stops firing.
             if not samples.any():
                 zero_blocks += 1
                 if not seen_audio and zero_blocks >= DEAD_MIC_BLOCKS:
                     print(dead_mic_error(), file=sys.stderr)
                     return 1
-                samples = (np.random.randn(len(samples)) * 1e-4).astype(np.float32)
             elif not seen_audio:
                 seen_audio = True
                 zero_blocks = 0
 
-            stream.accept_waveform(SAMPLE_RATE, samples)
+            stream.accept_waveform(SAMPLE_RATE, conditioner.process(samples))
             while rec.is_ready(stream):
                 rec.decode_stream(stream)
 
@@ -108,8 +110,11 @@ def listen(device):
                 last = text
 
             if rec.is_endpoint(stream):
-                if text:
-                    print(f"\r  >>> {text}{' ' * 20}")
+                # Only committed utterances are normalized - partials above are
+                # unstable prefixes, and normalizing them would just churn.
+                committed = normalize(text) if conditioner.saw_speech else ""
+                if committed:
+                    print(f"\r  >>> {committed}{' ' * 20}")
                 rec.reset(stream)
                 last = ""
 
@@ -119,6 +124,8 @@ def main():
     ap.add_argument("--device", type=int, default=None)
     ap.add_argument("--list", action="store_true")
     ap.add_argument("--meter", action="store_true")
+    ap.add_argument("--no-vad", action="store_true",
+                    help="disable VAD gating, to A/B its contribution")
     a = ap.parse_args()
 
     if a.list:
@@ -127,7 +134,9 @@ def main():
                 print(f"{i:3d}  {d['name']}  ({d['max_input_channels']}ch @ {d['default_samplerate']:.0f}Hz)")
         return 0
     try:
-        return (meter if a.meter else listen)(a.device)
+        if a.meter:
+            return meter(a.device)
+        return listen(a.device, use_vad=not a.no_vad)
     except KeyboardInterrupt:
         print("\nstopped.")
         return 0

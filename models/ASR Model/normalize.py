@@ -141,7 +141,7 @@ def normalize(text):
         return ""
     text = text.translate(_DEVANAGARI_DIGITS)
     text = _LATIN_RUN.sub(lambda m: transliterate_latin(m.group(0)), text)
-    text = _DIGIT_RUN.sub(lambda m: number_to_hindi(int(m.group(0))), text)
+    text = _DIGIT_RUN.sub(lambda m: _spell_digit_run(m.group(0)), text)
     text = _WHITESPACE.sub(" ", text).strip()
     if text and text[-1] not in _TERMINATORS:
         text += "।"
@@ -169,6 +169,18 @@ _WHITESPACE = re.compile(r"\s+")
 _TERMINATORS = "।॥?!."
 # Devanagari digits are also out of scope for a spelled-out transcript.
 _DEVANAGARI_DIGITS = str.maketrans("०१२३४५६७८९", "0123456789")
+
+
+# Beyond this many digits a run is an identifier (phone number, code), not a
+# quantity. Composing it would also overflow a 64-bit int in the Dart port.
+_MAX_COMPOSED_DIGITS = 9
+
+
+def _spell_digit_run(run):
+    """Spell a run of digits, as a quantity if short enough, else one by one."""
+    if len(run) > _MAX_COMPOSED_DIGITS:
+        return " ".join(_NUMBERS[int(digit)] for digit in run)
+    return number_to_hindi(int(run))
 
 
 def number_to_hindi(n):

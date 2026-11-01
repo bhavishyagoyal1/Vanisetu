@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:io';
-import 'dart:math';
 import 'dart:typed_data';
 
 import 'package:flutter/foundation.dart' show debugPrint;
@@ -8,6 +7,9 @@ import 'package:flutter/services.dart' show rootBundle;
 import 'package:path_provider/path_provider.dart';
 import 'package:record/record.dart';
 import 'package:sherpa_onnx/sherpa_onnx.dart' as sherpa_onnx;
+
+import 'asr/audio_conditioner.dart';
+import 'asr/hindi_text_normalizer.dart';
 
 /// Wraps the offline betterflow Hindi/Hinglish streaming CTC ASR model
 /// (see `models/ASR Model/HANDOFF.md`) for use in the app.
@@ -29,12 +31,14 @@ class HindiAsrService {
   static const _sampleRate = 16000;
   static const _encoderAssetPath = 'assets/models/asr/encoder.int8.onnx';
   static const _tokensAssetPath = 'assets/models/asr/tokens.txt';
+  static const _vadAssetPath = 'assets/models/vad/silero_vad.onnx';
   static const _encoderByteSize = 68954634;
 
   static bool _bindingsInitialized = false;
 
   sherpa_onnx.OnlineRecognizer? _recognizer;
   sherpa_onnx.OnlineStream? _stream;
+  AudioConditioner? _conditioner;
   final AudioRecorder _recorder = AudioRecorder();
   StreamSubscription<Uint8List>? _micSubscription;
 
@@ -90,6 +94,15 @@ class HindiAsrService {
           data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes),
         );
       }
+
+      final vadFile = File('${modelDir.path}/silero_vad.onnx');
+      if (!await vadFile.exists()) {
+        final data = await rootBundle.load(_vadAssetPath);
+        await vadFile.writeAsBytes(
+          data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes),
+        );
+      }
+      _conditioner = AudioConditioner(vadModelPath: vadFile.path);
 
       final config = sherpa_onnx.OnlineRecognizerConfig(
         model: sherpa_onnx.OnlineModelConfig(
@@ -164,6 +177,7 @@ class HindiAsrService {
     _sawRealAudio = false;
     _sawFirstChunk = false;
     _lastPartial = '';
+    _conditioner?.reset();
 
     final Stream<Uint8List> pcmStream;
     try {
@@ -185,7 +199,6 @@ class HindiAsrService {
     }
 
     _listening = true;
-    final random = Random();
 
     _micSubscription = pcmStream.listen(
       (chunk) {
@@ -211,9 +224,10 @@ class HindiAsrService {
           }
 
           // Bit-exact-zero blocks mean the OS is silently denying mic access
-          // (see HANDOFF.md) — the model hallucinates plausible text on real
-          // silence, so dither instead of feeding it raw zeros, and surface
-          // an error if the whole session never sees real audio.
+          // (see HANDOFF.md): a live mic always has a noise floor, so exact
+          // zeros are a permission failure presenting as audio. The
+          // conditioner substitutes dither for them, but only this check can
+          // tell the user *why* nothing is happening.
           if (allZero) {
             _zeroBlocksInARow++;
             if (!_sawRealAudio && _zeroBlocksInARow == 20) {
@@ -221,15 +235,19 @@ class HindiAsrService {
                 'No audio is reaching the microphone — check mic permission.',
               );
             }
-            for (var i = 0; i < sampleCount; i++) {
-              samples[i] = (random.nextDouble() - 0.5) * 2e-4;
-            }
           } else {
             _sawRealAudio = true;
             _zeroBlocksInARow = 0;
           }
 
-          currentStream.acceptWaveform(samples: samples, sampleRate: _sampleRate);
+          // VAD gating, gain normalisation and dithering all happen here, so
+          // that what the recognizer sees is identical to what the Python
+          // eval harness measures.
+          final conditioned = _conditioner?.process(samples) ?? samples;
+          currentStream.acceptWaveform(
+            samples: conditioned,
+            sampleRate: _sampleRate,
+          );
           while (recognizer.isReady(currentStream)) {
             recognizer.decode(currentStream);
           }
@@ -250,7 +268,17 @@ class HindiAsrService {
 
   /// Stops capture and flushes trailing context so the last word isn't
   /// dropped (Zipformer has right-context lookahead — see HANDOFF.md).
-  /// Returns the committed transcript for the whole recording, if any.
+  ///
+  /// Returns the committed transcript, normalized to Devanagari-only text —
+  /// the form [HindiSantaliMtService] needs, since it tags its input
+  /// `hin_Deva` and the recognizer is a Hinglish model that emits Latin
+  /// loanwords and ASCII digits. Returns null when the session contained no
+  /// real audio, or when the transcript has the degenerate shape of a
+  /// silence hallucination: text nobody said is worse than no text at all.
+  ///
+  /// Partials are deliberately *not* normalized — they are unstable prefixes
+  /// shown live, never sent downstream, so the extra work would buy nothing
+  /// and the committed transcript is the only contract that matters.
   Future<String?> stopListening() async {
     if (!_listening) return null;
     _listening = false;
@@ -271,8 +299,17 @@ class HindiAsrService {
       while (recognizer.isReady(stream)) {
         recognizer.decode(stream);
       }
-      final text = recognizer.getResult(stream).text.trim();
-      if (text.isNotEmpty) finalText = text;
+      final raw = recognizer.getResult(stream).text.trim();
+      // A session that never carried real audio cannot have a transcript.
+      // Conditioned silence still decodes to a stray token, so this gate is
+      // what stops it reaching the translator.
+      final heardSpeech = _conditioner?.sawSpeech ?? _sawRealAudio;
+      if (heardSpeech) {
+        final normalized = normalizeTranscript(raw);
+        if (normalized.isNotEmpty) finalText = normalized;
+      } else if (raw.isNotEmpty) {
+        debugPrint('HindiAsrService: discarding "$raw" — no speech detected');
+      }
       stream.free();
     }
     _stream = null;
@@ -286,5 +323,7 @@ class HindiAsrService {
     _stream?.free();
     _recognizer?.free();
     _recognizer = null;
+    _conditioner?.free();
+    _conditioner = null;
   }
 }

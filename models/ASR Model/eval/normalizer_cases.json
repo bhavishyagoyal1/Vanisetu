@@ -34,6 +34,11 @@
       "expected": "एक सौ पचास।"
     },
     {
+      "name": "long digit runs are read digit by digit",
+      "input": "9876543210",
+      "expected": "नौ आठ सात छह पाँच चार तीन दो एक शून्य।"
+    },
+    {
       "name": "devanagari digits normalise too",
       "input": "कक्षा ३ में",
       "expected": "कक्षा तीन में।"
