@@ -1,6 +1,10 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import '../data/translation_languages.dart';
+import '../services/hindi_asr_service.dart';
+import '../services/mt/hindi_santali_mt_service.dart';
 import '../theme/app_colors.dart';
 
 class TranslateScreen extends StatefulWidget {
@@ -23,11 +27,40 @@ class _TranslateScreenState extends State<TranslateScreen> {
   String? _targetText;
 
   bool _listening = false;
+  bool _starting = false;
+  bool _translating = false;
+
+  Timer? _elapsedTimer;
+  Duration _elapsed = Duration.zero;
 
   @override
   void dispose() {
+    _elapsedTimer?.cancel();
+    if (HindiAsrService.instance.isListening) {
+      HindiAsrService.instance.stopListening();
+    }
     _sourceController.dispose();
     super.dispose();
+  }
+
+  void _startElapsedTimer() {
+    _elapsed = Duration.zero;
+    _elapsedTimer?.cancel();
+    _elapsedTimer = Timer.periodic(const Duration(seconds: 1), (_) {
+      if (!mounted) return;
+      setState(() => _elapsed += const Duration(seconds: 1));
+    });
+  }
+
+  void _stopElapsedTimer() {
+    _elapsedTimer?.cancel();
+    _elapsedTimer = null;
+  }
+
+  String _formatElapsed(Duration d) {
+    final minutes = d.inMinutes.remainder(60).toString().padLeft(2, '0');
+    final seconds = d.inSeconds.remainder(60).toString().padLeft(2, '0');
+    return '$minutes:$seconds';
   }
 
   Future<void> _pickTargetLanguage() async {
@@ -72,36 +105,102 @@ class _TranslateScreenState extends State<TranslateScreen> {
     setState(() => _targetLang = selected);
   }
 
-  void _translate() {
-    if (_sourceController.text.trim().isEmpty) return;
-    setState(() => _targetText = null);
-    _showNotConnectedSnack();
-  }
+  Future<void> _translate() async {
+    final text = _sourceController.text.trim();
+    if (text.isEmpty || _translating) return;
 
-  void _toggleMic() {
-    setState(() => _listening = !_listening);
+    if (_targetLang.code != 'sat') {
+      // Only Hindi -> Santali has an offline MT model bundled; other
+      // targets (e.g. Mundari) aren't in this model's supported language
+      // list, so be explicit rather than silently mistranslating.
+      setState(() => _targetText = null);
+      _showError(
+        'Hindi → ${_targetLang.name} isn\'t supported yet — only Santali translation is available offline.',
+      );
+      return;
+    }
 
-    if (_listening) {
-      Future.delayed(const Duration(milliseconds: 1600), () {
-        if (!mounted) return;
-        setState(() => _listening = false);
-        _showNotConnectedSnack(voice: true);
-      });
+    setState(() {
+      _translating = true;
+      _targetText = null;
+    });
+    try {
+      final result = await HindiSantaliMtService.instance.translate(text);
+      if (!mounted) return;
+      setState(() => _targetText = result);
+    } catch (e) {
+      if (!mounted) return;
+      _showError('Translation failed: $e');
+    } finally {
+      if (mounted) setState(() => _translating = false);
     }
   }
 
-  void _showNotConnectedSnack({bool voice = false}) {
+  void _setSourceText(String text) {
+    _sourceController.value = TextEditingValue(
+      text: text,
+      selection: TextSelection.collapsed(offset: text.length),
+    );
+  }
+
+  void _showError(String message) {
+    if (!mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text(
-          voice
-              ? 'Voice input preview only — the offline speech engine isn\'t connected yet.'
-              : 'Translation preview only — the offline AI engine isn\'t connected yet.',
-        ),
+        content: Text(message),
         backgroundColor: AppColors.navy,
         behavior: SnackBarBehavior.floating,
       ),
     );
+  }
+
+  Future<void> _toggleMic() async {
+    try {
+      if (_listening) {
+        _stopElapsedTimer();
+        final finalText = await HindiAsrService.instance.stopListening();
+        if (!mounted) return;
+        setState(() {
+          _listening = false;
+          if (finalText != null && finalText.isNotEmpty) {
+            _setSourceText(finalText);
+          }
+        });
+        return;
+      }
+
+      setState(() => _starting = true);
+      await HindiAsrService.instance.startListening(
+        onPartial: (partial) {
+          if (!mounted) return;
+          setState(() => _setSourceText(partial));
+        },
+        onError: (message) {
+          _stopElapsedTimer();
+          if (!mounted) return;
+          setState(() {
+            _listening = false;
+            _starting = false;
+          });
+          _showError(message);
+        },
+      );
+      if (!mounted) return;
+      final started = HindiAsrService.instance.isListening;
+      setState(() {
+        _starting = false;
+        _listening = started;
+      });
+      if (started) _startElapsedTimer();
+    } catch (e) {
+      _stopElapsedTimer();
+      if (!mounted) return;
+      setState(() {
+        _starting = false;
+        _listening = false;
+      });
+      _showError('Unexpected error: $e');
+    }
   }
 
   @override
@@ -125,11 +224,20 @@ class _TranslateScreenState extends State<TranslateScreen> {
                   controller: _sourceController,
                   editable: true,
                   hint: 'Type or tap the mic to speak in ${_hindi.name}…',
-                  trailing: IconButton(
-                    icon: const Icon(Icons.send_rounded, color: AppColors.navy),
-                    onPressed: _translate,
-                    tooltip: 'Translate',
-                  ),
+                  trailing: _translating
+                      ? const Padding(
+                          padding: EdgeInsets.all(10),
+                          child: SizedBox(
+                            width: 20,
+                            height: 20,
+                            child: CircularProgressIndicator(strokeWidth: 2.5),
+                          ),
+                        )
+                      : IconButton(
+                          icon: const Icon(Icons.send_rounded, color: AppColors.navy),
+                          onPressed: _translate,
+                          tooltip: 'Translate',
+                        ),
                 ),
               ),
               const SizedBox(height: 12),
@@ -138,7 +246,9 @@ class _TranslateScreenState extends State<TranslateScreen> {
                   language: _targetLang,
                   editable: false,
                   displayText: _targetText,
-                  hint: 'Translation will appear here',
+                  hint: _translating
+                      ? 'Translating…'
+                      : 'Translation will appear here',
                 ),
               ),
               const SizedBox(height: 18),
@@ -161,9 +271,37 @@ class _TranslateScreenState extends State<TranslateScreen> {
               const SizedBox(height: 18),
               _MicButton(
                 listening: _listening,
+                loading: _starting,
                 color: _hindi.color,
-                onTap: _toggleMic,
+                onTap: _starting ? null : _toggleMic,
               ),
+              if (_starting)
+                Padding(
+                  padding: const EdgeInsets.only(top: 8),
+                  child: Text(
+                    'Loading speech model…',
+                    style: TextStyle(color: Colors.grey[600], fontSize: 12),
+                  ),
+                ),
+              if (_listening)
+                Padding(
+                  padding: const EdgeInsets.only(top: 8),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(Icons.fiber_manual_record, color: _hindi.color, size: 12),
+                      const SizedBox(width: 6),
+                      Text(
+                        _formatElapsed(_elapsed),
+                        style: TextStyle(
+                          color: _hindi.color,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 14,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
             ],
           ),
         ),
@@ -318,11 +456,13 @@ class _MicButton extends StatelessWidget {
     required this.listening,
     required this.color,
     required this.onTap,
+    this.loading = false,
   });
 
   final bool listening;
+  final bool loading;
   final Color color;
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -344,11 +484,19 @@ class _MicButton extends StatelessWidget {
             ),
           ],
         ),
-        child: Icon(
-          listening ? Icons.mic : Icons.mic_none,
-          color: Colors.white,
-          size: 26,
-        ),
+        child: loading
+            ? const Padding(
+                padding: EdgeInsets.all(16),
+                child: CircularProgressIndicator(
+                  color: Colors.white,
+                  strokeWidth: 2.5,
+                ),
+              )
+            : Icon(
+                listening ? Icons.mic : Icons.mic_none,
+                color: Colors.white,
+                size: 26,
+              ),
       ),
     );
   }

@@ -1,0 +1,283 @@
+VANISETU - HINDI → SANTALI VALIDATION
+======================================================================
+
+1. Hindi:
+बच्चों, अपनी किताब खोलो।
+
+Santali:
+ᱜᱤᱫᱽᱨᱟᱹᱠᱚ, ᱟᱢᱟᱜ ᱯᱚᱛᱚᱵ ᱫᱚ ᱮᱦᱚᱵ ᱢᱮ ᱾
+
+Native speaker review:
+[ ] Correct meaning
+[ ] Needs correction
+[ ] Unsure
+Correction/comments: ______________________________
+
+----------------------------------------------------------------------
+
+2. Hindi:
+सब बच्चे खड़े हो जाओ।
+
+Santali:
+ᱥᱟᱱᱟᱢ ᱜᱤᱫᱽᱨᱟᱹ ᱠᱚ ᱛᱷᱟᱯᱚᱱ ᱢᱮ ᱾
+
+Native speaker review:
+[ ] Correct meaning
+[ ] Needs correction
+[ ] Unsure
+Correction/comments: ______________________________
+
+----------------------------------------------------------------------
+
+3. Hindi:
+अपनी पेंसिल निकालो।
+
+Santali:
+ᱟᱢᱟᱜ ᱯᱮᱱᱥᱤᱞ ᱦᱟᱛᱟᱣ ᱢᱮ ᱾
+
+Native speaker review:
+[ ] Correct meaning
+[ ] Needs correction
+[ ] Unsure
+Correction/comments: ______________________________
+
+----------------------------------------------------------------------
+
+4. Hindi:
+यह कौन सा रंग है?
+
+Santali:
+ᱱᱚᱶᱟ ᱫᱚ ᱪᱮᱫ ꯃꯆꯨ?
+
+Native speaker review:
+[ ] Correct meaning
+[ ] Needs correction
+[ ] Unsure
+Correction/comments: ______________________________
+
+----------------------------------------------------------------------
+
+5. Hindi:
+पाँच तक गिनो।
+
+Santali:
+ᱢᱚᱬᱮ ᱜᱚᱴᱟᱝ ᱫᱷᱟᱹᱵᱤᱡ ᱜᱮᱤᱱ ᱢᱮ ᱾
+
+Native speaker review:
+[ ] Correct meaning
+[ ] Needs correction
+[ ] Unsure
+Correction/comments: ______________________________
+
+----------------------------------------------------------------------
+
+6. Hindi:
+अपना नाम लिखो।
+
+Santali:
+ᱟᱢᱟᱜ ᱧᱩᱛᱩᱢ ᱚᱞ ᱢᱮ ᱾
+
+Native speaker review:
+[ ] Correct meaning
+[ ] Needs correction
+[ ] Unsure
+Correction/comments: ______________________________
+
+----------------------------------------------------------------------
+
+7. Hindi:
+अपनी कॉपी खोलो।
+
+Santali:
+ᱟᱢᱟᱜ ᱠᱚᱯᱤ ᱫᱚ ᱮᱦᱚᱵ ᱢᱮ ᱾
+
+Native speaker review:
+[ ] Correct meaning
+[ ] Needs correction
+[ ] Unsure
+Correction/comments: ______________________________
+
+----------------------------------------------------------------------
+
+8. Hindi:
+चित्र को ध्यान से देखो।
+
+Santali:
+ᱪᱤᱛᱟᱹᱨ ᱫᱚ ᱧᱮᱞ ᱢᱮ ᱾
+
+Native speaker review:
+[ ] Correct meaning
+[ ] Needs correction
+[ ] Unsure
+Correction/comments: ______________________________
+
+----------------------------------------------------------------------
+
+9. Hindi:
+कौन मुझे इसका उत्तर बताएगा?
+
+Santali:
+ᱡᱟᱦᱟᱸᱭ ᱫᱚ ᱤᱧ ᱱᱚᱣᱟ ᱨᱮᱭᱟᱜ ᱩᱛᱛᱚᱨ ᱮ ᱞᱟᱹᱭᱼᱟ?
+
+Native speaker review:
+[ ] Correct meaning
+[ ] Needs correction
+[ ] Unsure
+Correction/comments: ______________________________
+
+----------------------------------------------------------------------
+
+10. Hindi:
+आज हम संख्याएँ सीखेंगे।
+
+Santali:
+ᱛᱮᱦᱮᱧ ᱟᱢ ᱮᱞ ᱠᱚ ᱥᱮᱪ ᱢᱮ ᱾
+
+Native speaker review:
+[ ] Correct meaning
+[ ] Needs correction
+[ ] Unsure
+Correction/comments: ______________________________
+
+----------------------------------------------------------------------
+
+11. Hindi:
+बच्चों, ध्यान से सुनो।
+
+Santali:
+ᱜᱤᱫᱽᱨᱟᱹᱠᱚ, ᱩᱭᱦᱟᱹᱨ ᱥᱟᱞᱟᱜ ᱠᱚ ᱵᱟᱰᱟᱭ ᱢᱮ ᱾
+
+Native speaker review:
+[ ] Correct meaning
+[ ] Needs correction
+[ ] Unsure
+Correction/comments: ______________________________
+
+----------------------------------------------------------------------
+
+12. Hindi:
+अब अपनी किताब बंद करो।
+
+Santali:
+ᱱᱤᱛ ᱟᱢᱟᱜ ᱯᱚᱛᱚᱵ ᱫᱚ ᱵᱚᱱᱚᱫᱚᱞ ᱢᱮ ᱾
+
+Native speaker review:
+[ ] Correct meaning
+[ ] Needs correction
+[ ] Unsure
+Correction/comments: ______________________________
+
+----------------------------------------------------------------------
+
+13. Hindi:
+बोर्ड की तरफ देखो।
+
+Santali:
+ᱵᱳᱨᱰ ᱥᱮᱫ ᱧᱮᱞ ᱢᱮ ᱾
+
+Native speaker review:
+[ ] Correct meaning
+[ ] Needs correction
+[ ] Unsure
+Correction/comments: ______________________________
+
+----------------------------------------------------------------------
+
+14. Hindi:
+अपने दोस्त के साथ बैठो।
+
+Santali:
+ᱟᱢᱨᱮᱱ ᱜᱟᱛᱮ ᱥᱟᱶ ᱥᱮᱱ ᱢᱮ ᱾
+
+Native speaker review:
+[ ] Correct meaning
+[ ] Needs correction
+[ ] Unsure
+Correction/comments: ______________________________
+
+----------------------------------------------------------------------
+
+15. Hindi:
+यह कौन सा अक्षर है?
+
+Santali:
+ᱱᱚᱶᱟ ᱫᱚ ᱪᱮᱫ ᱮᱞᱟᱨᱴ?
+
+Native speaker review:
+[ ] Correct meaning
+[ ] Needs correction
+[ ] Unsure
+Correction/comments: ______________________________
+
+----------------------------------------------------------------------
+
+16. Hindi:
+एक से दस तक गिनती करो।
+
+Santali:
+ᱢᱤᱫ ᱠᱷᱚᱱ ᱜᱮᱞ ᱫᱷᱟᱹᱵᱤᱡ ᱞᱮᱠᱷᱟ ᱢᱮ ᱾
+
+Native speaker review:
+[ ] Correct meaning
+[ ] Needs correction
+[ ] Unsure
+Correction/comments: ______________________________
+
+----------------------------------------------------------------------
+
+17. Hindi:
+लाल रंग दिखाओ।
+
+Santali:
+ᱟᱨᱟᱜ ᱨᱚᱝ ᱩᱫᱩᱜᱟᱹᱧ ᱢᱮ ᱾
+
+Native speaker review:
+[ ] Correct meaning
+[ ] Needs correction
+[ ] Unsure
+Correction/comments: ______________________________
+
+----------------------------------------------------------------------
+
+18. Hindi:
+अपना हाथ ऊपर करो।
+
+Santali:
+ᱛᱤ ᱪᱮᱛᱟᱱ ᱨᱮ ᱫᱚᱦᱚ ᱢᱮ ᱾
+
+Native speaker review:
+[ ] Correct meaning
+[ ] Needs correction
+[ ] Unsure
+Correction/comments: ______________________________
+
+----------------------------------------------------------------------
+
+19. Hindi:
+नीचे दिए गए चित्र को पहचानो।
+
+Santali:
+ᱞᱟᱛᱟᱨ ᱨᱮ ᱪᱤᱛᱟᱹᱨ ᱫᱚ ᱪᱤᱱᱦᱟᱹ ᱢᱮ ᱾
+
+Native speaker review:
+[ ] Correct meaning
+[ ] Needs correction
+[ ] Unsure
+Correction/comments: ______________________________
+
+----------------------------------------------------------------------
+
+20. Hindi:
+आज हम एक कहानी पढ़ेंगे।
+
+Santali:
+ᱛᱮᱦᱮᱧ ᱟᱢ ᱢᱤᱫᱴᱟᱝ ᱠᱟᱹᱦᱱᱤ ᱯᱟᱲᱦᱟᱣ ᱢᱮ ᱾
+
+Native speaker review:
+[ ] Correct meaning
+[ ] Needs correction
+[ ] Unsure
+Correction/comments: ______________________________
+
+----------------------------------------------------------------------
+

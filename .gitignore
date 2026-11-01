@@ -46,3 +46,10 @@ app.*.map.json
 
 # Unrelated project folder living inside this directory
 /betterflow-hindi-streaming-ctc/
+
+# Redundant duplicate of models/indic_translate/ (only used by throwaway
+# Python test scripts in models/test/, unzip locally if needed).
+/models/model.zip
+
+# Gradle build output (redirected here by android/build.gradle.kts).
+/android/build/

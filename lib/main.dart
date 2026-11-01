@@ -1,8 +1,23 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'screens/splash_screen.dart';
 
 void main() {
+  // Without this, an exception thrown inside a gesture callback (e.g. a
+  // failed plugin call) is swallowed by Flutter's zone handler and only
+  // ever reaches the console — never the user. Logging it to logcat here
+  // is what makes that failure diagnosable on a device with no attached
+  // terminal.
+  FlutterError.onError = (details) {
+    FlutterError.presentError(details);
+    debugPrint('FlutterError: ${details.exceptionAsString()}\n${details.stack}');
+  };
+  PlatformDispatcher.instance.onError = (error, stack) {
+    debugPrint('Uncaught error: $error\n$stack');
+    return true;
+  };
+
   runApp(const VaaniSetuApp());
 }
 

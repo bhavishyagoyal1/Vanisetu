@@ -6,7 +6,10 @@ plugins {
 
 android {
     namespace = "com.vaanisetu.vaanisetu"
-    compileSdk = flutter.compileSdkVersion
+    // onnxruntime's AAR (via androidx.fragment/window/activity) requires
+    // compiling against API 34+; flutter.compileSdkVersion resolves lower
+    // on this Flutter install, so pin explicitly.
+    compileSdk = maxOf(flutter.compileSdkVersion, 36)
     ndkVersion = flutter.ndkVersion
 
     compileOptions {
@@ -30,6 +33,16 @@ android {
             // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig = signingConfigs.getByName("debug")
+        }
+    }
+
+    packaging {
+        // Both the `sherpa_onnx` (ASR) and `onnxruntime` (MT) plugins bundle
+        // their own copy of libonnxruntime.so at the same jniLibs path.
+        // Keep one; the ORT C API entry point (OrtGetApiBase) both plugins'
+        // bindings use has been ABI-stable across recent releases.
+        jniLibs {
+            pickFirsts += setOf("**/libonnxruntime.so")
         }
     }
 }

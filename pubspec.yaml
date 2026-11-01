@@ -34,6 +34,19 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
+  sherpa_onnx: ^1.13.8
+  record: ^7.1.1
+  path_provider: ^2.1.6
+  onnxruntime: ^1.4.1
+
+dependency_overrides:
+  # path_provider_foundation's recent versions moved to Objective-C interop
+  # via package:objective_c, which declares a native-assets build hook.
+  # Flutter's hook runner has a bug on Windows when the SDK/project path
+  # contains spaces (breaks the "dart compile kernel" invocation for the
+  # hook), which this machine's user directory does. We only target
+  # Android, so pin path_provider_foundation to the last pre-hook release.
+  path_provider_foundation: 2.4.1
 
 dev_dependencies:
   flutter_test:
@@ -60,6 +73,17 @@ flutter:
 
   assets:
     - assets/images/logo.png
+    - assets/models/asr/encoder.int8.onnx
+    - assets/models/asr/tokens.txt
+    - assets/models/mt/encoder_model.onnx
+    - assets/models/mt/encoder_model.onnx.data
+    - assets/models/mt/decoder_model.onnx
+    - assets/models/mt/decoder_with_past_model.onnx
+    - assets/models/mt/decoder_shared.onnx.data
+    - assets/models/mt/tokenizer_src.json
+    - assets/models/mt/tokenizer_tgt.json
+    - assets/models/mt/tokenizer_meta.json
+    - assets/models/mt/generation_config.json
 
 flutter_launcher_icons:
   android: true
