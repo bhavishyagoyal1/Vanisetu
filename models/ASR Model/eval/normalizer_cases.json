@@ -1,0 +1,82 @@
+{
+  "_comment": [
+    "Shared behavioural contract for the ASR transcript normalizer.",
+    "Both implementations consume this file and must agree with it:",
+    "  Python - models/ASR Model/tests/test_normalize.py",
+    "  Dart   - test/asr_normalizer_test.dart",
+    "Expectations are written by hand from the design, not dumped from an",
+    "implementation, so that a bug in either one cannot become the spec."
+  ],
+  "cases": [
+    {
+      "name": "known loanword uses conventional spelling",
+      "input": "यह एक model है",
+      "expected": "यह एक मॉडल है।"
+    },
+    {
+      "name": "classroom loanwords",
+      "input": "school में computer है",
+      "expected": "स्कूल में कंप्यूटर है।"
+    },
+    {
+      "name": "single digit spelled out",
+      "input": "5 तक गिनो",
+      "expected": "पाँच तक गिनो।"
+    },
+    {
+      "name": "irregular two-digit number",
+      "input": "25",
+      "expected": "पच्चीस।"
+    },
+    {
+      "name": "hundreds compose",
+      "input": "150",
+      "expected": "एक सौ पचास।"
+    },
+    {
+      "name": "long digit runs are read digit by digit",
+      "input": "9876543210",
+      "expected": "नौ आठ सात छह पाँच चार तीन दो एक शून्य।"
+    },
+    {
+      "name": "devanagari digits normalise too",
+      "input": "कक्षा ३ में",
+      "expected": "कक्षा तीन में।"
+    },
+    {
+      "name": "silence hallucination is suppressed",
+      "input": "का  का का का का का का का का का का का का का का",
+      "expected": ""
+    },
+    {
+      "name": "emphatic doubling survives",
+      "input": "बहुत बहुत अच्छा",
+      "expected": "बहुत बहुत अच्छा।"
+    },
+    {
+      "name": "existing terminator is not doubled",
+      "input": "यह कौन सा रंग है?",
+      "expected": "यह कौन सा रंग है?"
+    },
+    {
+      "name": "whitespace collapses",
+      "input": "मेरा   गाँव",
+      "expected": "मेरा गाँव।"
+    },
+    {
+      "name": "already clean sentence is untouched",
+      "input": "बच्चों, अपनी किताब खोलो।",
+      "expected": "बच्चों, अपनी किताब खोलो।"
+    },
+    {
+      "name": "empty input stays empty",
+      "input": "",
+      "expected": ""
+    },
+    {
+      "name": "whitespace-only input stays empty",
+      "input": "   ",
+      "expected": ""
+    }
+  ]
+}

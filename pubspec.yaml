@@ -75,6 +75,7 @@ flutter:
     - assets/images/logo.png
     - assets/models/asr/encoder.int8.onnx
     - assets/models/asr/tokens.txt
+    - assets/models/vad/silero_vad.onnx
     - assets/models/mt/encoder_model.onnx
     - assets/models/mt/encoder_model.onnx.data
     - assets/models/mt/decoder_model.onnx

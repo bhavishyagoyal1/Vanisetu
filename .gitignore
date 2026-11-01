@@ -53,3 +53,6 @@ app.*.map.json
 
 # Gradle build output (redirected here by android/build.gradle.kts).
 /android/build/
+
+# Python venv for the ASR bundle (models/ASR Model/venv).
+venv/

@@ -51,6 +51,24 @@ Four properties that matter for a downstream translation model:
 4. **Accuracy.** Upstream reports 25.7% WER on IndicVoices-hi, 39.9% on Hinglish call audio.
    At ~40% WER on conversational Hinglish, MT will be translating noisy input; budget for that.
 
+## Update: this repo now does transliterate (2026-09-11)
+
+Point 1 above says not to "fix" the mixed script. That advice assumed an MT model
+that could take Hinglish. VaaniSetu's cannot: `HindiSantaliMtService` tags its input
+`hin_Deva`, for which Latin runs and ASCII digits are out of script.
+
+So this bundle now ships `normalize.py`, which converts committed transcripts to
+Devanagari-only text (loanword lexicon + transliteration fallback, numbers spelled as
+Hindi words) and suppresses the silence hallucination. `audio.py` adds VAD gating in
+front of the recognizer. `lib/services/asr/` holds the Dart ports, pinned to the same
+behaviour by `eval/normalizer_cases.json`.
+
+The caveat in point 4 still stands and gets worse here: transliteration inherits the
+recognizer's errors. The sample clip below decodes `taste` where the speaker said
+*test*, and normalization will faithfully render that mistake as confident Devanagari.
+Only decoder-level constraint would fix it; see
+`docs/superpowers/specs/2026-09-11-asr-accuracy-design.md`.
+
 ## Audio requirements
 
 **16 kHz, mono, 16-bit PCM wav.** `transcribe.py` refuses anything else rather than decoding
