@@ -43,3 +43,6 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Unrelated project folder living inside this directory
+/betterflow-hindi-streaming-ctc/
