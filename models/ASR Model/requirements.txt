@@ -1,0 +1,3 @@
+sherpa-onnx==1.13.8
+numpy
+sounddevice   # only needed for listen.py (live mic)

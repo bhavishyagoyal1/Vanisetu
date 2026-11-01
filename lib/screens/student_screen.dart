@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../widgets/option_tile.dart';
 import 'placeholder_screen.dart';
+import 'translate_screen.dart';
 
 class StudentScreen extends StatelessWidget {
   const StudentScreen({super.key});
@@ -21,12 +22,7 @@ class StudentScreen extends StatelessWidget {
               icon: Icons.translate,
               label: 'Translate',
               onTap: () => Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (_) => const PlaceholderScreen(
-                    title: 'Translate',
-                    icon: Icons.translate,
-                  ),
-                ),
+                MaterialPageRoute(builder: (_) => const TranslateScreen()),
               ),
             ),
             OptionTile(

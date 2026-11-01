@@ -1,0 +1,25 @@
+betterflow Hindi/Hinglish streaming CTC — handoff bundle
+=========================================================
+
+Model weights (encoder.int8.onnx, tokens.txt)
+  Licensed under the Apache License, Version 2.0.
+  Full text: https://www.apache.org/licenses/LICENSE-2.0
+
+  Derived from:
+    Vengadanathan/hindi-hinglish-zipformer-ctc-streaming  (Apache-2.0)
+    https://huggingface.co/Vengadanathan/hindi-hinglish-zipformer-ctc-streaming
+
+  Redistributed via the pinned mirror:
+    mobilebytesensei/betterflow-hindi-streaming-ctc, revision 2c8ad90
+    https://huggingface.co/mobilebytesensei/betterflow-hindi-streaming-ctc
+
+  Modification from upstream: ONNX export + int8 quantization. Weights are
+  otherwise unmodified.
+
+Runtime dependency
+  sherpa-onnx (k2-fsa) — Apache-2.0 — https://github.com/k2-fsa/sherpa-onnx
+  Not vendored here; installed via requirements.txt.
+
+samples/hi.wav
+  Synthetic speech generated locally with the macOS `say` command
+  (voice: Lekha). Contains no third-party recorded audio.
