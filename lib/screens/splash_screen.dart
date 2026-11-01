@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'role_selection_screen.dart';
+import 'main_shell.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -62,10 +62,9 @@ class _SplashScreenState extends State<SplashScreen>
       vsync: this,
       duration: const Duration(milliseconds: 1800),
     )..repeat(reverse: true);
-    _glowScale = Tween<double>(
-      begin: 0.9,
-      end: 1.08,
-    ).animate(CurvedAnimation(parent: _glowController, curve: Curves.easeInOut));
+    _glowScale = Tween<double>(begin: 0.9, end: 1.08).animate(
+      CurvedAnimation(parent: _glowController, curve: Curves.easeInOut),
+    );
 
     _dotsController = AnimationController(
       vsync: this,
@@ -83,7 +82,7 @@ class _SplashScreenState extends State<SplashScreen>
       PageRouteBuilder(
         transitionDuration: const Duration(milliseconds: 600),
         pageBuilder: (context, animation, secondaryAnimation) =>
-            const RoleSelectionScreen(),
+            const MainShell(),
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           final curved = CurvedAnimation(
             parent: animation,
@@ -134,7 +133,10 @@ class _SplashScreenState extends State<SplashScreen>
           ),
           Center(
             child: AnimatedBuilder(
-              animation: Listenable.merge([_entranceController, _glowController]),
+              animation: Listenable.merge([
+                _entranceController,
+                _glowController,
+              ]),
               builder: (context, child) {
                 return Opacity(
                   opacity: _logoOpacity.value,
@@ -178,7 +180,10 @@ class _SplashScreenState extends State<SplashScreen>
             bottom: 64,
             child: FadeTransition(
               opacity: _dotsFadeIn,
-              child: _LoadingDots(controller: _dotsController, color: _brandNavy),
+              child: _LoadingDots(
+                controller: _dotsController,
+                color: _brandNavy,
+              ),
             ),
           ),
         ],
@@ -212,7 +217,10 @@ class _LoadingDots extends StatelessWidget {
                 child: Container(
                   width: 8,
                   height: 8,
-                  decoration: BoxDecoration(color: color, shape: BoxShape.circle),
+                  decoration: BoxDecoration(
+                    color: color,
+                    shape: BoxShape.circle,
+                  ),
                 ),
               ),
             );

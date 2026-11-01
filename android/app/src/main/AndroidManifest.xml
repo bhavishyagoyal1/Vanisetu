@@ -43,5 +43,12 @@
             <action android:name="android.intent.action.PROCESS_TEXT"/>
             <data android:mimeType="text/plain"/>
         </intent>
+        <!-- Required on Android 11+ (package visibility) for flutter_tts to
+             detect installed TTS engines/voices — without this, speak() and
+             isLanguageAvailable() can silently fail to find the Hindi voice
+             even when one is installed. -->
+        <intent>
+            <action android:name="android.speech.tts.engine.TextToSpeech.Engine.INTENT_ACTION_TTS_SERVICE"/>
+        </intent>
     </queries>
 </manifest>

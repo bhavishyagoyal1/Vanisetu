@@ -200,70 +200,67 @@ class HindiAsrService {
 
     _listening = true;
 
-    _micSubscription = pcmStream.listen(
-      (chunk) {
-        try {
-          final currentStream = _stream;
-          if (currentStream == null || chunk.length < 2) return;
+    _micSubscription = pcmStream.listen((chunk) {
+      try {
+        final currentStream = _stream;
+        if (currentStream == null || chunk.length < 2) return;
 
-          if (!_sawFirstChunk) {
-            _sawFirstChunk = true;
-            debugPrint(
-              'HindiAsrService: first audio chunk received (${chunk.length} bytes)',
+        if (!_sawFirstChunk) {
+          _sawFirstChunk = true;
+          debugPrint(
+            'HindiAsrService: first audio chunk received (${chunk.length} bytes)',
+          );
+        }
+
+        final sampleCount = chunk.length ~/ 2;
+        final samples = Float32List(sampleCount);
+        final byteData = ByteData.sublistView(chunk);
+        var allZero = true;
+        for (var i = 0; i < sampleCount; i++) {
+          final s = byteData.getInt16(i * 2, Endian.little);
+          if (s != 0) allZero = false;
+          samples[i] = s / 32768.0;
+        }
+
+        // Bit-exact-zero blocks mean the OS is silently denying mic access
+        // (see HANDOFF.md): a live mic always has a noise floor, so exact
+        // zeros are a permission failure presenting as audio. The
+        // conditioner substitutes dither for them, but only this check can
+        // tell the user *why* nothing is happening.
+        if (allZero) {
+          _zeroBlocksInARow++;
+          if (!_sawRealAudio && _zeroBlocksInARow == 20) {
+            _onError?.call(
+              'No audio is reaching the microphone — check mic permission.',
             );
           }
-
-          final sampleCount = chunk.length ~/ 2;
-          final samples = Float32List(sampleCount);
-          final byteData = ByteData.sublistView(chunk);
-          var allZero = true;
-          for (var i = 0; i < sampleCount; i++) {
-            final s = byteData.getInt16(i * 2, Endian.little);
-            if (s != 0) allZero = false;
-            samples[i] = s / 32768.0;
-          }
-
-          // Bit-exact-zero blocks mean the OS is silently denying mic access
-          // (see HANDOFF.md): a live mic always has a noise floor, so exact
-          // zeros are a permission failure presenting as audio. The
-          // conditioner substitutes dither for them, but only this check can
-          // tell the user *why* nothing is happening.
-          if (allZero) {
-            _zeroBlocksInARow++;
-            if (!_sawRealAudio && _zeroBlocksInARow == 20) {
-              _onError?.call(
-                'No audio is reaching the microphone — check mic permission.',
-              );
-            }
-          } else {
-            _sawRealAudio = true;
-            _zeroBlocksInARow = 0;
-          }
-
-          // VAD gating, gain normalisation and dithering all happen here, so
-          // that what the recognizer sees is identical to what the Python
-          // eval harness measures.
-          final conditioned = _conditioner?.process(samples) ?? samples;
-          currentStream.acceptWaveform(
-            samples: conditioned,
-            sampleRate: _sampleRate,
-          );
-          while (recognizer.isReady(currentStream)) {
-            recognizer.decode(currentStream);
-          }
-
-          final text = recognizer.getResult(currentStream).text.trim();
-          if (text != _lastPartial) {
-            _lastPartial = text;
-            debugPrint('HindiAsrService: partial = "$text"');
-            onPartial(text);
-          }
-        } catch (e) {
-          onError('Speech decoding error: $e');
+        } else {
+          _sawRealAudio = true;
+          _zeroBlocksInARow = 0;
         }
-      },
-      onError: (Object e) => onError('Recording error: $e'),
-    );
+
+        // VAD gating, gain normalisation and dithering all happen here, so
+        // that what the recognizer sees is identical to what the Python
+        // eval harness measures.
+        final conditioned = _conditioner?.process(samples) ?? samples;
+        currentStream.acceptWaveform(
+          samples: conditioned,
+          sampleRate: _sampleRate,
+        );
+        while (recognizer.isReady(currentStream)) {
+          recognizer.decode(currentStream);
+        }
+
+        final text = recognizer.getResult(currentStream).text.trim();
+        if (text != _lastPartial) {
+          _lastPartial = text;
+          debugPrint('HindiAsrService: partial = "$text"');
+          onPartial(text);
+        }
+      } catch (e) {
+        onError('Speech decoding error: $e');
+      }
+    }, onError: (Object e) => onError('Recording error: $e'));
   }
 
   /// Stops capture and flushes trailing context so the last word isn't

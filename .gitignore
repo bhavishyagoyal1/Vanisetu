@@ -56,3 +56,17 @@ app.*.map.json
 
 # Python venv for the ASR bundle (models/ASR Model/venv).
 venv/
+
+# Generated at build time by copyCorrectOrtNativeLibs in
+# android/app/build.gradle.kts (copied from the sherpa_onnx plugin's own
+# pub-cache jniLibs so it isn't left stale/checked in).
+/android/app/src/main/jniLibs/
+
+# CTranslate2-format duplicate of the Hindi->Santali MT model, unused by
+# models/SantaliVoice/app.py and not loadable by Flutter anyway (we already
+# ship the ONNX version). 286MB, exceeds GitHub's 100MB hard limit.
+/models/SantaliVoice/model/indictrans2_sat_int8_ct2.tar.gz
+
+# Generated sample output from running models/SantaliVoice/app.py locally,
+# not source material.
+/models/SantaliVoice/output/

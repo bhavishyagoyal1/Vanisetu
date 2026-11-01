@@ -1,6 +1,9 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+import 'diagnostics/ram_monitor_overlay.dart';
+import 'l10n/app_language.dart';
+import 'l10n/app_language_scope.dart';
 import 'screens/splash_screen.dart';
 
 void main() {
@@ -11,7 +14,9 @@ void main() {
   // terminal.
   FlutterError.onError = (details) {
     FlutterError.presentError(details);
-    debugPrint('FlutterError: ${details.exceptionAsString()}\n${details.stack}');
+    debugPrint(
+      'FlutterError: ${details.exceptionAsString()}\n${details.stack}',
+    );
   };
   PlatformDispatcher.instance.onError = (error, stack) {
     debugPrint('Uncaught error: $error\n$stack');
@@ -21,20 +26,45 @@ void main() {
   runApp(const VaaniSetuApp());
 }
 
-class VaaniSetuApp extends StatelessWidget {
+class VaaniSetuApp extends StatefulWidget {
   const VaaniSetuApp({super.key});
 
   @override
+  State<VaaniSetuApp> createState() => _VaaniSetuAppState();
+}
+
+class _VaaniSetuAppState extends State<VaaniSetuApp> {
+  final _languageController = AppLanguageController();
+
+  @override
+  void initState() {
+    super.initState();
+    _languageController.load();
+  }
+
+  @override
+  void dispose() {
+    _languageController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'VaaniSetu',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF1B3A6B)),
-        useMaterial3: true,
-        scaffoldBackgroundColor: Colors.white,
+    return AppLanguageScope(
+      controller: _languageController,
+      child: MaterialApp(
+        title: 'VaaniSetu',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF1B3A6B)),
+          useMaterial3: true,
+          scaffoldBackgroundColor: Colors.white,
+        ),
+        home: const SplashScreen(),
+        builder: (context, child) {
+          return Stack(children: [?child, const RamMonitorOverlay()]);
+        },
       ),
-      home: const SplashScreen(),
     );
   }
 }

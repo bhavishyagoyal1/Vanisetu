@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../data/curriculum_data.dart';
+import '../l10n/app_strings.dart';
 import '../theme/app_colors.dart';
 import 'curriculum_chapters_screen.dart';
 
@@ -24,7 +25,7 @@ class CurriculumSubjectsScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Class $classNumber · Subjects'),
+        title: Text(tr(context, 'class_n_subjects', {'n': '$classNumber'})),
         backgroundColor: AppColors.navy,
         foregroundColor: Colors.white,
       ),
@@ -59,7 +60,9 @@ class CurriculumSubjectsScreen extends StatelessWidget {
                 ),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(16),
-                  border: Border.all(color: AppColors.teal.withValues(alpha: 0.2)),
+                  border: Border.all(
+                    color: AppColors.teal.withValues(alpha: 0.2),
+                  ),
                 ),
                 child: Row(
                   children: [
@@ -79,7 +82,9 @@ class CurriculumSubjectsScreen extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      '${subject.chapters.length} chapters',
+                      tr(context, 'n_chapters', {
+                        'n': '${subject.chapters.length}',
+                      }),
                       style: TextStyle(color: Colors.grey[600], fontSize: 13),
                     ),
                     const SizedBox(width: 6),

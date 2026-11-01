@@ -24,7 +24,9 @@ class OptionTile extends StatelessWidget {
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
-            border: Border.all(color: colorScheme.primary.withValues(alpha: 0.2)),
+            border: Border.all(
+              color: colorScheme.primary.withValues(alpha: 0.2),
+            ),
           ),
           padding: const EdgeInsets.symmetric(vertical: 28),
           child: Column(
@@ -34,9 +36,9 @@ class OptionTile extends StatelessWidget {
               const SizedBox(height: 12),
               Text(
                 label,
-                style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                  fontWeight: FontWeight.w600,
-                ),
+                style: Theme.of(
+                  context,
+                ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600),
               ),
             ],
           ),

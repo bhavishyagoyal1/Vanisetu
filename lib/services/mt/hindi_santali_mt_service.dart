@@ -101,24 +101,32 @@ class HindiSantaliMtService {
         jsonDecode(await File(paths['tokenizer_tgt.json']!).readAsString())
             as Map<String, dynamic>,
       );
-      final meta = jsonDecode(
-        await File(paths['tokenizer_meta.json']!).readAsString(),
-      ) as Map<String, dynamic>;
+      final meta =
+          jsonDecode(await File(paths['tokenizer_meta.json']!).readAsString())
+              as Map<String, dynamic>;
       _srcDictSize = meta['src_dict_size'] as int;
       _tgtDictSize = meta['tgt_dict_size'] as int;
       _unkId = meta['unk_id'] as int;
 
-      final genConfig = jsonDecode(
-        await File(paths['generation_config.json']!).readAsString(),
-      ) as Map<String, dynamic>;
+      final genConfig =
+          jsonDecode(
+                await File(paths['generation_config.json']!).readAsString(),
+              )
+              as Map<String, dynamic>;
       _decoderStartId = genConfig['decoder_start_token_id'] as int;
       _eosId = genConfig['eos_token_id'] as int;
       _padId = genConfig['pad_token_id'] as int;
 
       final options = OrtSessionOptions()..setIntraOpNumThreads(2);
       debugPrint('HindiSantaliMtService: loading ONNX sessions…');
-      _encoder = OrtSession.fromFile(File(paths['encoder_model.onnx']!), options);
-      _decoder = OrtSession.fromFile(File(paths['decoder_model.onnx']!), options);
+      _encoder = OrtSession.fromFile(
+        File(paths['encoder_model.onnx']!),
+        options,
+      );
+      _decoder = OrtSession.fromFile(
+        File(paths['decoder_model.onnx']!),
+        options,
+      );
       _decoderWithPast = OrtSession.fromFile(
         File(paths['decoder_with_past_model.onnx']!),
         options,
@@ -162,8 +170,10 @@ class HindiSantaliMtService {
     final attentionMask = List<int>.filled(ids.length, 1);
 
     final runOptions = OrtRunOptions();
-    final inputIdsTensor =
-        OrtValueTensor.createTensorWithDataList(ids, [1, ids.length]);
+    final inputIdsTensor = OrtValueTensor.createTensorWithDataList(ids, [
+      1,
+      ids.length,
+    ]);
     final attentionMaskTensor = OrtValueTensor.createTensorWithDataList(
       attentionMask,
       [1, attentionMask.length],
@@ -182,8 +192,10 @@ class HindiSantaliMtService {
       toRelease.add(encoderHiddenStates);
 
       final outputIds = <int>[_decoderStartId];
-      decoderInputIds =
-          OrtValueTensor.createTensorWithDataList([_decoderStartId], [1, 1]);
+      decoderInputIds = OrtValueTensor.createTensorWithDataList(
+        [_decoderStartId],
+        [1, 1],
+      );
 
       var usePast = false;
       for (var step = 0; step < _maxNewTokens; step++) {
@@ -222,7 +234,10 @@ class HindiSantaliMtService {
         for (var i = 1; i < outputNames.length; i++) {
           final value = outputs[i];
           if (value == null) continue;
-          newPastFeed[outputNames[i].replaceFirst('present.', 'past_key_values.')] =
+          newPastFeed[outputNames[i].replaceFirst(
+                'present.',
+                'past_key_values.',
+              )] =
               value;
         }
         for (final value in pastFeed.values) {
@@ -232,8 +247,10 @@ class HindiSantaliMtService {
 
         outputIds.add(bestId);
         decoderInputIds.release();
-        decoderInputIds =
-            OrtValueTensor.createTensorWithDataList([bestId], [1, 1]);
+        decoderInputIds = OrtValueTensor.createTensorWithDataList(
+          [bestId],
+          [1, 1],
+        );
 
         usePast = true;
         if (bestId == _eosId) break;

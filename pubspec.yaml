@@ -38,6 +38,9 @@ dependencies:
   record: ^7.1.1
   path_provider: ^2.1.6
   onnxruntime: ^1.4.1
+  audioplayers: ^6.1.0
+  flutter_tts: ^4.2.0
+  shared_preferences: ^2.3.3
 
 dependency_overrides:
   # path_provider_foundation's recent versions moved to Objective-C interop
@@ -73,6 +76,7 @@ flutter:
 
   assets:
     - assets/images/logo.png
+    - assets/images/app_icon.png
     - assets/models/asr/encoder.int8.onnx
     - assets/models/asr/tokens.txt
     - assets/models/vad/silero_vad.onnx
@@ -85,6 +89,8 @@ flutter:
     - assets/models/mt/tokenizer_tgt.json
     - assets/models/mt/tokenizer_meta.json
     - assets/models/mt/generation_config.json
+    - assets/models/tts/sat_piper_model.onnx
+    - assets/models/tts/sat_piper_model.onnx.json
 
 flutter_launcher_icons:
   android: true

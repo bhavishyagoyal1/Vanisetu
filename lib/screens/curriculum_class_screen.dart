@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../data/curriculum_data.dart';
+import '../l10n/app_strings.dart';
 import '../theme/app_colors.dart';
 import 'curriculum_subjects_screen.dart';
 
@@ -11,7 +12,7 @@ class CurriculumClassScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Curriculum'),
+        title: Text(tr(context, 'curriculum_title')),
         backgroundColor: AppColors.navy,
         foregroundColor: Colors.white,
       ),
@@ -27,9 +28,9 @@ class CurriculumClassScreen extends StatelessWidget {
                 colors: [AppColors.navy, AppColors.teal],
               ),
             ),
-            child: const Text(
-              'Select a class to view its subjects and chapters',
-              style: TextStyle(
+            child: Text(
+              tr(context, 'select_class_subtitle'),
+              style: const TextStyle(
                 color: Colors.white,
                 fontSize: 15,
                 fontWeight: FontWeight.w500,
@@ -87,7 +88,7 @@ class CurriculumClassScreen extends StatelessWidget {
                           const SizedBox(width: 16),
                           Expanded(
                             child: Text(
-                              'Class $classNumber',
+                              tr(context, 'class_n', {'n': '$classNumber'}),
                               style: const TextStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.w600,

@@ -38,7 +38,8 @@ class IndicPreprocessResult {
 
 class IndicPreprocessor {
   // Mirrors processor.pyx's _PUNC_REPLACEMENTS, in the same order.
-  static final List<MapEntry<RegExp, String Function(Match)>> _puncReplacements = [
+  static final List<MapEntry<RegExp, String Function(Match)>>
+  _puncReplacements = [
     MapEntry(RegExp(r'\r'), (_) => ''),
     MapEntry(RegExp(r'\(\s*'), (_) => '('),
     MapEntry(RegExp(r'\s*\)'), (_) => ')'),
@@ -72,13 +73,35 @@ class IndicPreprocessor {
   // hin_Deva-relevant subset; other scripts' digit blocks omitted since
   // they cannot appear in Hindi input).
   static const Map<int, String> _devanagariDigits = {
-    0x0966: '0', 0x0967: '1', 0x0968: '2', 0x0969: '3', 0x096A: '4',
-    0x096B: '5', 0x096C: '6', 0x096D: '7', 0x096E: '8', 0x096F: '9',
+    0x0966: '0',
+    0x0967: '1',
+    0x0968: '2',
+    0x0969: '3',
+    0x096A: '4',
+    0x096B: '5',
+    0x096C: '6',
+    0x096D: '7',
+    0x096E: '8',
+    0x096F: '9',
   };
 
   static const List<String> _punctuationMarks = [
-    '।', '॥', ',', '.', '?', '!', ';', ':', '(', ')', '[', ']', '{', '}',
-    '"', "'",
+    '।',
+    '॥',
+    ',',
+    '.',
+    '?',
+    '!',
+    ';',
+    ':',
+    '(',
+    ')',
+    '[',
+    ']',
+    '{',
+    '}',
+    '"',
+    "'",
   ];
 
   String _normalizeDigits(String text) {
@@ -94,24 +117,43 @@ class IndicPreprocessor {
       text = text.replaceAllMapped(entry.key, entry.value);
     }
     text = text.replaceAll(_multiSpace, ' ');
-    text = text.replaceAllMapped(_endBracketSpacePunc, (m) => ') ${m.group(1)}');
+    text = text.replaceAllMapped(
+      _endBracketSpacePunc,
+      (m) => ') ${m.group(1)}',
+    );
     text = text.replaceAllMapped(_digitSpacePercent, (m) => '${m.group(1)}%');
     text = text.replaceAllMapped(_doubleQuotPunc, (m) => '${m.group(1)}"');
-    text = text.replaceAllMapped(_digitNbspDigit, (m) => '${m.group(1)}.${m.group(2)}');
+    text = text.replaceAllMapped(
+      _digitNbspDigit,
+      (m) => '${m.group(1)}.${m.group(2)}',
+    );
     return text.trim();
   }
 
-  ({String text, Map<String, String> placeholders}) _wrapPlaceholders(String text) {
+  ({String text, Map<String, String> placeholders}) _wrapPlaceholders(
+    String text,
+  ) {
     final placeholders = <String, String>{};
     var serial = 1;
-    for (final pattern in [_emailPattern, _urlPattern, _numeralPattern, _otherPattern]) {
+    for (final pattern in [
+      _emailPattern,
+      _urlPattern,
+      _numeralPattern,
+      _otherPattern,
+    ]) {
       final matches = pattern.allMatches(text).map((m) => m.group(0)!).toSet();
       for (final match in matches) {
-        if (identical(pattern, _urlPattern) && match.replaceAll('.', '').length < 4) {
+        if (identical(pattern, _urlPattern) &&
+            match.replaceAll('.', '').length < 4) {
           continue;
         }
         if (identical(pattern, _numeralPattern) &&
-            match.replaceAll(' ', '').replaceAll('.', '').replaceAll(':', '').length < 4) {
+            match
+                    .replaceAll(' ', '')
+                    .replaceAll('.', '')
+                    .replaceAll(':', '')
+                    .length <
+                4) {
           continue;
         }
         final placeholder = '<ID$serial>';
