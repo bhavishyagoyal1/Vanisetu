@@ -9,15 +9,20 @@ import 'translate_screen.dart';
 
 /// App shell: bottom nav with Vaani Translate as the landing tab (index 1,
 /// selected by default) and visually larger than Curriculum/Dictionary on
-/// either side of it.
+/// either side of it. Tabs are swipeable (a [PageView]) as well as
+/// tap-to-select.
 ///
-/// Each tab owns its own nested [Navigator] (kept alive under an
-/// [IndexedStack], not rebuilt on tab switches) so drilling into a tab —
+/// Each tab owns its own nested [Navigator] (kept alive as siblings in the
+/// PageView, not rebuilt on tab switches) so drilling into a tab —
 /// Curriculum -> Class -> Subject -> Chapter -> content, say — pushes
 /// within that tab's stack instead of covering the whole shell; the bottom
 /// bar stays visible and sticky on every screen, not just the three tab
-/// roots. The system/gesture back button is wired to pop the active tab's
-/// stack first, only exiting the app once that tab is already at its root.
+/// roots. Swiping between tabs is only enabled while the active tab is at
+/// its own root screen — once you've drilled in, a horizontal swipe would
+/// otherwise fight with that screen's own back-swipe/scroll gestures, so it
+/// is disabled until you back out. The system/gesture back button pops the
+/// active tab's stack first, only exiting the app once that tab is already
+/// at its root.
 class MainShell extends StatefulWidget {
   const MainShell({super.key});
 
@@ -27,8 +32,15 @@ class MainShell extends StatefulWidget {
 
 class _MainShellState extends State<MainShell> {
   int _index = 1;
+  bool _activeTabAtRoot = true;
 
+  final _pageController = PageController(initialPage: 1);
   final _navigatorKeys = List.generate(3, (_) => GlobalKey<NavigatorState>());
+  late final List<_RootTrackingObserver> _observers = List.generate(
+    3,
+    (i) =>
+        _RootTrackingObserver(onChanged: (atRoot) => _onRootChanged(i, atRoot)),
+  );
 
   static const _roots = [
     CurriculumClassScreen(),
@@ -36,9 +48,22 @@ class _MainShellState extends State<MainShell> {
     DictionaryScreen(),
   ];
 
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
+
+  void _onRootChanged(int tabIndex, bool atRoot) {
+    if (tabIndex != _index) return;
+    if (_activeTabAtRoot == atRoot) return;
+    setState(() => _activeTabAtRoot = atRoot);
+  }
+
   Widget _buildTabNavigator(int index) {
     return Navigator(
       key: _navigatorKeys[index],
+      observers: [_observers[index]],
       onGenerateRoute: (settings) =>
           MaterialPageRoute(builder: (_) => _roots[index]),
     );
@@ -46,12 +71,22 @@ class _MainShellState extends State<MainShell> {
 
   void _onTabTapped(int index) {
     if (index == _index) {
-      // Tapping the already-active tab again: pop back to its root, a
-      // common convention for bottom-nav apps.
       _navigatorKeys[index].currentState?.popUntil((route) => route.isFirst);
     } else {
-      setState(() => _index = index);
+      _pageController.animateToPage(
+        index,
+        duration: const Duration(milliseconds: 260),
+        curve: Curves.easeOutCubic,
+      );
     }
+  }
+
+  void _onPageChanged(int index) {
+    setState(() {
+      _index = index;
+      _activeTabAtRoot =
+          !(_navigatorKeys[index].currentState?.canPop() ?? false);
+    });
   }
 
   @override
@@ -68,8 +103,12 @@ class _MainShellState extends State<MainShell> {
         }
       },
       child: Scaffold(
-        body: IndexedStack(
-          index: _index,
+        body: PageView(
+          controller: _pageController,
+          physics: _activeTabAtRoot
+              ? const PageScrollPhysics()
+              : const NeverScrollableScrollPhysics(),
+          onPageChanged: _onPageChanged,
           children: List.generate(3, _buildTabNavigator),
         ),
         bottomNavigationBar: _BottomNavBar(
@@ -79,6 +118,30 @@ class _MainShellState extends State<MainShell> {
       ),
     );
   }
+}
+
+/// Reports whether its [Navigator] is sitting at its root route (i.e.
+/// nothing left to pop) whenever the route stack changes, so the shell can
+/// gate tab-swiping on it.
+class _RootTrackingObserver extends NavigatorObserver {
+  _RootTrackingObserver({required this.onChanged});
+
+  final ValueChanged<bool> onChanged;
+
+  void _report() {
+    final nav = navigator;
+    if (nav == null) return;
+    onChanged(!nav.canPop());
+  }
+
+  @override
+  void didPush(Route route, Route? previousRoute) => _report();
+
+  @override
+  void didPop(Route route, Route? previousRoute) => _report();
+
+  @override
+  void didRemove(Route route, Route? previousRoute) => _report();
 }
 
 class _BottomNavBar extends StatelessWidget {
