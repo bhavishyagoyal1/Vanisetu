@@ -22,6 +22,22 @@ working end-to-end path: `HindiAsrService` → `TranslateScreen` → `HindiSanta
    `lib/services/` is what ships. Both need the same normalisation, which creates a divergence
    risk — addressed by shared test vectors (Phase 4).
 
+## Implementation status
+
+| Item | State |
+|---|---|
+| Eval harness (`eval/wer.py`, `run_eval.py`, `record.py`) | Built, 8 tests. **No fixtures yet** — nothing to measure until recordings exist. |
+| Repetition / hallucination guard | Built, proven end to end against the real model. |
+| VAD gating, gain, dead-mic guard (`audio.py`) | Built, 4 tests. |
+| Devanagari-only conversion + numbers | Built, shared contract with Dart. |
+| Terminal danda | Built. |
+| Dart ports + service wiring | Written, **unverified** — no Dart SDK here. |
+| Pause-timed *intra-utterance* punctuation | **Not built.** Timestamps are confirmed available, but comma placement is calibrated against a threshold and is unmeasurable without fixtures. |
+| Curriculum lexicon correction | **Not built.** Its ship gate is "`curriculum` improves *and* `general` does not regress" — that gate cannot be evaluated without the eval set, and shipping it blind would be exactly the unmeasured change this design exists to prevent. |
+| HLG decoder constraint | Deferred spike (`k2` unavailable on this platform). |
+
+Both unbuilt items block on the same thing: recordings. They are not dropped.
+
 ## Environment limits (verified, not assumed)
 
 - **No Flutter or Dart SDK on this machine.** Searched `PATH`, `~`, `/opt`, `/Applications`,
