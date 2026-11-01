@@ -70,3 +70,16 @@ venv/
 # Generated sample output from running models/SantaliVoice/app.py locally,
 # not source material.
 /models/SantaliVoice/output/
+
+# Generated sample output from running models/HindiTTS/app.py locally, not
+# source material (same rule as models/SantaliVoice/output/ above).
+/models/HindiTTS/output/
+
+# Byte-for-byte duplicate of models/indic_translate/ (verified via SHA-256 —
+# every .onnx/.onnx.data/tokenizer file matches exactly; see
+# HindiSantaliMtService's doc comment). 372MB of redundant tracked content.
+/models/SantaliHindiTranslation/
+
+# Claude Code's local scheduled-task lock file — runtime state, not project
+# content.
+.claude/scheduled_tasks.lock

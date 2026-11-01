@@ -20,6 +20,9 @@ class AppStrings {
       'nav_dictionary': 'Dictionary',
 
       'speak_in_hindi': 'Speak in Hindi…',
+      'type_in_santali': 'Type in Santali…',
+      'swap_languages': 'Swap languages',
+      'swap_unavailable': 'Only Santali supports both directions',
       'translate_to': 'Translate to',
       'translating': 'Translating…',
       'not_available_offline': 'Not available offline yet',
@@ -74,6 +77,9 @@ class AppStrings {
       'nav_dictionary': 'शब्दकोश',
 
       'speak_in_hindi': 'हिंदी में बोलें…',
+      'type_in_santali': 'संताली में लिखें…',
+      'swap_languages': 'भाषाएँ बदलें',
+      'swap_unavailable': 'केवल संताली दोनों दिशाओं में काम करता है',
       'translate_to': 'अनुवाद करें',
       'translating': 'अनुवाद हो रहा है…',
       'not_available_offline': 'ऑफ़लाइन अभी उपलब्ध नहीं है',

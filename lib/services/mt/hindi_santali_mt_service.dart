@@ -10,7 +10,7 @@ import 'package:path_provider/path_provider.dart';
 import 'bpe_tokenizer.dart';
 import 'indic_preprocessor.dart';
 
-/// Offline Hindi -> Santali (Ol Chiki) neural machine translation, using the
+/// Offline Hindi <-> Santali (Ol Chiki) neural machine translation, using the
 /// ONNX export of AI4Bharat's IndicTrans2 (indic-indic-dist-320M, INT8) that
 /// ships in `models/indic_translate/`. See that folder's README.md for
 /// provenance, and [IndicPreprocessor] / [BpeTokenizer] for the two pieces
@@ -26,6 +26,17 @@ import 'indic_preprocessor.dart';
 /// `decoder_model.onnx` (needs `encoder_hidden_states`), every step after
 /// uses `decoder_with_past_model.onnx` (needs `past_key_values.*` — fed by
 /// renaming the previous step's `present.*` outputs).
+///
+/// Bidirectional: `models/SantaliHindiTranslation/` turned out to be a
+/// byte-for-byte identical copy of this same model bundle (verified by
+/// SHA-256 — every .onnx/.onnx.data/tokenizer file matches exactly). This
+/// is AI4Bharat's "indic-indic" IndicTrans2, a single multilingual model
+/// covering many Indic language pairs in both directions, not a
+/// Hindi->Santali-only model — so Santali->Hindi needs no extra bundled
+/// assets, just different language tags on the same sessions. Verified by
+/// running the reference Python pipeline on known-good Santali strings and
+/// confirming sensible Hindi came back out (two exact round-trips, one
+/// close paraphrase) before writing this.
 class HindiSantaliMtService {
   HindiSantaliMtService._();
   static final HindiSantaliMtService instance = HindiSantaliMtService._();
@@ -43,6 +54,9 @@ class HindiSantaliMtService {
     'tokenizer_meta.json',
     'generation_config.json',
   ];
+
+  static const _hindiTag = 'hin_Deva';
+  static const _santaliTag = 'sat_Olck';
 
   OrtSession? _encoder;
   OrtSession? _decoder;
@@ -143,7 +157,20 @@ class HindiSantaliMtService {
   /// Translates Hindi [text] to Santali (Ol Chiki script). Loads the model
   /// on first call (a few hundred MB to extract from assets once, then a
   /// couple of seconds to build the ONNX sessions) and keeps it resident.
-  Future<String> translate(String text) async {
+  Future<String> translate(String text) =>
+      _translate(text, srcLang: _hindiTag, tgtLang: _santaliTag);
+
+  /// Translates Santali (Ol Chiki) [text] to Hindi — the reverse direction,
+  /// on the same loaded sessions (see class doc comment for why no extra
+  /// model needs to be bundled for this).
+  Future<String> translateToHindi(String text) =>
+      _translate(text, srcLang: _santaliTag, tgtLang: _hindiTag);
+
+  Future<String> _translate(
+    String text, {
+    required String srcLang,
+    required String tgtLang,
+  }) async {
     await _ensureInitialized();
     final encoder = _encoder!;
     final decoder = _decoder!;
@@ -153,8 +180,8 @@ class HindiSantaliMtService {
 
     final pre = _preprocessor.preprocess(text);
     final srcVocab = srcTokenizer.vocab;
-    final srcLangId = srcVocab['hin_Deva'];
-    final tgtLangId = srcVocab['sat_Olck'];
+    final srcLangId = srcVocab[srcLang];
+    final tgtLangId = srcVocab[tgtLang];
     if (srcLangId == null || tgtLangId == null) {
       throw StateError('Language tags missing from source tokenizer vocab.');
     }
@@ -192,6 +219,18 @@ class HindiSantaliMtService {
       toRelease.add(encoderHiddenStates);
 
       final outputIds = <int>[_decoderStartId];
+      // Anti-repetition guard (HF's standard no_repeat_ngram_size, n=3):
+      // greedy decoding on short/isolated input can loop forever on a
+      // single token or a short cycle of a few tokens (verified during
+      // dictionary content generation — e.g. a bare "namaste" decoded to a
+      // repeating 2-token cycle ~25 times over). Block any candidate that
+      // would recreate a trigram already seen earlier in this sequence,
+      // falling back to the next-best candidate (bounded retries, so this
+      // can't loop forever itself).
+      final seenTrigrams = <List<int>>{};
+      bool trigramSeen(int a, int b, int c) =>
+          seenTrigrams.any((t) => t[0] == a && t[1] == b && t[2] == c);
+
       decoderInputIds = OrtValueTensor.createTensorWithDataList(
         [_decoderStartId],
         [1, 1],
@@ -218,15 +257,33 @@ class HindiSantaliMtService {
         }
 
         final logits = outputs[0]!.value as List;
-        final lastStepLogits = (logits[0] as List).last as List;
+        final lastStepLogits = List<double>.from(
+          ((logits[0] as List).last as List).map((v) => (v as num).toDouble()),
+        );
+
         var bestId = 0;
-        var bestScore = double.negativeInfinity;
-        for (var i = 0; i < lastStepLogits.length; i++) {
-          final score = (lastStepLogits[i] as num).toDouble();
-          if (score > bestScore) {
-            bestScore = score;
-            bestId = i;
+        for (var attempt = 0; attempt < 8; attempt++) {
+          bestId = 0;
+          var bestScore = double.negativeInfinity;
+          for (var i = 0; i < lastStepLogits.length; i++) {
+            final score = lastStepLogits[i];
+            if (score > bestScore) {
+              bestScore = score;
+              bestId = i;
+            }
           }
+          if (outputIds.length < 2) break;
+          final a = outputIds[outputIds.length - 2];
+          final b = outputIds[outputIds.length - 1];
+          if (!trigramSeen(a, b, bestId)) break;
+          lastStepLogits[bestId] = double.negativeInfinity;
+        }
+        if (outputIds.length >= 2) {
+          seenTrigrams.add([
+            outputIds[outputIds.length - 2],
+            outputIds[outputIds.length - 1],
+            bestId,
+          ]);
         }
         outputs[0]!.release();
 

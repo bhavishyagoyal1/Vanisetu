@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 
+import '../data/chapter_content_data.dart';
+import '../data/chapter_content_map.dart';
 import '../l10n/app_strings.dart';
 import '../theme/app_colors.dart';
+import 'assessment_screen.dart';
 import 'content_placeholder_screen.dart';
+import 'flashcards_screen.dart';
+import 'worksheet_screen.dart';
 
-/// Chapter -> {Lesson, Worksheet, Flashcards, Assessment}. Each leads to a
-/// placeholder for now — see ContentPlaceholderScreen's doc comment for why.
+/// Chapter -> {Worksheet, Flashcards, Assessment}. Opens the real content
+/// screen when chapterContentData has an entry for this chapter, otherwise
+/// falls back to a placeholder — see ContentPlaceholderScreen's doc comment.
 class ChapterDetailScreen extends StatelessWidget {
   const ChapterDetailScreen({
     super.key,
@@ -22,7 +28,10 @@ class ChapterDetailScreen extends StatelessWidget {
   static const _flashcardsColor = Color(0xFF2FAF6B);
   static const _assessmentColor = Color(0xFFE0568C);
 
-  void _open(
+  ChapterContent? get _content =>
+      chapterContentData[chapterContentKey(classNumber, subjectName, chapter)];
+
+  void _openPlaceholder(
     BuildContext context, {
     required String title,
     required IconData icon,
@@ -43,6 +52,7 @@ class ChapterDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final content = _content;
     return Scaffold(
       backgroundColor: const Color(0xFFF6F8FA),
       appBar: AppBar(
@@ -72,45 +82,84 @@ class ChapterDetailScreen extends StatelessWidget {
               icon: Icons.description_rounded,
               color: _worksheetColor,
               title: tr(context, 'content_worksheet'),
-              onTap: () => _open(
-                context,
-                title: tr(context, 'content_worksheet'),
-                icon: Icons.description_rounded,
-                color: _worksheetColor,
-                subtitle: tr(context, 'content_worksheet_subtitle', {
-                  'chapter': chapter,
-                }),
-              ),
+              onTap: () {
+                if (content != null) {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (_) => WorksheetScreen(
+                        chapter: chapter,
+                        questions: content.worksheet,
+                      ),
+                    ),
+                  );
+                } else {
+                  _openPlaceholder(
+                    context,
+                    title: tr(context, 'content_worksheet'),
+                    icon: Icons.description_rounded,
+                    color: _worksheetColor,
+                    subtitle: tr(context, 'content_worksheet_subtitle', {
+                      'chapter': chapter,
+                    }),
+                  );
+                }
+              },
             ),
             const SizedBox(height: 12),
             _ContentTile(
               icon: Icons.style_rounded,
               color: _flashcardsColor,
               title: tr(context, 'content_flashcards'),
-              onTap: () => _open(
-                context,
-                title: tr(context, 'content_flashcards'),
-                icon: Icons.style_rounded,
-                color: _flashcardsColor,
-                subtitle: tr(context, 'content_flashcards_subtitle', {
-                  'chapter': chapter,
-                }),
-              ),
+              onTap: () {
+                if (content != null) {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (_) => FlashcardsScreen(
+                        chapter: chapter,
+                        cards: content.flashcards,
+                      ),
+                    ),
+                  );
+                } else {
+                  _openPlaceholder(
+                    context,
+                    title: tr(context, 'content_flashcards'),
+                    icon: Icons.style_rounded,
+                    color: _flashcardsColor,
+                    subtitle: tr(context, 'content_flashcards_subtitle', {
+                      'chapter': chapter,
+                    }),
+                  );
+                }
+              },
             ),
             const SizedBox(height: 12),
             _ContentTile(
               icon: Icons.fact_check_rounded,
               color: _assessmentColor,
               title: tr(context, 'content_assessment'),
-              onTap: () => _open(
-                context,
-                title: tr(context, 'content_assessment'),
-                icon: Icons.fact_check_rounded,
-                color: _assessmentColor,
-                subtitle: tr(context, 'content_assessment_subtitle', {
-                  'chapter': chapter,
-                }),
-              ),
+              onTap: () {
+                if (content != null) {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (_) => AssessmentScreen(
+                        chapter: chapter,
+                        questions: content.assessment,
+                      ),
+                    ),
+                  );
+                } else {
+                  _openPlaceholder(
+                    context,
+                    title: tr(context, 'content_assessment'),
+                    icon: Icons.fact_check_rounded,
+                    color: _assessmentColor,
+                    subtitle: tr(context, 'content_assessment_subtitle', {
+                      'chapter': chapter,
+                    }),
+                  );
+                }
+              },
             ),
           ],
         ),

@@ -1,5 +1,6 @@
 /// Port of the parts of AI4Bharat's `IndicTransToolkit.IndicProcessor` that
-/// are actually reachable for a fixed hin_Deva -> sat_Olck pipeline.
+/// are actually reachable for the hin_Deva <-> sat_Olck pipeline (both
+/// directions — see HindiSantaliMtService.translateToHindi).
 ///
 /// Verified against the upstream Cython source
 /// (github.com/VarunGumma/IndicTransToolkit, IndicTransToolkit/processor.pyx)
@@ -69,9 +70,11 @@ class IndicPreprocessor {
   );
   static final RegExp _otherPattern = RegExp(r'[A-Za-z0-9]*[#@]\w+');
 
-  // Devanagari digits -> ASCII (processor.pyx's _digits_translation_table,
-  // hin_Deva-relevant subset; other scripts' digit blocks omitted since
-  // they cannot appear in Hindi input).
+  // Digits -> ASCII (processor.pyx's _digits_translation_table). Now that
+  // Santali is a source language too (see HindiSantaliMtService.
+  // translateToHindi), this covers Ol Chiki digits (U+1C50-1C59) alongside
+  // Devanagari — other scripts' digit blocks are still omitted since only
+  // these two scripts can appear as input in this app.
   static const Map<int, String> _devanagariDigits = {
     0x0966: '0',
     0x0967: '1',
@@ -83,6 +86,16 @@ class IndicPreprocessor {
     0x096D: '7',
     0x096E: '8',
     0x096F: '9',
+    0x1C50: '0',
+    0x1C51: '1',
+    0x1C52: '2',
+    0x1C53: '3',
+    0x1C54: '4',
+    0x1C55: '5',
+    0x1C56: '6',
+    0x1C57: '7',
+    0x1C58: '8',
+    0x1C59: '9',
   };
 
   static const List<String> _punctuationMarks = [
@@ -102,6 +115,11 @@ class IndicPreprocessor {
     '}',
     '"',
     "'",
+    // Ol Chiki punctuation (U+1C7E/1C7F) — confirmed via the real reference
+    // (indic_tokenize.trivial_tokenize) that these split off as their own
+    // tokens just like Devanagari danda does, not script-specific handling.
+    '᱾',
+    '᱿',
   ];
 
   String _normalizeDigits(String text) {

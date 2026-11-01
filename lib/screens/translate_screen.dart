@@ -10,8 +10,7 @@ import '../data/translation_languages.dart';
 import '../l10n/app_strings.dart';
 import '../services/asr/hindi_text_normalizer.dart' show isHallucinated;
 import '../services/hindi_asr_service.dart';
-import '../services/mt/hindi_santali_mt_service.dart';
-import '../services/tts/santali_tts_service.dart';
+import '../services/inference_isolate.dart';
 import '../theme/app_colors.dart';
 import 'settings_screen.dart';
 
@@ -34,6 +33,13 @@ class _TranslateScreenState extends State<TranslateScreen> {
 
   late TranslateLanguage _targetLang = _targetOptions.first; // Santhali
 
+  // true: Hindi (top, mic-enabled) -> _targetLang (bottom, picker) — the
+  // original direction. false: _targetLang (top, no mic — no Santali ASR
+  // exists) -> Hindi (bottom, fixed) — the reverse direction, only ever
+  // entered with _targetLang == Santali (see _canSwap): Mundari has no
+  // working model in either direction, so there is nothing to swap to.
+  bool _sourceIsHindi = true;
+
   final _sourceController = TextEditingController();
   String? _targetText;
 
@@ -43,7 +49,7 @@ class _TranslateScreenState extends State<TranslateScreen> {
   bool _retranslatePending = false;
   bool _speaking = false;
   bool _speakingHindi = false;
-  bool _copiedHindi = false;
+  bool _copiedSource = false;
 
   Timer? _elapsedTimer;
   Duration _elapsed = Duration.zero;
@@ -184,8 +190,8 @@ class _TranslateScreenState extends State<TranslateScreen> {
       return;
     }
 
-    if (_targetLang.code != 'sat') {
-      // Only Hindi -> Santali has an offline MT model bundled; Mundari
+    if (_sourceIsHindi && _targetLang.code != 'sat') {
+      // Only Hindi <-> Santali has an offline MT model bundled; Mundari
       // isn't in this model's supported language list yet — reflected
       // inline in the target card's hint.
       setState(() => _targetText = null);
@@ -197,7 +203,9 @@ class _TranslateScreenState extends State<TranslateScreen> {
       _targetText = null;
     });
     try {
-      final result = await HindiSantaliMtService.instance.translate(text);
+      final result = _sourceIsHindi
+          ? await InferenceIsolate.instance.translateToSantali(text)
+          : await InferenceIsolate.instance.translateToHindi(text);
       if (!mounted) return;
       setState(() => _targetText = result);
     } catch (e) {
@@ -244,26 +252,22 @@ class _TranslateScreenState extends State<TranslateScreen> {
     );
   }
 
-  Future<void> _copyHindi() async {
-    setState(() => _copiedHindi = true);
+  Future<void> _copySource() async {
+    setState(() => _copiedSource = true);
     await _copy(_sourceController.text.trim());
     if (mounted) {
       Future.delayed(const Duration(seconds: 1), () {
-        if (mounted) setState(() => _copiedHindi = false);
+        if (mounted) setState(() => _copiedSource = false);
       });
     }
   }
 
-  /// Speaks the Santali translation aloud (offline Piper TTS) so a
-  /// Hindi-speaking teacher can hear correct pronunciation without knowing
-  /// the language themselves.
-  Future<void> _speakTranslation() async {
-    final text = _targetText;
-    if (text == null || text.isEmpty || _speaking) return;
-
+  /// Speaks Santali text aloud via the offline Piper TTS model.
+  Future<void> _speakSantali(String text) async {
+    if (text.isEmpty || _speaking) return;
     setState(() => _speaking = true);
     try {
-      final wavBytes = await SantaliTtsService.instance.synthesizeWav(text);
+      final wavBytes = await InferenceIsolate.instance.speakSantali(text);
       if (!mounted) return;
       await _audioPlayer.play(BytesSource(wavBytes, mimeType: 'audio/wav'));
     } catch (e) {
@@ -275,14 +279,27 @@ class _TranslateScreenState extends State<TranslateScreen> {
     }
   }
 
-  /// Speaks the Hindi source text aloud via Android's built-in TTS engine —
-  /// useful for a student who can't read yet, or to confirm the mic heard
-  /// the right words. No bundled model: Hindi already has broad on-device
-  /// voice support, unlike Santali.
-  Future<void> _speakHindi() async {
-    final text = _sourceController.text.trim();
+  /// Speaks Hindi text aloud via Android's built-in TTS engine.
+  ///
+  /// The bundled offline Piper voice (`HindiTtsService`, espeak-ng
+  /// phonemization via `piper_phonemize`) is NOT used here — on-device
+  /// testing found it reliably crashes the whole app the first time it
+  /// runs, not just throws: a native `SIGABRT` ("FORTIFY: pthread_mutex_lock
+  /// called on a destroyed mutex") inside `libflutter.so`, confirmed via two
+  /// separate `/data/tombstones` captures with an identical stack. Being a
+  /// native abort, it kills the process outright and bypasses Dart's
+  /// try/catch entirely, so the fallback this function used to have after
+  /// that call could never actually run. It reproduced identically whether
+  /// espeak-ng's data was pre-extracted on the main isolate first or not,
+  /// which rules out the isolate-messenger race that seemed like the
+  /// obvious cause — root cause is still open, most likely a native
+  /// conflict between `piper_phonemize`/espeak-ng and `onnxruntime` (both
+  /// FFI, both pull in `libc++_shared.so`). Needs upstream investigation
+  /// before it's safe to call again; system TTS already has solid Hindi
+  /// support on Android, so this is a real fallback, not a downgrade in
+  /// practice.
+  Future<void> _speakHindi(String text) async {
     if (text.isEmpty || _speakingHindi) return;
-
     setState(() => _speakingHindi = true);
     try {
       await _hindiTts.speak(text);
@@ -294,6 +311,42 @@ class _TranslateScreenState extends State<TranslateScreen> {
       if (mounted) setState(() => _speakingHindi = false);
     }
   }
+
+  /// Speaks whatever is in the source box, in whichever language is
+  /// currently assigned there.
+  Future<void> _speakSource() {
+    final text = _sourceController.text.trim();
+    return _sourceIsHindi ? _speakHindi(text) : _speakSantali(text);
+  }
+
+  /// Speaks the translated output, in whichever language is currently
+  /// assigned to the target box. Useful both for a Hindi-speaking teacher
+  /// to hear correct Santali pronunciation, and (once swapped) the reverse.
+  Future<void> _speakTarget() {
+    final text = _targetText;
+    if (text == null) return Future.value();
+    return _sourceIsHindi ? _speakSantali(text) : _speakHindi(text);
+  }
+
+  /// Swaps translation direction. Like a typical translate app's swap
+  /// button: the new source gets the old target's text, and the target is
+  /// re-translated from there rather than just moving the old source text
+  /// over untranslated. Only ever called while swapping is possible (see
+  /// _canSwap) — Mundari has no reverse model, so swapping away from a
+  /// Hindi->Mundari selection never happens.
+  Future<void> _swapLanguages() async {
+    if (_listening) await _toggleMic();
+    _translateDebounce?.cancel();
+    final oldTarget = _targetText;
+    setState(() {
+      _sourceIsHindi = !_sourceIsHindi;
+      _targetText = null;
+      _setSourceText(oldTarget ?? '');
+    });
+    _scheduleTranslate(delay: Duration.zero);
+  }
+
+  bool get _canSwap => !_sourceIsHindi || _targetLang.code == 'sat';
 
   Future<void> _toggleMic() async {
     try {
@@ -382,76 +435,88 @@ class _TranslateScreenState extends State<TranslateScreen> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               _TranslateCard(
-                                language: _hindi,
+                                language: _sourceIsHindi ? _hindi : _targetLang,
                                 editable: true,
                                 controller: _sourceController,
-                                hint: tr(context, 'speak_in_hindi'),
+                                hint: _sourceIsHindi
+                                    ? tr(context, 'speak_in_hindi')
+                                    : tr(context, 'type_in_santali'),
                                 actions: [
                                   _CardIconButton(
                                     icon: Icons.volume_up_rounded,
-                                    loading: _speakingHindi,
-                                    onTap: _speakHindi,
+                                    loading: _sourceIsHindi
+                                        ? _speakingHindi
+                                        : _speaking,
+                                    onTap: _speakSource,
                                   ),
                                   _CardIconButton(
-                                    icon: _copiedHindi
+                                    icon: _copiedSource
                                         ? Icons.check_rounded
                                         : Icons.copy_rounded,
-                                    onTap: _copyHindi,
+                                    onTap: _copySource,
                                   ),
                                 ],
                               ),
-                              const SizedBox(height: 22),
-                              _MicWithWaveform(
-                                listening: _listening,
-                                starting: _starting,
-                                onTap: _starting ? null : _toggleMic,
-                              ),
-                              if (_starting)
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 8),
-                                  child: Text(
-                                    tr(context, 'loading_speech_model'),
-                                    style: TextStyle(
-                                      color: Colors.grey[600],
-                                      fontSize: 12,
+                              if (_sourceIsHindi) ...[
+                                const SizedBox(height: 22),
+                                _MicWithWaveform(
+                                  listening: _listening,
+                                  starting: _starting,
+                                  onTap: _starting ? null : _toggleMic,
+                                ),
+                                if (_starting)
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 8),
+                                    child: Text(
+                                      tr(context, 'loading_speech_model'),
+                                      style: TextStyle(
+                                        color: Colors.grey[600],
+                                        fontSize: 12,
+                                      ),
                                     ),
                                   ),
-                                ),
-                              if (_listening)
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 8),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      Icon(
-                                        Icons.fiber_manual_record,
-                                        color: _hindi.color,
-                                        size: 12,
-                                      ),
-                                      const SizedBox(width: 6),
-                                      Text(
-                                        _formatElapsed(_elapsed),
-                                        style: TextStyle(
+                                if (_listening)
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 8),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        Icon(
+                                          Icons.fiber_manual_record,
                                           color: _hindi.color,
-                                          fontWeight: FontWeight.w600,
-                                          fontSize: 14,
+                                          size: 12,
                                         ),
-                                      ),
-                                    ],
+                                        const SizedBox(width: 6),
+                                        Text(
+                                          _formatElapsed(_elapsed),
+                                          style: TextStyle(
+                                            color: _hindi.color,
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: 14,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
                                   ),
-                                ),
+                              ],
                               const SizedBox(height: 18),
-                              const _TranslateToLabel(),
+                              _TranslateToLabel(
+                                canSwap: _canSwap,
+                                onSwap: _swapLanguages,
+                              ),
                               const SizedBox(height: 14),
                               _TranslateCard(
-                                language: _targetLang,
+                                language: _sourceIsHindi ? _targetLang : _hindi,
                                 editable: false,
                                 displayText: _targetText,
-                                onHeaderTap: _pickTargetLanguage,
+                                onHeaderTap: _sourceIsHindi
+                                    ? _pickTargetLanguage
+                                    : null,
                                 minHeight: 220,
                                 hint: _translating
                                     ? tr(context, 'translating')
-                                    : _targetLang.code != 'sat'
+                                    : _sourceIsHindi &&
+                                          _targetLang.code != 'sat'
                                     ? tr(context, 'not_available_offline')
                                     : tr(context, 'translation_appears_here'),
                                 actions: _targetText == null
@@ -459,8 +524,10 @@ class _TranslateScreenState extends State<TranslateScreen> {
                                     : [
                                         _CardIconButton(
                                           icon: Icons.volume_up_rounded,
-                                          loading: _speaking,
-                                          onTap: _speakTranslation,
+                                          loading: _sourceIsHindi
+                                              ? _speaking
+                                              : _speakingHindi,
+                                          onTap: _speakTarget,
                                         ),
                                         _CardIconButton(
                                           icon: Icons.copy_rounded,
@@ -530,27 +597,61 @@ class _AppHeader extends StatelessWidget {
 }
 
 class _TranslateToLabel extends StatelessWidget {
-  const _TranslateToLabel();
+  const _TranslateToLabel({required this.canSwap, required this.onSwap});
+
+  final bool canSwap;
+  final VoidCallback onSwap;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(20),
-            border: Border.all(color: AppColors.teal.withValues(alpha: 0.25)),
-          ),
-          child: Text(
-            tr(context, 'translate_to'),
-            style: const TextStyle(
-              color: AppColors.teal,
-              fontWeight: FontWeight.w600,
-              fontSize: 12.5,
+        Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20),
+                border: Border.all(
+                  color: AppColors.teal.withValues(alpha: 0.25),
+                ),
+              ),
+              child: Text(
+                tr(context, 'translate_to'),
+                style: const TextStyle(
+                  color: AppColors.teal,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 12.5,
+                ),
+              ),
             ),
-          ),
+            const SizedBox(width: 8),
+            Tooltip(
+              message: canSwap
+                  ? tr(context, 'swap_languages')
+                  : tr(context, 'swap_unavailable'),
+              child: Material(
+                color: canSwap
+                    ? AppColors.teal.withValues(alpha: 0.12)
+                    : Colors.grey.withValues(alpha: 0.1),
+                shape: const CircleBorder(),
+                child: InkWell(
+                  customBorder: const CircleBorder(),
+                  onTap: canSwap ? onSwap : null,
+                  child: Padding(
+                    padding: const EdgeInsets.all(6),
+                    child: Icon(
+                      Icons.swap_vert_rounded,
+                      size: 18,
+                      color: canSwap ? AppColors.teal : Colors.grey,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
         const SizedBox(height: 4),
         Icon(

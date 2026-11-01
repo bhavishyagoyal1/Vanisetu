@@ -44,42 +44,46 @@ class SettingsScreen extends StatelessWidget {
           const SizedBox(height: 16),
           Container(
             decoration: BoxDecoration(
-              color: Colors.white,
               borderRadius: BorderRadius.circular(16),
               border: Border.all(color: AppColors.navy.withValues(alpha: 0.08)),
             ),
-            child: Column(
-              children: [
-                for (final language in AppLanguage.values) ...[
-                  if (language != AppLanguage.values.first)
-                    Divider(
-                      height: 1,
-                      color: AppColors.navy.withValues(alpha: 0.06),
-                    ),
-                  ListenableBuilder(
-                    listenable: controller,
-                    builder: (context, _) {
-                      final selected = controller.value == language;
-                      return RadioListTile<AppLanguage>(
-                        value: language,
-                        groupValue: controller.value,
-                        onChanged: (value) {
-                          if (value != null) controller.setLanguage(value);
-                        },
-                        activeColor: AppColors.teal,
-                        title: Text(
-                          language.label,
-                          style: TextStyle(
-                            fontWeight: selected
-                                ? FontWeight.w700
-                                : FontWeight.w500,
+            child: Material(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(16),
+              clipBehavior: Clip.antiAlias,
+              child: Column(
+                children: [
+                  for (final language in AppLanguage.values) ...[
+                    if (language != AppLanguage.values.first)
+                      Divider(
+                        height: 1,
+                        color: AppColors.navy.withValues(alpha: 0.06),
+                      ),
+                    ListenableBuilder(
+                      listenable: controller,
+                      builder: (context, _) {
+                        final selected = controller.value == language;
+                        return RadioListTile<AppLanguage>(
+                          value: language,
+                          groupValue: controller.value,
+                          onChanged: (value) {
+                            if (value != null) controller.setLanguage(value);
+                          },
+                          activeColor: AppColors.teal,
+                          title: Text(
+                            language.label,
+                            style: TextStyle(
+                              fontWeight: selected
+                                  ? FontWeight.w700
+                                  : FontWeight.w500,
+                            ),
                           ),
-                        ),
-                      );
-                    },
-                  ),
+                        );
+                      },
+                    ),
+                  ],
                 ],
-              ],
+              ),
             ),
           ),
           const SizedBox(height: 28),
@@ -90,31 +94,35 @@ class SettingsScreen extends StatelessWidget {
           const SizedBox(height: 12),
           Container(
             decoration: BoxDecoration(
-              color: Colors.white,
               borderRadius: BorderRadius.circular(16),
               border: Border.all(color: AppColors.navy.withValues(alpha: 0.08)),
             ),
-            child: ListenableBuilder(
-              listenable: RamMonitorController.instance,
-              builder: (context, _) {
-                return SwitchListTile(
-                  value: RamMonitorController.instance.enabled,
-                  onChanged: RamMonitorController.instance.setEnabled,
-                  activeTrackColor: AppColors.teal,
-                  title: Text(
-                    tr(context, 'ram_monitor_label'),
-                    style: const TextStyle(fontWeight: FontWeight.w600),
-                  ),
-                  subtitle: Text(
-                    tr(context, 'ram_monitor_description'),
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Colors.grey[600],
-                      height: 1.3,
+            child: Material(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(16),
+              clipBehavior: Clip.antiAlias,
+              child: ListenableBuilder(
+                listenable: RamMonitorController.instance,
+                builder: (context, _) {
+                  return SwitchListTile(
+                    value: RamMonitorController.instance.enabled,
+                    onChanged: RamMonitorController.instance.setEnabled,
+                    activeTrackColor: AppColors.teal,
+                    title: Text(
+                      tr(context, 'ram_monitor_label'),
+                      style: const TextStyle(fontWeight: FontWeight.w600),
                     ),
-                  ),
-                );
-              },
+                    subtitle: Text(
+                      tr(context, 'ram_monitor_description'),
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Colors.grey[600],
+                        height: 1.3,
+                      ),
+                    ),
+                  );
+                },
+              ),
             ),
           ),
         ],

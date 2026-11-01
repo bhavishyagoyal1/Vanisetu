@@ -1,0 +1,1300 @@
+{
+  "class": 5,
+  "subjects": [
+    {
+      "subject": "Hindi",
+      "chapters": [
+        {
+          "chapter": "हम सब सुमन एक उपवन के",
+          "worksheet": [
+            "इस कविता/पाठ का शीर्षक क्या संदेश देता है, अपने शब्दों में लिखो।",
+            "'उपवन' और 'सुमन' शब्दों का अर्थ लिखकर एक-एक वाक्य बनाओ।",
+            "हमें आपस में मिलजुल कर रहने से क्या लाभ होते हैं? तीन बिंदु लिखो।",
+            "एकता में बल है - इस विचार को अपने स्कूल के उदाहरण से समझाओ।",
+            "पाठ में आए किन्हीं पाँच नए शब्दों को छाँटकर उनके अर्थ लिखो।"
+          ],
+          "flashcards": [
+            {"term": "उपवन", "meaning": "बगीचा या फूलों से भरा स्थान"},
+            {"term": "सुमन", "meaning": "फूल"},
+            {"term": "एकता", "meaning": "मिलजुल कर रहना, एकजुटता"},
+            {"term": "सहयोग", "meaning": "मिलकर काम करना, मदद करना"},
+            {"term": "भाईचारा", "meaning": "आपसी प्रेम और भाईपन का भाव"},
+            {"term": "समानता", "meaning": "सबको बराबर समझना"}
+          ],
+          "assessment": [
+            {"question": "'सुमन' शब्द का अर्थ क्या है?", "options": ["पत्ता", "फूल", "जड़", "डाल"], "correct": 1},
+            {"question": "'उपवन' किसे कहते हैं?", "options": ["तालाब", "पहाड़", "बगीचा", "रेगिस्तान"], "correct": 2},
+            {"question": "इस पाठ का मुख्य संदेश क्या है?", "options": ["आलस्य", "एकता और मिलजुल कर रहना", "झगड़ा", "डर"], "correct": 1},
+            {"question": "'एकता में बल है' का अर्थ है", "options": ["अकेले रहने में शक्ति है", "मिलकर रहने में शक्ति है", "झगड़ने में शक्ति है", "सोने में शक्ति है"], "correct": 1},
+            {"question": "'भाईचारा' शब्द किस भाव को दर्शाता है?", "options": ["वैर", "प्रेम और अपनापन", "डर", "लालच"], "correct": 1}
+          ]
+        },
+        {
+          "chapter": "फसलों के त्योहार",
+          "worksheet": [
+            "झारखंड में मनाए जाने वाले किन्हीं तीन फसल त्योहारों के नाम लिखो।",
+            "सोहराय त्योहार किस मौसम में और क्यों मनाया जाता है?",
+            "करमा पर्व के बारे में तुम क्या जानते हो, तीन पंक्तियों में लिखो।",
+            "मकर संक्रांति को हम किस प्रकार मनाते हैं?",
+            "फसल त्योहार किसानों के लिए महत्वपूर्ण क्यों होते हैं?"
+          ],
+          "flashcards": [
+            {"term": "सोहराय", "meaning": "झारखंड का एक फसल/पशुधन उत्सव, जिसमें घरों की भित्ति चित्रकारी होती है"},
+            {"term": "करमा", "meaning": "करम वृक्ष की पूजा से जुड़ा झारखंड का लोकप्रिय पर्व"},
+            {"term": "सरहुल", "meaning": "साल वृक्ष के फूलने पर मनाया जाने वाला आदिवासी पर्व"},
+            {"term": "मकर संक्रांति", "meaning": "फसल कटाई का त्योहार, जनवरी माह में मनाया जाता है"},
+            {"term": "फसल", "meaning": "खेत में उगाई गई उपज जैसे धान, गेहूँ"},
+            {"term": "कृषि", "meaning": "खेती करने का कार्य"}
+          ],
+          "assessment": [
+            {"question": "सोहराय किस राज्य से जुड़ा प्रसिद्ध त्योहार है?", "options": ["पंजाब", "झारखंड", "गुजरात", "केरल"], "correct": 1},
+            {"question": "करमा पर्व किस वृक्ष से जुड़ा है?", "options": ["आम", "करम", "नीम", "पीपल"], "correct": 1},
+            {"question": "मकर संक्रांति किस महीने में मनाई जाती है?", "options": ["जनवरी", "अप्रैल", "अगस्त", "अक्टूबर"], "correct": 0},
+            {"question": "सरहुल किस वृक्ष के फूलने पर मनाया जाता है?", "options": ["साल", "आम", "नीम", "बबूल"], "correct": 0},
+            {"question": "फसल त्योहार मुख्यतः किससे जुड़े होते हैं?", "options": ["खेल", "कृषि और फसल कटाई", "बाजार", "यातायात"], "correct": 1}
+          ]
+        },
+        {
+          "chapter": "ईदगाह",
+          "worksheet": [
+            "हामिद ईद के मेले में अपने साथियों के साथ क्यों गया था?",
+            "हामिद ने खिलौनों और मिठाइयों की जगह चिमटा क्यों खरीदा?",
+            "हामिद के इस निर्णय से उसके स्वभाव की कौन-सी अच्छाई पता चलती है?",
+            "'ईदगाह' कहानी के लेखक का नाम लिखो।",
+            "हामिद की दादी अमीना का नाम लेकर बताओ कि वह घर पर उसका इंतजार क्यों कर रही थी।"
+          ],
+          "flashcards": [
+            {"term": "ईदगाह", "meaning": "वह स्थान जहाँ ईद की नमाज़ पढ़ी जाती है"},
+            {"term": "चिमटा", "meaning": "रोटी सेंकते समय हाथ न जले इसके लिए प्रयोग होने वाला लोहे का औज़ार"},
+            {"term": "मेला", "meaning": "त्योहार पर लगने वाला बाज़ार जहाँ खेल-तमाशे और दुकानें होती हैं"},
+            {"term": "प्रेमचंद", "meaning": "'ईदगाह' कहानी के प्रसिद्ध हिंदी लेखक, मुंशी प्रेमचंद"},
+            {"term": "त्याग", "meaning": "अपनी इच्छा छोड़कर दूसरे के भले के लिए काम करना"},
+            {"term": "समझदारी", "meaning": "सही-गलत को परखने की बुद्धि"}
+          ],
+          "assessment": [
+            {"question": "'ईदगाह' कहानी के लेखक कौन हैं?", "options": ["रवींद्रनाथ टैगोर", "मुंशी प्रेमचंद", "सुमित्रानंदन पंत", "महादेवी वर्मा"], "correct": 1},
+            {"question": "हामिद ने मेले से क्या खरीदा?", "options": ["खिलौना", "मिठाई", "चिमटा", "गुब्बारा"], "correct": 2},
+            {"question": "हामिद ने चिमटा किसके लिए खरीदा?", "options": ["अपने लिए", "दोस्त के लिए", "अपनी दादी के लिए", "शिक्षक के लिए"], "correct": 2},
+            {"question": "हामिद अपनी दादी को किस नाम से पुकारता था?", "options": ["अमीना", "दादी अम्मा", "माँ", "बीबी"], "correct": 1},
+            {"question": "इस कहानी से हमें कौन-सा गुण सीखने को मिलता है?", "options": ["स्वार्थ", "त्याग और समझदारी", "आलस्य", "क्रोध"], "correct": 1}
+          ]
+        },
+        {
+          "chapter": "दोहा एकादश",
+          "worksheet": [
+            "दोहा किसे कहते हैं? यह कितनी पंक्तियों का होता है, लिखो।",
+            "दोहे किस प्रकार जीवन में उपयोगी बातें सिखाते हैं?",
+            "तुम्हें कोई एक दोहा याद हो तो लिखो और उसका सरल अर्थ बताओ।",
+            "दोहा और कविता में क्या अंतर है?",
+            "दोहों में मुख्यतः किन विषयों पर बातें कही जाती हैं?"
+          ],
+          "flashcards": [
+            {"term": "दोहा", "meaning": "दो पंक्तियों का एक छोटा काव्य रूप जिसमें गहरी बात कही जाती है"},
+            {"term": "छंद", "meaning": "काव्य रचना का एक निश्चित रूप या बनावट"},
+            {"term": "कवि", "meaning": "कविता लिखने वाला व्यक्ति"},
+            {"term": "अलंकार", "meaning": "भाषा को सुंदर बनाने वाला काव्य साधन"},
+            {"term": "उपदेश", "meaning": "अच्छी सीख या सलाह"},
+            {"term": "मुक्तक", "meaning": "स्वतंत्र भाव से लिखी गई छोटी काव्य रचना"}
+          ],
+          "assessment": [
+            {"question": "दोहा सामान्यतः कितनी पंक्तियों का होता है?", "options": ["दो", "चार", "छह", "आठ"], "correct": 0},
+            {"question": "दोहे मुख्यतः किस उद्देश्य से लिखे जाते हैं?", "options": ["मनोरंजन के लिए", "सीख देने के लिए", "डराने के लिए", "गाने के लिए"], "correct": 1},
+            {"question": "कविता लिखने वाले को क्या कहते हैं?", "options": ["लेखक", "कवि", "गायक", "चित्रकार"], "correct": 1},
+            {"question": "'छंद' शब्द का संबंध किससे है?", "options": ["काव्य की बनावट से", "भोजन से", "खेल से", "यातायात से"], "correct": 0},
+            {"question": "दोहे किस भाषा-शैली में लिखे जाते हैं?", "options": ["केवल अंग्रेज़ी", "सरल और संक्षिप्त", "बहुत जटिल", "केवल संस्कृत"], "correct": 1}
+          ]
+        },
+        {
+          "chapter": "चावल की रोटियाँ",
+          "worksheet": [
+            "'चावल की रोटियाँ' शीर्षक पढ़कर तुम्हें कहानी में क्या घटित होने का अनुमान है?",
+            "चावल से बनने वाले किन्हीं तीन व्यंजनों के नाम लिखो।",
+            "अपने घर में बनने वाले किसी खास पकवान के बारे में पाँच वाक्य लिखो।",
+            "मेहनत और धैर्य से जुड़ी कोई एक सीख लिखो जो भोजन बनाने से जुड़ी हो।",
+            "चावल की खेती के लिए किन चीज़ों की आवश्यकता होती है?"
+          ],
+          "flashcards": [
+            {"term": "चावल", "meaning": "धान से प्राप्त होने वाला मुख्य खाद्यान्न"},
+            {"term": "रोटी", "meaning": "आटे या चावल के आटे से बना गोल भोजन"},
+            {"term": "धान", "meaning": "वह पौधा जिससे चावल प्राप्त होता है"},
+            {"term": "पकवान", "meaning": "खास अवसरों पर बनाया जाने वाला भोजन"},
+            {"term": "श्रम", "meaning": "मेहनत, परिश्रम"},
+            {"term": "अन्न", "meaning": "खाने योग्य अनाज"}
+          ],
+          "assessment": [
+            {"question": "चावल किस पौधे से प्राप्त होता है?", "options": ["गेहूँ", "धान", "मक्का", "जौ"], "correct": 1},
+            {"question": "रोटी सामान्यतः किससे बनाई जाती है?", "options": ["आटा", "पानी", "पत्थर", "लकड़ी"], "correct": 0},
+            {"question": "अन्न शब्द का अर्थ क्या है?", "options": ["खाने योग्य अनाज", "पानी", "कपड़ा", "मकान"], "correct": 0},
+            {"question": "भोजन बनाने के लिए सबसे ज़रूरी गुण कौन-सा है?", "options": ["जल्दबाज़ी", "धैर्य और मेहनत", "क्रोध", "आलस्य"], "correct": 1},
+            {"question": "'श्रम' शब्द का अर्थ है", "options": ["आराम", "मेहनत", "नींद", "खेल"], "correct": 1}
+          ]
+        },
+        {
+          "chapter": "लड़की की चतुराई",
+          "worksheet": [
+            "'चतुराई' शब्द का अर्थ लिखो और एक वाक्य में प्रयोग करो।",
+            "तुम्हारे विचार से एक चतुर व्यक्ति में कौन-से गुण होते हैं?",
+            "किसी कठिन परिस्थिति में तुमने या किसी और ने अपनी बुद्धि से समाधान निकाला हो, वह घटना लिखो।",
+            "चतुराई और छल में क्या अंतर है, समझाओ।",
+            "'लड़की की चतुराई' शीर्षक से कहानी में किस प्रकार की घटना होने का अनुमान लगता है?"
+          ],
+          "flashcards": [
+            {"term": "चतुराई", "meaning": "बुद्धिमानी से काम निकालने की कला"},
+            {"term": "बुद्धिमत्ता", "meaning": "समझदारी और सोच-विचार करने की शक्ति"},
+            {"term": "युक्ति", "meaning": "किसी समस्या को हल करने का उपाय"},
+            {"term": "साहस", "meaning": "डर का सामना करने की हिम्मत"},
+            {"term": "समस्या", "meaning": "कठिनाई या उलझन"},
+            {"term": "समाधान", "meaning": "समस्या का हल"}
+          ],
+          "assessment": [
+            {"question": "'चतुराई' का अर्थ है", "options": ["बुद्धिमानी", "आलस्य", "डर", "क्रोध"], "correct": 0},
+            {"question": "'युक्ति' शब्द का अर्थ क्या है?", "options": ["समस्या", "उपाय", "सजा", "खेल"], "correct": 1},
+            {"question": "समस्या का हल निकालने के लिए क्या चाहिए?", "options": ["बुद्धि और सूझबूझ", "डर", "जल्दबाज़ी", "आलस्य"], "correct": 0},
+            {"question": "चतुराई से काम लेने वाला व्यक्ति कैसा माना जाता है?", "options": ["मूर्ख", "समझदार", "कमजोर", "डरपोक"], "correct": 1},
+            {"question": "'साहस' शब्द का विलोम (उल्टा) क्या है?", "options": ["वीरता", "कायरता", "बुद्धि", "चतुराई"], "correct": 1}
+          ]
+        },
+        {
+          "chapter": "चिठ्ठी",
+          "worksheet": [
+            "पत्र (चिठ्ठी) लिखने के मुख्य भाग कौन-कौन से होते हैं?",
+            "अपने मित्र को अपने विद्यालय के बारे में बताते हुए एक संक्षिप्त पत्र लिखो।",
+            "औपचारिक (formal) और अनौपचारिक (informal) पत्र में क्या अंतर होता है?",
+            "आजकल चिठ्ठी की जगह किन साधनों का प्रयोग किया जाता है?",
+            "पत्र लिखते समय किन बातों का ध्यान रखना चाहिए?"
+          ],
+          "flashcards": [
+            {"term": "चिठ्ठी", "meaning": "किसी को लिखा गया पत्र"},
+            {"term": "प्रेषक", "meaning": "पत्र भेजने वाला व्यक्ति"},
+            {"term": "प्राप्तकर्ता", "meaning": "पत्र पाने वाला व्यक्ति"},
+            {"term": "पता", "meaning": "किसी स्थान की स्थिति बताने वाला विवरण"},
+            {"term": "अभिवादन", "meaning": "पत्र में प्रयोग किया जाने वाला सम्मानसूचक संबोधन"},
+            {"term": "डाकघर", "meaning": "चिठ्ठी और पार्सल भेजने की सरकारी सेवा वाला स्थान"}
+          ],
+          "assessment": [
+            {"question": "पत्र भेजने वाले को क्या कहते हैं?", "options": ["प्राप्तकर्ता", "प्रेषक", "डाकिया", "लेखक"], "correct": 1},
+            {"question": "चिठ्ठी कहाँ से भेजी और प्राप्त की जाती है?", "options": ["स्कूल", "डाकघर", "बाज़ार", "अस्पताल"], "correct": 1},
+            {"question": "मित्र को लिखा गया पत्र किस प्रकार का पत्र है?", "options": ["औपचारिक", "अनौपचारिक", "सरकारी", "व्यापारिक"], "correct": 1},
+            {"question": "पत्र में पता लिखना क्यों जरूरी है?", "options": ["सुंदरता के लिए", "सही स्थान तक पहुँचाने के लिए", "लंबा दिखाने के लिए", "इनमें से कोई नहीं"], "correct": 1},
+            {"question": "आजकल चिठ्ठी की जगह किसका अधिक प्रयोग होता है?", "options": ["ईमेल और मोबाइल संदेश", "पत्थर की तख्ती", "ढोल", "पतंग"], "correct": 0}
+          ]
+        },
+        {
+          "chapter": "दो गौरेयाँ",
+          "worksheet": [
+            "गौरैया पक्षी के बारे में तुम क्या जानते हो? पाँच वाक्य लिखो।",
+            "आजकल गौरैया की संख्या कम क्यों होती जा रही है?",
+            "हम गौरैया और अन्य पक्षियों को कैसे बचा सकते हैं?",
+            "'दो गौरेयाँ' शीर्षक से कहानी में किस प्रकार का विषय होने की संभावना है?",
+            "पक्षियों के लिए पानी और दाना रखना क्यों जरूरी है?"
+          ],
+          "flashcards": [
+            {"term": "गौरैया", "meaning": "एक छोटी, भूरे रंग की चिड़िया जो अक्सर घरों के पास रहती है"},
+            {"term": "घोंसला", "meaning": "पक्षियों का रहने का घर, जो वे तिनकों से बनाते हैं"},
+            {"term": "पर्यावरण", "meaning": "हमारे चारों ओर का वातावरण"},
+            {"term": "संरक्षण", "meaning": "किसी चीज़ की रक्षा करना"},
+            {"term": "प्रवास", "meaning": "एक स्थान से दूसरे स्थान पर जाना"},
+            {"term": "चहचहाना", "meaning": "पक्षियों की मीठी आवाज़ निकालना"}
+          ],
+          "assessment": [
+            {"question": "गौरैया किस रंग की होती है?", "options": ["नीली", "भूरी", "हरी", "काली"], "correct": 1},
+            {"question": "पक्षी अपने रहने के लिए क्या बनाते हैं?", "options": ["घोंसला", "बिल", "गुफा", "मकान"], "correct": 0},
+            {"question": "गौरैया की संख्या घटने का एक मुख्य कारण क्या है?", "options": ["अधिक पेड़ लगाना", "मोबाइल टावर और आवास की कमी", "साफ हवा", "अधिक पानी"], "correct": 1},
+            {"question": "हम पक्षियों की मदद कैसे कर सकते हैं?", "options": ["पानी और दाना रखकर", "घोंसले तोड़कर", "शोर मचाकर", "पेड़ काटकर"], "correct": 0},
+            {"question": "'पर्यावरण' शब्द का अर्थ है", "options": ["हमारे आसपास का वातावरण", "एक खेल", "एक पक्षी", "एक भोजन"], "correct": 0}
+          ]
+        },
+        {
+          "chapter": "काबुलीवाला",
+          "worksheet": [
+            "काबुलीवाला (रहमत) कहाँ से आया था और वह क्या बेचता था?",
+            "मिनी और रहमत की दोस्ती के बारे में तीन वाक्य लिखो।",
+            "रहमत को मिनी की याद क्यों आती थी?",
+            "'काबुलीवाला' कहानी के लेखक का नाम लिखो।",
+            "इस कहानी से हमें मित्रता के बारे में क्या सीख मिलती है?"
+          ],
+          "flashcards": [
+            {"term": "काबुलीवाला", "meaning": "अफगानिस्तान (काबुल) से आकर सूखे मेवे बेचने वाला विक्रेता"},
+            {"term": "रहमत", "meaning": "कहानी का मुख्य पात्र, एक काबुलीवाला"},
+            {"term": "मिनी", "meaning": "कहानी की छोटी बच्ची जो रहमत की मित्र बनती है"},
+            {"term": "मेवा", "meaning": "सूखे फल जैसे बादाम, किशमिश, अखरोट"},
+            {"term": "रवींद्रनाथ टैगोर", "meaning": "'काबुलीवाला' कहानी के प्रसिद्ध बंगाली लेखक"},
+            {"term": "स्नेह", "meaning": "प्रेम और वात्सल्य का भाव"}
+          ],
+          "assessment": [
+            {"question": "'काबुलीवाला' कहानी के लेखक कौन हैं?", "options": ["मुंशी प्रेमचंद", "रवींद्रनाथ टैगोर", "सुभद्रा कुमारी चौहान", "जयशंकर प्रसाद"], "correct": 1},
+            {"question": "काबुलीवाला (रहमत) क्या बेचता था?", "options": ["कपड़े", "सूखे मेवे", "मिठाई", "खिलौने"], "correct": 1},
+            {"question": "रहमत की छोटी दोस्त का नाम क्या था?", "options": ["मिनी", "सीता", "गीता", "राधा"], "correct": 0},
+            {"question": "रहमत मूल रूप से कहाँ का निवासी था?", "options": ["काबुल, अफगानिस्तान", "दिल्ली", "कोलकाता", "मुंबई"], "correct": 0},
+            {"question": "इस कहानी का मुख्य भाव क्या है?", "options": ["वैर", "स्नेह और मित्रता", "डर", "लालच"], "correct": 1}
+          ]
+        },
+        {
+          "chapter": "बिरसा मुंडा # अल्बर्ट एक्का",
+          "worksheet": [
+            "बिरसा मुंडा को 'भगवान' क्यों कहा जाता है?",
+            "बिरसा मुंडा ने अंग्रेज़ों और जमींदारों के विरुद्ध कौन-सा आंदोलन चलाया था?",
+            "अल्बर्ट एक्का को कौन-सा वीरता पुरस्कार मिला और क्यों?",
+            "बिरसा मुंडा और अल्बर्ट एक्का झारखंड के लिए गौरव क्यों हैं?",
+            "इन दोनों महान व्यक्तित्वों से हमें क्या सीख मिलती है?"
+          ],
+          "flashcards": [
+            {"term": "बिरसा मुंडा", "meaning": "झारखंड के महान आदिवासी स्वतंत्रता सेनानी, जिन्होंने उलगुलान आंदोलन चलाया"},
+            {"term": "उलगुलान", "meaning": "बिरसा मुंडा द्वारा अंग्रेज़ों और जमींदारों के विरुद्ध चलाया गया विद्रोह"},
+            {"term": "अल्बर्ट एक्का", "meaning": "झारखंड के वीर सैनिक, जिन्हें 1971 के युद्ध में परमवीर चक्र मिला"},
+            {"term": "परमवीर चक्र", "meaning": "भारत का सर्वोच्च सैन्य वीरता पुरस्कार"},
+            {"term": "स्वतंत्रता सेनानी", "meaning": "देश की आज़ादी के लिए संघर्ष करने वाला व्यक्ति"},
+            {"term": "बलिदान", "meaning": "देश या किसी उद्देश्य के लिए अपना जीवन त्याग देना"}
+          ],
+          "assessment": [
+            {"question": "बिरसा मुंडा ने कौन-सा प्रसिद्ध आंदोलन चलाया?", "options": ["उलगुलान", "असहयोग आंदोलन", "चंपारण सत्याग्रह", "नमक सत्याग्रह"], "correct": 0},
+            {"question": "बिरसा मुंडा का निधन किस वर्ष हुआ था?", "options": ["1857", "1900", "1947", "1971"], "correct": 1},
+            {"question": "अल्बर्ट एक्का को परमवीर चक्र किस युद्ध में वीरता के लिए मिला?", "options": ["1962 का युद्ध", "1965 का युद्ध", "1971 का युद्ध", "करगिल युद्ध"], "correct": 2},
+            {"question": "परमवीर चक्र भारत का कैसा सम्मान है?", "options": ["सबसे बड़ा खेल पुरस्कार", "सर्वोच्च सैन्य वीरता पुरस्कार", "साहित्य पुरस्कार", "फिल्म पुरस्कार"], "correct": 1},
+            {"question": "बिरसा मुंडा और अल्बर्ट एक्का मूलतः किस राज्य से संबंधित हैं?", "options": ["पंजाब", "झारखंड", "राजस्थान", "केरल"], "correct": 1}
+          ]
+        },
+        {
+          "chapter": "माँ, कह एक कहानी",
+          "worksheet": [
+            "तुम्हें माँ या दादी से सुनी हुई कोई कहानी याद है? उसका सार पाँच वाक्यों में लिखो।",
+            "माँ द्वारा सुनाई गई कहानियों से बच्चों को क्या लाभ होता है?",
+            "'कहानी' और 'कविता' में क्या अंतर होता है?",
+            "अपने परिवार में सोने से पहले कहानी सुनने की कोई आदत हो तो लिखो।",
+            "कहानी सुनाने की परंपरा हमारी संस्कृति में क्यों महत्वपूर्ण है?"
+          ],
+          "flashcards": [
+            {"term": "कहानी", "meaning": "किसी घटना या पात्र के बारे में सुनाया या लिखा गया वृत्तांत"},
+            {"term": "कल्पना", "meaning": "मन में नई बातें या दृश्य सोचने की शक्ति"},
+            {"term": "परंपरा", "meaning": "पीढ़ी दर पीढ़ी चली आ रही प्रथा"},
+            {"term": "लोरी", "meaning": "बच्चे को सुलाने के लिए गाया जाने वाला गीत"},
+            {"term": "नैतिक शिक्षा", "meaning": "अच्छे आचरण की सीख"},
+            {"term": "किस्सा", "meaning": "कोई छोटी कहानी या वृत्तांत"}
+          ],
+          "assessment": [
+            {"question": "बच्चों को सुलाने के लिए गाया जाने वाला गीत क्या कहलाता है?", "options": ["लोरी", "भजन", "गजल", "कव्वाली"], "correct": 0},
+            {"question": "'कल्पना' शब्द का अर्थ है", "options": ["सच्ची घटना", "मन में नई बातें सोचना", "गुस्सा करना", "सो जाना"], "correct": 1},
+            {"question": "कहानियाँ सुनाने की परंपरा किससे चली आती है?", "options": ["पीढ़ी दर पीढ़ी", "केवल किताबों से", "टीवी से", "मोबाइल से"], "correct": 0},
+            {"question": "कहानियों से बच्चों को मुख्यतः क्या मिलता है?", "options": ["डर", "नैतिक शिक्षा और आनंद", "थकान", "गुस्सा"], "correct": 1},
+            {"question": "'किस्सा' शब्द का समानार्थी शब्द है", "options": ["कहानी", "गणित", "विज्ञान", "खेल"], "correct": 0}
+          ]
+        },
+        {
+          "chapter": "प्रकृति मेरी सखी : झारखंड",
+          "worksheet": [
+            "झारखंड की किन्हीं तीन प्रमुख नदियों के नाम लिखो।",
+            "झारखंड को 'जंगलों और पठारों का प्रदेश' क्यों कहा जाता है?",
+            "झारखंड में पाए जाने वाले किन्हीं तीन वन्य जीवों के नाम लिखो।",
+            "झारखंड की आदिवासी संस्कृति की कोई दो विशेषताएँ लिखो।",
+            "हमें प्रकृति और जंगलों की रक्षा क्यों करनी चाहिए?"
+          ],
+          "flashcards": [
+            {"term": "सुवर्णरेखा", "meaning": "झारखंड की एक प्रमुख नदी"},
+            {"term": "दामोदर", "meaning": "झारखंड की एक महत्वपूर्ण नदी, जिसे 'दुखों की नदी' भी कहा जाता था"},
+            {"term": "पठार", "meaning": "समतल ऊँची भूमि, झारखंड में छोटानागपुर पठार प्रसिद्ध है"},
+            {"term": "वन्य जीव", "meaning": "जंगलों में रहने वाले जानवर जैसे हाथी, बाघ"},
+            {"term": "आदिवासी", "meaning": "मूल निवासी जनजाति समुदाय"},
+            {"term": "छोटानागपुर", "meaning": "झारखंड का प्रमुख पठारी क्षेत्र"}
+          ],
+          "assessment": [
+            {"question": "झारखंड की प्रमुख नदी कौन-सी है?", "options": ["सुवर्णरेखा", "यमुना", "कावेरी", "सतलुज"], "correct": 0},
+            {"question": "झारखंड का प्रमुख पठार कौन-सा है?", "options": ["दक्कन पठार", "छोटानागपुर पठार", "मालवा पठार", "तिब्बत पठार"], "correct": 1},
+            {"question": "झारखंड मुख्यतः किसके लिए प्रसिद्ध है?", "options": ["रेगिस्तान", "जंगल और खनिज संपदा", "समुद्र तट", "बर्फीले पहाड़"], "correct": 1},
+            {"question": "झारखंड में रहने वाले मूल निवासी समुदाय क्या कहलाते हैं?", "options": ["आदिवासी", "व्यापारी", "किसान", "मछुआरे"], "correct": 0},
+            {"question": "हमें जंगलों की रक्षा क्यों करनी चाहिए?", "options": ["क्योंकि वे बेकार हैं", "क्योंकि वे पर्यावरण संतुलन बनाए रखते हैं", "क्योंकि वे शहर हैं", "इनमें से कोई नहीं"], "correct": 1}
+          ]
+        }
+      ]
+    },
+    {
+      "subject": "English",
+      "chapters": [
+        {
+          "chapter": "Good Night and Good Morning",
+          "worksheet": [
+            "Write five things you do every night before going to sleep.",
+            "Write five things you do every morning after waking up.",
+            "Why is it important to sleep on time and wake up early?",
+            "Make a short daily routine chart with at least four activities and their times.",
+            "Use the words 'night' and 'morning' each in a sentence of your own."
+          ],
+          "flashcards": [
+            {"term": "routine", "meaning": "things done regularly in a fixed order"},
+            {"term": "dawn", "meaning": "the time when the sun rises, early morning"},
+            {"term": "dusk", "meaning": "the time just before night, evening twilight"},
+            {"term": "yawn", "meaning": "to open the mouth wide when sleepy or tired"},
+            {"term": "refresh", "meaning": "to feel new energy after rest"},
+            {"term": "punctual", "meaning": "doing things on time"}
+          ],
+          "assessment": [
+            {"question": "What is the opposite of 'morning'?", "options": ["Noon", "Night", "Evening", "Dawn"], "correct": 1},
+            {"question": "'Dawn' means", "options": ["sunset", "sunrise time", "midnight", "afternoon"], "correct": 1},
+            {"question": "Why should we sleep on time?", "options": ["To stay lazy", "To stay healthy and active", "To watch TV", "To skip school"], "correct": 1},
+            {"question": "A person who is always on time is called", "options": ["lazy", "punctual", "careless", "sleepy"], "correct": 1},
+            {"question": "Which activity is a good morning habit?", "options": ["Brushing teeth", "Sleeping all day", "Skipping breakfast", "Staying in bed"], "correct": 0}
+          ]
+        },
+        {
+          "chapter": "The Wooden Bowl",
+          "worksheet": [
+            "Why do you think the old man in the story was given food in a wooden bowl?",
+            "What lesson can children learn from watching how elders are treated at home?",
+            "Write three ways you can show respect to elders in your family.",
+            "Why is it important to care for grandparents and old people?",
+            "In your own words, explain what the moral of a story about a 'wooden bowl' might be."
+          ],
+          "flashcards": [
+            {"term": "elder", "meaning": "an older person, especially in the family"},
+            {"term": "respect", "meaning": "a feeling of honour and regard for someone"},
+            {"term": "moral", "meaning": "the lesson taught by a story"},
+            {"term": "care", "meaning": "to look after someone with love"},
+            {"term": "kindness", "meaning": "being gentle and helpful to others"},
+            {"term": "example", "meaning": "something that shows how to behave, a model"}
+          ],
+          "assessment": [
+            {"question": "The word 'elder' refers to", "options": ["a younger person", "an older person", "a stranger", "a teacher only"], "correct": 1},
+            {"question": "What does 'respect' mean?", "options": ["fear", "honour and regard", "anger", "jealousy"], "correct": 1},
+            {"question": "The lesson taught by a story is called its", "options": ["title", "moral", "author", "setting"], "correct": 1},
+            {"question": "Children usually learn behaviour by", "options": ["watching elders", "ignoring everyone", "reading only", "sleeping"], "correct": 0},
+            {"question": "Which is a good way to treat grandparents?", "options": ["With kindness and care", "With anger", "By ignoring them", "By shouting at them"], "correct": 0}
+          ]
+        },
+        {
+          "chapter": "A Blind Child Speaks",
+          "worksheet": [
+            "How do you think a blind person uses their other senses like hearing and touch?",
+            "Write three ways we can help a blind or visually impaired friend at school.",
+            "Why should we never make fun of someone with a disability?",
+            "Name any device or tool that helps blind people move around safely.",
+            "Write five sentences on how everyone deserves equal respect regardless of ability."
+          ],
+          "flashcards": [
+            {"term": "blind", "meaning": "unable to see"},
+            {"term": "senses", "meaning": "sight, hearing, smell, taste and touch"},
+            {"term": "braille", "meaning": "a system of raised dots that blind people read with their fingers"},
+            {"term": "disability", "meaning": "a condition that limits a person's movement or senses"},
+            {"term": "empathy", "meaning": "understanding and sharing another person's feelings"},
+            {"term": "equality", "meaning": "treating everyone fairly and the same"}
+          ],
+          "assessment": [
+            {"question": "A blind person is unable to", "options": ["hear", "see", "touch", "smell"], "correct": 1},
+            {"question": "Braille is read using which sense?", "options": ["Sight", "Touch", "Taste", "Smell"], "correct": 1},
+            {"question": "How many main senses do humans have?", "options": ["Three", "Four", "Five", "Six"], "correct": 2},
+            {"question": "Understanding another person's feelings is called", "options": ["empathy", "anger", "jealousy", "pride"], "correct": 0},
+            {"question": "How should we treat people with disabilities?", "options": ["With mockery", "With equal respect and kindness", "By ignoring them", "With fear"], "correct": 1}
+          ]
+        },
+        {
+          "chapter": "Golu Goes to School",
+          "worksheet": [
+            "Write five things you carry in your school bag.",
+            "Describe your first day at school in five sentences.",
+            "Why is going to school important for every child?",
+            "Write about your favourite subject and why you like it.",
+            "Make a list of five rules students should follow at school."
+          ],
+          "flashcards": [
+            {"term": "school bag", "meaning": "a bag used to carry books and school items"},
+            {"term": "timetable", "meaning": "a chart showing subjects and their timings"},
+            {"term": "classmate", "meaning": "a student who studies in the same class"},
+            {"term": "uniform", "meaning": "the same dress worn by all students of a school"},
+            {"term": "discipline", "meaning": "following rules and behaving properly"},
+            {"term": "curious", "meaning": "eager to learn or know about something"}
+          ],
+          "assessment": [
+            {"question": "What do students usually carry to school?", "options": ["A school bag with books", "A television", "A car", "A stove"], "correct": 0},
+            {"question": "A chart showing subjects and their timings is called a", "options": ["report card", "timetable", "certificate", "invitation"], "correct": 1},
+            {"question": "A student who studies in the same class as you is your", "options": ["teacher", "classmate", "principal", "guardian"], "correct": 1},
+            {"question": "Following rules and behaving properly is called", "options": ["discipline", "disorder", "laziness", "noise"], "correct": 0},
+            {"question": "Why is school important?", "options": ["It teaches us and helps us grow", "It wastes time", "It is only for play", "It is not useful"], "correct": 0}
+          ]
+        },
+        {
+          "chapter": "My Nation",
+          "worksheet": [
+            "Write five sentences about why you love your country.",
+            "Name the national flag, national anthem, and national emblem of India.",
+            "What can you do as a citizen to help keep your country clean and united?",
+            "Write about one festival that shows the unity of India.",
+            "Why is it important to respect people from different states, languages and religions?"
+          ],
+          "flashcards": [
+            {"term": "nation", "meaning": "a country with its own people, land and government"},
+            {"term": "citizen", "meaning": "a person who legally belongs to a country"},
+            {"term": "unity", "meaning": "being together as one"},
+            {"term": "patriotism", "meaning": "love and devotion for one's country"},
+            {"term": "diversity", "meaning": "variety of cultures, languages and people"},
+            {"term": "national anthem", "meaning": "the official song of a country sung to show respect"}
+          ],
+          "assessment": [
+            {"question": "A person who legally belongs to a country is called a", "options": ["tourist", "citizen", "foreigner", "guest"], "correct": 1},
+            {"question": "Love and devotion for one's country is called", "options": ["patriotism", "anger", "jealousy", "fear"], "correct": 0},
+            {"question": "India's national anthem is", "options": ["Vande Mataram", "Jana Gana Mana", "Saare Jahan Se Achha", "Ae Mere Watan Ke Logo"], "correct": 1},
+            {"question": "'Unity' means", "options": ["being divided", "being together as one", "fighting", "ignoring others"], "correct": 1},
+            {"question": "India is known for its", "options": ["single language", "diversity of cultures and languages", "one religion only", "no festivals"], "correct": 1}
+          ]
+        },
+        {
+          "chapter": "Republic Day Parade",
+          "worksheet": [
+            "On which date is Republic Day celebrated in India, and why?",
+            "Where is the main Republic Day parade held every year?",
+            "Who unfurls (hoists) the national flag on Republic Day?",
+            "Write five things you might see at a Republic Day parade.",
+            "Why is Republic Day different from Independence Day? Explain in a few sentences."
+          ],
+          "flashcards": [
+            {"term": "Republic Day", "meaning": "26 January, the day India's Constitution came into effect in 1950"},
+            {"term": "Constitution", "meaning": "the set of rules by which a country is governed"},
+            {"term": "parade", "meaning": "a public march showing soldiers, tableaux and bands"},
+            {"term": "tableau", "meaning": "a decorated float showing a state's or theme's culture"},
+            {"term": "Rajpath/Kartavya Path", "meaning": "the avenue in Delhi where the Republic Day parade is held"},
+            {"term": "salute", "meaning": "a formal gesture of respect, often to the flag or army"}
+          ],
+          "assessment": [
+            {"question": "Republic Day is celebrated on", "options": ["15 August", "26 January", "2 October", "14 November"], "correct": 1},
+            {"question": "Republic Day marks the day India's", "options": ["Constitution came into effect", "cricket team won a match", "first train ran", "first school opened"], "correct": 0},
+            {"question": "The main Republic Day parade is held in", "options": ["Mumbai", "Delhi", "Chennai", "Kolkata"], "correct": 1},
+            {"question": "A decorated float showing a state's culture in the parade is called a", "options": ["tableau", "chariot", "bicycle", "train"], "correct": 0},
+            {"question": "Who is present as the chief guest tradition at India's Republic Day parade?", "options": ["A foreign dignitary is often invited", "No one is invited", "Only school children", "Only soldiers"], "correct": 0}
+          ]
+        },
+        {
+          "chapter": "Save the World",
+          "worksheet": [
+            "Write five things you can do every day to help protect the environment.",
+            "Why is planting trees important for the world?",
+            "What happens if we do not stop pollution and waste?",
+            "Write a short slogan encouraging people to save water.",
+            "Explain the meaning of 'reduce, reuse, recycle' with one example each."
+          ],
+          "flashcards": [
+            {"term": "environment", "meaning": "the natural world around us, including air, water and land"},
+            {"term": "pollution", "meaning": "harmful substances that dirty air, water or land"},
+            {"term": "recycle", "meaning": "to process waste to make it usable again"},
+            {"term": "conserve", "meaning": "to save or protect something carefully"},
+            {"term": "sustainable", "meaning": "using resources in a way that does not harm the future"},
+            {"term": "ecosystem", "meaning": "a community of living things and their environment"}
+          ],
+          "assessment": [
+            {"question": "'Pollution' means", "options": ["clean air", "harmful substances that dirty the environment", "growing trees", "saving water"], "correct": 1},
+            {"question": "'Recycle' means", "options": ["throwing waste away", "processing waste to reuse it", "burning waste", "burying waste only"], "correct": 1},
+            {"question": "Why should we plant trees?", "options": ["They give shade and oxygen", "They cause pollution", "They waste water", "They are not useful"], "correct": 0},
+            {"question": "The full form of the 3 R's for the environment is", "options": ["Reduce, Reuse, Recycle", "Run, Read, Rest", "Rice, Rain, Road", "Red, Round, Real"], "correct": 0},
+            {"question": "'Conserve' means", "options": ["to waste", "to save or protect", "to destroy", "to ignore"], "correct": 1}
+          ]
+        },
+        {
+          "chapter": "The Bamboo Princess",
+          "worksheet": [
+            "What do you think a story titled 'The Bamboo Princess' could be about?",
+            "Write five words that describe qualities of a good princess or hero in a story.",
+            "Bamboo is used to make many things - name three items made from bamboo.",
+            "Write a short imaginative paragraph (4-5 sentences) about a princess found in a bamboo forest.",
+            "What is the moral lesson usually found in fairy tales like this one?"
+          ],
+          "flashcards": [
+            {"term": "bamboo", "meaning": "a tall, hollow-stemmed plant used for building and crafts"},
+            {"term": "princess", "meaning": "the daughter of a king or queen"},
+            {"term": "folk tale", "meaning": "a traditional story passed down through generations"},
+            {"term": "kindness", "meaning": "being gentle and caring towards others"},
+            {"term": "imagination", "meaning": "the ability to form new ideas or pictures in the mind"},
+            {"term": "fairy tale", "meaning": "a magical, imaginative story often with a moral"}
+          ],
+          "assessment": [
+            {"question": "Bamboo is a type of", "options": ["metal", "tall hollow plant", "animal", "rock"], "correct": 1},
+            {"question": "A traditional story passed down through generations is called a", "options": ["newspaper", "folk tale", "timetable", "report"], "correct": 1},
+            {"question": "The daughter of a king or queen is called a", "options": ["princess", "minister", "farmer", "soldier"], "correct": 0},
+            {"question": "Fairy tales usually end with", "options": ["a moral lesson", "a weather report", "a math problem", "a shopping list"], "correct": 0},
+            {"question": "Which of these is commonly made from bamboo?", "options": ["Baskets and furniture", "Glass bottles", "Steel rods", "Plastic bags"], "correct": 0}
+          ]
+        },
+        {
+          "chapter": "The Swing",
+          "worksheet": [
+            "Describe how it feels to sit on a swing and go up and down.",
+            "Write five words that describe fun activities in a park.",
+            "Why is outdoor play important for children's health?",
+            "Write a short poem or four lines about swinging in a garden.",
+            "Name three playground equipment other than a swing."
+          ],
+          "flashcards": [
+            {"term": "swing", "meaning": "a seat hung by ropes or chains that moves back and forth"},
+            {"term": "playground", "meaning": "an outdoor area with equipment for children to play"},
+            {"term": "breeze", "meaning": "a gentle wind"},
+            {"term": "joyful", "meaning": "full of happiness"},
+            {"term": "balance", "meaning": "staying steady without falling"},
+            {"term": "seesaw", "meaning": "a long board balanced in the middle for two children to ride"}
+          ],
+          "assessment": [
+            {"question": "A swing moves in which way?", "options": ["Back and forth", "Only sideways", "Only upward", "It does not move"], "correct": 0},
+            {"question": "A gentle wind is called a", "options": ["storm", "breeze", "flood", "quake"], "correct": 1},
+            {"question": "Why is outdoor play good for children?", "options": ["It keeps them fit and happy", "It is harmful", "It wastes time", "It causes illness"], "correct": 0},
+            {"question": "Staying steady without falling is called", "options": ["balance", "noise", "fear", "hunger"], "correct": 0},
+            {"question": "Which of these is playground equipment?", "options": ["Seesaw", "Refrigerator", "Blackboard", "Bookshelf"], "correct": 0}
+          ]
+        },
+        {
+          "chapter": "Bravery Award",
+          "worksheet": [
+            "What does the word 'bravery' mean to you? Give an example.",
+            "Name a real Indian award given for bravery and courage.",
+            "Write about a time when you or someone you know showed courage.",
+            "Why do countries give bravery awards to soldiers and citizens?",
+            "Write five qualities a brave person usually has."
+          ],
+          "flashcards": [
+            {"term": "bravery", "meaning": "courage shown in facing danger or difficulty"},
+            {"term": "award", "meaning": "a prize given for achievement or good work"},
+            {"term": "courage", "meaning": "the ability to face fear or danger"},
+            {"term": "hero", "meaning": "a person admired for brave deeds"},
+            {"term": "sacrifice", "meaning": "giving up something valuable for a greater cause"},
+            {"term": "gallantry", "meaning": "great bravery, especially in battle"}
+          ],
+          "assessment": [
+            {"question": "'Bravery' means", "options": ["fear", "courage in facing danger", "laziness", "anger"], "correct": 1},
+            {"question": "A person admired for brave deeds is called a", "options": ["hero", "villain", "stranger", "coward"], "correct": 0},
+            {"question": "'Gallantry' is closest in meaning to", "options": ["cowardice", "great bravery", "sadness", "silence"], "correct": 1},
+            {"question": "Bravery awards are usually given to", "options": ["those who show courage in danger", "those who are lazy", "those who hide from problems", "no one"], "correct": 0},
+            {"question": "Giving up something valuable for a greater cause is called", "options": ["sacrifice", "theft", "trade", "gift"], "correct": 0}
+          ]
+        },
+        {
+          "chapter": "Science",
+          "worksheet": [
+            "What is science, and why is it important in our daily lives?",
+            "Name any three branches of science and one thing each studies.",
+            "Write about one scientific invention that has made life easier.",
+            "What is the difference between a hypothesis and an experiment?",
+            "Name three famous scientists and one of their contributions."
+          ],
+          "flashcards": [
+            {"term": "science", "meaning": "the study of the natural world through observation and experiment"},
+            {"term": "experiment", "meaning": "a test done to find out something new"},
+            {"term": "observation", "meaning": "carefully watching and noting details"},
+            {"term": "invention", "meaning": "something new created by a person"},
+            {"term": "hypothesis", "meaning": "an idea or guess to be tested"},
+            {"term": "scientist", "meaning": "a person who studies and researches science"}
+          ],
+          "assessment": [
+            {"question": "Science is mainly the study of", "options": ["stories", "the natural world through observation and experiment", "paintings", "music"], "correct": 1},
+            {"question": "A test done to find out something new is called an", "options": ["experiment", "essay", "exam only", "invention"], "correct": 0},
+            {"question": "A person who studies and researches science is a", "options": ["scientist", "farmer", "tailor", "singer"], "correct": 0},
+            {"question": "An idea or guess to be tested is called a", "options": ["hypothesis", "conclusion", "poem", "story"], "correct": 0},
+            {"question": "Which of these is a famous scientist?", "options": ["Albert Einstein", "William Shakespeare", "Leonardo da Vinci the painter", "Mozart"], "correct": 0}
+          ]
+        },
+        {
+          "chapter": "Our Friend: Computer",
+          "worksheet": [
+            "Name the four main parts of a computer (input, output, CPU, memory) and give one example of each.",
+            "Write five uses of a computer in daily life.",
+            "What is the difference between hardware and software?",
+            "Why should children use the internet carefully and safely?",
+            "Name three devices that work like small computers."
+          ],
+          "flashcards": [
+            {"term": "computer", "meaning": "an electronic device that processes data and follows instructions"},
+            {"term": "hardware", "meaning": "the physical parts of a computer, like keyboard and monitor"},
+            {"term": "software", "meaning": "the programs that run on a computer"},
+            {"term": "keyboard", "meaning": "an input device used to type letters and numbers"},
+            {"term": "monitor", "meaning": "the screen that displays computer output"},
+            {"term": "internet", "meaning": "a global network connecting computers together"}
+          ],
+          "assessment": [
+            {"question": "The physical parts of a computer are called", "options": ["hardware", "software", "internet", "monitor only"], "correct": 0},
+            {"question": "Which of these is an input device?", "options": ["Keyboard", "Monitor", "Printer", "Speaker"], "correct": 0},
+            {"question": "The programs that run on a computer are called", "options": ["hardware", "software", "mouse", "keyboard"], "correct": 1},
+            {"question": "The screen that shows computer output is called the", "options": ["monitor", "CPU", "keyboard", "mouse"], "correct": 0},
+            {"question": "The internet connects computers", "options": ["around the world", "in one room only", "never", "only in one country"], "correct": 0}
+          ]
+        },
+        {
+          "chapter": "Mother Teresa",
+          "worksheet": [
+            "Who was Mother Teresa, and where did she do most of her work?",
+            "What organisation did Mother Teresa found to help the poor and sick?",
+            "Why did Mother Teresa receive the Nobel Peace Prize?",
+            "Write five qualities you admire about Mother Teresa.",
+            "How can you, as a child, help poor or needy people around you?"
+          ],
+          "flashcards": [
+            {"term": "Mother Teresa", "meaning": "a humanitarian who devoted her life to serving the poor and sick in Kolkata"},
+            {"term": "Missionaries of Charity", "meaning": "the organisation founded by Mother Teresa to help the poor"},
+            {"term": "Nobel Peace Prize", "meaning": "a famous international award given for work promoting peace"},
+            {"term": "humanitarian", "meaning": "a person devoted to helping and promoting human welfare"},
+            {"term": "compassion", "meaning": "deep sympathy and desire to help those who are suffering"},
+            {"term": "charity", "meaning": "giving help, especially money or care, to those in need"}
+          ],
+          "assessment": [
+            {"question": "Mother Teresa devoted her life to serving the poor mainly in which city?", "options": ["Delhi", "Kolkata", "Mumbai", "Chennai"], "correct": 1},
+            {"question": "What organisation did Mother Teresa found?", "options": ["Missionaries of Charity", "Red Cross", "United Nations", "Indian Army"], "correct": 0},
+            {"question": "Mother Teresa received which international award?", "options": ["Nobel Peace Prize", "Olympic Gold Medal", "Grammy Award", "Oscar Award"], "correct": 0},
+            {"question": "'Compassion' means", "options": ["deep sympathy and desire to help", "anger", "jealousy", "pride"], "correct": 0},
+            {"question": "Mother Teresa is remembered mainly for her work with", "options": ["the poor and sick", "sports teams", "film stars", "businessmen"], "correct": 0}
+          ]
+        },
+        {
+          "chapter": "Sohrai Painting",
+          "worksheet": [
+            "What is Sohrai painting, and where does it come from?",
+            "What natural materials are used to make Sohrai paintings?",
+            "During which festival is Sohrai art traditionally created?",
+            "Why is it important to preserve traditional art forms like Sohrai?",
+            "Draw or describe one design or pattern you might see in a Sohrai painting."
+          ],
+          "flashcards": [
+            {"term": "Sohrai", "meaning": "a traditional tribal wall-art form from Jharkhand, made during harvest festival"},
+            {"term": "mural", "meaning": "a painting done directly on a wall"},
+            {"term": "natural pigment", "meaning": "colour made from natural materials like soil, charcoal or plants"},
+            {"term": "tribal art", "meaning": "traditional art created by indigenous or tribal communities"},
+            {"term": "harvest festival", "meaning": "a celebration held after crops are gathered"},
+            {"term": "heritage", "meaning": "traditions and culture passed down from ancestors"}
+          ],
+          "assessment": [
+            {"question": "Sohrai painting is a traditional art form from which state?", "options": ["Jharkhand", "Punjab", "Kerala", "Gujarat"], "correct": 0},
+            {"question": "Sohrai paintings are usually made on", "options": ["walls of houses", "paper only", "glass", "metal sheets"], "correct": 0},
+            {"question": "Sohrai art is associated with which type of festival?", "options": ["Harvest festival", "New Year only", "Sports day", "Independence Day"], "correct": 0},
+            {"question": "Sohrai paintings traditionally use", "options": ["natural pigments from soil and plants", "plastic paint only", "digital printing", "metal dyes only"], "correct": 0},
+            {"question": "'Heritage' means", "options": ["traditions passed down from ancestors", "a type of food", "a modern invention", "a sport"], "correct": 0}
+          ]
+        },
+        {
+          "chapter": "Newspaper",
+          "worksheet": [
+            "Name five sections you might find in a newspaper (like sports, weather).",
+            "Why is reading the newspaper a good daily habit?",
+            "What is the difference between a headline and a news report?",
+            "Name three ways news reaches people besides newspapers.",
+            "Write a short headline (one line) for an imaginary school event."
+          ],
+          "flashcards": [
+            {"term": "newspaper", "meaning": "a printed publication containing news, articles and advertisements"},
+            {"term": "headline", "meaning": "the title of a news story, printed in large letters"},
+            {"term": "journalist", "meaning": "a person who writes news reports"},
+            {"term": "editor", "meaning": "a person who reviews and finalises content before printing"},
+            {"term": "column", "meaning": "a regular section of writing by a particular writer"},
+            {"term": "current affairs", "meaning": "events happening in the present time"}
+          ],
+          "assessment": [
+            {"question": "The title of a news story printed in large letters is called a", "options": ["headline", "footnote", "index", "signature"], "correct": 0},
+            {"question": "A person who writes news reports is called a", "options": ["journalist", "farmer", "doctor", "tailor"], "correct": 0},
+            {"question": "A person who reviews and finalises newspaper content is the", "options": ["editor", "printer", "reader", "vendor"], "correct": 0},
+            {"question": "Reading the newspaper daily helps us know about", "options": ["current affairs", "only cartoons", "nothing useful", "only advertisements"], "correct": 0},
+            {"question": "Which of these is NOT usually found in a newspaper?", "options": ["Sports news", "Weather report", "A birthday cake", "Editorial column"], "correct": 2}
+          ]
+        }
+      ]
+    },
+    {
+      "subject": "Mathematics",
+      "chapters": [
+        {
+          "chapter": "कोण",
+          "worksheet": [
+            "समकोण (90 डिग्री), न्यून कोण और अधिक कोण की परिभाषा लिखो।",
+            "अपने कमरे में तीन ऐसी वस्तुएँ खोजो जिनमें समकोण बनता है, उनके नाम लिखो।",
+            "एक सीधी रेखा (180 डिग्री) पर बना कोण किस प्रकार का कोण कहलाता है?",
+            "यदि एक कोण 45 डिग्री का है, तो वह न्यून कोण है या अधिक कोण? कारण सहित लिखो।",
+            "दो कोण मिलकर 90 डिग्री बनाते हैं। यदि एक कोण 35 डिग्री है, तो दूसरा कोण कितने डिग्री का होगा?"
+          ],
+          "flashcards": [
+            {"term": "कोण", "meaning": "दो रेखाओं के मिलने से बनने वाला आकार, जिसे डिग्री में मापा जाता है"},
+            {"term": "समकोण", "meaning": "ठीक 90 डिग्री का कोण"},
+            {"term": "न्यून कोण", "meaning": "90 डिग्री से कम का कोण"},
+            {"term": "अधिक कोण", "meaning": "90 डिग्री से अधिक और 180 डिग्री से कम का कोण"},
+            {"term": "सरल कोण", "meaning": "ठीक 180 डिग्री का कोण, जो एक सीधी रेखा बनाता है"},
+            {"term": "शीर्ष", "meaning": "वह बिंदु जहाँ कोण की दोनों भुजाएँ मिलती हैं"}
+          ],
+          "assessment": [
+            {"question": "समकोण कितने डिग्री का होता है?", "options": ["45 डिग्री", "90 डिग्री", "180 डिग्री", "360 डिग्री"], "correct": 1},
+            {"question": "60 डिग्री का कोण किस प्रकार का कोण है?", "options": ["न्यून कोण", "समकोण", "अधिक कोण", "सरल कोण"], "correct": 0},
+            {"question": "120 डिग्री का कोण किस प्रकार का कोण है?", "options": ["न्यून कोण", "समकोण", "अधिक कोण", "शून्य कोण"], "correct": 2},
+            {"question": "एक सीधी रेखा पर बना कोण कितने डिग्री का होता है?", "options": ["90 डिग्री", "180 डिग्री", "270 डिग्री", "360 डिग्री"], "correct": 1},
+            {"question": "यदि एक कोण 35 डिग्री है और दूसरे के साथ मिलकर 90 डिग्री बनाता है, तो दूसरा कोण कितने डिग्री का है?", "options": ["45 डिग्री", "55 डिग्री", "65 डिग्री", "75 डिग्री"], "correct": 1}
+          ]
+        },
+        {
+          "chapter": "संख्याएँ",
+          "worksheet": [
+            "78,345 में अंक '3' का स्थानीय मान लिखो।",
+            "निम्न संख्याओं को आरोही क्रम (छोटे से बड़े) में लिखो: 4521, 4215, 4512, 4152",
+            "सबसे बड़ी पाँच अंकों की संख्या और सबसे छोटी पाँच अंकों की संख्या लिखो।",
+            "12,345 को शब्दों में लिखो (हिंदी में)।",
+            "45,678 में सबसे बड़े और सबसे छोटे अंक का स्थानीय मान ज्ञात करो।"
+          ],
+          "flashcards": [
+            {"term": "स्थानीय मान", "meaning": "किसी अंक का उसके स्थान के अनुसार मूल्य, जैसे इकाई, दहाई, सैकड़ा"},
+            {"term": "आरोही क्रम", "meaning": "छोटी संख्या से बड़ी संख्या की ओर व्यवस्थित करना"},
+            {"term": "अवरोही क्रम", "meaning": "बड़ी संख्या से छोटी संख्या की ओर व्यवस्थित करना"},
+            {"term": "अंक", "meaning": "0 से 9 तक की संख्याएँ जिनसे बड़ी संख्याएँ बनती हैं"},
+            {"term": "सम संख्या", "meaning": "वह संख्या जो 2 से पूरी-पूरी विभाजित हो जाए"},
+            {"term": "विषम संख्या", "meaning": "वह संख्या जो 2 से पूरी-पूरी विभाजित न हो"}
+          ],
+          "assessment": [
+            {"question": "सबसे बड़ी पाँच अंकों की संख्या कौन-सी है?", "options": ["99999", "10000", "99000", "90000"], "correct": 0},
+            {"question": "सबसे छोटी पाँच अंकों की संख्या कौन-सी है?", "options": ["99999", "10000", "00001", "11111"], "correct": 1},
+            {"question": "78,345 में अंक '3' का स्थानीय मान क्या है?", "options": ["3", "30", "300", "3000"], "correct": 2},
+            {"question": "इनमें से कौन-सी सम संख्या है?", "options": ["21", "35", "48", "53"], "correct": 2},
+            {"question": "इनमें से कौन-सी विषम संख्या है?", "options": ["24", "36", "47", "50"], "correct": 2}
+          ]
+        },
+        {
+          "chapter": "संक्रियाएँ",
+          "worksheet": [
+            "जोड़ करो: 4,536 + 2,879 = ?",
+            "घटाओ: 9,000 - 3,456 = ?",
+            "गुणा करो: 245 x 12 = ?",
+            "भाग करो: 968 ÷ 8 = ?",
+            "एक दुकानदार के पास 3,250 रुपये थे। उसने 1,875 रुपये का सामान बेचा। अब उसके पास कुल कितने रुपये होंगे? (जोड़कर हल करो)"
+          ],
+          "flashcards": [
+            {"term": "जोड़", "meaning": "दो या अधिक संख्याओं को मिलाने की क्रिया"},
+            {"term": "घटाव", "meaning": "एक संख्या में से दूसरी संख्या निकालने की क्रिया"},
+            {"term": "गुणा", "meaning": "किसी संख्या को बार-बार जोड़ने की संक्षिप्त विधि"},
+            {"term": "भाग", "meaning": "किसी संख्या को बराबर भागों में बाँटने की क्रिया"},
+            {"term": "योग", "meaning": "जोड़ का परिणाम"},
+            {"term": "शेषफल", "meaning": "भाग करने के बाद बचा हुआ अंश"}
+          ],
+          "assessment": [
+            {"question": "4,536 + 2,879 = ?", "options": ["7,415", "7,315", "7,405", "6,415"], "correct": 0},
+            {"question": "9,000 - 3,456 = ?", "options": ["5,544", "5,644", "5,454", "6,544"], "correct": 0},
+            {"question": "245 x 12 = ?", "options": ["2,940", "2,840", "2,740", "3,040"], "correct": 0},
+            {"question": "968 ÷ 8 = ?", "options": ["119", "121", "126", "131"], "correct": 1},
+            {"question": "किसी संख्या को बराबर भागों में बाँटने की क्रिया कहलाती है", "options": ["जोड़", "घटाव", "गुणा", "भाग"], "correct": 3}
+          ]
+        },
+        {
+          "chapter": "गुणज और गुणनखंड",
+          "worksheet": [
+            "6 के पहले पाँच गुणज लिखो।",
+            "24 के सभी गुणनखंड लिखो।",
+            "12 और 18 का महत्तम समापवर्तक (HCF) ज्ञात करो।",
+            "4 और 6 का लघुत्तम समापवर्त्य (LCM) ज्ञात करो।",
+            "बताओ कि 36 अभाज्य संख्या है या भाज्य संख्या, कारण सहित लिखो।"
+          ],
+          "flashcards": [
+            {"term": "गुणज", "meaning": "किसी संख्या को 1, 2, 3... से गुणा करने पर प्राप्त संख्याएँ"},
+            {"term": "गुणनखंड", "meaning": "वे संख्याएँ जो किसी संख्या को पूरी-पूरी विभाजित करती हैं"},
+            {"term": "अभाज्य संख्या", "meaning": "वह संख्या जिसके केवल दो गुणनखंड हों - 1 और वह स्वयं"},
+            {"term": "भाज्य संख्या", "meaning": "वह संख्या जिसके दो से अधिक गुणनखंड हों"},
+            {"term": "महत्तम समापवर्तक (HCF)", "meaning": "दो या अधिक संख्याओं का सबसे बड़ा उभयनिष्ठ गुणनखंड"},
+            {"term": "लघुत्तम समापवर्त्य (LCM)", "meaning": "दो या अधिक संख्याओं का सबसे छोटा उभयनिष्ठ गुणज"}
+          ],
+          "assessment": [
+            {"question": "6 का तीसरा गुणज क्या है?", "options": ["12", "18", "24", "6"], "correct": 1},
+            {"question": "24 का गुणनखंड नहीं है", "options": ["4", "6", "8", "5"], "correct": 3},
+            {"question": "12 और 18 का HCF क्या है?", "options": ["2", "3", "6", "9"], "correct": 2},
+            {"question": "4 और 6 का LCM क्या है?", "options": ["10", "12", "24", "8"], "correct": 1},
+            {"question": "इनमें से कौन-सी अभाज्य संख्या है?", "options": ["9", "15", "17", "21"], "correct": 2}
+          ]
+        },
+        {
+          "chapter": "भिन्न",
+          "worksheet": [
+            "1/2 और 1/4 को जोड़ो और उत्तर को सरलतम रूप में लिखो।",
+            "3/4 और 1/8 में से कौन-सी भिन्न बड़ी है? कारण सहित बताओ।",
+            "2/6 को सरलतम रूप में लिखो।",
+            "3/5 को दशमलव (decimal) में बदलो।",
+            "एक केक का 1/2 भाग राम ने और 1/4 भाग श्याम ने खाया। दोनों ने मिलकर कुल कितना भाग खाया?"
+          ],
+          "flashcards": [
+            {"term": "भिन्न", "meaning": "किसी पूर्ण वस्तु का भाग, जैसे 1/2, 3/4"},
+            {"term": "अंश", "meaning": "भिन्न में ऊपर लिखी गई संख्या"},
+            {"term": "हर", "meaning": "भिन्न में नीचे लिखी गई संख्या"},
+            {"term": "सरलतम रूप", "meaning": "भिन्न का वह रूप जिसमें अंश और हर में 1 के अलावा कोई उभयनिष्ठ गुणनखंड न हो"},
+            {"term": "सम भिन्न", "meaning": "वह भिन्न जिसमें अंश, हर से छोटा हो"},
+            {"term": "विषम भिन्न", "meaning": "वह भिन्न जिसमें अंश, हर से बड़ा या बराबर हो"}
+          ],
+          "assessment": [
+            {"question": "1/2 + 1/4 = ?", "options": ["1/4", "2/4", "3/4", "1"], "correct": 2},
+            {"question": "3/4 और 1/8 में से बड़ी भिन्न कौन-सी है?", "options": ["3/4", "1/8", "दोनों बराबर हैं", "कोई नहीं"], "correct": 0},
+            {"question": "2/6 का सरलतम रूप क्या है?", "options": ["1/3", "1/2", "2/3", "1/6"], "correct": 0},
+            {"question": "3/5 को दशमलव में लिखो", "options": ["0.3", "0.5", "0.6", "0.35"], "correct": 2},
+            {"question": "भिन्न में ऊपर की संख्या को क्या कहते हैं?", "options": ["हर", "अंश", "योग", "गुणज"], "correct": 1}
+          ]
+        },
+        {
+          "chapter": "मापन",
+          "worksheet": [
+            "1 मीटर में कितने सेंटीमीटर होते हैं?",
+            "1 किलोग्राम में कितने ग्राम होते हैं?",
+            "1 लीटर में कितने मिलीलीटर होते हैं?",
+            "एक कपड़े की लंबाई 2 मीटर 50 सेंटीमीटर है। इसे केवल सेंटीमीटर में लिखो।",
+            "राम के पास 3 किलोग्राम 250 ग्राम चावल है। इसे केवल ग्राम में लिखो।"
+          ],
+          "flashcards": [
+            {"term": "मीटर", "meaning": "लंबाई मापने की मानक इकाई"},
+            {"term": "किलोग्राम", "meaning": "भार (वजन) मापने की मानक इकाई"},
+            {"term": "लीटर", "meaning": "तरल पदार्थ की मात्रा मापने की मानक इकाई"},
+            {"term": "सेंटीमीटर", "meaning": "मीटर का छोटा भाग, 1 मीटर = 100 सेंटीमीटर"},
+            {"term": "ग्राम", "meaning": "किलोग्राम का छोटा भाग, 1 किलोग्राम = 1000 ग्राम"},
+            {"term": "मिलीलीटर", "meaning": "लीटर का छोटा भाग, 1 लीटर = 1000 मिलीलीटर"}
+          ],
+          "assessment": [
+            {"question": "1 मीटर में कितने सेंटीमीटर होते हैं?", "options": ["10", "100", "1000", "1"], "correct": 1},
+            {"question": "1 किलोग्राम में कितने ग्राम होते हैं?", "options": ["100", "1000", "10", "10000"], "correct": 1},
+            {"question": "1 लीटर में कितने मिलीलीटर होते हैं?", "options": ["10", "100", "1000", "10000"], "correct": 2},
+            {"question": "2 मीटर 50 सेंटीमीटर को केवल सेंटीमीटर में लिखो", "options": ["250 सेमी", "205 सेमी", "25 सेमी", "2050 सेमी"], "correct": 0},
+            {"question": "3 किलोग्राम 250 ग्राम को केवल ग्राम में लिखो", "options": ["3250 ग्राम", "3025 ग्राम", "325 ग्राम", "32500 ग्राम"], "correct": 0}
+          ]
+        },
+        {
+          "chapter": "मुद्रा",
+          "worksheet": [
+            "रीना के पास 50 रुपये थे। उसने 27 रुपये की एक पेंसिल-बॉक्स खरीदी। उसके पास कितने रुपये बचे?",
+            "एक कॉपी की कीमत 15 रुपये है। 6 कॉपियों की कुल कीमत कितनी होगी?",
+            "100 रुपये में से 5 रुपये के सिक्कों की कितनी संख्या बनेगी?",
+            "मोहन ने 235 रुपये और सीता ने 165 रुपये मिलाकर एक उपहार खरीदा। उपहार की कुल कीमत कितनी थी?",
+            "यदि एक पेन 12 रुपये का है, तो 250 रुपये में अधिकतम कितने पेन खरीदे जा सकते हैं?"
+          ],
+          "flashcards": [
+            {"term": "मुद्रा", "meaning": "देश में लेन-देन के लिए प्रयोग होने वाला धन, जैसे भारत में रुपया"},
+            {"term": "सिक्का", "meaning": "धातु से बना गोल धन जैसे 1, 2, 5, 10 रुपये का सिक्का"},
+            {"term": "नोट", "meaning": "कागज़ की मुद्रा जैसे 10, 50, 100, 500 रुपये का नोट"},
+            {"term": "कीमत", "meaning": "किसी वस्तु का मूल्य, जो रुपयों में बताया जाता है"},
+            {"term": "बचत", "meaning": "खर्च के बाद बचा हुआ पैसा"},
+            {"term": "व्यय", "meaning": "किसी वस्तु या सेवा पर खर्च किया गया धन"}
+          ],
+          "assessment": [
+            {"question": "50 रुपये में से 27 रुपये खर्च करने पर कितने रुपये बचेंगे?", "options": ["13", "23", "33", "43"], "correct": 1},
+            {"question": "15 रुपये की एक कॉपी की 6 कॉपियों की कुल कीमत क्या होगी?", "options": ["80 रुपये", "85 रुपये", "90 रुपये", "95 रुपये"], "correct": 2},
+            {"question": "100 रुपये में 5 रुपये के कितने सिक्के आएँगे?", "options": ["10", "20", "25", "50"], "correct": 1},
+            {"question": "235 रुपये और 165 रुपये को जोड़ने पर कुल कितना होगा?", "options": ["380 रुपये", "390 रुपये", "400 रुपये", "410 रुपये"], "correct": 2},
+            {"question": "12 रुपये के पेन की 250 रुपये में अधिकतम कितनी संख्या खरीदी जा सकती है?", "options": ["18", "20", "22", "24"], "correct": 1}
+          ]
+        },
+        {
+          "chapter": "पैटर्न",
+          "worksheet": [
+            "इस श्रृंखला को आगे बढ़ाओ: 2, 4, 6, 8, __, __",
+            "इस श्रृंखला को आगे बढ़ाओ: 5, 10, 15, 20, __, __",
+            "इस पैटर्न में अगली दो संख्याएँ लिखो: 3, 6, 9, 12, __, __",
+            "एक पैटर्न बनाओ जिसमें आकृतियाँ (जैसे वृत्त, त्रिभुज) दोहराई जाएँ, कम से कम 8 आकृतियों का।",
+            "इस श्रृंखला में लुप्त संख्या ज्ञात करो: 10, 20, __, 40, 50"
+          ],
+          "flashcards": [
+            {"term": "पैटर्न", "meaning": "किसी निश्चित नियम के अनुसार दोहराया जाने वाला क्रम"},
+            {"term": "श्रृंखला", "meaning": "एक निश्चित नियम से बनी संख्याओं या आकृतियों की क्रमबद्ध सूची"},
+            {"term": "नियम", "meaning": "वह तरीका जिसके अनुसार पैटर्न आगे बढ़ता है"},
+            {"term": "आवृत्ति", "meaning": "किसी वस्तु या आकृति का बार-बार दोहराया जाना"},
+            {"term": "आरोही पैटर्न", "meaning": "बढ़ते क्रम में चलने वाला पैटर्न"},
+            {"term": "अवरोही पैटर्न", "meaning": "घटते क्रम में चलने वाला पैटर्न"}
+          ],
+          "assessment": [
+            {"question": "2, 4, 6, 8, __, __ में अगली दो संख्याएँ क्या हैं?", "options": ["9, 10", "10, 12", "10, 11", "12, 14"], "correct": 1},
+            {"question": "5, 10, 15, 20, __ में अगली संख्या क्या है?", "options": ["22", "24", "25", "30"], "correct": 2},
+            {"question": "3, 6, 9, 12, __ में अगली संख्या क्या है?", "options": ["14", "15", "16", "18"], "correct": 1},
+            {"question": "10, 20, __, 40, 50 में लुप्त संख्या क्या है?", "options": ["25", "30", "35", "45"], "correct": 1},
+            {"question": "एक निश्चित नियम से बार-बार दोहराए जाने वाले क्रम को क्या कहते हैं?", "options": ["पैटर्न", "भिन्न", "मुद्रा", "मापन"], "correct": 0}
+          ]
+        }
+      ]
+    },
+    {
+      "subject": "Environmental Studies",
+      "chapters": [
+        {
+          "chapter": "कौन किसके जैसा",
+          "worksheet": [
+            "अपने माता-पिता और अपने बीच पाई जाने वाली किन्हीं तीन समानताओं को लिखो।",
+            "जानवरों के बच्चे अपने माता-पिता जैसे कैसे दिखते हैं? एक उदाहरण दो।",
+            "गुण एक पीढ़ी से दूसरी पीढ़ी में कैसे जाते हैं, अपने शब्दों में लिखो।",
+            "अपने परिवार के किसी सदस्य से मिलती-जुलती अपनी कोई विशेषता लिखो।",
+            "क्या सभी भाई-बहन एक जैसे दिखते हैं? कारण सहित बताओ।"
+          ],
+          "flashcards": [
+            {"term": "आनुवंशिकता", "meaning": "माता-पिता से बच्चों में गुणों का संचरण"},
+            {"term": "समानता", "meaning": "दो या अधिक वस्तुओं/व्यक्तियों में मिलती-जुलती विशेषताएँ"},
+            {"term": "पीढ़ी", "meaning": "एक ही समय में जन्मे लोगों का समूह, जैसे दादा-पिता-बच्चे"},
+            {"term": "लक्षण", "meaning": "किसी जीव की पहचान बताने वाली विशेषता"},
+            {"term": "वंश", "meaning": "एक ही परिवार की आगे की पीढ़ियाँ"},
+            {"term": "विविधता", "meaning": "भिन्नता या अलग-अलग रूप"}
+          ],
+          "assessment": [
+            {"question": "बच्चों में माता-पिता जैसे गुण आने की प्रक्रिया क्या कहलाती है?", "options": ["आनुवंशिकता", "प्रदूषण", "पाचन", "श्वसन"], "correct": 0},
+            {"question": "एक ही समय के परिवार के सदस्यों का समूह कहलाता है", "options": ["पीढ़ी", "जनसंख्या", "वंश", "समूह"], "correct": 0},
+            {"question": "क्या सभी भाई-बहन बिल्कुल एक जैसे दिखते हैं?", "options": ["हाँ, हमेशा", "नहीं, हर किसी में कुछ भिन्नता होती है", "पता नहीं", "केवल जुड़वाँ एक जैसे होते हैं और बाकी नहीं दिखते"], "correct": 1},
+            {"question": "'लक्षण' शब्द का अर्थ है", "options": ["पहचान बताने वाली विशेषता", "भोजन", "पानी", "हवा"], "correct": 0},
+            {"question": "जानवरों के बच्चे सामान्यतः किसके समान दिखते हैं?", "options": ["अपने माता-पिता के", "किसी अन्य जीव के", "पेड़-पौधों के", "पत्थरों के"], "correct": 0}
+          ]
+        },
+        {
+          "chapter": "काम की खोज",
+          "worksheet": [
+            "अपने आस-पास के लोगों के किन्हीं पाँच अलग-अलग पेशों (काम) के नाम लिखो।",
+            "किसी एक व्यक्ति का साक्षात्कार करके लिखो कि वह अपना काम कैसे सीखा।",
+            "काम ढूँढ़ने के लिए कौशल (skill) सीखना क्यों जरूरी है?",
+            "तुम बड़े होकर क्या काम करना चाहोगे और क्यों?",
+            "गाँव और शहर में मिलने वाले कामों में क्या अंतर होता है?"
+          ],
+          "flashcards": [
+            {"term": "पेशा", "meaning": "जीविका चलाने के लिए किया जाने वाला काम"},
+            {"term": "कौशल", "meaning": "किसी काम को अच्छी तरह करने की क्षमता"},
+            {"term": "रोजगार", "meaning": "आजीविका कमाने के लिए किया जाने वाला कार्य"},
+            {"term": "श्रमिक", "meaning": "मेहनत करके काम करने वाला व्यक्ति"},
+            {"term": "स्वरोजगार", "meaning": "स्वयं का व्यवसाय शुरू करके काम करना"},
+            {"term": "प्रशिक्षण", "meaning": "किसी काम को सीखने की प्रक्रिया"}
+          ],
+          "assessment": [
+            {"question": "जीविका चलाने के लिए किए जाने वाले काम को क्या कहते हैं?", "options": ["पेशा", "खेल", "त्योहार", "पर्व"], "correct": 0},
+            {"question": "किसी काम को अच्छी तरह करने की क्षमता को क्या कहते हैं?", "options": ["कौशल", "आलस्य", "भय", "क्रोध"], "correct": 0},
+            {"question": "स्वयं का व्यवसाय शुरू करना क्या कहलाता है?", "options": ["स्वरोजगार", "बेरोजगारी", "अवकाश", "यात्रा"], "correct": 0},
+            {"question": "मेहनत करके काम करने वाले व्यक्ति को क्या कहते हैं?", "options": ["श्रमिक", "अतिथि", "यात्री", "राजा"], "correct": 0},
+            {"question": "काम सीखने की प्रक्रिया को क्या कहते हैं?", "options": ["प्रशिक्षण", "अवकाश", "मनोरंजन", "भोजन"], "correct": 0}
+          ]
+        },
+        {
+          "chapter": "बदला बसेरा",
+          "worksheet": [
+            "जब कोई परिवार एक स्थान से दूसरे स्थान पर रहने जाता है, तो उसे क्या कहते हैं?",
+            "नए स्थान पर बसने पर किन नई चीज़ों को अपनाना पड़ता है?",
+            "प्रवास (माइग्रेशन) के कोई दो कारण लिखो।",
+            "यदि तुम्हें नए शहर में जाना पड़े, तो तुम्हें किन बातों की सबसे ज्यादा याद आएगी?",
+            "प्रवासी परिवारों की मदद करने के लिए हम क्या कर सकते हैं?"
+          ],
+          "flashcards": [
+            {"term": "प्रवास", "meaning": "एक स्थान से दूसरे स्थान पर स्थायी या अस्थायी रूप से जाकर बसना"},
+            {"term": "बसेरा", "meaning": "रहने का स्थान, घर"},
+            {"term": "अनुकूलन", "meaning": "नए वातावरण के अनुसार स्वयं को ढालना"},
+            {"term": "मूल निवास", "meaning": "वह स्थान जहाँ व्यक्ति मूलतः पैदा हुआ या रहता था"},
+            {"term": "प्रवासी", "meaning": "एक स्थान से दूसरे स्थान पर बसने वाला व्यक्ति"},
+            {"term": "संस्कृति", "meaning": "किसी समुदाय की रीति-रिवाज़, भाषा और परंपराएँ"}
+          ],
+          "assessment": [
+            {"question": "एक स्थान से दूसरे स्थान पर बसने की प्रक्रिया को क्या कहते हैं?", "options": ["प्रवास", "प्रदूषण", "पाचन", "वाष्पीकरण"], "correct": 0},
+            {"question": "नए वातावरण के अनुसार स्वयं को ढालना क्या कहलाता है?", "options": ["अनुकूलन", "प्रदूषण", "बाढ़", "सूखा"], "correct": 0},
+            {"question": "जो व्यक्ति एक स्थान से दूसरे स्थान बसने जाता है, उसे क्या कहते हैं?", "options": ["प्रवासी", "किसान", "व्यापारी", "शिक्षक"], "correct": 0},
+            {"question": "प्रवास का एक सामान्य कारण क्या हो सकता है?", "options": ["काम या रोजगार की तलाश", "खेल खेलना", "छुट्टियाँ मनाना", "सोना"], "correct": 0},
+            {"question": "किसी समुदाय की रीति-रिवाज़ और भाषा को क्या कहते हैं?", "options": ["संस्कृति", "जलवायु", "भूगोल", "गणित"], "correct": 0}
+          ]
+        },
+        {
+          "chapter": "ठंडा गरम",
+          "worksheet": [
+            "गर्मी और सर्दी के मौसम में हमारे कपड़ों में क्या अंतर होता है?",
+            "किन्हीं तीन ऐसी चीज़ों के नाम लिखो जो गर्मी में उपयोगी होती हैं।",
+            "किन्हीं तीन ऐसी चीज़ों के नाम लिखो जो सर्दी में उपयोगी होती हैं।",
+            "शरीर को ठंड से बचाने के लिए हम क्या-क्या उपाय करते हैं?",
+            "गर्म और ठंडी वस्तुओं के दो-दो उदाहरण लिखो।"
+          ],
+          "flashcards": [
+            {"term": "तापमान", "meaning": "किसी वस्तु या स्थान की गर्मी या सर्दी की मात्रा"},
+            {"term": "ऊष्मा", "meaning": "गर्मी की ऊर्जा जो एक वस्तु से दूसरी में जाती है"},
+            {"term": "ऋतु", "meaning": "मौसम का एक विशेष समय जैसे गर्मी, सर्दी, वर्षा"},
+            {"term": "ऊनी वस्त्र", "meaning": "ऊन से बने गर्म कपड़े जो सर्दी में पहने जाते हैं"},
+            {"term": "सूती वस्त्र", "meaning": "कपास से बने हल्के कपड़े जो गर्मी में पहने जाते हैं"},
+            {"term": "कुचालक", "meaning": "वह पदार्थ जो ऊष्मा को आसानी से नहीं जाने देता"}
+          ],
+          "assessment": [
+            {"question": "सर्दी में हम कैसे कपड़े पहनते हैं?", "options": ["सूती और हल्के", "ऊनी और गर्म", "बिल्कुल नहीं पहनते", "गीले कपड़े"], "correct": 1},
+            {"question": "गर्मी में कैसे कपड़े पहनना बेहतर होता है?", "options": ["ऊनी और मोटे", "सूती और हल्के", "चमड़े के", "प्लास्टिक के"], "correct": 1},
+            {"question": "किसी वस्तु की गर्मी-सर्दी मापने की मात्रा कहलाती है", "options": ["तापमान", "वजन", "लंबाई", "क्षेत्रफल"], "correct": 0},
+            {"question": "मौसम के किसी विशेष समय को क्या कहते हैं?", "options": ["ऋतु", "पर्व", "उत्सव", "मेला"], "correct": 0},
+            {"question": "इनमें से कौन-सी ठंडी वस्तु है?", "options": ["बर्फ", "आग", "गर्म चाय", "सूरज"], "correct": 0}
+          ]
+        },
+        {
+          "chapter": "ज्ञानिन्द्रियों का कमाल",
+          "worksheet": [
+            "हमारी पाँच ज्ञानेंद्रियों के नाम लिखो और प्रत्येक का एक-एक काम बताओ।",
+            "आँख किस इंद्रिय का काम करती है और यह क्या पहचानने में मदद करती है?",
+            "अगर हमारी कोई एक इंद्रिय काम न करे, तो हमें किन कठिनाइयों का सामना करना पड़ेगा?",
+            "जीभ किस स्वाद (मीठा, खट्टा, नमकीन आदि) को पहचानने में मदद करती है, उदाहरण सहित लिखो।",
+            "नाक और त्वचा के कार्यों में क्या अंतर है?"
+          ],
+          "flashcards": [
+            {"term": "ज्ञानेंद्रियाँ", "meaning": "वे अंग जिनसे हम देखना, सुनना, सूँघना, चखना और छूना जानते हैं"},
+            {"term": "आँख", "meaning": "देखने की इंद्रिय"},
+            {"term": "कान", "meaning": "सुनने की इंद्रिय"},
+            {"term": "नाक", "meaning": "सूँघने की इंद्रिय"},
+            {"term": "जीभ", "meaning": "स्वाद पहचानने की इंद्रिय"},
+            {"term": "त्वचा", "meaning": "छूने और महसूस करने की इंद्रिय"}
+          ],
+          "assessment": [
+            {"question": "देखने का काम कौन-सी इंद्रिय करती है?", "options": ["आँख", "कान", "नाक", "जीभ"], "correct": 0},
+            {"question": "सुनने का काम कौन-सी इंद्रिय करती है?", "options": ["आँख", "कान", "त्वचा", "जीभ"], "correct": 1},
+            {"question": "स्वाद पहचानने का काम कौन-सी इंद्रिय करती है?", "options": ["नाक", "जीभ", "आँख", "कान"], "correct": 1},
+            {"question": "सूँघने का काम कौन-सी इंद्रिय करती है?", "options": ["नाक", "कान", "जीभ", "त्वचा"], "correct": 0},
+            {"question": "मनुष्य की कुल कितनी ज्ञानेंद्रियाँ मानी जाती हैं?", "options": ["तीन", "चार", "पाँच", "छह"], "correct": 2}
+          ]
+        },
+        {
+          "chapter": "मुझे ताज़ा खाओ",
+          "worksheet": [
+            "ताज़ा भोजन खाने के क्या फायदे हैं?",
+            "बासी या खराब भोजन खाने से क्या नुकसान हो सकते हैं?",
+            "भोजन को ताज़ा और सुरक्षित रखने के तीन तरीके लिखो।",
+            "फल और सब्जियाँ खाने से पहले उन्हें धोना क्यों जरूरी है?",
+            "फ्रिज (रेफ्रिजरेटर) भोजन को ताज़ा रखने में कैसे मदद करता है?"
+          ],
+          "flashcards": [
+            {"term": "ताज़ा", "meaning": "जो अभी तैयार हुआ हो, बासी न हो"},
+            {"term": "संरक्षण", "meaning": "भोजन को खराब होने से बचाने की प्रक्रिया"},
+            {"term": "बासी", "meaning": "देर तक रखा हुआ खराब हो चुका भोजन"},
+            {"term": "स्वच्छता", "meaning": "साफ-सफाई"},
+            {"term": "रेफ्रिजरेटर", "meaning": "भोजन को ठंडा रखकर ताज़ा बनाए रखने वाला उपकरण"},
+            {"term": "पौष्टिक", "meaning": "जिसमें शरीर के लिए जरूरी पोषक तत्व हों"}
+          ],
+          "assessment": [
+            {"question": "ताज़ा भोजन खाने से क्या लाभ होता है?", "options": ["स्वास्थ्य अच्छा रहता है", "बीमारी होती है", "कमजोरी आती है", "कोई लाभ नहीं"], "correct": 0},
+            {"question": "बासी भोजन खाने से क्या हो सकता है?", "options": ["पेट खराब हो सकता है", "शक्ति बढ़ती है", "कुछ नहीं होता", "बुद्धि बढ़ती है"], "correct": 0},
+            {"question": "भोजन को ताज़ा रखने के लिए किस उपकरण का प्रयोग होता है?", "options": ["रेफ्रिजरेटर", "पंखा", "टीवी", "रेडियो"], "correct": 0},
+            {"question": "फल-सब्जियाँ खाने से पहले क्या करना चाहिए?", "options": ["धोना", "फेंकना", "जलाना", "छिपाना"], "correct": 0},
+            {"question": "'स्वच्छता' शब्द का अर्थ है", "options": ["साफ-सफाई", "गंदगी", "बीमारी", "आलस्य"], "correct": 0}
+          ]
+        },
+        {
+          "chapter": "किसानों की कहानी",
+          "worksheet": [
+            "एक किसान की दिनभर की गतिविधियों के बारे में पाँच वाक्य लिखो।",
+            "खेती करने के लिए किसान को किन-किन औजारों और संसाधनों की जरूरत होती है?",
+            "किसानों को फसल उगाने में किन कठिनाइयों का सामना करना पड़ सकता है?",
+            "किसान हमारे जीवन में कितना महत्वपूर्ण है? अपने विचार लिखो।",
+            "खरीफ और रबी फसल में क्या अंतर है?"
+          ],
+          "flashcards": [
+            {"term": "किसान", "meaning": "खेती करने वाला व्यक्ति"},
+            {"term": "हल", "meaning": "खेत जोतने का पारंपरिक औजार"},
+            {"term": "सिंचाई", "meaning": "खेतों को पानी देने की प्रक्रिया"},
+            {"term": "खरीफ फसल", "meaning": "वर्षा ऋतु में बोई जाने वाली फसल जैसे धान"},
+            {"term": "रबी फसल", "meaning": "सर्दी में बोई जाने वाली फसल जैसे गेहूँ"},
+            {"term": "उर्वरक", "meaning": "मिट्टी की उर्वरता बढ़ाने वाला पदार्थ, खाद"}
+          ],
+          "assessment": [
+            {"question": "खेत जोतने का पारंपरिक औजार कौन-सा है?", "options": ["हल", "कलम", "चम्मच", "सुई"], "correct": 0},
+            {"question": "खेतों को पानी देने की प्रक्रिया क्या कहलाती है?", "options": ["सिंचाई", "बुवाई", "कटाई", "जुताई"], "correct": 0},
+            {"question": "वर्षा ऋतु में बोई जाने वाली फसल को क्या कहते हैं?", "options": ["खरीफ फसल", "रबी फसल", "जायद फसल", "फल"], "correct": 0},
+            {"question": "इनमें से कौन-सी रबी फसल है?", "options": ["गेहूँ", "धान", "मक्का", "गन्ना"], "correct": 0},
+            {"question": "मिट्टी की उर्वरता बढ़ाने के लिए किसान क्या डालते हैं?", "options": ["उर्वरक/खाद", "पत्थर", "प्लास्टिक", "कागज़"], "correct": 0}
+          ]
+        },
+        {
+          "chapter": "स्वाद से शक्ति तक",
+          "worksheet": [
+            "भोजन हमें शरीर के लिए ऊर्जा (शक्ति) कैसे देता है?",
+            "किन्हीं पाँच पौष्टिक खाद्य पदार्थों के नाम लिखो।",
+            "संतुलित आहार में किन चीज़ों को शामिल करना चाहिए?",
+            "अधिक तला-भुना या जंक फूड खाने से क्या नुकसान होते हैं?",
+            "'स्वाद' और 'पोषण' में क्या अंतर है, समझाओ।"
+          ],
+          "flashcards": [
+            {"term": "ऊर्जा", "meaning": "शरीर को काम करने के लिए मिलने वाली शक्ति"},
+            {"term": "पोषक तत्व", "meaning": "भोजन में पाए जाने वाले शरीर के लिए जरूरी तत्व जैसे प्रोटीन, विटामिन"},
+            {"term": "संतुलित आहार", "meaning": "वह भोजन जिसमें सभी पोषक तत्व सही मात्रा में हों"},
+            {"term": "प्रोटीन", "meaning": "शरीर की वृद्धि और मरम्मत के लिए जरूरी पोषक तत्व"},
+            {"term": "विटामिन", "meaning": "शरीर को स्वस्थ रखने वाले सूक्ष्म पोषक तत्व"},
+            {"term": "जंक फूड", "meaning": "कम पोषण वाला और अधिक तेल-मसाले वाला भोजन"}
+          ],
+          "assessment": [
+            {"question": "भोजन से हमें क्या मिलता है?", "options": ["ऊर्जा", "थकान", "नींद", "बीमारी"], "correct": 0},
+            {"question": "शरीर की वृद्धि और मरम्मत के लिए कौन-सा पोषक तत्व जरूरी है?", "options": ["प्रोटीन", "धूल", "पानी केवल", "नमक केवल"], "correct": 0},
+            {"question": "वह भोजन जिसमें सभी पोषक तत्व सही मात्रा में हों, कहलाता है", "options": ["संतुलित आहार", "जंक फूड", "बासी भोजन", "मीठा भोजन"], "correct": 0},
+            {"question": "अधिक जंक फूड खाने से क्या हो सकता है?", "options": ["स्वास्थ्य खराब हो सकता है", "बुद्धि तेज होती है", "शक्ति बढ़ती है", "कोई असर नहीं"], "correct": 0},
+            {"question": "शरीर को स्वस्थ रखने वाले सूक्ष्म पोषक तत्व क्या कहलाते हैं?", "options": ["विटामिन", "पत्थर", "धातु", "प्लास्टिक"], "correct": 0}
+          ]
+        },
+        {
+          "chapter": "बीज ही बीज",
+          "worksheet": [
+            "बीज से पौधा बनने की प्रक्रिया के चार चरण लिखो।",
+            "बीज को अंकुरित होने के लिए किन-किन चीज़ों की जरूरत होती है?",
+            "किन्हीं पाँच पौधों के बीजों के नाम लिखो जिन्हें तुमने देखा हो।",
+            "बीजों को सुरक्षित रखने के दो तरीके लिखो।",
+            "एक छोटा प्रयोग बताओ जिससे तुम घर पर बीज को अंकुरित होते देख सको।"
+          ],
+          "flashcards": [
+            {"term": "बीज", "meaning": "पौधे का वह भाग जिससे नया पौधा उगता है"},
+            {"term": "अंकुरण", "meaning": "बीज से नए पौधे का फूटना और बढ़ना शुरू होना"},
+            {"term": "जड़", "meaning": "पौधे का वह भाग जो मिट्टी में रहकर पानी सोखता है"},
+            {"term": "बीजपत्र", "meaning": "बीज के अंदर का वह भाग जो भोजन संग्रहित करता है"},
+            {"term": "मिट्टी", "meaning": "जमीन की ऊपरी परत जिसमें पौधे उगते हैं"},
+            {"term": "प्रकाश संश्लेषण", "meaning": "पौधों द्वारा सूर्य के प्रकाश से भोजन बनाने की प्रक्रिया"}
+          ],
+          "assessment": [
+            {"question": "बीज से नए पौधे के फूटने की प्रक्रिया क्या कहलाती है?", "options": ["अंकुरण", "पाचन", "श्वसन", "प्रदूषण"], "correct": 0},
+            {"question": "अंकुरण के लिए बीज को किसकी जरूरत होती है?", "options": ["पानी, हवा और उचित तापमान", "केवल पत्थर", "केवल अंधेरा", "केवल बर्फ"], "correct": 0},
+            {"question": "पौधे का वह भाग जो मिट्टी से पानी सोखता है", "options": ["जड़", "पत्ती", "फूल", "फल"], "correct": 0},
+            {"question": "पौधों द्वारा सूर्य के प्रकाश से भोजन बनाने की प्रक्रिया कहलाती है", "options": ["प्रकाश संश्लेषण", "अंकुरण", "वाष्पीकरण", "पाचन"], "correct": 0},
+            {"question": "बीज के अंदर भोजन संग्रहित करने वाला भाग क्या कहलाता है?", "options": ["बीजपत्र", "जड़", "तना", "फूल"], "correct": 0}
+          ]
+        },
+        {
+          "chapter": "कैसे कैसे घर",
+          "worksheet": [
+            "अलग-अलग जलवायु क्षेत्रों में घर अलग-अलग तरह से क्यों बनाए जाते हैं?",
+            "झारखंड के गाँवों में पाए जाने वाले घरों की बनावट के बारे में लिखो।",
+            "शहर और गाँव के घरों में क्या अंतर होता है?",
+            "घर बनाने में प्रयोग होने वाली किन्हीं चार सामग्रियों के नाम लिखो।",
+            "एक अच्छे घर में कौन-सी सुविधाएँ होनी चाहिए?"
+          ],
+          "flashcards": [
+            {"term": "मकान", "meaning": "रहने के लिए बनाया गया स्थान, घर"},
+            {"term": "झोपड़ी", "meaning": "मिट्टी, बाँस और घास से बना साधारण घर"},
+            {"term": "ईंट", "meaning": "मिट्टी से बनी और पकाई गई निर्माण सामग्री"},
+            {"term": "छत", "meaning": "घर का ऊपरी ढका हुआ भाग"},
+            {"term": "जलवायु", "meaning": "किसी स्थान की लंबे समय की मौसम स्थिति"},
+            {"term": "निर्माण सामग्री", "meaning": "घर बनाने में प्रयोग होने वाली चीज़ें जैसे ईंट, सीमेंट, लकड़ी"}
+          ],
+          "assessment": [
+            {"question": "मिट्टी, बाँस और घास से बना साधारण घर क्या कहलाता है?", "options": ["झोपड़ी", "महल", "किला", "मीनार"], "correct": 0},
+            {"question": "घर बनाने में प्रयोग होने वाली पकी हुई मिट्टी की सामग्री क्या कहलाती है?", "options": ["ईंट", "पानी", "रेत केवल", "हवा"], "correct": 0},
+            {"question": "घर के ऊपरी ढके हुए भाग को क्या कहते हैं?", "options": ["छत", "दरवाज़ा", "खिड़की", "आँगन"], "correct": 0},
+            {"question": "अलग-अलग स्थानों पर घर अलग-अलग क्यों बनते हैं?", "options": ["जलवायु और उपलब्ध सामग्री के अनुसार", "बिना किसी कारण", "केवल रंग के लिए", "संयोग से"], "correct": 0},
+            {"question": "किसी स्थान की लंबे समय की मौसम स्थिति को क्या कहते हैं?", "options": ["जलवायु", "पैटर्न", "मुद्रा", "पोषण"], "correct": 0}
+          ]
+        },
+        {
+          "chapter": "प्रकृति का कहर",
+          "worksheet": [
+            "बाढ़, सूखा और भूकंप में से किन्हीं दो प्राकृतिक आपदाओं के बारे में लिखो।",
+            "प्राकृतिक आपदा आने पर हमें कौन-सी सावधानियाँ बरतनी चाहिए?",
+            "पेड़ों की कटाई प्राकृतिक आपदाओं को कैसे बढ़ावा दे सकती है?",
+            "आपदा प्रबंधन (Disaster Management) क्या होता है, सरल शब्दों में लिखो।",
+            "बाढ़ या सूखे से प्रभावित लोगों की मदद के लिए हम क्या कर सकते हैं?"
+          ],
+          "flashcards": [
+            {"term": "प्राकृतिक आपदा", "meaning": "प्रकृति द्वारा होने वाली विनाशकारी घटना जैसे बाढ़, भूकंप"},
+            {"term": "बाढ़", "meaning": "अत्यधिक पानी भर जाने से होने वाली आपदा"},
+            {"term": "सूखा", "meaning": "लंबे समय तक वर्षा न होने की स्थिति"},
+            {"term": "भूकंप", "meaning": "धरती का अचानक हिलना"},
+            {"term": "चक्रवात", "meaning": "तेज़ हवाओं के साथ आने वाला तूफान"},
+            {"term": "आपदा प्रबंधन", "meaning": "आपदा से बचाव और राहत की योजना और तैयारी"}
+          ],
+          "assessment": [
+            {"question": "अत्यधिक पानी भर जाने से होने वाली आपदा क्या कहलाती है?", "options": ["बाढ़", "सूखा", "भूकंप", "चक्रवात"], "correct": 0},
+            {"question": "धरती के अचानक हिलने को क्या कहते हैं?", "options": ["भूकंप", "बाढ़", "सूखा", "पाला"], "correct": 0},
+            {"question": "लंबे समय तक वर्षा न होने की स्थिति क्या कहलाती है?", "options": ["सूखा", "बाढ़", "भूकंप", "आँधी"], "correct": 0},
+            {"question": "पेड़ों की अत्यधिक कटाई किसे बढ़ावा दे सकती है?", "options": ["बाढ़ और भूस्खलन", "वर्षा में कमी की समस्या का समाधान", "स्वच्छ हवा में वृद्धि", "इनमें से कोई नहीं"], "correct": 0},
+            {"question": "आपदा से बचाव की योजना और तैयारी को क्या कहते हैं?", "options": ["आपदा प्रबंधन", "मनोरंजन", "व्यापार", "खेल"], "correct": 0}
+          ]
+        },
+        {
+          "chapter": "पानी ही जीवन",
+          "worksheet": [
+            "जल हमारे जीवन के लिए क्यों जरूरी है? पाँच कारण लिखो।",
+            "पानी बचाने के किन्हीं चार उपाय लिखो।",
+            "जल प्रदूषण के कारण और उससे होने वाले नुकसान लिखो।",
+            "वर्षा जल संचयन (rainwater harvesting) क्या है, सरल शब्दों में समझाओ।",
+            "यदि पानी न हो तो पृथ्वी पर जीवन कैसा होगा, अपने विचार लिखो।"
+          ],
+          "flashcards": [
+            {"term": "जल", "meaning": "पानी, जीवन के लिए आवश्यक तरल पदार्थ"},
+            {"term": "जल संचयन", "meaning": "वर्षा के पानी को इकट्ठा करके सुरक्षित रखना"},
+            {"term": "जल प्रदूषण", "meaning": "पानी में हानिकारक पदार्थों का मिल जाना"},
+            {"term": "भूजल", "meaning": "धरती के नीचे पाया जाने वाला पानी"},
+            {"term": "वाष्पीकरण", "meaning": "पानी का भाप बनकर हवा में उड़ना"},
+            {"term": "जल चक्र", "meaning": "पानी का वाष्पीकरण, संघनन और वर्षा के रूप में लगातार चलने वाला चक्र"}
+          ],
+          "assessment": [
+            {"question": "वर्षा जल को इकट्ठा करके सुरक्षित रखने की प्रक्रिया क्या कहलाती है?", "options": ["जल संचयन", "जल प्रदूषण", "वाष्पीकरण", "संघनन"], "correct": 0},
+            {"question": "पानी में हानिकारक पदार्थों का मिलना क्या कहलाता है?", "options": ["जल प्रदूषण", "जल संचयन", "जल शुद्धि", "जल चक्र"], "correct": 0},
+            {"question": "धरती के नीचे पाए जाने वाले पानी को क्या कहते हैं?", "options": ["भूजल", "समुद्री जल", "वर्षा जल केवल", "बर्फ"], "correct": 0},
+            {"question": "पानी के भाप बनकर उड़ने की प्रक्रिया क्या कहलाती है?", "options": ["वाष्पीकरण", "संघनन", "वर्षा", "हिमपात"], "correct": 0},
+            {"question": "हमें पानी क्यों बचाना चाहिए?", "options": ["क्योंकि यह सीमित संसाधन है और जीवन के लिए जरूरी है", "क्योंकि यह बेकार है", "इसकी कोई जरूरत नहीं", "क्योंकि यह असीमित है"], "correct": 0}
+          ]
+        },
+        {
+          "chapter": "क्या डूबा क्या तैरा",
+          "worksheet": [
+            "किन्हीं पाँच वस्तुओं की सूची बनाओ और बताओ कि वे पानी में डूबेंगी या तैरेंगी।",
+            "कोई वस्तु पानी में क्यों तैरती है और कोई क्यों डूब जाती है, अपने शब्दों में लिखो।",
+            "लोहे का जहाज़ भारी होते हुए भी पानी में क्यों नहीं डूबता?",
+            "घर पर एक छोटा प्रयोग करो: कागज़, लकड़ी और पत्थर को पानी में डालकर देखो कि क्या होता है, परिणाम लिखो।",
+            "'घनत्व' शब्द का सरल अर्थ अपने शब्दों में लिखो।"
+          ],
+          "flashcards": [
+            {"term": "उत्प्लावन", "meaning": "वह बल जो किसी वस्तु को पानी में ऊपर धकेलता है"},
+            {"term": "घनत्व", "meaning": "किसी वस्तु के आयतन में समाए द्रव्यमान की मात्रा"},
+            {"term": "तैरना", "meaning": "पानी की सतह पर बने रहना, न डूबना"},
+            {"term": "डूबना", "meaning": "पानी के नीचे चले जाना"},
+            {"term": "आयतन", "meaning": "किसी वस्तु द्वारा घेरा गया स्थान"},
+            {"term": "पदार्थ", "meaning": "वह चीज़ जिससे कोई वस्तु बनी होती है"}
+          ],
+          "assessment": [
+            {"question": "इनमें से कौन-सी वस्तु सामान्यतः पानी में तैरती है?", "options": ["लकड़ी का टुकड़ा", "लोहे का सिक्का", "पत्थर", "काँच की गोली"], "correct": 0},
+            {"question": "इनमें से कौन-सी वस्तु सामान्यतः पानी में डूब जाती है?", "options": ["पत्थर", "सूखा पत्ता", "प्लास्टिक की गेंद", "गत्ते का टुकड़ा"], "correct": 0},
+            {"question": "वह बल जो वस्तु को पानी में ऊपर धकेलता है, कहलाता है", "options": ["उत्प्लावन बल", "गुरुत्वाकर्षण बल", "घर्षण बल", "चुंबकीय बल"], "correct": 0},
+            {"question": "लोहे का बड़ा जहाज़ पानी में क्यों नहीं डूबता?", "options": ["उसकी बनावट पानी को हटाकर उत्प्लावन बल पैदा करती है", "वह हल्का होता है", "वह पानी में घुल जाता है", "वह चुंबकीय है"], "correct": 0},
+            {"question": "किसी वस्तु के आयतन में समाए द्रव्यमान को क्या कहते हैं?", "options": ["घनत्व", "तापमान", "गति", "बल"], "correct": 0}
+          ]
+        },
+        {
+          "chapter": "गाँव गाँव क़स्बा क़स्बा",
+          "worksheet": [
+            "गाँव और कस्बे (कस्बा) में क्या अंतर होता है?",
+            "गाँव में मिलने वाली किन्हीं तीन सुविधाओं के नाम लिखो।",
+            "शहर की तुलना में गाँव के जीवन की कोई दो विशेषताएँ लिखो।",
+            "लोग गाँव से शहर की ओर पलायन क्यों करते हैं?",
+            "अपने गाँव या कस्बे के बारे में पाँच वाक्य लिखो।"
+          ],
+          "flashcards": [
+            {"term": "गाँव", "meaning": "छोटी बस्ती जहाँ मुख्यतः खेती होती है"},
+            {"term": "कस्बा", "meaning": "गाँव से बड़ा और शहर से छोटा बसा हुआ स्थान"},
+            {"term": "शहर", "meaning": "बड़ी आबादी और अधिक सुविधाओं वाला स्थान"},
+            {"term": "पलायन", "meaning": "एक स्थान को छोड़कर दूसरे स्थान पर बसने जाना"},
+            {"term": "पंचायत", "meaning": "गाँव के प्रशासन के लिए बना स्थानीय स्वशासन निकाय"},
+            {"term": "बस्ती", "meaning": "लोगों के रहने का समूहबद्ध क्षेत्र"}
+          ],
+          "assessment": [
+            {"question": "गाँव में मुख्यतः कौन-सा कार्य होता है?", "options": ["खेती", "बड़े उद्योग", "समुद्री व्यापार", "अंतरिक्ष यात्रा"], "correct": 0},
+            {"question": "गाँव के प्रशासन के लिए बने स्थानीय निकाय को क्या कहते हैं?", "options": ["पंचायत", "संसद", "न्यायालय", "सेना"], "correct": 0},
+            {"question": "गाँव से बड़ा और शहर से छोटा स्थान क्या कहलाता है?", "options": ["कस्बा", "महानगर", "राजधानी", "द्वीप"], "correct": 0},
+            {"question": "लोग गाँव छोड़कर शहर क्यों जाते हैं?", "options": ["रोजगार और सुविधाओं की तलाश में", "मनोरंजन के लिए केवल", "बिना किसी कारण", "छुट्टियाँ मनाने"], "correct": 0},
+            {"question": "एक स्थान से दूसरे स्थान बसने जाने को क्या कहते हैं?", "options": ["पलायन", "सिंचाई", "अंकुरण", "वाष्पीकरण"], "correct": 0}
+          ]
+        },
+        {
+          "chapter": "चढ़ाई पहाड़ की",
+          "worksheet": [
+            "पहाड़ों पर चढ़ना एक चुनौतीपूर्ण काम क्यों होता है?",
+            "पर्वतारोहण (पहाड़ चढ़ना) करते समय किन सावधानियों का ध्यान रखना चाहिए?",
+            "पहाड़ी क्षेत्रों में रहने वाले लोगों का जीवन मैदानी क्षेत्रों से कैसे अलग होता है?",
+            "पहाड़ चढ़ते समय हमें कौन-से गुण अपनाने चाहिए (जैसे धैर्य, साहस)?",
+            "भारत के किन्हीं दो प्रसिद्ध पर्वतों या पर्वत श्रृंखलाओं के नाम लिखो।"
+          ],
+          "flashcards": [
+            {"term": "पर्वत", "meaning": "भूमि का बहुत ऊँचा उठा हुआ भाग"},
+            {"term": "पर्वतारोहण", "meaning": "पहाड़ पर चढ़ने की गतिविधि"},
+            {"term": "ढलान", "meaning": "पहाड़ की तिरछी सतह"},
+            {"term": "चोटी", "meaning": "पहाड़ का सबसे ऊँचा हिस्सा"},
+            {"term": "धैर्य", "meaning": "कठिनाई में भी शांत और स्थिर बने रहने का गुण"},
+            {"term": "साहस", "meaning": "डर का सामना करने की हिम्मत"}
+          ],
+          "assessment": [
+            {"question": "पहाड़ का सबसे ऊँचा हिस्सा क्या कहलाता है?", "options": ["चोटी", "तलहटी", "ढलान", "घाटी"], "correct": 0},
+            {"question": "पहाड़ पर चढ़ने की गतिविधि क्या कहलाती है?", "options": ["पर्वतारोहण", "तैराकी", "साइकिल चलाना", "नौकायन"], "correct": 0},
+            {"question": "पहाड़ चढ़ते समय कौन-सा गुण सबसे ज्यादा जरूरी है?", "options": ["धैर्य और साहस", "जल्दबाज़ी", "आलस्य", "डर"], "correct": 0},
+            {"question": "इनमें से कौन-सी भारत की प्रसिद्ध पर्वत श्रृंखला है?", "options": ["हिमालय", "सहारा", "अमेज़न", "गंगा"], "correct": 0},
+            {"question": "पहाड़ की तिरछी सतह को क्या कहते हैं?", "options": ["ढलान", "मैदान", "समुद्र", "रेगिस्तान"], "correct": 0}
+          ]
+        },
+        {
+          "chapter": "जंगल की बेटी",
+          "worksheet": [
+            "जंगलों में रहने वाले आदिवासी समुदायों का जीवन प्रकृति से कैसे जुड़ा होता है?",
+            "जंगल हमें कौन-कौन-सी चीज़ें देते हैं? पाँच उदाहरण लिखो।",
+            "जंगलों को बचाना क्यों जरूरी है?",
+            "आदिवासी संस्कृति में महिलाओं और बेटियों की क्या भूमिका होती है, अपने विचार लिखो।",
+            "वनों की कटाई से जीव-जंतुओं और मनुष्यों पर क्या असर पड़ता है?"
+          ],
+          "flashcards": [
+            {"term": "जंगल", "meaning": "पेड़-पौधों और जीव-जंतुओं से भरा प्राकृतिक क्षेत्र"},
+            {"term": "आदिवासी", "meaning": "जंगलों और पहाड़ी क्षेत्रों के मूल निवासी समुदाय"},
+            {"term": "वन्य जीव", "meaning": "जंगल में रहने वाले जानवर"},
+            {"term": "वनोपज", "meaning": "जंगल से प्राप्त होने वाली उपज जैसे फल, लकड़ी, शहद"},
+            {"term": "वनों की कटाई", "meaning": "जंगलों के पेड़ों को काटना, जिससे पर्यावरण को नुकसान होता है"},
+            {"term": "प्रकृति प्रेम", "meaning": "प्रकृति और पर्यावरण से गहरा लगाव"}
+          ],
+          "assessment": [
+            {"question": "जंगल से प्राप्त होने वाली उपज को क्या कहते हैं?", "options": ["वनोपज", "खनिज", "मुद्रा", "पैटर्न"], "correct": 0},
+            {"question": "जंगल में रहने वाले जानवरों को क्या कहते हैं?", "options": ["वन्य जीव", "पालतू जानवर", "समुद्री जीव", "कीड़े केवल"], "correct": 0},
+            {"question": "जंगलों के मूल निवासी समुदाय को क्या कहा जाता है?", "options": ["आदिवासी", "व्यापारी", "पर्यटक", "अधिकारी"], "correct": 0},
+            {"question": "वनों की कटाई का पर्यावरण पर क्या असर होता है?", "options": ["हानिकारक असर, जैसे मिट्टी का कटाव और जलवायु परिवर्तन", "कोई असर नहीं", "लाभदायक असर", "हवा शुद्ध होती है"], "correct": 0},
+            {"question": "जंगल हमें क्या-क्या देते हैं?", "options": ["लकड़ी, फल, शुद्ध हवा और औषधियाँ", "केवल पत्थर", "केवल रेत", "कुछ नहीं"], "correct": 0}
+          ]
+        }
+      ]
+    }
+  ]
+}

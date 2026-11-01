@@ -1,0 +1,746 @@
+{
+  "class": 2,
+  "subjects": [
+    {
+      "subject": "Hindi",
+      "chapters": [
+        {
+          "chapter": "मेरा विद्यालय",
+          "worksheet": [
+            "अपने विद्यालय का नाम लिखिए।",
+            "आपके विद्यालय में कौन-कौन सी चीज़ें हैं? किन्हीं तीन का नाम लिखिए।",
+            "आपको विद्यालय क्यों अच्छा लगता है? एक वाक्य में लिखिए।",
+            "\"विद्यालय\" शब्द से एक वाक्य बनाइए।"
+          ],
+          "flashcards": [
+            {"term": "विद्यालय", "meaning": "पढ़ने-लिखने की जगह, स्कूल"},
+            {"term": "अध्यापक", "meaning": "पढ़ाने वाला व्यक्ति"},
+            {"term": "कक्षा", "meaning": "विद्यार्थियों के पढ़ने का कमरा"},
+            {"term": "मित्र", "meaning": "दोस्त, साथी"},
+            {"term": "पुस्तक", "meaning": "किताब, ज्ञान का स्रोत"}
+          ],
+          "assessment": [
+            {"question": "हम कहाँ पढ़ने जाते हैं?", "options": ["बाज़ार", "विद्यालय", "खेत", "नदी"], "correct": 1},
+            {"question": "\"अध्यापक\" कौन होता है?", "options": ["दुकानदार", "किसान", "पढ़ाने वाला", "डाक्टर"], "correct": 2},
+            {"question": "विद्यार्थी विद्यालय में क्या करते हैं?", "options": ["खेलते ही रहते हैं", "पढ़ते-लिखते हैं", "सोते हैं", "खाना बनाते हैं"], "correct": 1},
+            {"question": "कक्षा में कौन बैठते हैं?", "options": ["पशु", "विद्यार्थी", "पक्षी", "मछली"], "correct": 1}
+          ]
+        },
+        {
+          "chapter": "आई एक खबर",
+          "worksheet": [
+            "\"खबर\" शब्द का अर्थ अपने शब्दों में लिखिए।",
+            "आपने घर में कोई अच्छी खबर सुनी हो तो एक वाक्य में लिखिए।",
+            "खबर सुनकर हमें कैसा महसूस होता है? एक शब्द में लिखिए।",
+            "\"खबर\" शब्द से एक वाक्य बनाइए।"
+          ],
+          "flashcards": [
+            {"term": "खबर", "meaning": "समाचार, सूचना"},
+            {"term": "संदेश", "meaning": "किसी बात की सूचना"},
+            {"term": "खुशी", "meaning": "प्रसन्नता"},
+            {"term": "हैरानी", "meaning": "आश्चर्य"},
+            {"term": "जल्दी", "meaning": "शीघ्रता"}
+          ],
+          "assessment": [
+            {"question": "\"खबर\" का मतलब है?", "options": ["खाना", "समाचार", "खेल", "पानी"], "correct": 1},
+            {"question": "अच्छी खबर सुनकर हमें कैसा लगता है?", "options": ["दुख", "खुशी", "गुस्सा", "डर"], "correct": 1},
+            {"question": "खबर हमें कौन दे सकता है?", "options": ["पेड़", "पत्थर", "व्यक्ति", "कुर्सी"], "correct": 2},
+            {"question": "\"समाचार\" का दूसरा शब्द है?", "options": ["खबर", "खेल", "किताब", "पानी"], "correct": 0}
+          ]
+        },
+        {
+          "chapter": "मैं भी",
+          "worksheet": [
+            "\"मैं भी\" शीर्षक किस बारे में हो सकता है, अपने शब्दों में बताइए।",
+            "आप भी क्या करना चाहते हैं जो बड़े करते हैं? एक वाक्य लिखिए।",
+            "\"मैं भी पढ़ूँगा\" जैसा एक वाक्य स्वयं बनाइए।",
+            "अपने बारे में तीन बातें लिखिए जो आप कर सकते हैं।"
+          ],
+          "flashcards": [
+            {"term": "इच्छा", "meaning": "चाहत, कामना"},
+            {"term": "बराबर", "meaning": "समान"},
+            {"term": "कोशिश", "meaning": "प्रयत्न"},
+            {"term": "साहस", "meaning": "हिम्मत"},
+            {"term": "सहभागिता", "meaning": "साथ मिलकर भाग लेना"}
+          ],
+          "assessment": [
+            {"question": "\"मैं भी\" वाक्य में \"भी\" शब्द क्या दर्शाता है?", "options": ["मना करना", "शामिल होना", "डरना", "रोना"], "correct": 1},
+            {"question": "जब हम कुछ नया करना चाहते हैं तो हमें क्या दिखाना चाहिए?", "options": ["डर", "साहस", "गुस्सा", "आलस्य"], "correct": 1},
+            {"question": "\"इच्छा\" शब्द का अर्थ है?", "options": ["डर", "चाहत", "थकान", "नींद"], "correct": 1},
+            {"question": "बड़ों की तरह काम करने की कोशिश करना कैसा गुण है?", "options": ["बुरा", "अच्छा", "गलत", "खतरनाक"], "correct": 1}
+          ]
+        },
+        {
+          "chapter": "किसी से कहना मत",
+          "worksheet": [
+            "\"राज़\" शब्द का अर्थ अपने शब्दों में लिखिए।",
+            "क्या हमें हर बात राज़ रखनी चाहिए? अपने विचार लिखिए।",
+            "\"किसी से कहना मत\" इस वाक्य को अपने शब्दों में समझाइए।",
+            "एक वाक्य बनाइए जिसमें \"राज़\" शब्द का प्रयोग हो।"
+          ],
+          "flashcards": [
+            {"term": "राज़", "meaning": "गुप्त बात, भेद"},
+            {"term": "गुप्त", "meaning": "छिपी हुई"},
+            {"term": "भरोसा", "meaning": "विश्वास"},
+            {"term": "सच", "meaning": "सत्य"},
+            {"term": "चुप", "meaning": "खामोश"}
+          ],
+          "assessment": [
+            {"question": "\"राज़\" का अर्थ है?", "options": ["खेल", "गुप्त बात", "खाना", "गीत"], "correct": 1},
+            {"question": "\"गुप्त\" शब्द का विपरीत क्या है?", "options": ["प्रकट", "छिपा", "अंधेरा", "शांत"], "correct": 0},
+            {"question": "दोस्तों के बीच क्या होना चाहिए?", "options": ["झगड़ा", "भरोसा", "डर", "चोरी"], "correct": 1},
+            {"question": "\"चुप\" शब्द का अर्थ है?", "options": ["शोर करना", "खामोश रहना", "दौड़ना", "गाना"], "correct": 1}
+          ]
+        },
+        {
+          "chapter": "रसोई में भगदड़",
+          "worksheet": [
+            "रसोई में कौन-कौन सी चीज़ें रखी होती हैं? किन्हीं चार का नाम लिखिए।",
+            "\"भगदड़\" शब्द का अर्थ अपने शब्दों में लिखिए।",
+            "रसोई में भगदड़ क्यों मच सकती है? एक कारण लिखिए।",
+            "रसोई से जुड़ा एक वाक्य बनाइए।"
+          ],
+          "flashcards": [
+            {"term": "रसोई", "meaning": "खाना बनाने की जगह"},
+            {"term": "भगदड़", "meaning": "अफरा-तफरी, हड़बड़ी"},
+            {"term": "बर्तन", "meaning": "खाना पकाने-खाने के सामान"},
+            {"term": "चूल्हा", "meaning": "खाना पकाने का साधन"},
+            {"term": "मसाला", "meaning": "स्वाद बढ़ाने वाली चीज़"}
+          ],
+          "assessment": [
+            {"question": "\"रसोई\" किसे कहते हैं?", "options": ["सोने का कमरा", "खाना बनाने की जगह", "खेल का मैदान", "पढ़ने का कमरा"], "correct": 1},
+            {"question": "\"भगदड़\" का अर्थ है?", "options": ["शांति", "अफरा-तफरी", "नींद", "खुशी"], "correct": 1},
+            {"question": "रसोई में खाना किस पर पकाया जाता है?", "options": ["चूल्हे पर", "पलंग पर", "मेज़ पर", "कुर्सी पर"], "correct": 0},
+            {"question": "भोजन में स्वाद बढ़ाने के लिए क्या डाला जाता है?", "options": ["पानी", "मसाला", "मिट्टी", "रेत"], "correct": 1}
+          ]
+        },
+        {
+          "chapter": "नटखट बंदर",
+          "worksheet": [
+            "बंदर कैसा जानवर होता है? दो गुण लिखिए।",
+            "\"नटखट\" शब्द का अर्थ अपने शब्दों में लिखिए।",
+            "बंदर को खाने में क्या पसंद है?",
+            "बंदर से जुड़ी एक कहानी में क्या हो सकता है, अपने शब्दों में लिखिए।"
+          ],
+          "flashcards": [
+            {"term": "नटखट", "meaning": "शरारती"},
+            {"term": "बंदर", "meaning": "एक चंचल जानवर जो पेड़ों पर रहता है"},
+            {"term": "शरारत", "meaning": "नटखटपन, उपद्रव"},
+            {"term": "पेड़", "meaning": "वृक्ष"},
+            {"term": "उछल-कूद", "meaning": "कूदना-फांदना"}
+          ],
+          "assessment": [
+            {"question": "\"नटखट\" का अर्थ है?", "options": ["शांत", "शरारती", "उदास", "बीमार"], "correct": 1},
+            {"question": "बंदर आमतौर पर कहाँ रहना पसंद करता है?", "options": ["पानी में", "पेड़ों पर", "बर्फ में", "रेगिस्तान में"], "correct": 1},
+            {"question": "बंदर को कौन सा फल बहुत पसंद है?", "options": ["केला", "मिर्च", "प्याज", "करेला"], "correct": 0},
+            {"question": "\"उछल-कूद\" का अर्थ है?", "options": ["सोना", "कूदना-फांदना", "खाना", "रोना"], "correct": 1}
+          ]
+        },
+        {
+          "chapter": "मैडम जी",
+          "worksheet": [
+            "\"मैडम जी\" किसे कहा जाता है?",
+            "अपनी अध्यापिका के बारे में एक वाक्य लिखिए।",
+            "अध्यापिका का हमें आदर क्यों करना चाहिए?",
+            "अध्यापिका से जुड़ा एक वाक्य बनाइए।"
+          ],
+          "flashcards": [
+            {"term": "मैडम", "meaning": "महिला अध्यापिका के लिए सम्मानसूचक शब्द"},
+            {"term": "आदर", "meaning": "सम्मान"},
+            {"term": "अनुशासन", "meaning": "नियमों का पालन"},
+            {"term": "शिक्षा", "meaning": "ज्ञान"},
+            {"term": "विनम्रता", "meaning": "नम्र व्यवहार"}
+          ],
+          "assessment": [
+            {"question": "\"मैडम जी\" शब्द किसके लिए प्रयोग होता है?", "options": ["दुकानदार", "महिला अध्यापिका", "डाक्टर", "किसान"], "correct": 1},
+            {"question": "अध्यापिका के प्रति हमें कैसा व्यवहार रखना चाहिए?", "options": ["असम्मान", "आदर", "गुस्सा", "झगड़ा"], "correct": 1},
+            {"question": "\"अनुशासन\" का अर्थ है?", "options": ["नियमों का पालन", "खेल", "झगड़ा", "नींद"], "correct": 0},
+            {"question": "विद्यालय में हमें क्या सीखने को मिलता है?", "options": ["शिक्षा", "सिर्फ खेल", "सिर्फ नींद", "कुछ नहीं"], "correct": 0}
+          ]
+        },
+        {
+          "chapter": "गुब्बारा",
+          "worksheet": [
+            "गुब्बारा किस चीज़ से भरा होता है?",
+            "गुब्बारे किन-किन रंगों के होते हैं? तीन रंगों के नाम लिखिए।",
+            "हम गुब्बारे कब उड़ाते या खरीदते हैं?",
+            "\"गुब्बारा\" शब्द से एक वाक्य बनाइए।"
+          ],
+          "flashcards": [
+            {"term": "गुब्बारा", "meaning": "हवा से भरा रबर का खिलौना"},
+            {"term": "हवा", "meaning": "वायु"},
+            {"term": "रंग-बिरंगा", "meaning": "कई रंगों वाला"},
+            {"term": "त्योहार", "meaning": "उत्सव"},
+            {"term": "उड़ना", "meaning": "हवा में जाना"}
+          ],
+          "assessment": [
+            {"question": "गुब्बारे में क्या भरा होता है?", "options": ["पानी", "हवा", "रेत", "दूध"], "correct": 1},
+            {"question": "गुब्बारा किस चीज़ का बना होता है?", "options": ["लकड़ी", "रबर", "लोहा", "कागज़"], "correct": 1},
+            {"question": "हम गुब्बारे किस अवसर पर सजाते हैं?", "options": ["जन्मदिन", "परीक्षा", "सोते समय", "बीमारी में"], "correct": 0},
+            {"question": "\"रंग-बिरंगा\" का अर्थ है?", "options": ["एक रंग वाला", "कई रंगों वाला", "रंगहीन", "काला"], "correct": 1}
+          ]
+        },
+        {
+          "chapter": "सरहुल",
+          "worksheet": [
+            "सरहुल पर्व कब मनाया जाता है?",
+            "सरहुल में किस पेड़ की पूजा की जाती है?",
+            "सरहुल पर्व में पूजा कौन कराता है?",
+            "सरहुल पर्व झारखंड में क्यों खास है, एक वाक्य में लिखिए।"
+          ],
+          "flashcards": [
+            {"term": "सरहुल", "meaning": "झारखंड का प्रसिद्ध आदिवासी पर्व"},
+            {"term": "साल वृक्ष", "meaning": "सरहुल में पूजा जाने वाला पेड़"},
+            {"term": "पाहन", "meaning": "पूजा कराने वाला पुजारी"},
+            {"term": "प्रकृति", "meaning": "कुदरत"},
+            {"term": "नृत्य", "meaning": "नाच"}
+          ],
+          "assessment": [
+            {"question": "सरहुल पर्व किस पेड़ से जुड़ा है?", "options": ["आम", "साल", "नीम", "पीपल"], "correct": 1},
+            {"question": "सरहुल पर्व मुख्यतः कहाँ मनाया जाता है?", "options": ["झारखंड", "केरल", "पंजाब", "गुजरात"], "correct": 0},
+            {"question": "सरहुल पूजा कौन कराता है?", "options": ["डाक्टर", "पाहन (पुजारी)", "शिक्षक", "किसान"], "correct": 1},
+            {"question": "सरहुल पर्व किस ऋतु में मनाया जाता है?", "options": ["सर्दी", "वसंत", "वर्षा", "पतझड़"], "correct": 1}
+          ]
+        },
+        {
+          "chapter": "ऊँट और सियार",
+          "worksheet": [
+            "ऊँट कैसा जानवर होता है? दो विशेषताएँ लिखिए।",
+            "सियार कैसा जानवर होता है? एक विशेषता लिखिए।",
+            "जानवरों की कहानियों से हमें क्या सीख मिलती है, अपने विचार लिखिए।",
+            "\"ऊँट\" और \"सियार\" शब्दों से एक-एक वाक्य बनाइए।"
+          ],
+          "flashcards": [
+            {"term": "ऊँट", "meaning": "रेगिस्तान में रहने वाला लंबी गर्दन का जानवर"},
+            {"term": "सियार", "meaning": "चालाक जंगली जानवर, कुत्ते जैसा दिखने वाला"},
+            {"term": "चालाक", "meaning": "होशियार, चतुर"},
+            {"term": "मित्रता", "meaning": "दोस्ती"},
+            {"term": "रेगिस्तान", "meaning": "सूखा, रेतीला क्षेत्र"}
+          ],
+          "assessment": [
+            {"question": "ऊँट किस स्थान पर अधिक पाया जाता है?", "options": ["बर्फीले क्षेत्र", "रेगिस्तान", "समुद्र", "पहाड़ की चोटी"], "correct": 1},
+            {"question": "सियार को किस गुण के लिए जाना जाता है?", "options": ["आलस्य", "चालाकी", "कमजोरी", "उदासी"], "correct": 1},
+            {"question": "जानवरों की कहानियाँ हमें क्या सिखाती हैं?", "options": ["अच्छी सीख", "डरना", "झूठ बोलना", "आलस्य"], "correct": 0},
+            {"question": "\"चालाक\" शब्द का अर्थ है?", "options": ["कमजोर", "होशियार", "उदास", "बीमार"], "correct": 1}
+          ]
+        },
+        {
+          "chapter": "हाँ जी, ना जी",
+          "worksheet": [
+            "\"हाँ जी\" और \"ना जी\" कब कहा जाता है, अपने शब्दों में लिखिए।",
+            "बड़ों से बात करते समय हमें कैसे शब्दों का प्रयोग करना चाहिए?",
+            "विनम्रता से बात करने के दो तरीके लिखिए।",
+            "\"हाँ जी\" और \"ना जी\" का प्रयोग करते हुए एक-एक वाक्य बनाइए।"
+          ],
+          "flashcards": [
+            {"term": "हाँ", "meaning": "स्वीकृति दिखाने वाला शब्द"},
+            {"term": "ना", "meaning": "अस्वीकृति दिखाने वाला शब्द"},
+            {"term": "विनम्रता", "meaning": "नम्र व्यवहार"},
+            {"term": "सम्मान", "meaning": "आदर"},
+            {"term": "उत्तर", "meaning": "जवाब"}
+          ],
+          "assessment": [
+            {"question": "जब हम किसी बात से सहमत होते हैं तो क्या कहते हैं?", "options": ["ना जी", "हाँ जी", "चुप", "शोर"], "correct": 1},
+            {"question": "बड़ों से बात करते समय कैसा व्यवहार होना चाहिए?", "options": ["असभ्य", "विनम्र", "गुस्सैल", "उदासीन"], "correct": 1},
+            {"question": "\"विनम्रता\" का अर्थ है?", "options": ["गुस्सा", "नम्र व्यवहार", "झूठ", "आलस्य"], "correct": 1},
+            {"question": "जब हम किसी बात से असहमत होते हैं तो क्या कहते हैं?", "options": ["हाँ जी", "ना जी", "शाबाश", "धन्यवाद"], "correct": 1}
+          ]
+        },
+        {
+          "chapter": "बूझिए मेरा नाम",
+          "worksheet": [
+            "पहेली किसे कहते हैं, अपने शब्दों में लिखिए।",
+            "एक सरल पहेली स्वयं बनाइए।",
+            "पहेलियाँ बूझने से हमें क्या फायदा होता है?",
+            "अपने किसी पसंदीदा जानवर या वस्तु की एक पहेली लिखिए।"
+          ],
+          "flashcards": [
+            {"term": "पहेली", "meaning": "बूझने वाला सवाल"},
+            {"term": "अनुमान", "meaning": "अंदाज़ा"},
+            {"term": "बुद्धि", "meaning": "समझ, सोचने की शक्ति"},
+            {"term": "उत्तर", "meaning": "जवाब"},
+            {"term": "चतुराई", "meaning": "होशियारी"}
+          ],
+          "assessment": [
+            {"question": "\"पहेली\" किसे कहते हैं?", "options": ["कहानी", "बूझने वाला सवाल", "गीत", "चित्र"], "correct": 1},
+            {"question": "पहेलियाँ हल करने से क्या बढ़ता है?", "options": ["बुद्धि", "आलस्य", "डर", "नींद"], "correct": 0},
+            {"question": "\"अनुमान\" का अर्थ है?", "options": ["निश्चित उत्तर", "अंदाज़ा लगाना", "भूल जाना", "रोना"], "correct": 1},
+            {"question": "पहेली का सही जवाब देने के लिए क्या ज़रूरी है?", "options": ["सोचना", "सोना", "भागना", "रोना"], "correct": 0}
+          ]
+        },
+        {
+          "chapter": "बब्बू और झब्बू",
+          "worksheet": [
+            "बब्बू और झब्बू के नाम सुनकर आपको क्या लगता है ये कौन हो सकते हैं?",
+            "दोस्ती में कौन-कौन सी अच्छी बातें होती हैं? दो लिखिए।",
+            "\"बब्बू और झब्बू\" जैसे तुकांत नामों का एक जोड़ा और बनाइए।",
+            "अपने सबसे अच्छे दोस्त के बारे में एक वाक्य लिखिए।"
+          ],
+          "flashcards": [
+            {"term": "दोस्ती", "meaning": "मित्रता"},
+            {"term": "साथी", "meaning": "संगी"},
+            {"term": "तुकांत", "meaning": "एक जैसी ध्वनि वाले शब्द"},
+            {"term": "मस्ती", "meaning": "खुशी भरा खेल"},
+            {"term": "सहयोग", "meaning": "मिलकर काम करना"}
+          ],
+          "assessment": [
+            {"question": "\"दोस्ती\" का अर्थ है?", "options": ["झगड़ा", "मित्रता", "डर", "उदासी"], "correct": 1},
+            {"question": "अच्छे दोस्त एक-दूसरे की क्या करते हैं?", "options": ["मदद", "बुराई", "नकल", "अनदेखी"], "correct": 0},
+            {"question": "\"तुकांत शब्द\" किसे कहते हैं?", "options": ["विपरीत शब्द", "एक जैसी ध्वनि वाले शब्द", "कठिन शब्द", "अंग्रेज़ी शब्द"], "correct": 1},
+            {"question": "\"सहयोग\" का अर्थ है?", "options": ["मिलकर काम करना", "अकेले रहना", "झगड़ना", "सोना"], "correct": 0}
+          ]
+        },
+        {
+          "chapter": "भोर भई",
+          "worksheet": [
+            "\"भोर\" शब्द का अर्थ क्या है?",
+            "सुबह उठकर आप सबसे पहले क्या करते हैं?",
+            "सुबह के समय प्रकृति में क्या-क्या दिखाई देता है? दो चीज़ें लिखिए।",
+            "\"भोर\" शब्द से एक वाक्य बनाइए।"
+          ],
+          "flashcards": [
+            {"term": "भोर", "meaning": "सुबह, प्रातःकाल"},
+            {"term": "सूर्योदय", "meaning": "सूरज का निकलना"},
+            {"term": "पक्षी", "meaning": "चिड़िया"},
+            {"term": "ताज़गी", "meaning": "स्फूर्ति, ताज़ा एहसास"},
+            {"term": "प्रातःकाल", "meaning": "सुबह का समय"}
+          ],
+          "assessment": [
+            {"question": "\"भोर\" का अर्थ है?", "options": ["रात", "सुबह", "दोपहर", "शाम"], "correct": 1},
+            {"question": "सुबह सबसे पहले आकाश में क्या दिखाई देता है?", "options": ["चाँद", "सूरज", "तारे", "बादल"], "correct": 1},
+            {"question": "सुबह के समय पक्षी क्या करते हैं?", "options": ["सोते हैं", "चहचहाते हैं", "रोते हैं", "छिपते हैं"], "correct": 1},
+            {"question": "\"प्रातःकाल\" किस समय को कहते हैं?", "options": ["सुबह", "रात", "दोपहर", "शाम"], "correct": 0}
+          ]
+        },
+        {
+          "chapter": "पंचू और चटनी",
+          "worksheet": [
+            "\"चटनी\" किन-किन चीज़ों से बनाई जाती है? दो चीज़ें लिखिए।",
+            "आपको कौन सी चटनी सबसे ज़्यादा पसंद है?",
+            "\"पंचू\" नाम सुनकर आपको क्या लगता है यह कौन हो सकता है?",
+            "भोजन से जुड़ा एक वाक्य बनाइए जिसमें \"चटनी\" शब्द हो।"
+          ],
+          "flashcards": [
+            {"term": "चटनी", "meaning": "तीखा-खट्टा स्वाद वाला भोजन का साथी"},
+            {"term": "स्वाद", "meaning": "जायका"},
+            {"term": "खट्टा", "meaning": "नींबू जैसा स्वाद"},
+            {"term": "तीखा", "meaning": "मिर्च जैसा तेज़ स्वाद"},
+            {"term": "भोजन", "meaning": "खाना"}
+          ],
+          "assessment": [
+            {"question": "चटनी किसके साथ खाई जाती है?", "options": ["भोजन", "कपड़े", "किताब", "खिलौने"], "correct": 0},
+            {"question": "\"खट्टा\" स्वाद किसमें पाया जाता है?", "options": ["आम (पका)", "नींबू", "गन्ना", "शहद"], "correct": 1},
+            {"question": "\"तीखा\" स्वाद किसमें होता है?", "options": ["मिर्च", "चीनी", "दूध", "पानी"], "correct": 0},
+            {"question": "\"स्वाद\" का दूसरा शब्द है?", "options": ["जायका", "रंग", "आकार", "वज़न"], "correct": 0}
+          ]
+        }
+      ]
+    },
+    {
+      "subject": "English",
+      "chapters": [
+        {
+          "chapter": "I Know",
+          "worksheet": [
+            "Write three things you know how to do.",
+            "Complete: I know how to ____.",
+            "Name one thing you learned recently.",
+            "Write a sentence starting with 'I know'."
+          ],
+          "flashcards": [
+            {"term": "know", "meaning": "to understand or have information about something"},
+            {"term": "learn", "meaning": "to gain knowledge or skill"},
+            {"term": "skill", "meaning": "the ability to do something well"},
+            {"term": "practice", "meaning": "doing something again and again to improve"},
+            {"term": "understand", "meaning": "to know the meaning of something"}
+          ],
+          "assessment": [
+            {"question": "What does 'I know' mean?", "options": ["I am sleeping", "I understand", "I am eating", "I am running"], "correct": 1},
+            {"question": "Which word means 'to gain knowledge'?", "options": ["learn", "sleep", "eat", "run"], "correct": 0},
+            {"question": "'Skill' means:", "options": ["ability to do something well", "a type of food", "a color", "a place"], "correct": 0},
+            {"question": "Choose the correct sentence:", "options": ["I knows how to swim", "I know how to swim", "I knowing swim", "Knows I swim"], "correct": 1}
+          ]
+        },
+        {
+          "chapter": "Myself",
+          "worksheet": [
+            "Write your name and age.",
+            "Write two things about your family.",
+            "Write one thing you like about yourself.",
+            "Complete: My name is ____ and I am ____ years old."
+          ],
+          "flashcards": [
+            {"term": "myself", "meaning": "referring to one's own person"},
+            {"term": "name", "meaning": "what a person is called"},
+            {"term": "age", "meaning": "how old a person is"},
+            {"term": "family", "meaning": "parents, siblings, and relatives"},
+            {"term": "like", "meaning": "to enjoy something"}
+          ],
+          "assessment": [
+            {"question": "Which word describes yourself?", "options": ["myself", "himself", "herself", "itself"], "correct": 0},
+            {"question": "'Age' means:", "options": ["a person's name", "how old someone is", "a place", "a color"], "correct": 1},
+            {"question": "Who is part of your family?", "options": ["mother", "teacher", "shopkeeper", "doctor"], "correct": 0},
+            {"question": "Complete: My name ___ Rani.", "options": ["is", "am", "are", "be"], "correct": 0}
+          ]
+        },
+        {
+          "chapter": "Daily Routine",
+          "worksheet": [
+            "Write what you do in the morning.",
+            "Write what you do before going to school.",
+            "Write one thing you do at night before sleeping.",
+            "Complete: I brush my teeth in the ____."
+          ],
+          "flashcards": [
+            {"term": "routine", "meaning": "things done regularly every day"},
+            {"term": "morning", "meaning": "the early part of the day"},
+            {"term": "brush", "meaning": "to clean teeth with a toothbrush"},
+            {"term": "bath", "meaning": "washing the body with water"},
+            {"term": "sleep", "meaning": "to rest at night"}
+          ],
+          "assessment": [
+            {"question": "'Routine' means:", "options": ["things done once", "things done every day", "a game", "a food item"], "correct": 1},
+            {"question": "What do we do first in the morning?", "options": ["sleep", "wake up", "go to school", "have dinner"], "correct": 1},
+            {"question": "We brush our teeth with a:", "options": ["spoon", "toothbrush", "comb", "plate"], "correct": 1},
+            {"question": "Choose the correct word: I take a ____ every morning.", "options": ["bath", "chair", "book", "shoe"], "correct": 0}
+          ]
+        },
+        {
+          "chapter": "Family",
+          "worksheet": [
+            "Name the members of your family.",
+            "Write who is the oldest person in your family.",
+            "Write one thing your family does together.",
+            "Complete: My mother's name is ____."
+          ],
+          "flashcards": [
+            {"term": "family", "meaning": "a group of people related to each other, like parents and children"},
+            {"term": "mother", "meaning": "a female parent"},
+            {"term": "father", "meaning": "a male parent"},
+            {"term": "sibling", "meaning": "a brother or sister"},
+            {"term": "grandparent", "meaning": "the parent of one's mother or father"}
+          ],
+          "assessment": [
+            {"question": "Who is a female parent?", "options": ["father", "mother", "brother", "sister"], "correct": 1},
+            {"question": "Who is a male parent?", "options": ["mother", "sister", "father", "aunt"], "correct": 2},
+            {"question": "A brother or sister is called a:", "options": ["parent", "sibling", "grandparent", "neighbour"], "correct": 1},
+            {"question": "'Family' means:", "options": ["a group of friends", "a group of related people", "a group of teachers", "a group of animals"], "correct": 1}
+          ]
+        },
+        {
+          "chapter": "Daily Routine (Unit 4)",
+          "worksheet": [
+            "Write three activities you do after school.",
+            "Put these in order: sleep, wake up, eat breakfast, go to school.",
+            "Write what time you go to bed.",
+            "Complete: In the evening, I ____."
+          ],
+          "flashcards": [
+            {"term": "evening", "meaning": "the time between afternoon and night"},
+            {"term": "breakfast", "meaning": "the first meal of the day"},
+            {"term": "homework", "meaning": "school work done at home"},
+            {"term": "bedtime", "meaning": "the time to go to sleep"},
+            {"term": "schedule", "meaning": "a plan of things to do at certain times"}
+          ],
+          "assessment": [
+            {"question": "'Breakfast' is:", "options": ["the last meal of the day", "the first meal of the day", "a game", "a toy"], "correct": 1},
+            {"question": "What do we do after coming home from school?", "options": ["homework", "fly", "swim in the sea", "drive a car"], "correct": 0},
+            {"question": "'Bedtime' means:", "options": ["time to eat", "time to sleep", "time to play", "time to study"], "correct": 1},
+            {"question": "Choose the correct order:", "options": ["sleep, wake up, breakfast", "wake up, breakfast, school", "school, wake up, breakfast", "breakfast, sleep, wake up"], "correct": 1}
+          ]
+        },
+        {
+          "chapter": "Food",
+          "worksheet": [
+            "Name three foods you eat every day.",
+            "Write your favourite food.",
+            "Write one fruit and one vegetable.",
+            "Complete: I like to eat ____."
+          ],
+          "flashcards": [
+            {"term": "food", "meaning": "things we eat"},
+            {"term": "fruit", "meaning": "a sweet part of a plant we eat, like an apple"},
+            {"term": "vegetable", "meaning": "a plant part we eat, like a carrot"},
+            {"term": "meal", "meaning": "food eaten at a particular time"},
+            {"term": "healthy", "meaning": "good for the body"}
+          ],
+          "assessment": [
+            {"question": "Which of these is a fruit?", "options": ["potato", "apple", "spinach", "onion"], "correct": 1},
+            {"question": "Which of these is a vegetable?", "options": ["mango", "banana", "carrot", "grapes"], "correct": 2},
+            {"question": "'Healthy' food is good for our:", "options": ["toys", "body", "books", "clothes"], "correct": 1},
+            {"question": "A 'meal' is:", "options": ["a game", "food eaten at a time", "a toy", "a song"], "correct": 1}
+          ]
+        },
+        {
+          "chapter": "House",
+          "worksheet": [
+            "Name three rooms in a house.",
+            "Write what you do in the kitchen.",
+            "Write where you sleep in your house.",
+            "Complete: My house has a ____."
+          ],
+          "flashcards": [
+            {"term": "house", "meaning": "a place where people live"},
+            {"term": "kitchen", "meaning": "room where food is cooked"},
+            {"term": "bedroom", "meaning": "room where people sleep"},
+            {"term": "door", "meaning": "an opening to enter or leave a room"},
+            {"term": "roof", "meaning": "the top covering of a house"}
+          ],
+          "assessment": [
+            {"question": "Where do we cook food?", "options": ["bedroom", "kitchen", "roof", "garden"], "correct": 1},
+            {"question": "Where do we sleep?", "options": ["kitchen", "bathroom", "bedroom", "garage"], "correct": 2},
+            {"question": "The top part of a house is called:", "options": ["door", "window", "roof", "wall"], "correct": 2},
+            {"question": "We enter a room through the:", "options": ["roof", "door", "floor", "wall"], "correct": 1}
+          ]
+        },
+        {
+          "chapter": "Means of Transport",
+          "worksheet": [
+            "Name three means of transport.",
+            "Which transport travels on water?",
+            "Which transport travels in the sky?",
+            "Complete: I go to school by ____."
+          ],
+          "flashcards": [
+            {"term": "transport", "meaning": "a way of moving from one place to another"},
+            {"term": "bicycle", "meaning": "a two-wheeled vehicle we pedal"},
+            {"term": "train", "meaning": "a vehicle that runs on rails"},
+            {"term": "boat", "meaning": "a vehicle that travels on water"},
+            {"term": "airplane", "meaning": "a vehicle that flies in the sky"}
+          ],
+          "assessment": [
+            {"question": "Which vehicle flies in the sky?", "options": ["car", "airplane", "boat", "bicycle"], "correct": 1},
+            {"question": "Which vehicle travels on water?", "options": ["boat", "train", "bus", "bicycle"], "correct": 0},
+            {"question": "A train runs on:", "options": ["roads", "rails", "water", "sky"], "correct": 1},
+            {"question": "Which of these has two wheels?", "options": ["car", "bus", "bicycle", "train"], "correct": 2}
+          ]
+        },
+        {
+          "chapter": "The Village Market",
+          "worksheet": [
+            "Name three things you can buy at a market.",
+            "Who sells vegetables in the market?",
+            "Write one thing you like about a village market.",
+            "Complete: At the market, I saw a ____."
+          ],
+          "flashcards": [
+            {"term": "market", "meaning": "a place where goods are bought and sold"},
+            {"term": "vendor", "meaning": "a person who sells goods"},
+            {"term": "vegetables", "meaning": "plant food sold in the market"},
+            {"term": "price", "meaning": "the amount of money for something"},
+            {"term": "basket", "meaning": "a container to carry things"}
+          ],
+          "assessment": [
+            {"question": "A 'market' is a place where we:", "options": ["sleep", "buy and sell things", "study", "swim"], "correct": 1},
+            {"question": "A person who sells goods is called a:", "options": ["teacher", "vendor", "doctor", "driver"], "correct": 1},
+            {"question": "We carry things from the market in a:", "options": ["basket", "book", "bed", "shoe"], "correct": 0},
+            {"question": "'Price' means:", "options": ["the color of a thing", "the amount of money for something", "the shape of a thing", "the size of a thing"], "correct": 1}
+          ]
+        }
+      ]
+    },
+    {
+      "subject": "Mathematics",
+      "chapters": [
+        {
+          "chapter": "आकृति और स्थान",
+          "worksheet": [
+            "अपने आस-पास की तीन गोल (वृत्ताकार) वस्तुओं के नाम लिखिए।",
+            "त्रिभुज की कितनी भुजाएँ होती हैं?",
+            "वर्ग और आयत में क्या अंतर है, एक वाक्य में लिखिए।",
+            "अपनी कक्षा में एक चौकोर वस्तु और एक गोल वस्तु का नाम लिखिए।"
+          ],
+          "flashcards": [
+            {"term": "वृत्त", "meaning": "गोल आकृति"},
+            {"term": "त्रिभुज", "meaning": "तीन भुजाओं वाली आकृति"},
+            {"term": "वर्ग", "meaning": "चार बराबर भुजाओं वाली आकृति"},
+            {"term": "आयत", "meaning": "चार भुजाओं वाली आकृति जिसकी विपरीत भुजाएँ बराबर होती हैं"},
+            {"term": "घन", "meaning": "एक ठोस आकृति जिसके छह बराबर फलक होते हैं"}
+          ],
+          "assessment": [
+            {"question": "त्रिभुज की भुजाएँ कितनी होती हैं?", "options": ["2", "3", "4", "5"], "correct": 1},
+            {"question": "गेंद किस आकृति जैसी होती है?", "options": ["वर्ग", "त्रिभुज", "वृत्त (गोला)", "आयत"], "correct": 2},
+            {"question": "वर्ग की सभी भुजाएँ कैसी होती हैं?", "options": ["असमान", "बराबर", "टेढ़ी", "गोल"], "correct": 1},
+            {"question": "दरवाज़ा प्रायः किस आकृति का होता है?", "options": ["वृत्त", "त्रिभुज", "आयत", "तारा"], "correct": 2}
+          ]
+        },
+        {
+          "chapter": "संख्याएँ",
+          "worksheet": [
+            "1 से 20 तक की संख्याएँ लिखिए।",
+            "45 के बाद कौन सी संख्या आती है?",
+            "30 और 40 के बीच की कोई पाँच संख्याएँ लिखिए।",
+            "इनमें से सबसे बड़ी और सबसे छोटी संख्या चुनिए: 67, 23, 89, 12"
+          ],
+          "flashcards": [
+            {"term": "संख्या", "meaning": "गिनती करने के लिए प्रयोग होने वाला अंक"},
+            {"term": "इकाई", "meaning": "किसी संख्या के दायीं ओर का पहला स्थान मान"},
+            {"term": "दहाई", "meaning": "दस-दस के समूह का स्थान मान"},
+            {"term": "बड़ी संख्या", "meaning": "अधिक मूल्य वाली संख्या"},
+            {"term": "छोटी संख्या", "meaning": "कम मूल्य वाली संख्या"}
+          ],
+          "assessment": [
+            {"question": "45 के बाद कौन सी संख्या आती है?", "options": ["44", "46", "54", "40"], "correct": 1},
+            {"question": "इनमें सबसे बड़ी संख्या कौन सी है?", "options": ["34", "43", "24", "42"], "correct": 1},
+            {"question": "27 में दहाई के स्थान पर कौन सा अंक है?", "options": ["7", "2", "9", "0"], "correct": 1},
+            {"question": "इनमें सबसे छोटी संख्या कौन सी है?", "options": ["56", "65", "45", "54"], "correct": 2}
+          ]
+        },
+        {
+          "chapter": "जोड़",
+          "worksheet": [
+            "23 + 15 = ?",
+            "34 + 42 = ?",
+            "रीना के पास 12 पेंसिलें हैं और उसकी बहन के पास 8 पेंसिलें हैं। दोनों के पास कुल कितनी पेंसिलें हैं?",
+            "45 + 30 = ?"
+          ],
+          "flashcards": [
+            {"term": "जोड़", "meaning": "दो या दो से अधिक संख्याओं को मिलाना"},
+            {"term": "योग", "meaning": "जोड़ का परिणाम"},
+            {"term": "कुल", "meaning": "सब मिलाकर"},
+            {"term": "संख्या रेखा", "meaning": "संख्याओं को क्रम में दिखाने वाली रेखा"},
+            {"term": "मिलाना", "meaning": "एक साथ रखना"}
+          ],
+          "assessment": [
+            {"question": "20 + 15 = ?", "options": ["30", "35", "40", "25"], "correct": 1},
+            {"question": "18 + 12 = ?", "options": ["20", "28", "30", "32"], "correct": 2},
+            {"question": "25 + 25 = ?", "options": ["40", "45", "50", "55"], "correct": 2},
+            {"question": "जोड़ का परिणाम क्या कहलाता है?", "options": ["अंतर", "योग", "गुणनफल", "भागफल"], "correct": 1}
+          ]
+        },
+        {
+          "chapter": "घटाव",
+          "worksheet": [
+            "50 - 20 = ?",
+            "48 - 15 = ?",
+            "सोहन के पास 25 गेंदें थीं, उसने 10 गेंदें अपने दोस्त को दे दीं। अब सोहन के पास कितनी गेंदें बचीं?",
+            "60 - 35 = ?"
+          ],
+          "flashcards": [
+            {"term": "घटाव", "meaning": "एक संख्या में से दूसरी संख्या को कम करना"},
+            {"term": "अंतर", "meaning": "घटाव का परिणाम"},
+            {"term": "बचा हुआ", "meaning": "शेष"},
+            {"term": "कम करना", "meaning": "घटाना"},
+            {"term": "शेष", "meaning": "बचा हुआ भाग"}
+          ],
+          "assessment": [
+            {"question": "30 - 10 = ?", "options": ["10", "20", "30", "40"], "correct": 1},
+            {"question": "45 - 20 = ?", "options": ["15", "20", "25", "30"], "correct": 2},
+            {"question": "100 - 50 = ?", "options": ["40", "50", "60", "70"], "correct": 1},
+            {"question": "घटाव का परिणाम क्या कहलाता है?", "options": ["योग", "अंतर", "गुणनफल", "भागफल"], "correct": 1}
+          ]
+        },
+        {
+          "chapter": "समय",
+          "worksheet": [
+            "एक दिन में कितने घंटे होते हैं?",
+            "घड़ी में कितनी सुइयाँ होती हैं?",
+            "सुबह के 7 बजे आप क्या करते हैं?",
+            "एक घंटे में कितने मिनट होते हैं?"
+          ],
+          "flashcards": [
+            {"term": "घड़ी", "meaning": "समय बताने वाला यंत्र"},
+            {"term": "घंटा", "meaning": "समय की एक इकाई (60 मिनट)"},
+            {"term": "मिनट", "meaning": "समय की एक छोटी इकाई"},
+            {"term": "सुई", "meaning": "घड़ी में समय दिखाने वाली छड़ी"},
+            {"term": "सुबह", "meaning": "दिन का पहला भाग"}
+          ],
+          "assessment": [
+            {"question": "एक दिन में कितने घंटे होते हैं?", "options": ["12", "24", "60", "30"], "correct": 1},
+            {"question": "एक घंटे में कितने मिनट होते हैं?", "options": ["30", "45", "60", "100"], "correct": 2},
+            {"question": "घड़ी में सामान्यतः कितनी सुइयाँ होती हैं (घंटे और मिनट की)?", "options": ["1", "2", "3", "4"], "correct": 1},
+            {"question": "रात में हम आमतौर पर क्या करते हैं?", "options": ["सोते हैं", "स्कूल जाते हैं", "खेलते हैं", "नहाते हैं"], "correct": 0}
+          ]
+        },
+        {
+          "chapter": "मापन",
+          "worksheet": [
+            "लंबाई मापने के लिए किस यंत्र का प्रयोग करते हैं?",
+            "भार (वज़न) मापने के लिए किसका प्रयोग होता है?",
+            "अपने कमरे में किसी वस्तु की लंबाई का अनुमान लगाइए और लिखिए।",
+            "एक मीटर में कितने सेंटीमीटर होते हैं?"
+          ],
+          "flashcards": [
+            {"term": "मापन", "meaning": "किसी वस्तु की लंबाई, भार आदि नापना"},
+            {"term": "स्केल", "meaning": "लंबाई मापने का यंत्र"},
+            {"term": "मीटर", "meaning": "लंबाई मापने की इकाई"},
+            {"term": "किलोग्राम", "meaning": "भार मापने की इकाई"},
+            {"term": "तराजू", "meaning": "वज़न मापने का यंत्र"}
+          ],
+          "assessment": [
+            {"question": "लंबाई मापने के लिए किसका प्रयोग होता है?", "options": ["तराजू", "स्केल", "घड़ी", "थर्मामीटर"], "correct": 1},
+            {"question": "वज़न मापने के लिए किसका प्रयोग होता है?", "options": ["स्केल", "तराजू", "घड़ी", "कप"], "correct": 1},
+            {"question": "एक मीटर में कितने सेंटीमीटर होते हैं?", "options": ["10", "100", "1000", "50"], "correct": 1},
+            {"question": "भार मापने की इकाई कौन सी है?", "options": ["मीटर", "किलोग्राम", "लीटर", "घंटा"], "correct": 1}
+          ]
+        },
+        {
+          "chapter": "मुद्रा",
+          "worksheet": [
+            "5 रुपये के 4 सिक्के मिलाकर कुल कितने रुपये होंगे?",
+            "रीता के पास 20 रुपये का एक नोट है। उसने 12 रुपये की पेंसिल खरीदी। उसके पास कितने रुपये बचे?",
+            "10 रुपये के 3 नोट और 5 रुपये का 1 सिक्का मिलाकर कुल कितने रुपये होंगे?",
+            "2 रुपये और 3 रुपये के सिक्कों को मिलाकर कुल राशि लिखिए।"
+          ],
+          "flashcards": [
+            {"term": "मुद्रा", "meaning": "पैसे, रुपये"},
+            {"term": "सिक्का", "meaning": "धातु का पैसा"},
+            {"term": "नोट", "meaning": "कागज़ का पैसा"},
+            {"term": "रुपया", "meaning": "भारत की मुद्रा"},
+            {"term": "खरीदना", "meaning": "पैसे देकर वस्तु लेना"}
+          ],
+          "assessment": [
+            {"question": "10 रुपये के 2 नोट कुल कितने रुपये होंगे?", "options": ["10", "12", "20", "22"], "correct": 2},
+            {"question": "भारत की मुद्रा को क्या कहते हैं?", "options": ["डॉलर", "रुपया", "पाउंड", "यूरो"], "correct": 1},
+            {"question": "यदि आपके पास 50 रुपये हैं और आप 30 रुपये खर्च करते हैं, तो कितने बचेंगे?", "options": ["10", "20", "30", "80"], "correct": 1},
+            {"question": "सिक्के किस चीज़ के बने होते हैं?", "options": ["कागज़", "धातु", "कपड़ा", "लकड़ी"], "correct": 1}
+          ]
+        },
+        {
+          "chapter": "पैटर्न",
+          "worksheet": [
+            "इस पैटर्न को आगे बढ़ाइए: 2, 4, 6, 8, __, __",
+            "लाल, नीला, लाल, नीला, ___, ___ - पैटर्न पूरा कीजिए।",
+            "5, 10, 15, 20, __ - अगली संख्या लिखिए।",
+            "अपनी कॉपी में एक रंगीन पैटर्न बनाइए (गोला, त्रिभुज, गोला, त्रिभुज)।"
+          ],
+          "flashcards": [
+            {"term": "पैटर्न", "meaning": "एक क्रम में दोहराई जाने वाली आकृति या संख्या"},
+            {"term": "क्रम", "meaning": "तरतीब"},
+            {"term": "दोहराव", "meaning": "बार-बार आना"},
+            {"term": "अगला", "meaning": "आने वाला"},
+            {"term": "समूह", "meaning": "एक साथ रखी चीज़ें"}
+          ],
+          "assessment": [
+            {"question": "2, 4, 6, 8, __ में अगली संख्या क्या होगी?", "options": ["9", "10", "12", "11"], "correct": 1},
+            {"question": "5, 10, 15, __ में अगली संख्या क्या होगी?", "options": ["18", "20", "25", "16"], "correct": 1},
+            {"question": "\"पैटर्न\" शब्द का अर्थ है?", "options": ["एक बार आना", "क्रम में दोहराना", "कभी न आना", "उल्टा होना"], "correct": 1},
+            {"question": "लाल, नीला, लाल, नीला के बाद क्या आएगा?", "options": ["पीला", "लाल", "हरा", "सफेद"], "correct": 1}
+          ]
+        },
+        {
+          "chapter": "गुणा",
+          "worksheet": [
+            "2 × 3 = ?",
+            "4 × 5 = ?",
+            "एक डिब्बे में 3 चॉकलेट हैं। 4 डिब्बों में कुल कितनी चॉकलेट होंगी?",
+            "5 × 2 = ?"
+          ],
+          "flashcards": [
+            {"term": "गुणा", "meaning": "किसी संख्या को बार-बार जोड़ने की प्रक्रिया"},
+            {"term": "गुणनफल", "meaning": "गुणा का परिणाम"},
+            {"term": "गुणनखंड", "meaning": "गुणा में प्रयुक्त संख्याएँ"},
+            {"term": "बार", "meaning": "कितनी बार जोड़ना है"},
+            {"term": "सारणी", "meaning": "पहाड़ा"}
+          ],
+          "assessment": [
+            {"question": "3 × 3 = ?", "options": ["6", "9", "12", "3"], "correct": 1},
+            {"question": "2 × 5 = ?", "options": ["7", "10", "12", "25"], "correct": 1},
+            {"question": "4 × 2 = ?", "options": ["6", "8", "10", "4"], "correct": 1},
+            {"question": "गुणा का परिणाम क्या कहलाता है?", "options": ["योग", "अंतर", "गुणनफल", "भागफल"], "correct": 2}
+          ]
+        }
+      ]
+    }
+  ]
+}

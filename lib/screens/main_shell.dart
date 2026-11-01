@@ -30,7 +30,7 @@ class MainShell extends StatefulWidget {
   State<MainShell> createState() => _MainShellState();
 }
 
-class _MainShellState extends State<MainShell> {
+class _MainShellState extends State<MainShell> with WidgetsBindingObserver {
   int _index = 1;
   bool _activeTabAtRoot = true;
 
@@ -49,9 +49,33 @@ class _MainShellState extends State<MainShell> {
   ];
 
   @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
     _pageController.dispose();
     super.dispose();
+  }
+
+  // Backgrounding the app mid-swipe (a notification, the home gesture, the
+  // screen locking) pauses the engine's ticker while the PageView is still
+  // between pages — its ballistic settle animation never gets to finish, so
+  // on resume the scroll position is left at a fractional page value
+  // forever (verified on-device: a sliver of the neighbouring tab stays
+  // visibly bled in at the edge until some other navigation forces a fresh
+  // animateToPage). Re-snap to the current tab whenever the app comes back.
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state != AppLifecycleState.resumed) return;
+    if (!_pageController.hasClients) return;
+    final page = _pageController.page;
+    if (page != null && (page - _index).abs() > 0.001) {
+      _pageController.jumpToPage(_index);
+    }
   }
 
   void _onRootChanged(int tabIndex, bool atRoot) {
@@ -72,6 +96,12 @@ class _MainShellState extends State<MainShell> {
   void _onTabTapped(int index) {
     if (index == _index) {
       _navigatorKeys[index].currentState?.popUntil((route) => route.isFirst);
+      // Defensive re-snap — see didChangeAppLifecycleState's doc comment for
+      // why the PageView can otherwise be stuck at a fractional page.
+      final page = _pageController.hasClients ? _pageController.page : null;
+      if (page != null && (page - index).abs() > 0.001) {
+        _pageController.jumpToPage(index);
+      }
     } else {
       _pageController.animateToPage(
         index,

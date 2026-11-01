@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../data/dictionary_data.dart';
 import '../l10n/app_strings.dart';
-import '../services/tts/santali_tts_service.dart';
+import '../services/inference_isolate.dart';
 import '../theme/app_colors.dart';
 
 class DictionaryScreen extends StatefulWidget {
@@ -47,7 +47,7 @@ class _DictionaryScreenState extends State<DictionaryScreen> {
     if (_speakingSantali == entry.santali) return;
     setState(() => _speakingSantali = entry.santali);
     try {
-      final wav = await SantaliTtsService.instance.synthesizeWav(entry.santali);
+      final wav = await InferenceIsolate.instance.speakSantali(entry.santali);
       await _audioPlayer.play(BytesSource(wav, mimeType: 'audio/wav'));
     } catch (e) {
       if (mounted) {

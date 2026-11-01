@@ -400,6 +400,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.3.0"
+  piper_phonemize:
+    dependency: "direct main"
+    description:
+      name: piper_phonemize
+      sha256: "3271ea2cc1edd2385ec448cf9273b84c599c8f6937ca86488f5e5a2e7f1b9e2d"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.4.11"
   platform:
     dependency: transitive
     description:

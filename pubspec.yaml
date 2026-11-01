@@ -41,6 +41,7 @@ dependencies:
   audioplayers: ^6.1.0
   flutter_tts: ^4.2.0
   shared_preferences: ^2.3.3
+  piper_phonemize: ^1.4.11
 
 dependency_overrides:
   # path_provider_foundation's recent versions moved to Objective-C interop
@@ -91,6 +92,8 @@ flutter:
     - assets/models/mt/generation_config.json
     - assets/models/tts/sat_piper_model.onnx
     - assets/models/tts/sat_piper_model.onnx.json
+    - assets/models/tts/hi_IN-pratham-medium.onnx
+    - assets/models/tts/hi_IN-pratham-medium.onnx.json
 
 flutter_launcher_icons:
   android: true
