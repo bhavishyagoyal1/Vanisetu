@@ -38,6 +38,32 @@ class AppStrings {
       'speak': 'Speak',
       'copy': 'Copy',
 
+      'source_label': 'Source',
+      'target_label': 'Target',
+      'speech_in_asr': 'Speech In (ASR)',
+      'tap_to_speak': 'Tap to Speak',
+      'listening_tap_to_stop': 'Listening… tap to stop',
+      'cleaned_asr': 'Cleaned ASR',
+      'cleaned_asr_explained':
+          'The recogniser emitted Latin letters or digits; they were rewritten into Devanagari before translating.',
+      'classroom_prompts': 'Classroom Prompts',
+      'view_all_n': 'View All ({n})',
+      'santali_voice_tts': 'Santali Voice TTS',
+      'hindi_voice_tts': 'Hindi Voice',
+
+      'role_question': 'Who are you?',
+      'role_subtitle':
+          'We use this to show the right study material for each chapter.',
+      'role_teacher': 'Teacher',
+      'role_teacher_subtitle': 'Worksheets, flashcards, and answer keys',
+      'role_student': 'Student',
+      'role_student_subtitle': 'Flashcards and practice quizzes',
+      'role_change_hint': 'You can change this later in Settings.',
+      'role_label': 'I am a',
+      'role_description':
+          'Decides which study material a chapter offers. It does not lock anything — you can switch at any time.',
+      'answer_key': 'Answer key',
+
       'settings_title': 'Settings',
       'app_language_label': 'App language',
       'app_language_description':
@@ -94,6 +120,32 @@ class AppStrings {
       'unexpected_error': 'अनपेक्षित त्रुटि: {error}',
       'speak': 'बोलें',
       'copy': 'कॉपी करें',
+
+      'source_label': 'स्रोत',
+      'target_label': 'लक्ष्य',
+      'speech_in_asr': 'बोलकर लिखें (ASR)',
+      'tap_to_speak': 'बोलने के लिए दबाएँ',
+      'listening_tap_to_stop': 'सुन रहे हैं… रोकने के लिए दबाएँ',
+      'cleaned_asr': 'साफ़ किया गया',
+      'cleaned_asr_explained':
+          'पहचान में अंग्रेज़ी अक्षर या अंक आए थे; अनुवाद से पहले उन्हें देवनागरी में बदला गया।',
+      'classroom_prompts': 'कक्षा के वाक्य',
+      'view_all_n': 'सभी देखें ({n})',
+      'santali_voice_tts': 'संताली आवाज़',
+      'hindi_voice_tts': 'हिंदी आवाज़',
+
+      'role_question': 'आप कौन हैं?',
+      'role_subtitle':
+          'इससे हम हर अध्याय के लिए सही अध्ययन सामग्री दिखाते हैं।',
+      'role_teacher': 'शिक्षक',
+      'role_teacher_subtitle': 'वर्कशीट, फ्लैशकार्ड और उत्तर कुंजी',
+      'role_student': 'विद्यार्थी',
+      'role_student_subtitle': 'फ्लैशकार्ड और अभ्यास प्रश्नोत्तरी',
+      'role_change_hint': 'आप इसे बाद में सेटिंग्स में बदल सकते हैं।',
+      'role_label': 'मैं हूँ',
+      'role_description':
+          'तय करता है कि अध्याय में कौन सी अध्ययन सामग्री दिखे। यह कुछ भी बंद नहीं करता — आप कभी भी बदल सकते हैं।',
+      'answer_key': 'उत्तर कुंजी',
 
       'settings_title': 'सेटिंग्स',
       'app_language_label': 'ऐप की भाषा',

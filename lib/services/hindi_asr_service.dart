@@ -10,6 +10,7 @@ import 'package:sherpa_onnx/sherpa_onnx.dart' as sherpa_onnx;
 
 import 'asr/audio_conditioner.dart';
 import 'asr/hindi_text_normalizer.dart';
+import 'model_assets.dart';
 
 /// Wraps the offline betterflow Hindi/Hinglish streaming CTC ASR model
 /// (see `models/ASR Model/HANDOFF.md`) for use in the app.
@@ -39,6 +40,15 @@ class HindiAsrService {
   sherpa_onnx.OnlineRecognizer? _recognizer;
   sherpa_onnx.OnlineStream? _stream;
   AudioConditioner? _conditioner;
+
+  String? _lastRawTranscript;
+
+  /// The recognizer's own output for the last committed transcript, before
+  /// [normalizeTranscript] rewrote it — exposed so the UI can tell the user
+  /// when cleaning actually happened (see `transcriptWasCleaned`). Null until
+  /// a session commits text, and cleared when a new one starts.
+  String? get lastRawTranscript => _lastRawTranscript;
+
   final AudioRecorder _recorder = AudioRecorder();
   StreamSubscription<Uint8List>? _micSubscription;
 
@@ -84,9 +94,19 @@ class HindiAsrService {
           await encoderFile.length() != _encoderByteSize) {
         debugPrint('HindiAsrService: extracting encoder asset…');
         final data = await rootBundle.load(_encoderAssetPath);
-        await encoderFile.writeAsBytes(
-          data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes),
+        final bytes = data.buffer.asUint8List(
+          data.offsetInBytes,
+          data.lengthInBytes,
         );
+        // Before the path reaches sherpa-onnx: a Git LFS pointer here is
+        // parsed in C++ and aborts the process, taking the whole app down
+        // with nothing catchable in Dart. See model_assets.dart.
+        verifyModelAsset(
+          name: _encoderAssetPath,
+          bytes: bytes,
+          expectedBytes: _encoderByteSize,
+        );
+        await encoderFile.writeAsBytes(bytes);
       }
       if (!await tokensFile.exists()) {
         final data = await rootBundle.load(_tokensAssetPath);
@@ -98,9 +118,12 @@ class HindiAsrService {
       final vadFile = File('${modelDir.path}/silero_vad.onnx');
       if (!await vadFile.exists()) {
         final data = await rootBundle.load(_vadAssetPath);
-        await vadFile.writeAsBytes(
-          data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes),
+        final bytes = data.buffer.asUint8List(
+          data.offsetInBytes,
+          data.lengthInBytes,
         );
+        verifyModelAsset(name: _vadAssetPath, bytes: bytes);
+        await vadFile.writeAsBytes(bytes);
       }
       _conditioner = AudioConditioner(vadModelPath: vadFile.path);
 
@@ -279,6 +302,7 @@ class HindiAsrService {
   Future<String?> stopListening() async {
     if (!_listening) return null;
     _listening = false;
+    _lastRawTranscript = null;
 
     await _micSubscription?.cancel();
     _micSubscription = null;
@@ -303,7 +327,10 @@ class HindiAsrService {
       final heardSpeech = _conditioner?.sawSpeech ?? _sawRealAudio;
       if (heardSpeech) {
         final normalized = normalizeTranscript(raw);
-        if (normalized.isNotEmpty) finalText = normalized;
+        if (normalized.isNotEmpty) {
+          finalText = normalized;
+          _lastRawTranscript = raw;
+        }
       } else if (raw.isNotEmpty) {
         debugPrint('HindiAsrService: discarding "$raw" — no speech detected');
       }

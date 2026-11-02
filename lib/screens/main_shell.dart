@@ -174,6 +174,12 @@ class _RootTrackingObserver extends NavigatorObserver {
   void didRemove(Route route, Route? previousRoute) => _report();
 }
 
+/// Flat bar with a hairline top edge; the active destination lifts into a
+/// filled circle that breaks above that edge.
+///
+/// The lift is a Transform, not extra layout height — a raised circle that
+/// actually grew the row would overflow the bar on a small phone, which is
+/// exactly what the previous floating-card version did at 320px.
 class _BottomNavBar extends StatelessWidget {
   const _BottomNavBar({required this.index, required this.onChanged});
 
@@ -182,48 +188,37 @@ class _BottomNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Container(
-        // Tall enough for the featured item's bigger 56px circle + label —
-        // the non-featured items (40px circle) fit with room to spare.
-        height: 80,
-        margin: const EdgeInsets.fromLTRB(16, 0, 16, 10),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(24),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withValues(alpha: 0.08),
-              blurRadius: 16,
-              offset: const Offset(0, 6),
-            ),
-          ],
-        ),
-        child: Row(
-          children: [
-            _NavItem(
-              icon: Icons.auto_stories_rounded,
-              label: tr(context, 'nav_curriculum'),
-              color: AppColors.orange,
-              selected: index == 0,
-              onTap: () => onChanged(0),
-            ),
-            _NavItem(
-              icon: Icons.translate_rounded,
-              label: tr(context, 'nav_translate'),
-              color: AppColors.teal,
-              selected: index == 1,
-              featured: true,
-              onTap: () => onChanged(1),
-            ),
-            _NavItem(
-              icon: Icons.menu_book_rounded,
-              label: tr(context, 'nav_dictionary'),
-              color: AppColors.navy,
-              selected: index == 2,
-              onTap: () => onChanged(2),
-            ),
-          ],
+    return DecoratedBox(
+      decoration: const BoxDecoration(
+        color: Colors.white,
+        border: Border(top: BorderSide(color: Color(0xFFE6EAF0))),
+      ),
+      child: SafeArea(
+        top: false,
+        child: SizedBox(
+          height: 64,
+          child: Row(
+            children: [
+              _NavItem(
+                icon: Icons.menu_book_outlined,
+                label: tr(context, 'nav_curriculum'),
+                selected: index == 0,
+                onTap: () => onChanged(0),
+              ),
+              _NavItem(
+                icon: Icons.translate_rounded,
+                label: tr(context, 'nav_translate'),
+                selected: index == 1,
+                onTap: () => onChanged(1),
+              ),
+              _NavItem(
+                icon: Icons.account_balance_outlined,
+                label: tr(context, 'nav_dictionary'),
+                selected: index == 2,
+                onTap: () => onChanged(2),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -234,61 +229,64 @@ class _NavItem extends StatelessWidget {
   const _NavItem({
     required this.icon,
     required this.label,
-    required this.color,
     required this.selected,
     required this.onTap,
-    this.featured = false,
   });
 
   final IconData icon;
   final String label;
-  final Color color;
   final bool selected;
-  final bool featured;
   final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
-    final iconSize = featured ? 30.0 : 22.0;
-    final boxSize = featured ? 56.0 : 40.0;
-
     return Expanded(
       child: InkWell(
         onTap: onTap,
-        borderRadius: BorderRadius.circular(24),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
           children: [
-            AnimatedContainer(
-              duration: const Duration(milliseconds: 200),
-              width: boxSize,
-              height: boxSize,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: selected ? color : color.withValues(alpha: 0.1),
-                boxShadow: featured && selected
-                    ? [
-                        BoxShadow(
-                          color: color.withValues(alpha: 0.4),
-                          blurRadius: 12,
-                          offset: const Offset(0, 4),
-                        ),
-                      ]
-                    : null,
-              ),
-              child: Icon(
-                icon,
-                size: iconSize,
-                color: selected ? Colors.white : color,
+            Transform.translate(
+              offset: Offset(0, selected ? -10 : 0),
+              child: AnimatedContainer(
+                duration: const Duration(milliseconds: 200),
+                width: selected ? 46 : 32,
+                height: selected ? 46 : 32,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: selected ? AppColors.teal : Colors.transparent,
+                  boxShadow: selected
+                      ? [
+                          BoxShadow(
+                            color: AppColors.teal.withValues(alpha: 0.35),
+                            blurRadius: 14,
+                            offset: const Offset(0, 5),
+                          ),
+                        ]
+                      : null,
+                ),
+                child: Icon(
+                  icon,
+                  size: selected ? 24 : 23,
+                  color: selected ? Colors.white : Colors.grey[500],
+                ),
               ),
             ),
-            const SizedBox(height: 4),
-            Text(
-              label,
-              style: TextStyle(
-                fontSize: 11,
-                fontWeight: selected ? FontWeight.w700 : FontWeight.w500,
-                color: selected ? color : Colors.grey[500],
+            Transform.translate(
+              offset: Offset(0, selected ? -6 : 4),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 4),
+                child: Text(
+                  label,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontSize: 11.5,
+                    fontWeight: selected ? FontWeight.w700 : FontWeight.w500,
+                    color: selected ? AppColors.teal : Colors.grey[500],
+                  ),
+                ),
               ),
             ),
           ],

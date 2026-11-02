@@ -389,9 +389,29 @@ String normalizeTranscript(String text) {
     _digitRun,
     (m) => _spellDigitRun(m.group(0)!),
   );
-  result = result.replaceAll(_whitespace, ' ').trim();
+  return _tidy(result);
+}
+
+/// Collapses whitespace and gives the sentence a final danda. Shared so that
+/// [transcriptWasCleaned] can tell this cosmetic tidying apart from the
+/// script rewrite that precedes it.
+String _tidy(String text) {
+  var result = text.replaceAll(_whitespace, ' ').trim();
   if (result.isNotEmpty && !_terminators.contains(result[result.length - 1])) {
     result += '।';
   }
   return result;
+}
+
+/// Whether [normalizeTranscript] materially rewrites [raw] — transliterating
+/// a Latin run or spelling out digits — as opposed to only tidying spacing
+/// and punctuation.
+///
+/// Drives the Translate screen's "Cleaned ASR" badge, which claims the
+/// transcript was pulled back into `hin_Deva`; appending a danda is not that,
+/// so this stays false for it.
+bool transcriptWasCleaned(String raw) {
+  if (raw.trim().isEmpty) return false;
+  if (isHallucinated(raw)) return false;
+  return normalizeTranscript(raw) != _tidy(raw);
 }
