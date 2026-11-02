@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'main_shell.dart';
+import '../role/app_role.dart';
+import '../services/hindi_asr_service.dart';
+import 'role_selection_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -72,17 +74,40 @@ class _SplashScreenState extends State<SplashScreen>
     )..repeat();
 
     _entranceController.forward();
-    _navigateAfterDelay();
+    // Overlaps the ASR model's multi-second first-use load (asset
+    // extraction + recognizer build) with the splash screen's own display
+    // time, so it's normally already resident by the time the user reaches
+    // Translate and taps the mic, instead of starting cold then.
+    _navigateAfterDelay(HindiAsrService.instance.prewarm());
   }
 
-  Future<void> _navigateAfterDelay() async {
-    await Future.delayed(const Duration(milliseconds: 2600));
+  Future<void> _navigateAfterDelay(Future<void> prewarm) async {
+    const minSplashTime = Duration(milliseconds: 2600);
+    // A real low-RAM device can take noticeably longer than this session's
+    // desktop-class dev hardware to extract + build the recognizer — long
+    // enough that the fixed splash delay used to elapse first, so the mic
+    // still showed "Loading speech model…" for a while on the first tap
+    // anyway. Hold the splash screen for the model too, but only up to this
+    // much extra: prewarm() already swallows its own errors and just lets
+    // startListening() retry later, so this is purely a safety cap against
+    // it simply running long, not against it throwing.
+    const maxExtraWait = Duration(milliseconds: 4000);
+
+    final roleController = AppRoleScope.read(context);
+    // The stored role is loaded in parallel with the splash delay — not to
+    // decide where to go (the role screen always follows the logo) but so
+    // that screen can mark the role already in use.
+    await Future.wait([
+      Future.delayed(minSplashTime),
+      prewarm.timeout(minSplashTime + maxExtraWait, onTimeout: () {}),
+      roleController.load(),
+    ]);
     if (!mounted) return;
+    const next = RoleSelectionScreen();
     Navigator.of(context).pushReplacement(
       PageRouteBuilder(
         transitionDuration: const Duration(milliseconds: 600),
-        pageBuilder: (context, animation, secondaryAnimation) =>
-            const MainShell(),
+        pageBuilder: (context, animation, secondaryAnimation) => next,
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           final curved = CurvedAnimation(
             parent: animation,

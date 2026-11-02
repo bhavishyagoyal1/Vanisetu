@@ -6,6 +6,8 @@ import 'package:flutter/foundation.dart' show debugPrint;
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:onnxruntime/onnxruntime.dart';
 import 'package:path_provider/path_provider.dart';
+
+import '../model_assets.dart';
 import 'package:piper_phonemize/piper_phonemize.dart' as piper;
 
 /// Offline Hindi text-to-speech using a Piper (VITS) ONNX voice model — see
@@ -48,6 +50,19 @@ class HindiTtsService {
   bool _initializing = false;
   bool get isReady => _session != null;
 
+  /// Copies the bundled voice and its config to disk.
+  ///
+  /// **Root isolate only** — see [extractModelAssets]. [InferenceIsolate]
+  /// calls this before dispatching any synthesis.
+  Future<void> prepareAssets() async {
+    final supportDir = await getApplicationSupportDirectory();
+    await extractModelAssets(
+      bundle: rootBundle,
+      targetDir: Directory('${supportDir.path}/hindi_tts_model'),
+      assetKeys: [_modelAsset, _configAsset],
+    );
+  }
+
   Future<void> _ensureInitialized() async {
     if (isReady) return;
     if (_initializing) {
@@ -75,18 +90,22 @@ class HindiTtsService {
         await modelDir.create(recursive: true);
       }
 
+      // Read-only from here — [prepareAssets] put both files in place on the
+      // root isolate. rootBundle is unreachable on the inference isolate:
+      // there is no ServicesBinding there.
       final modelFile = File('${modelDir.path}/hi_IN-pratham-medium.onnx');
-      if (!await modelFile.exists()) {
-        debugPrint('HindiTtsService: extracting model asset…');
-        final data = await rootBundle.load(_modelAsset);
-        await modelFile.writeAsBytes(
-          data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes),
+      final configFile = File(
+        '${modelDir.path}/hi_IN-pratham-medium.onnx.json',
+      );
+      if (!await modelFile.exists() || !await configFile.exists()) {
+        throw StateError(
+          'HindiTtsService assets were not extracted before use. InferenceIsolate must '
+          'call prepareAssets() on the root isolate first.',
         );
       }
 
       final config =
-          jsonDecode(await rootBundle.loadString(_configAsset))
-              as Map<String, dynamic>;
+          jsonDecode(await configFile.readAsString()) as Map<String, dynamic>;
       final rawIdMap = config['phoneme_id_map'] as Map<String, dynamic>;
       _phonemeIdMap = {
         for (final entry in rawIdMap.entries)

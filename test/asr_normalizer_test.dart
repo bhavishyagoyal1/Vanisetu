@@ -12,6 +12,8 @@ import 'package:vaanisetu/services/asr/hindi_text_normalizer.dart';
 /// suites pass, the two implementations agree — which is the only thing
 /// stopping them drifting apart as the lexicon grows.
 void main() {
+  _cleanedBadgeContract();
+
   group('shared contract', () {
     late List<dynamic> cases;
 
@@ -22,8 +24,9 @@ void main() {
         isTrue,
         reason: 'shared cases file missing — run from the package root',
       );
-      cases = (jsonDecode(file.readAsStringSync())
-          as Map<String, dynamic>)['cases'] as List<dynamic>;
+      cases =
+          (jsonDecode(file.readAsStringSync()) as Map<String, dynamic>)['cases']
+              as List<dynamic>;
       expect(cases, isNotEmpty);
     });
 
@@ -91,6 +94,36 @@ void main() {
         // These are already clean Devanagari, so any edit is a false positive.
         expect(normalizeTranscript(sentence), sentence, reason: sentence);
       }
+    });
+  });
+}
+
+/// Drives the "Cleaned ASR" badge on the Translate screen: it appears only
+/// when normalization actually rewrote what the recognizer emitted, so it
+/// reports a real transformation rather than decorating every transcript.
+void _cleanedBadgeContract() {
+  group('transcriptWasCleaned', () {
+    test('is false for text the normalizer leaves alone', () {
+      expect(transcriptWasCleaned('बच्चों, अपनी किताब खोलो।'), isFalse);
+    });
+
+    test('is true when a Latin run is transliterated away', () {
+      expect(transcriptWasCleaned('मैं एक नया model बना रहा हूं'), isTrue);
+    });
+
+    test('is true when ASCII digits are spelled out', () {
+      expect(transcriptWasCleaned('पृष्ठ 14 खोलो'), isTrue);
+    });
+
+    test('is false when normalization only tidied punctuation', () {
+      // The normalizer appends a sentence-final danda and collapses spaces.
+      // That is not "cleaning" in the sense the badge claims — the script
+      // was already right — so it must not light up.
+      expect(transcriptWasCleaned('बच्चों  ध्यान से सुनो'), isFalse);
+    });
+
+    test('is false for empty input', () {
+      expect(transcriptWasCleaned(''), isFalse);
     });
   });
 }

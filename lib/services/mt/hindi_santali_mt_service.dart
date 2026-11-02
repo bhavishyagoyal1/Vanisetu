@@ -8,6 +8,7 @@ import 'package:onnxruntime/onnxruntime.dart';
 import 'package:path_provider/path_provider.dart';
 
 import 'bpe_tokenizer.dart';
+import '../model_assets.dart';
 import 'indic_preprocessor.dart';
 
 /// Offline Hindi <-> Santali (Ol Chiki) neural machine translation, using the
@@ -76,6 +77,20 @@ class HindiSantaliMtService {
 
   final _preprocessor = IndicPreprocessor();
 
+  /// Copies the bundled model files to disk.
+  ///
+  /// **Root isolate only** — it reads the asset bundle, which needs a
+  /// ServicesBinding. [InferenceIsolate] calls this before it dispatches any
+  /// translation, so the worker isolate only ever opens files.
+  Future<void> prepareAssets() async {
+    final supportDir = await getApplicationSupportDirectory();
+    await extractModelAssets(
+      bundle: rootBundle,
+      targetDir: Directory('${supportDir.path}/mt_model'),
+      assetKeys: [for (final name in _assetFiles) '$_assetDir/$name'],
+    );
+  }
+
   Future<void> _ensureInitialized() async {
     if (isReady) return;
     if (_initializing) {
@@ -94,17 +109,21 @@ class HindiSantaliMtService {
         await modelDir.create(recursive: true);
       }
 
+      // Read-only from here: the files are put in place by [prepareAssets],
+      // which runs on the root isolate. Touching rootBundle here would throw
+      // "Binding has not yet been initialized", because this runs on the
+      // inference isolate where no ServicesBinding exists.
       final paths = <String, String>{};
       for (final name in _assetFiles) {
         final file = File('${modelDir.path}/$name');
-        paths[name] = file.path;
         if (!await file.exists()) {
-          debugPrint('HindiSantaliMtService: extracting $name…');
-          final data = await rootBundle.load('$_assetDir/$name');
-          await file.writeAsBytes(
-            data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes),
+          throw StateError(
+            'MT asset $name was not extracted before use. '
+            'InferenceIsolate must call prepareAssets() on the root isolate '
+            'first — see model_assets.dart.',
           );
         }
+        paths[name] = file.path;
       }
 
       _srcTokenizer = BpeTokenizer.fromJson(

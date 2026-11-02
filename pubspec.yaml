@@ -51,6 +51,13 @@ dependency_overrides:
   # hook), which this machine's user directory does. We only target
   # Android, so pin path_provider_foundation to the last pre-hook release.
   path_provider_foundation: 2.4.1
+  # Vendored, patched copy of onnxruntime 1.4.1 — the pub.dev release's
+  # Windows support is broken (stale bundled DLL + wrong string encoding
+  # in OrtSession.fromFile()), with no newer version available to upgrade
+  # to. See third_party/onnxruntime_dart/LOCAL_PATCHES.md for the full
+  # story and exactly what's changed.
+  onnxruntime:
+    path: third_party/onnxruntime_dart
 
 dev_dependencies:
   flutter_test:
