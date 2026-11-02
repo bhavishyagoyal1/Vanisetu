@@ -12,3 +12,6 @@ models/SantaliVoice/model/*.onnx filter=lfs diff=lfs merge=lfs -text
 # Source/provenance copy of the bundled Hindi Piper TTS voice (63MB), same
 # reasoning as models/SantaliVoice/model above.
 models/HindiTTS/model/*.onnx filter=lfs diff=lfs merge=lfs -text
+
+# README demo video (86MB, over GitHub's 50MB recommended limit).
+docs/*.mp4 filter=lfs diff=lfs merge=lfs -text
