@@ -53,9 +53,9 @@ teacher can use directly in the classroom.
  
 <video src="[[https://raw.githubusercontent.com/samarthverma4/VaaniSetu/main/docs/0911.mp4](https://youtu.be/_iSc7zdFXjc)](https://youtu.be/_iSc7zdFXjc)z" controls width="720">
   Your viewer doesn't render inline video — watch it directly:
-  https://raw.githubusercontent.com/samarthverma4/VaaniSetu/main/docs/0911.mp4
+  [https://raw.githubusercontent.com/samarthverma4/VaaniSetu/main/docs/0911.mp4](https://youtu.be/_iSc7zdFXjc)
 </video>
-[Watch the demo video directly](https://raw.githubusercontent.com/samarthverma4/VaaniSetu/main/docs/0911.mp4)
+[Watch the demo video directly]([https://raw.githubusercontent.com/samarthverma4/VaaniSetu/main/docs/0911.mp4](https://youtu.be/_iSc7zdFXjc))
  
 > The video is tracked with Git LFS (`docs/0911.mp4`). If it doesn't render inline
 > on your platform, use the link above — GitHub will serve the raw file instead of
