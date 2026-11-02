@@ -72,7 +72,7 @@ flowchart TD
     MT -->|"Santali (Ol Chiki) text"| TransOut["Translate Screen output"]
     MT --> SatTTS["Santali TTS\nPiper (VITS)"]
     Shell -->|"Dictionary tab"| SatTTS
-    Shell -->|"Curriculum tab"| Curriculum["Class 1-5 chapters\n+ worksheets, flashcards, assessments"]
+    Shell -->|"Curriculum tab"| Curriculum["Class 1-5 chapters\n+ worksheets, flashcards"]
     SatTTS --> Speaker(("Speaker"))
  
     subgraph OnDevice["Runs fully on-device — zero network calls"]
