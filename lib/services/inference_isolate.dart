@@ -57,6 +57,25 @@ class InferenceIsolate {
   Completer<void>? _starting;
   bool _hindiAssetsPrewarmed = false;
 
+  Future<void>? _mtAssets;
+  Future<void>? _santaliAssets;
+  Future<void>? _hindiTtsAssets;
+
+  // Asset extraction happens here, on whichever isolate calls in — normally
+  // the root one — and never inside the worker. The worker has no
+  // ServicesBinding, so rootBundle there throws "Binding has not yet been
+  // initialized"; BackgroundIsolateBinaryMessenger.ensureInitialized wires
+  // up plugin channels but creates no binding. Memoized per service so the
+  // cost is one stat per file after the first call.
+  Future<void> _prepareMtAssets() =>
+      _mtAssets ??= HindiSantaliMtService.instance.prepareAssets();
+
+  Future<void> _prepareSantaliAssets() =>
+      _santaliAssets ??= SantaliTtsService.instance.prepareAssets();
+
+  Future<void> _prepareHindiAssets() =>
+      _hindiTtsAssets ??= HindiTtsService.instance.prepareAssets();
+
   Future<void> _ensureStarted() async {
     if (_sendPort != null) return;
     final starting = _starting;
@@ -84,16 +103,23 @@ class InferenceIsolate {
     return completer.future;
   }
 
-  Future<String> translateToSantali(String text) =>
-      _requestText(_Op.translateToSantali, text);
+  Future<String> translateToSantali(String text) async {
+    await _prepareMtAssets();
+    return _requestText(_Op.translateToSantali, text);
+  }
 
-  Future<String> translateToHindi(String text) =>
-      _requestText(_Op.translateToHindi, text);
+  Future<String> translateToHindi(String text) async {
+    await _prepareMtAssets();
+    return _requestText(_Op.translateToHindi, text);
+  }
 
-  Future<Uint8List> speakSantali(String text) =>
-      _requestWav(_Op.speakSantali, text);
+  Future<Uint8List> speakSantali(String text) async {
+    await _prepareSantaliAssets();
+    return _requestWav(_Op.speakSantali, text);
+  }
 
   Future<Uint8List> speakHindi(String text) async {
+    await _prepareHindiAssets();
     if (!_hindiAssetsPrewarmed) {
       // extractEspeakNgData() does ~190 rapid, sequential rootBundle.load()
       // calls to unpack espeak-ng's data files. Doing that for the first
