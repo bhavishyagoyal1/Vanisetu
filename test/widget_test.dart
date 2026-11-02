@@ -5,13 +5,27 @@ import 'package:vaanisetu/main.dart';
 import 'package:vaanisetu/screens/splash_screen.dart';
 
 void main() {
-  testWidgets('App starts on the splash screen', (WidgetTester tester) async {
+  testWidgets('App starts on the splash screen and advances to the shell',
+      (WidgetTester tester) async {
     await tester.pumpWidget(const VaaniSetuApp());
 
     expect(find.byType(SplashScreen), findsOneWidget);
     expect(find.byType(Image), findsOneWidget);
 
-    // Let the splash screen's navigation timer fire so it doesn't leak.
-    await tester.pumpAndSettle(const Duration(seconds: 3));
+    // Deliberately pump() rather than pumpAndSettle(): the splash runs two
+    // AnimationControllers with repeat(), which schedule frames forever, so
+    // pumpAndSettle can never settle and times out. (Its Duration argument is
+    // the frame interval, not a timeout — an easy one to misread.)
+    //
+    // The delay completes *during* the first pump, so pushReplacement only
+    // builds on the following frame - the 600ms transition therefore starts
+    // after 2600ms, not at it. Stepping frames explicitly avoids depending on
+    // a magic total. Completing the transition also disposes the splash's
+    // controllers, so they do not leak into the next test.
+    await tester.pump(const Duration(milliseconds: 2600)); // delay elapses
+    await tester.pump(); // pushReplacement builds the new route
+    await tester.pump(const Duration(milliseconds: 900)); // 600ms transition + margin
+
+    expect(find.byType(SplashScreen), findsNothing);
   });
 }
