@@ -1,16 +1,29 @@
 /// Real per-chapter study content (Worksheet / Flashcards / Assessment) for
 /// the curriculum, keyed by "Class {n}|{subject}|{chapter}".
 ///
-/// Unlike the chapter *titles* (sourced from the Jharkhand government
-/// syllabus PDF), this content has no source document — only chapter
-/// titles exist upstream. It was authored from general subject/age-level
-/// knowledge for each title, kept deliberately short and skill-focused
-/// (vocabulary, comprehension, arithmetic practice) rather than inventing
-/// specific plot/textbook details for chapters this project has no source
-/// text for. Chapters referencing real people (e.g. Birsa Munda, Albert
-/// Ekka, Mother Teresa, Dhoni) use their real, well-known biographical
-/// facts. Treat this as a best-effort offline study aid, not a verified
-/// textbook transcription.
+/// Two provenances, matching curriculum_data.dart's split:
+///
+/// - Classes 1-2 Hindi/English/Mathematics: grounded in the actual 2026
+///   edition textbook text (docs/*.pdf, Part-1 only), extracted per-chapter
+///   and used to author each chapter's worksheet/flashcards/assessment —
+///   questions reference real characters, events and vocabulary from that
+///   chapter's story/lesson, not generic filler. The PDF text extraction
+///   has a font bug (documented where the extraction script lives) that
+///   drops some conjunct letters; content authors were told to read past
+///   that rather than reproduce typos, but this pass has not been
+///   independently re-verified against the source PDFs.
+/// - Everything else (classes 3-5, and classes 1-2's own pre-2026
+///   Environmental-Studies-less other subjects if any): no source
+///   document — only chapter titles exist upstream for these. Authored
+///   from general subject/age-level knowledge for each title, kept
+///   deliberately short and skill-focused (vocabulary, comprehension,
+///   arithmetic practice) rather than inventing specific plot/textbook
+///   details this project has no source text for. Chapters referencing
+///   real people (e.g. Birsa Munda, Albert Ekka, Mother Teresa, Dhoni) use
+///   their real, well-known biographical facts.
+///
+/// Treat all of it as a best-effort offline study aid, not a
+/// native-speaker-verified or publisher-verified textbook transcription.
 library;
 
 class Flashcard {

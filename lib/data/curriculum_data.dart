@@ -1,7 +1,19 @@
-/// Curriculum data sourced from the Jharkhand School Education Department's
-/// abridged syllabus for 2021-22 (vani.pdf), classes 1-5. Only chapters kept
-/// in the "प्रस्तावित संक्षिप्त पाठ्यक्रम" column are included here — chapters
-/// marked "पूर्णतः विलोपित" / "Not Included" in the source are omitted.
+/// Curriculum data, two provenances:
+///
+/// - Classes 3-5 (all subjects) and Classes 1-2's own pre-2026 lists: the
+///   Jharkhand School Education Department's abridged syllabus for 2021-22
+///   (vani.pdf). Only chapters kept in the "प्रस्तावित संक्षिप्त पाठ्यक्रम"
+///   column are included — chapters marked "पूर्णतः विलोपित" / "Not
+///   Included" in the source are omitted.
+/// - Classes 1-2 Hindi/English/Mathematics: replaced with the JCERT 2026
+///   edition textbooks (see docs/*.pdf — "प्रथम संस्करण - अप्रैल 2026"),
+///   transcribed from each book's own lesson headings. Those textbooks are
+///   themselves only "Part-1" (JCERT splits each year into two parts); the
+///   chapter lists here cover Part-1's lessons only — Part-2 isn't
+///   available, so each of these three subject lists is an unknown amount
+///   short of the full class. The 2021-22 chapter lists these replaced had
+///   zero title overlap with the 2026 edition, confirmed chapter-by-chapter
+///   before replacing (see PR/commit history), not assumed.
 library;
 
 class Subject {
@@ -25,49 +37,39 @@ const List<ClassCurriculum> curriculumData = [
       Subject(
         name: 'Hindi',
         chapters: [
-          'मेरा गाँव',
-          'घो-घो रानी',
-          'तीन साथी',
-          'बकरी',
-          'पतंग',
-          'दो तोते',
-          'क्या है लम्बा',
-          'बिल्ली और चूहा',
-          'गाजर और टमाटर',
-          'भोला और भालू',
-          'पहेली',
-          'हाय रे दैया',
-          'नाव चली',
+          'मीरा का परिवार',
+          'अम्मा कहाँ है?',
+          'तलाश में',
+          'नीलू का घर',
+          'जब बाँधूँगा उनको राखी',
+          'ईद का चाँद',
+          'मीठे-मीठे गुलगुले',
+          'खुशी का परब-करमा',
+          'रूपा और बादल',
         ],
       ),
       Subject(
         name: 'English',
         chapters: [
-          'I Know',
-          'Myself',
-          'My Daily Routine',
-          'My Friend',
-          'My Food',
-          'My House',
-          'My Village Market',
-          'My School',
-          'My Village',
-          'My Family',
-          'My Classroom',
-          'Now I Know',
+          'All by Myself',
+          'My Toothbrush',
+          'I Like to Play',
+          'My Home',
+          'Gilli-Danda',
+          'A Little Bird',
         ],
       ),
       Subject(
         name: 'Mathematics',
         chapters: [
-          'आकृति और स्थान',
-          'संख्याएँ (1-9)',
-          'जोड़',
-          'घटाव',
-          'संख्याएँ (10 to 20)',
-          'समय',
-          'मापन',
-          'संख्याएँ (21 to 50)',
+          'मेरे आस पास',
+          'मिलते जुलते',
+          'एक, दो, तीन....गिनें',
+          'बोल भाई कितने',
+          'कोई लुढ़के कोई सरके',
+          'मईयाँ का छठवाँ जन्मदिन',
+          'छठ का दिन',
+          'दस में करें झूमर',
         ],
       ),
     ],
@@ -78,49 +80,35 @@ const List<ClassCurriculum> curriculumData = [
       Subject(
         name: 'Hindi',
         chapters: [
-          'मेरा विद्यालय',
-          'आई एक खबर',
-          'मैं भी',
-          'किसी से कहना मत',
-          'रसोई में भगदड़',
-          'नटखट बंदर',
-          'मैडम जी',
-          'गुब्बारा',
-          'सरहुल',
-          'ऊँट और सियार',
-          'हाँ जी, ना जी',
-          'बूझिए मेरा नाम',
-          'बब्बू और झब्बू',
-          'भोर भई',
-          'पंचू और चटनी',
+          'दादा जी का छाता',
+          'लालू और पीलू',
+          'मैं भी…',
+          'मेरी प्यारी दादी माँ',
+          'तिल के लड्डू',
+          'होली',
+          'मेला',
+          'उपहार बड़ा दिन का',
+          'दोस्त की मदद',
         ],
       ),
       Subject(
         name: 'English',
         chapters: [
-          'I Know',
-          'Myself',
-          'Daily Routine',
-          'Family',
-          'Daily Routine (Unit 4)',
-          'Food',
-          'House',
-          'Means of Transport',
-          'The Village Market',
+          'Somu Goes Fishing',
+          'Tara Rum Pum Pum',
+          'I Can Help',
+          "Nani's Rooftop",
+          'School Chale Hum!',
         ],
       ),
       Subject(
         name: 'Mathematics',
         chapters: [
-          'आकृति और स्थान',
-          'संख्याएँ',
-          'जोड़',
-          'घटाव',
-          'समय',
-          'मापन',
-          'मुद्रा',
-          'पैटर्न',
-          'गुणा',
+          'रंग-बिरंगी वस्तुएँ',
+          'दस का दम',
+          'जोड़े-घटाएँ',
+          'मौसम',
+          'समूह बनाएँ',
         ],
       ),
     ],

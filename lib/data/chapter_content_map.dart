@@ -1,2451 +1,1305 @@
 import 'chapter_content_data.dart';
 
 const Map<String, ChapterContent> chapterContentData = {
-  'Class 1|Hindi|मेरा गाँव': ChapterContent(
+  'Class 1|Hindi|मीरा का परिवार': ChapterContent(
     worksheet: [
-      'तुम्हारे गाँव में कौन-कौन से पेड़ मिलते हैं? किन्हीं दो के नाम लिखो।',
-      'गाँव में कौन-कौन से जानवर पाले जाते हैं? दो नाम लिखो।',
-      'तुम्हें अपने गाँव में सबसे अच्छी कौन सी जगह लगती है? क्यों?',
+      'मीरा के परिवार में कौन-कौन शामिल हैं? नाम लिखो।',
+      'आपके परिवार में कौन-कौन हैं? अपने परिवार के बारे में तीन बातें लिखो।',
+      'आप अपने चाचा या बुआ को अपनी भाषा में क्या कहते हैं?',
     ],
     flashcards: [
-      Flashcard(
-        term: 'गाँव',
-        meaning: 'छोटी बस्ती जहाँ लोग खेती करके रहते हैं',
+      Flashcard(term: 'परिवार', meaning: 'माता-पिता, भाई-बहन और अन्य सगे-सम्बन्धी जो साथ रहते हैं'),
+      Flashcard(term: 'बुआ', meaning: 'पापा की बहन'),
+      Flashcard(term: 'दादा-दादी', meaning: 'पापा या माँ के माता-पिता'),
+      Flashcard(term: 'नानी', meaning: 'माँ की माँ'),
+      Flashcard(term: 'भाई', meaning: 'परिवार में बहन का सगा लड़का भाई'),
+    ],
+    assessment: [
+      AssessmentQuestion(
+        question: 'मीरा के छोटे भाई का नाम क्या है?',
+        options: ['सोहन', 'नमन', 'मोहन', 'रोहन'],
+        correctIndex: 1,
       ),
-      Flashcard(term: 'खेत', meaning: 'वह जगह जहाँ फसल उगाई जाती है'),
+      AssessmentQuestion(
+        question: 'बुआ किसकी बहन होती है?',
+        options: ['माँ की', 'पापा की', 'दादी की', 'चाचा की'],
+        correctIndex: 1,
+      ),
+      AssessmentQuestion(
+        question: 'कहानी में मीरा किन-किन के साथ रहती है?',
+        options: ['सिर्फ माँ-पापा के साथ', 'माँ, पापा, भाई, बुआ, दादा-दादी के साथ', 'सिर्फ भाई के साथ', 'सिर्फ दादा-दादी के साथ'],
+        correctIndex: 1,
+      ),
+    ],
+  ),
+  'Class 1|Hindi|अम्मा कहाँ है?': ChapterContent(
+    worksheet: [
+      'बच्चे ने अम्मा को कहाँ-कहाँ ढूँढा? किन्हीं तीन जगहों के नाम लिखो।',
+      'आपकी अम्मा (माँ) जब घर पर नहीं होतीं, तो आप उन्हें कहाँ-कहाँ ढूँढते हैं?',
+      'जब बच्चे को अम्मा मिल गईं, तो उसने उनसे क्या माँगा?',
+    ],
+    flashcards: [
+      Flashcard(term: 'छत', meaning: 'घर के सबसे ऊपर का खुला हिस्सा'),
+      Flashcard(term: 'दुकान', meaning: 'जहाँ चीजें खरीदी-बेची जाती हैं'),
       Flashcard(term: 'कुआँ', meaning: 'पानी निकालने की जगह'),
-      Flashcard(term: 'पेड़', meaning: 'बड़ा पौधा जो छाया और फल देता है'),
-      Flashcard(term: 'किसान', meaning: 'खेती करने वाला व्यक्ति'),
+      Flashcard(term: 'नाश्ता', meaning: 'सुबह का हल्का भोजन'),
+      Flashcard(term: 'चापाकल', meaning: 'पानी निकालने का हैंडपंप'),
     ],
     assessment: [
       AssessmentQuestion(
-        question: 'फसल कहाँ उगाई जाती है?',
-        options: ['घर में', 'खेत में', 'बाज़ार में', 'स्कूल में'],
+        question: 'अम्मा को ढूँढते-ढूँढते थक जाने पर बच्चे ने क्या माँगा?',
+        options: ['पानी', 'नाश्ता', 'खिलौना', 'किताब'],
         correctIndex: 1,
       ),
       AssessmentQuestion(
-        question: 'खेती करने वाले व्यक्ति को क्या कहते हैं?',
-        options: ['डॉक्टर', 'किसान', 'शिक्षक', 'दर्जी'],
+        question: 'जब बच्चे ने अम्मा को पाया, तब अम्मा गाय को क्या दे रही थीं?',
+        options: ['पानी', 'खाना', 'दूध', 'घास काटकर'],
         correctIndex: 1,
       ),
       AssessmentQuestion(
-        question: 'गाँव में पानी कहाँ से मिलता था?',
-        options: ['कुआँ', 'टीवी', 'मोबाइल', 'किताब'],
+        question: 'कहानी में बच्चे ने अम्मा को कहाँ नहीं ढूँढा?',
+        options: ['पेड़ पर', 'छत पर', 'कुएँ पर', 'दुकान पर'],
         correctIndex: 0,
       ),
     ],
   ),
-  'Class 1|Hindi|घो-घो रानी': ChapterContent(
+  'Class 1|Hindi|तलाश में': ChapterContent(
     worksheet: [
-      '"घो-घो रानी" एक खेल-गीत है। तुम कौन सा खेल खेलना पसंद करते हो?',
-      'इस तरह की कविताओं में शब्द बार-बार क्यों दोहराए जाते हैं?',
-      'अपने दोस्तों के साथ खेले जाने वाले किसी एक खेल का नाम लिखो।',
+      'दादी किसकी तलाश में थीं?',
+      'इस कविता में एक-दूसरे को ढूँढने वाले सब लोगों के नाम लिखो।',
+      'अगर आपके घर में कोई आपको न दिखे, तो आप उन्हें सबसे पहले कहाँ ढूँढेंगे?',
     ],
     flashcards: [
-      Flashcard(term: 'रानी', meaning: 'राजा की पत्नी, या खेल में एक पात्र'),
-      Flashcard(term: 'घेरा', meaning: 'गोल आकार में बना घूमने का स्थान'),
-      Flashcard(term: 'खेल', meaning: 'मनोरंजन के लिए की जाने वाली गतिविधि'),
-      Flashcard(term: 'गीत', meaning: 'गाने के लिए बनी रचना'),
-      Flashcard(term: 'दोस्त', meaning: 'साथ खेलने वाला साथी'),
+      Flashcard(term: 'तलाश', meaning: 'किसी को या किसी चीज़ को ढूँढना'),
+      Flashcard(term: 'पोती', meaning: 'बेटे की बेटी'),
+      Flashcard(term: 'दादा', meaning: 'पिता के पिता'),
+      Flashcard(term: 'नानी', meaning: 'माँ की माँ'),
+      Flashcard(term: 'मामा', meaning: 'माँ का भाई'),
     ],
     assessment: [
       AssessmentQuestion(
-        question: '"घो-घो रानी" कैसी रचना है?',
-        options: ['कहानी', 'खेल-गीत', 'पत्र', 'निबंध'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'खेल किसके साथ खेला जाता है?',
-        options: ['अकेले', 'दोस्तों के साथ', 'सोकर', 'पढ़कर'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'गीत गाने में कैसा महसूस होता है?',
-        options: ['उदास', 'आनंद', 'डर', 'गुस्सा'],
-        correctIndex: 1,
-      ),
-    ],
-  ),
-  'Class 1|Hindi|तीन साथी': ChapterContent(
-    worksheet: [
-      'तीन साथियों की कहानी में मित्रता के बारे में क्या सीख मिल सकती है?',
-      'तुम्हारे तीन सबसे अच्छे दोस्तों के नाम लिखो।',
-      'दोस्त एक-दूसरे की मदद कैसे करते हैं? एक उदाहरण लिखो।',
-    ],
-    flashcards: [
-      Flashcard(term: 'साथी', meaning: 'साथ रहने वाला व्यक्ति, दोस्त'),
-      Flashcard(term: 'मित्रता', meaning: 'दोस्ती'),
-      Flashcard(term: 'मदद', meaning: 'सहायता करना'),
-      Flashcard(term: 'साथ', meaning: 'एक-दूसरे के पास, संग'),
-      Flashcard(term: 'एकता', meaning: 'मिलकर रहना'),
-    ],
-    assessment: [
-      AssessmentQuestion(
-        question: '"तीन साथी" शीर्षक में कितने मित्रों की बात है?',
-        options: ['दो', 'तीन', 'चार', 'पाँच'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'सच्चे दोस्त एक-दूसरे की क्या करते हैं?',
-        options: ['मदद', 'झगड़ा', 'नुकसान', 'अनदेखा'],
+        question: 'दादी किसे ढूँढ रही थीं?',
+        options: ['पोती को', 'पोते को', 'बेटे को', 'नाती को'],
         correctIndex: 0,
       ),
       AssessmentQuestion(
-        question: 'मित्रता में कौन सी भावना जरूरी है?',
-        options: ['गुस्सा', 'प्यार', 'डर', 'ईर्ष्या'],
+        question: 'कविता के अनुसार सब लोग एक-दूसरे से कितनी दूर थे?',
+        options: ['बहुत दूर', 'पास में ही', 'अलग शहर में', 'पता नहीं'],
+        correctIndex: 1,
+      ),
+      AssessmentQuestion(
+        question: 'पापा किसकी तलाश में थे?',
+        options: ['मम्मी की', 'दादा की', 'दादी की', 'मीरा की'],
         correctIndex: 1,
       ),
     ],
   ),
-  'Class 1|Hindi|बकरी': ChapterContent(
+  'Class 1|Hindi|नीलू का घर': ChapterContent(
     worksheet: [
-      'बकरी क्या खाती है? दो चीज़ों के नाम लिखो।',
-      'बकरी हमें क्या देती है?',
-      'बकरी की आवाज़ कैसी होती है? लिखो।',
+      'नीलू के घर में कौन-कौन रहते हैं?',
+      'शालू और नीलू ने मिलकर क्या खाया?',
+      'आपके घर में या आस-पास कौन-कौन से जानवर पाले जाते हैं?',
     ],
     flashcards: [
-      Flashcard(term: 'बकरी', meaning: 'एक पालतू जानवर जो दूध देता है'),
-      Flashcard(term: 'मिमियाना', meaning: 'बकरी की आवाज़'),
-      Flashcard(term: 'सींग', meaning: 'सिर पर उगी नुकीली हड्डी'),
-      Flashcard(term: 'दूध', meaning: 'बकरी या गाय से मिलने वाला पेय पदार्थ'),
-      Flashcard(term: 'चरना', meaning: 'घास खाना'),
+      Flashcard(term: 'छड़ी', meaning: 'चलने में सहारा देने वाली लकड़ी, बड़े-बुज़ुर्ग उपयोग करते हैं'),
+      Flashcard(term: 'खीर', meaning: 'दूध और चावल से बनी मीठी चीज़'),
+      Flashcard(term: 'बगीचा', meaning: 'पौधे और फूल लगाने की जगह'),
+      Flashcard(term: 'हेलमेट', meaning: 'सिर की सुरक्षा के लिए पहना जाने वाला सुरक्षा-आवरण'),
+      Flashcard(term: 'धुसका', meaning: 'चावल के आटे से बना एक पकवान'),
     ],
     assessment: [
       AssessmentQuestion(
-        question: 'बकरी क्या देती है?',
-        options: ['दूध', 'अंडा', 'शहद', 'ऊन'],
+        question: 'नीलू के घर में छड़ी किसकी थी?',
+        options: ['दादा जी की', 'पिताजी की', 'भैया की', 'नीलू की'],
         correctIndex: 0,
       ),
       AssessmentQuestion(
-        question: 'बकरी की आवाज़ को क्या कहते हैं?',
-        options: ['भौंकना', 'मिमियाना', 'दहाड़ना', 'चहचहाना'],
+        question: 'नीलू के घर में हेलमेट किसका था?',
+        options: ['दादा का', 'पिताजी का', 'भैया का', 'माँ का'],
         correctIndex: 1,
       ),
       AssessmentQuestion(
-        question: 'बकरी क्या खाती है?',
-        options: ['मांस', 'घास-पत्ती', 'मछली', 'चावल'],
-        correctIndex: 1,
-      ),
-    ],
-  ),
-  'Class 1|Hindi|पतंग': ChapterContent(
-    worksheet: [
-      'पतंग किस मौसम में उड़ाई जाती है?',
-      'पतंग बनाने में कौन-कौन सी चीज़ें लगती हैं?',
-      'तुम्हें पतंग उड़ाना क्यों पसंद है (या नहीं)?',
-    ],
-    flashcards: [
-      Flashcard(term: 'पतंग', meaning: 'कागज़ से बनी उड़ने वाली वस्तु'),
-      Flashcard(term: 'डोर', meaning: 'पतंग उड़ाने वाला धागा'),
-      Flashcard(term: 'आसमान', meaning: 'आकाश, जहाँ पतंग उड़ती है'),
-      Flashcard(term: 'हवा', meaning: 'पतंग को उड़ाने वाली चीज़'),
-      Flashcard(term: 'ढील', meaning: 'डोर को धीरे-धीरे छोड़ना'),
-    ],
-    assessment: [
-      AssessmentQuestion(
-        question: 'पतंग किससे बनती है?',
-        options: ['लोहे से', 'कागज़ से', 'पत्थर से', 'काँच से'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'पतंग उड़ाने के लिए किसकी जरूरत होती है?',
-        options: ['पानी', 'हवा', 'बर्फ', 'आग'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'पतंग उड़ाने के लिए क्या पकड़ते हैं?',
-        options: ['डोर', 'पत्ता', 'पंख', 'डंडा'],
+        question: 'नीलू के घर में कौन-कौन से जानवर हैं?',
+        options: ['गाय, बकरी, कुत्ता, मुर्गी', 'हाथी, शेर, बाघ', 'मछली, साँप', 'बंदर, तोता'],
         correctIndex: 0,
       ),
     ],
   ),
-  'Class 1|Hindi|दो तोते': ChapterContent(
+  'Class 1|Hindi|जब बाँधूँगा उनको राखी': ChapterContent(
     worksheet: [
-      'तोता कैसा दिखता है? रंग बताओ।',
-      'तोता क्या बोलना सीख सकता है?',
-      'तोते क्या खाना पसंद करते हैं?',
+      'कविता में बच्चा किसे राखी बाँधना चाहता है, और क्यों?',
+      'रक्षा बंधन के दिन आपके घर में कौन-कौन से पकवान बनते हैं?',
+      'आपका पसंदीदा त्योहार कौन-सा है और आप उसे कैसे मनाते हैं?',
     ],
     flashcards: [
-      Flashcard(term: 'तोता', meaning: 'हरे रंग का बोलने वाला पक्षी'),
-      Flashcard(term: 'पंख', meaning: 'पक्षी के उड़ने वाले अंग'),
-      Flashcard(term: 'चोंच', meaning: 'पक्षी का मुँह'),
-      Flashcard(term: 'पिंजरा', meaning: 'पक्षी को रखने के लिए बना घर'),
-      Flashcard(term: 'उड़ना', meaning: 'हवा में पंखों से चलना'),
+      Flashcard(term: 'राखी', meaning: 'भाई-बहन के प्रेम का प्रतीक धागा'),
+      Flashcard(term: 'रक्षा बंधन', meaning: 'भाई-बहन के प्यार का त्योहार'),
+      Flashcard(term: 'दीदी', meaning: 'बड़ी बहन'),
+      Flashcard(term: 'रक्षा', meaning: 'बचाव, सुरक्षा'),
+      Flashcard(term: 'पर्व', meaning: 'त्योहार'),
     ],
     assessment: [
       AssessmentQuestion(
-        question: 'तोता किस रंग का होता है?',
-        options: ['लाल', 'हरा', 'काला', 'सफेद'],
+        question: 'कविता में बच्चा किसे राखी बाँधना चाहता है?',
+        options: ['माँ को', 'दीदी को', 'दादी को', 'मौसी को'],
         correctIndex: 1,
       ),
       AssessmentQuestion(
-        question: 'तोता क्या कर सकता है?',
-        options: ['तैरना', 'बोलना', 'दौड़ना', 'खोदना'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'तोता क्या खाना पसंद करता है?',
-        options: ['मछली', 'फल', 'मांस', 'पत्थर'],
-        correctIndex: 1,
-      ),
-    ],
-  ),
-  'Class 1|Hindi|क्या है लम्बा': ChapterContent(
-    worksheet: [
-      'अपने घर में मिलने वाली लंबी चीज़ों के दो नाम लिखो।',
-      'साँप और चींटी में कौन सी चीज़ लंबी होती है और कौन सी छोटी?',
-      'रेलगाड़ी और साइकिल में कौन ज़्यादा लंबी होती है?',
-    ],
-    flashcards: [
-      Flashcard(term: 'लम्बा', meaning: 'जो नाप में बड़ा हो'),
-      Flashcard(term: 'छोटा', meaning: 'जो नाप में कम हो'),
-      Flashcard(term: 'ऊँचा', meaning: 'जो ऊपर तक जाए'),
-      Flashcard(term: 'नापना', meaning: 'किसी चीज़ की लंबाई जानना'),
-      Flashcard(term: 'तुलना', meaning: 'दो चीज़ों को मिलाकर देखना'),
-    ],
-    assessment: [
-      AssessmentQuestion(
-        question: 'इनमें से कौन सी चीज़ सबसे लंबी होती है?',
-        options: ['पेंसिल', 'रेलगाड़ी', 'चम्मच', 'चाबी'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'साँप और चींटी में कौन लंबा होता है?',
-        options: ['चींटी', 'साँप', 'दोनों बराबर', 'पता नहीं'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'किसी चीज़ की लंबाई जानने के लिए क्या करते हैं?',
-        options: ['रंग देखते हैं', 'नापते हैं', 'सूँघते हैं', 'चखते हैं'],
-        correctIndex: 1,
-      ),
-    ],
-  ),
-  'Class 1|Hindi|बिल्ली और चूहा': ChapterContent(
-    worksheet: [
-      'बिल्ली और चूहे की आवाज़ें कैसी होती हैं?',
-      'बिल्ली को कौन सा खाना पसंद है?',
-      'चूहा बिल्ली से बचने के लिए क्या करता है?',
-    ],
-    flashcards: [
-      Flashcard(term: 'बिल्ली', meaning: 'म्याऊँ बोलने वाला पालतू जानवर'),
-      Flashcard(term: 'चूहा', meaning: 'छोटा जानवर जो बिल में रहता है'),
-      Flashcard(term: 'बिल', meaning: 'चूहे के रहने की जगह'),
-      Flashcard(term: 'म्याऊँ', meaning: 'बिल्ली की आवाज़'),
-      Flashcard(term: 'पीछा करना', meaning: 'दौड़कर पकड़ने की कोशिश करना'),
-    ],
-    assessment: [
-      AssessmentQuestion(
-        question: 'बिल्ली की आवाज़ क्या है?',
-        options: ['भौं-भौं', 'म्याऊँ', 'चूँ-चूँ', 'काँव-काँव'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'चूहा कहाँ छिपता है?',
-        options: ['पेड़ पर', 'बिल में', 'पानी में', 'आसमान में'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'बिल्ली चूहे के पीछे क्यों भागती है?',
-        options: [
-          'खेलने के लिए',
-          'पकड़ने के लिए',
-          'सुलाने के लिए',
-          'पढ़ाने के लिए',
-        ],
-        correctIndex: 1,
-      ),
-    ],
-  ),
-  'Class 1|Hindi|गाजर और टमाटर': ChapterContent(
-    worksheet: [
-      'गाजर किस रंग की होती है और टमाटर किस रंग का?',
-      'गाजर पौधे के ज़मीन के अंदर उगती है या ऊपर?',
-      'तुम्हें कौन सी सब्ज़ी सबसे ज़्यादा पसंद है?',
-    ],
-    flashcards: [
-      Flashcard(term: 'गाजर', meaning: 'नारंगी रंग की जड़ वाली सब्ज़ी'),
-      Flashcard(term: 'टमाटर', meaning: 'लाल रंग की गोल सब्ज़ी'),
-      Flashcard(term: 'सब्ज़ी', meaning: 'खाने योग्य पौधों का भाग'),
-      Flashcard(term: 'जड़', meaning: 'पौधे का ज़मीन के नीचे वाला भाग'),
-      Flashcard(term: 'स्वाद', meaning: 'खाने का चखा हुआ अनुभव'),
-    ],
-    assessment: [
-      AssessmentQuestion(
-        question: 'गाजर किस रंग की होती है?',
-        options: ['नारंगी', 'नीला', 'काला', 'बैंगनी'],
+        question: 'कविता के अनुसार दीदी बच्चे की रक्षा कैसे करती है?',
+        options: ['हाथ पकड़कर ले जाकर', 'खाना बनाकर', 'पढ़ाकर', 'खेलकर'],
         correctIndex: 0,
       ),
       AssessmentQuestion(
-        question: 'टमाटर किस रंग का होता है?',
-        options: ['हरा', 'लाल', 'पीला', 'सफेद'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'गाजर पौधे का कौन सा भाग है?',
-        options: ['पत्ती', 'जड़', 'फूल', 'तना'],
+        question: 'यह कविता किस त्योहार के बारे में है?',
+        options: ['होली', 'रक्षा बंधन', 'दीवाली', 'ईद'],
         correctIndex: 1,
       ),
     ],
   ),
-  'Class 1|Hindi|भोला और भालू': ChapterContent(
+  'Class 1|Hindi|ईद का चाँद': ChapterContent(
     worksheet: [
-      'भालू कैसा दिखता है? बताओ।',
-      'अगर तुम भोला की जगह होते तो भालू को देखकर क्या करते?',
-      'जंगल में और कौन-कौन से जानवर रहते हैं?',
+      'ईद के चाँद के आने पर कविता में क्या-क्या खुशियाँ बताई गई हैं?',
+      'आलम ने चाँद कहाँ से देखा?',
+      'आपको कौन-सा त्योहार सबसे अच्छा लगता है और क्यों?',
     ],
     flashcards: [
-      Flashcard(
-        term: 'भालू',
-        meaning: 'बड़े शरीर और घने बालों वाला जंगली जानवर',
-      ),
-      Flashcard(term: 'जंगल', meaning: 'पेड़ों से भरा बड़ा स्थान'),
-      Flashcard(term: 'डर', meaning: 'खतरे से होने वाली भावना'),
-      Flashcard(term: 'हिम्मत', meaning: 'बिना डरे कुछ करने की शक्ति'),
-      Flashcard(term: 'गुफा', meaning: 'भालू के रहने की जगह'),
+      Flashcard(term: 'ईद', meaning: 'मुसलमानों का एक प्रमुख त्योहार'),
+      Flashcard(term: 'ईदी', meaning: 'ईद के दिन बड़ों से मिलने वाला उपहार'),
+      Flashcard(term: 'खीर', meaning: 'दूध-चावल से बनी मीठी चीज़'),
+      Flashcard(term: 'चाँद', meaning: 'रात में आसमान में दिखने वाला गोल पिंड'),
+      Flashcard(term: 'छत', meaning: 'घर के ऊपर का खुला हिस्सा'),
     ],
     assessment: [
       AssessmentQuestion(
-        question: 'भालू कहाँ रहता है?',
-        options: ['पानी में', 'जंगल में', 'समुद्र में', 'घर में'],
+        question: 'कविता के अनुसार ईद के चाँद के साथ क्या-क्या आता है?',
+        options: ['खीर, कपड़े, टोपी, ईदी', 'सिर्फ पैसे', 'सिर्फ मिठाई', 'सिर्फ नए कपड़े'],
+        correctIndex: 0,
+      ),
+      AssessmentQuestion(
+        question: 'आलम ने चाँद कहाँ से देखा?',
+        options: ['खिड़की से', 'छत से', 'बाज़ार से', 'स्कूल से'],
         correctIndex: 1,
       ),
       AssessmentQuestion(
-        question: 'भालू के शरीर पर क्या होता है?',
-        options: ['पंख', 'घने बाल', 'शल्क', 'कुछ नहीं'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'खतरे में हिम्मत रखना कैसा गुण है?',
-        options: ['बुरा', 'अच्छा', 'बेकार', 'गलत'],
-        correctIndex: 1,
-      ),
-    ],
-  ),
-  'Class 1|Hindi|पहेली': ChapterContent(
-    worksheet: [
-      'एक पहेली सोचो और लिखो, जैसे "गोल है, लाल है, खाने में मीठा है - मैं क्या हूँ?"',
-      'पहेली बूझने में क्या मज़ा आता है?',
-      'अपनी पसंदीदा पहेली और उसका उत्तर लिखो।',
-    ],
-    flashcards: [
-      Flashcard(term: 'पहेली', meaning: 'सोचकर उत्तर निकालने वाला सवाल'),
-      Flashcard(term: 'उत्तर', meaning: 'पहेली का सही जवाब'),
-      Flashcard(term: 'अनुमान', meaning: 'सोचकर अंदाज़ा लगाना'),
-      Flashcard(term: 'सुराग', meaning: 'पहेली में छिपा संकेत'),
-      Flashcard(term: 'मज़ेदार', meaning: 'आनंद देने वाला'),
-    ],
-    assessment: [
-      AssessmentQuestion(
-        question: 'पहेली क्या होती है?',
-        options: ['कहानी', 'सोचने वाला सवाल', 'गाना', 'चित्र'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'पहेली बूझने के लिए क्या करना पड़ता है?',
-        options: ['सोना', 'सोचना', 'दौड़ना', 'रोना'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'पहेली में छिपे संकेत को क्या कहते हैं?',
-        options: ['सुराग', 'रंग', 'आवाज़', 'कपड़ा'],
+        question: 'कविता में मीठी खीर में क्या-क्या डाला गया था?',
+        options: ['खुरमा, काजू, किशमिश', 'सिर्फ चीनी', 'सिर्फ चावल', 'बादाम और पिस्ता'],
         correctIndex: 0,
       ),
     ],
   ),
-  'Class 1|Hindi|हाय रे दैया': ChapterContent(
+  'Class 1|Hindi|मीठे-मीठे गुलगुले': ChapterContent(
     worksheet: [
-      '"हाय रे दैया" कब बोलते हैं - खुशी में या हैरानी में?',
-      'कोई ऐसी बात लिखो जिसे सुनकर तुम "हाय रे दैया" बोलोगे।',
-      'इस तरह के भाव प्रकट करने वाले शब्दों को क्या कहते हैं?',
+      'जमाल की मम्मी ने गीले आटे का क्या किया?',
+      'गुलगुले बनाने में कौन-कौन सी चीजें डाली गईं?',
+      'आपके घर में कौन-सी मीठी चीजें बनती हैं?',
     ],
     flashcards: [
-      Flashcard(term: 'हैरानी', meaning: 'अचानक चौंकने की भावना'),
-      Flashcard(
-        term: 'विस्मयादिबोधक',
-        meaning: 'अचानक भाव प्रकट करने वाला शब्द',
-      ),
-      Flashcard(
-        term: 'दैया',
-        meaning: 'आश्चर्य प्रकट करने के लिए बोला जाने वाला शब्द',
-      ),
-      Flashcard(term: 'चौंकना', meaning: 'अचानक हैरान होना'),
-      Flashcard(term: 'भाव', meaning: 'मन की भावना या जज्बा'),
+      Flashcard(term: 'आटा', meaning: 'गेहूँ पीसकर बना पाउडर, रोटी बनाने के काम आता है'),
+      Flashcard(term: 'गुलगुले', meaning: 'गुड़ और सौंफ डालकर तला हुआ मीठा पकवान'),
+      Flashcard(term: 'सौंफ', meaning: 'एक खुशबूदार मसाला'),
+      Flashcard(term: 'गुड़', meaning: 'गन्ने के रस से बनी मिठास'),
+      Flashcard(term: 'पड़ोस', meaning: 'आसपास रहने वाले लोग'),
     ],
     assessment: [
       AssessmentQuestion(
-        question: '"हाय रे दैया" किस भावना को दिखाता है?',
-        options: ['गुस्सा', 'हैरानी', 'नींद', 'भूख'],
+        question: 'जमाल की मम्मी ने गीले आटे में क्या मिलाया?',
+        options: ['नमक और मिर्च', 'सौंफ और गुड़', 'चीनी और दूध', 'हल्दी'],
         correctIndex: 1,
       ),
       AssessmentQuestion(
-        question: 'इस प्रकार के भाव-सूचक शब्दों को क्या कहते हैं?',
-        options: ['संज्ञा', 'विस्मयादिबोधक', 'क्रिया', 'सर्वनाम'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'अचानक हैरान होने पर हम क्या करते हैं?',
-        options: ['सो जाते हैं', 'चौंक जाते हैं', 'खाना खाते हैं', 'कूदते हैं'],
-        correctIndex: 1,
-      ),
-    ],
-  ),
-  'Class 1|Hindi|नाव चली': ChapterContent(
-    worksheet: [
-      'नाव पानी में कैसे चलती है?',
-      'नाव में कौन-कौन बैठ सकता है?',
-      'तुमने कभी नाव देखी है? कहाँ?',
-    ],
-    flashcards: [
-      Flashcard(term: 'नाव', meaning: 'पानी में चलने वाला वाहन'),
-      Flashcard(term: 'नदी', meaning: 'बहता हुआ पानी'),
-      Flashcard(term: 'खेवैया', meaning: 'नाव चलाने वाला व्यक्ति'),
-      Flashcard(term: 'चप्पू', meaning: 'नाव चलाने का साधन'),
-      Flashcard(term: 'पानी', meaning: 'नदी या तालाब में भरा तरल पदार्थ'),
-    ],
-    assessment: [
-      AssessmentQuestion(
-        question: 'नाव कहाँ चलती है?',
-        options: ['सड़क पर', 'पानी में', 'आसमान में', 'रेल पटरी पर'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'नाव चलाने वाले को क्या कहते हैं?',
-        options: ['ड्राइवर', 'खेवैया', 'पायलट', 'किसान'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'नाव चलाने के लिए किसका उपयोग होता है?',
-        options: ['पहिया', 'चप्पू', 'पंख', 'केवल इंजन'],
-        correctIndex: 1,
-      ),
-    ],
-  ),
-  'Class 1|English|I Know': ChapterContent(
-    worksheet: [
-      'Name three things you know how to do.',
-      'Write one new thing you learned today.',
-      'What is something new you want to learn?',
-    ],
-    flashcards: [
-      Flashcard(
-        term: 'know',
-        meaning: 'to understand or be sure about something',
-      ),
-      Flashcard(term: 'learn', meaning: 'to gain new knowledge or skill'),
-      Flashcard(term: 'new', meaning: 'not seen or done before'),
-      Flashcard(term: 'skill', meaning: 'the ability to do something well'),
-      Flashcard(term: 'try', meaning: 'to make an attempt'),
-    ],
-    assessment: [
-      AssessmentQuestion(
-        question: 'What does \'know\' mean?',
-        options: ['To forget', 'To understand', 'To sleep', 'To run'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'Which word means \'to gain new knowledge\'?',
-        options: ['Learn', 'Lose', 'Break', 'Jump'],
+        question: 'जमाल के साथ गुलगुले किसने खाए?',
+        options: ['मदन ने', 'नीलू ने', 'रूपा ने', 'शालू ने'],
         correctIndex: 0,
       ),
       AssessmentQuestion(
-        question: 'Something you have not seen before is called:',
-        options: ['Old', 'New', 'Big', 'Small'],
-        correctIndex: 1,
+        question: 'जमाल का आटा गीला क्यों हो गया?',
+        options: ['ज़्यादा पानी मिलाने से', 'धूप में रखने से', 'आग के पास रखने से', 'बारिश से'],
+        correctIndex: 0,
       ),
     ],
   ),
-  'Class 1|English|Myself': ChapterContent(
+  'Class 1|Hindi|खुशी का परब-करमा': ChapterContent(
     worksheet: [
-      'Write your name and age.',
-      'Name two parts of your body.',
-      'What do you like to do best?',
+      'करमा पर्व की तैयारी में गतिका ने क्या-क्या किया?',
+      'अखड़ा को कैसे सजाया गया था?',
+      'आपके गाँव में कौन-कौन से पर्व-त्योहार मनाए जाते हैं?',
     ],
     flashcards: [
-      Flashcard(term: 'name', meaning: 'what a person is called'),
-      Flashcard(term: 'age', meaning: 'how old someone is'),
-      Flashcard(term: 'body', meaning: 'the whole physical form of a person'),
-      Flashcard(term: 'like', meaning: 'to enjoy something'),
-      Flashcard(term: 'myself', meaning: 'referring to one\'s own self'),
+      Flashcard(term: 'करमा', meaning: 'झारखंड का एक प्रमुख पर्व'),
+      Flashcard(term: 'अखड़ा', meaning: 'गाँव का वह स्थान जहाँ नाच-गाना होता है'),
+      Flashcard(term: 'मांदर', meaning: 'एक पारंपरिक वाद्य यंत्र'),
+      Flashcard(term: 'पाहन', meaning: 'पूजा करवाने वाला व्यक्ति'),
+      Flashcard(term: 'जावा', meaning: 'अंकुरित अनाज, करमा पूजा में उपयोग होता है'),
     ],
     assessment: [
       AssessmentQuestion(
-        question: 'What tells us how old you are?',
-        options: ['Name', 'Age', 'Colour', 'Size'],
+        question: 'करमा पर्व के लिए गतिका की माँ ने पहले से क्या भिगोकर रखा था?',
+        options: ['चावल', 'चना और अनाज', 'गेहूँ', 'दाल'],
         correctIndex: 1,
       ),
       AssessmentQuestion(
-        question: 'Which of these is a part of your body?',
-        options: ['Hand', 'Chair', 'Book', 'Table'],
+        question: 'अखड़ा किससे लीपा गया था?',
+        options: ['मिट्टी और गोबर से', 'सीमेंट से', 'रंग से', 'पत्थर से'],
         correctIndex: 0,
       ),
       AssessmentQuestion(
-        question: 'The word \'myself\' refers to:',
-        options: ['Another person', 'You', 'An animal', 'A place'],
+        question: 'करमा पूजा किसने करवाई?',
+        options: ['गतिका ने', 'पाहन ने', 'बाबा ने', 'माँ ने'],
         correctIndex: 1,
       ),
     ],
   ),
-  'Class 1|English|My Daily Routine': ChapterContent(
+  'Class 1|Hindi|रूपा और बादल': ChapterContent(
     worksheet: [
-      'What is the first thing you do after waking up?',
-      'Name one thing you do before going to school.',
-      'What do you do before going to bed at night?',
+      'बादल उदास क्यों था?',
+      'रूपा और बादल ने मिलकर क्या किया, और उससे बारिश कैसे हुई?',
+      'जब आप उदास होते हैं, तब आपको किससे बात करना अच्छा लगता है?',
     ],
     flashcards: [
-      Flashcard(term: 'morning', meaning: 'the early part of the day'),
-      Flashcard(
-        term: 'routine',
-        meaning: 'things done regularly in the same order',
-      ),
-      Flashcard(term: 'brush', meaning: 'to clean your teeth'),
-      Flashcard(term: 'bedtime', meaning: 'the time to go to sleep'),
-      Flashcard(term: 'wake up', meaning: 'to stop sleeping'),
+      Flashcard(term: 'बादल', meaning: 'आसमान में तैरता पानी का समूह, बारिश लाता है'),
+      Flashcard(term: 'उदास', meaning: 'दुखी, खुश न होना'),
+      Flashcard(term: 'कागज़ की नाव', meaning: 'कागज़ को मोड़कर बनाई गई नाव'),
+      Flashcard(term: 'बरसात', meaning: 'बारिश होना'),
+      Flashcard(term: 'अकेला', meaning: 'बिना किसी साथी के'),
     ],
     assessment: [
       AssessmentQuestion(
-        question: 'What do we do in the morning first?',
-        options: ['Sleep', 'Wake up', 'Dream', 'Fly'],
+        question: 'बादल उदास क्यों था?',
+        options: ['उसे भूख लगी थी', 'उसके साथ खेलने वाला कोई नहीं था', 'वह रास्ता भूल गया था', 'वह थक गया था'],
         correctIndex: 1,
       ),
       AssessmentQuestion(
-        question: 'What do we use to clean our teeth?',
-        options: ['Comb', 'Brush', 'Spoon', 'Pencil'],
+        question: 'बादल के ज़ोर से हँसने पर क्या हुआ?',
+        options: ['हवा चलने लगी', 'बारिश होने लगी', 'धूप निकल आई', 'बर्फ गिरने लगी'],
         correctIndex: 1,
       ),
       AssessmentQuestion(
-        question: '\'Routine\' means things we do:',
-        options: ['Once a year', 'Every day', 'Never', 'Only in summer'],
+        question: 'रूपा ने बारिश के पानी में क्या तैराया?',
+        options: ['गेंद', 'कागज़ की नाव', 'पत्ता', 'गुब्बारा'],
         correctIndex: 1,
       ),
     ],
   ),
-  'Class 1|English|My Friend': ChapterContent(
+  'Class 1|English|All by Myself': ChapterContent(
     worksheet: [
-      'Write the name of your best friend.',
-      'What games do you play with your friend?',
-      'Why is it good to have friends?',
+      'Name two things that you, like Sunny, can do all by yourself.',
+      'In the story, what does Sunny have trouble with at first, and what does he finally say when he manages it alone?',
+      'Draw or name one piece of clothing that you can put on all by yourself.',
     ],
     flashcards: [
-      Flashcard(
-        term: 'friend',
-        meaning: 'a person you like and enjoy being with',
-      ),
-      Flashcard(
-        term: 'share',
-        meaning: 'to give a part of something to another',
-      ),
-      Flashcard(term: 'play', meaning: 'to have fun doing an activity'),
-      Flashcard(term: 'help', meaning: 'to assist someone'),
-      Flashcard(term: 'kind', meaning: 'gentle and caring'),
+      Flashcard(term: 'myself', meaning: 'doing something on your own, without anyone\'s help'),
+      Flashcard(term: 'slippers', meaning: 'soft, light shoes that we wear at home'),
+      Flashcard(term: 'dressed', meaning: 'wearing clothes'),
+      Flashcard(term: 'well done', meaning: 'words we say to praise someone for doing something good'),
+      Flashcard(term: 'frock', meaning: 'a dress worn by girls'),
     ],
     assessment: [
       AssessmentQuestion(
-        question: 'A friend is someone you:',
-        options: ['Fight with', 'Like and play with', 'Ignore', 'Fear'],
+        question: 'What does Sunny say he can do all by himself?',
+        options: ['Get dressed', 'Cook food', 'Drive a car', 'Read a book'],
+        correctIndex: 0,
+      ),
+      AssessmentQuestion(
+        question: 'What does Papa say when Sunny gets dressed alone?',
+        options: ['Oh no!', 'Well done!', 'Try again', 'That\'s bad'],
         correctIndex: 1,
       ),
       AssessmentQuestion(
-        question: 'Good friends should:',
-        options: ['Fight', 'Share and help', 'Hide', 'Shout'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'Being kind means being:',
-        options: ['Rude', 'Gentle and caring', 'Angry', 'Lazy'],
+        question: 'Which thing does Sunny have trouble putting on the correct foot?',
+        options: ['His shirt', 'His slippers', 'His hat', 'His socks'],
         correctIndex: 1,
       ),
     ],
   ),
-  'Class 1|English|My Food': ChapterContent(
+  'Class 1|English|My Toothbrush': ChapterContent(
     worksheet: [
-      'Name two foods you eat every day.',
-      'Which food do you like the most?',
-      'Why is it important to eat healthy food?',
+      'According to the poem, when does the child brush their teeth?',
+      'Name two things we use to keep our body clean, like soap and a towel.',
+      'What polite sentence can you say to your teacher when you want to go to the toilet?',
     ],
     flashcards: [
-      Flashcard(term: 'food', meaning: 'what we eat to stay alive'),
-      Flashcard(term: 'healthy', meaning: 'good for the body'),
-      Flashcard(
-        term: 'fruit',
-        meaning: 'a sweet food that grows on plants or trees',
-      ),
-      Flashcard(
-        term: 'vegetable',
-        meaning: 'a plant food like carrot or potato',
-      ),
-      Flashcard(
-        term: 'meal',
-        meaning: 'food eaten at a set time, like breakfast',
-      ),
+      Flashcard(term: 'toothbrush', meaning: 'a small brush used to clean your teeth'),
+      Flashcard(term: 'soap', meaning: 'something we use with water to wash and clean our hands and body'),
+      Flashcard(term: 'greeting', meaning: 'a friendly word we say when we meet or leave someone, like Good morning'),
+      Flashcard(term: 'umbrella', meaning: 'something we hold over us to stay dry in the rain'),
+      Flashcard(term: 'toothpaste', meaning: 'a paste we put on a toothbrush to clean our teeth'),
     ],
     assessment: [
       AssessmentQuestion(
-        question: 'What do we eat to stay healthy?',
-        options: ['Stones', 'Food', 'Toys', 'Books'],
+        question: 'According to the poem, when does the child brush their teeth?',
+        options: ['Only at night', 'Each morning and at night', 'Only before lunch', 'Never'],
         correctIndex: 1,
       ),
       AssessmentQuestion(
-        question: 'Which of these is a fruit?',
-        options: ['Potato', 'Mango', 'Chair', 'Spoon'],
-        correctIndex: 1,
+        question: 'What does Roshni\'s teacher say to her in the morning?',
+        options: ['Good night', 'Good afternoon', 'Good morning', 'Goodbye'],
+        correctIndex: 2,
       ),
       AssessmentQuestion(
-        question: 'Eating healthy food keeps us:',
-        options: ['Sick', 'Strong', 'Sleepy', 'Sad'],
-        correctIndex: 1,
-      ),
-    ],
-  ),
-  'Class 1|English|My House': ChapterContent(
-    worksheet: [
-      'Name two rooms in your house.',
-      'What do you like most about your house?',
-      'Describe the roof of your house.',
-    ],
-    flashcards: [
-      Flashcard(term: 'house', meaning: 'a place where a family lives'),
-      Flashcard(term: 'room', meaning: 'a part of a house'),
-      Flashcard(term: 'roof', meaning: 'the top covering of a house'),
-      Flashcard(term: 'door', meaning: 'an opening to enter or leave a room'),
-      Flashcard(term: 'window', meaning: 'an opening for light and air'),
-    ],
-    assessment: [
-      AssessmentQuestion(
-        question: 'A house is a place where a:',
-        options: ['Car lives', 'Family lives', 'Bird flies', 'Fish swims'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'What is at the top of a house?',
-        options: ['Floor', 'Roof', 'Window', 'Door'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'We enter a room through a:',
-        options: ['Window', 'Roof', 'Door', 'Wall'],
+        question: 'In the poem "Pitter Patter Raindrops," what keeps the child dry?',
+        options: ['A raincoat', 'A hat', 'An umbrella', 'A blanket'],
         correctIndex: 2,
       ),
     ],
   ),
-  'Class 1|English|My Village Market': ChapterContent(
+  'Class 1|English|I Like to Play': ChapterContent(
     worksheet: [
-      'Name two things sold in a village market.',
-      'Who sells vegetables in the market?',
-      'Why do people go to the market?',
+      'In the story, who could the boy finally play with?',
+      'Why couldn\'t the boy play with his sister, or with his mother and father?',
+      'Who do you like to play with at home?',
     ],
     flashcards: [
-      Flashcard(
-        term: 'market',
-        meaning: 'a place where goods are bought and sold',
-      ),
-      Flashcard(term: 'seller', meaning: 'a person who sells things'),
-      Flashcard(term: 'buyer', meaning: 'a person who buys things'),
-      Flashcard(term: 'vegetable', meaning: 'a plant food sold in the market'),
-      Flashcard(
-        term: 'price',
-        meaning: 'the amount of money paid for something',
-      ),
+      Flashcard(term: 'puppy', meaning: 'a baby dog'),
+      Flashcard(term: 'busy', meaning: 'having a lot of work to do, with no free time to play'),
+      Flashcard(term: 'grandfather', meaning: 'the father of your mother or father'),
+      Flashcard(term: 'sister', meaning: 'a girl who has the same parents as you'),
+      Flashcard(term: 'play', meaning: 'to have fun doing a game or activity'),
     ],
     assessment: [
       AssessmentQuestion(
-        question: 'A market is a place to:',
-        options: ['Sleep', 'Buy and sell things', 'Study', 'Swim'],
+        question: 'Why couldn\'t the boy play with his sister?',
+        options: ['She was at school', 'She was sleeping', 'She was angry', 'She was eating'],
         correctIndex: 1,
       ),
       AssessmentQuestion(
-        question: 'A person who sells things is called a:',
-        options: ['Buyer', 'Seller', 'Teacher', 'Doctor'],
-        correctIndex: 1,
+        question: 'Who did the boy finally play with?',
+        options: ['His friend', 'His teacher', 'His puppy', 'His neighbour'],
+        correctIndex: 2,
       ),
       AssessmentQuestion(
-        question: 'What do we pay to buy something?',
-        options: ['Price', 'Song', 'Story', 'Game'],
-        correctIndex: 0,
+        question: 'Which letter comes right after \'B\' in this chapter\'s alphabet practice?',
+        options: ['A', 'C', 'D', 'E'],
+        correctIndex: 1,
       ),
     ],
   ),
-  'Class 1|English|My School': ChapterContent(
+  'Class 1|English|My Home': ChapterContent(
     worksheet: [
-      'Name one thing you like about your school.',
-      'Who teaches you at school?',
-      'What do you carry to school every day?',
+      'Name the family members mentioned in the poem about "My Home" (for example Papa, Ma, Baba, Dadi).',
+      'In Payal\'s home, which room do we cook food in, and which room do we sleep in?',
+      'Who is taller, Romi or Bobby, and which game does each of them like to play?',
     ],
     flashcards: [
-      Flashcard(term: 'school', meaning: 'a place where children learn'),
-      Flashcard(term: 'teacher', meaning: 'a person who teaches'),
-      Flashcard(term: 'classroom', meaning: 'a room where students study'),
-      Flashcard(term: 'bag', meaning: 'used to carry books to school'),
-      Flashcard(term: 'learn', meaning: 'to gain knowledge'),
+      Flashcard(term: 'kitchen', meaning: 'the room in a house where food is cooked'),
+      Flashcard(term: 'bedroom', meaning: 'the room where we sleep'),
+      Flashcard(term: 'guest room', meaning: 'the room where we sit when guests come to our home'),
+      Flashcard(term: 'family', meaning: 'the people we live with, like parents, siblings, and grandparents'),
+      Flashcard(term: 'triangle', meaning: 'a shape with three sides and three corners'),
     ],
     assessment: [
       AssessmentQuestion(
-        question: 'A school is a place to:',
-        options: ['Sleep', 'Learn', 'Cook', 'Play only'],
+        question: 'In "Payal\'s Home," which room is used to cook tasty food?',
+        options: ['Bedroom', 'Kitchen', 'Bathroom', 'Guest room'],
         correctIndex: 1,
       ),
       AssessmentQuestion(
-        question: 'Who teaches students at school?',
-        options: ['Doctor', 'Teacher', 'Driver', 'Farmer'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'What do children carry books in?',
-        options: ['Bag', 'Plate', 'Bucket', 'Bottle'],
-        correctIndex: 0,
-      ),
-    ],
-  ),
-  'Class 1|English|My Village': ChapterContent(
-    worksheet: [
-      'Name two things you see in a village.',
-      'What work do people do in a village?',
-      'Why do you like your village?',
-    ],
-    flashcards: [
-      Flashcard(
-        term: 'village',
-        meaning: 'a small place where people live, often with farms',
-      ),
-      Flashcard(term: 'farmer', meaning: 'a person who grows crops'),
-      Flashcard(term: 'field', meaning: 'land where crops are grown'),
-      Flashcard(term: 'pond', meaning: 'a small area of water'),
-      Flashcard(term: 'neighbour', meaning: 'a person living nearby'),
-    ],
-    assessment: [
-      AssessmentQuestion(
-        question: 'A village mostly has:',
-        options: [
-          'Tall buildings',
-          'Fields and farms',
-          'Big airports',
-          'Malls',
-        ],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'Who grows crops in a village?',
-        options: ['Farmer', 'Doctor', 'Pilot', 'Singer'],
+        question: 'Which pet is named in the family poem?',
+        options: ['Bujo the doggy', 'Tom the cat', 'Kittu the kitten', 'Mithu the parrot'],
         correctIndex: 0,
       ),
       AssessmentQuestion(
-        question: 'Crops are grown in a:',
-        options: ['Field', 'River', 'Sky', 'Pond'],
-        correctIndex: 0,
-      ),
-    ],
-  ),
-  'Class 1|English|My Family': ChapterContent(
-    worksheet: [
-      'Name the members of your family.',
-      'Who is the oldest person in your family?',
-      'What do you do together with your family?',
-    ],
-    flashcards: [
-      Flashcard(
-        term: 'family',
-        meaning: 'people related to each other living together',
-      ),
-      Flashcard(term: 'mother', meaning: 'a female parent'),
-      Flashcard(term: 'father', meaning: 'a male parent'),
-      Flashcard(term: 'sibling', meaning: 'a brother or sister'),
-      Flashcard(
-        term: 'grandparent',
-        meaning: 'parent of your mother or father',
-      ),
-    ],
-    assessment: [
-      AssessmentQuestion(
-        question: 'A family is made up of:',
-        options: ['Strangers', 'Related people', 'Animals only', 'Trees'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'Who is a female parent called?',
-        options: ['Father', 'Mother', 'Sister', 'Teacher'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'A brother or sister is called a:',
-        options: ['Sibling', 'Neighbour', 'Teacher', 'Friend only'],
-        correctIndex: 0,
-      ),
-    ],
-  ),
-  'Class 1|English|My Classroom': ChapterContent(
-    worksheet: [
-      'Name two things found in your classroom.',
-      'Where do you sit in the classroom?',
-      'What do you use to write in class?',
-    ],
-    flashcards: [
-      Flashcard(term: 'classroom', meaning: 'a room where students learn'),
-      Flashcard(
-        term: 'blackboard',
-        meaning: 'a board used by teachers to write on',
-      ),
-      Flashcard(term: 'desk', meaning: 'a table used for studying'),
-      Flashcard(term: 'chalk', meaning: 'used to write on a blackboard'),
-      Flashcard(term: 'notebook', meaning: 'a book for writing notes'),
-    ],
-    assessment: [
-      AssessmentQuestion(
-        question: 'Where do students study?',
-        options: ['Kitchen', 'Classroom', 'Garden', 'Market'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'What is used to write on a blackboard?',
-        options: ['Chalk', 'Water', 'Spoon', 'Leaf'],
-        correctIndex: 0,
-      ),
-      AssessmentQuestion(
-        question: 'Students sit on a:',
-        options: ['Desk', 'Roof', 'Tree', 'Cloud'],
-        correctIndex: 0,
-      ),
-    ],
-  ),
-  'Class 1|English|Now I Know': ChapterContent(
-    worksheet: [
-      'Write two new things you have learned this year.',
-      'What was your favourite lesson? Why?',
-      'What do you want to learn next?',
-    ],
-    flashcards: [
-      Flashcard(term: 'know', meaning: 'to understand something clearly'),
-      Flashcard(term: 'review', meaning: 'to look back and remember'),
-      Flashcard(term: 'favourite', meaning: 'liked the most'),
-      Flashcard(term: 'remember', meaning: 'to keep something in mind'),
-      Flashcard(
-        term: 'practice',
-        meaning: 'doing something again and again to get better',
-      ),
-    ],
-    assessment: [
-      AssessmentQuestion(
-        question: '\'Now I Know\' means you have:',
-        options: [
-          'Forgotten things',
-          'Learned things',
-          'Lost things',
-          'Broken things',
-        ],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'Looking back at what you learned is called:',
-        options: ['Review', 'Sleep', 'Play', 'Run'],
-        correctIndex: 0,
-      ),
-      AssessmentQuestion(
-        question: 'Doing something again and again to improve is called:',
-        options: ['Practice', 'Waste', 'Fear', 'Noise'],
-        correctIndex: 0,
-      ),
-    ],
-  ),
-  'Class 1|Mathematics|आकृति और स्थान': ChapterContent(
-    worksheet: [
-      'अपने आस-पास मिलने वाली गोल आकृति की दो चीज़ों के नाम लिखो।',
-      'वर्ग (चौकोर) आकार की एक चीज़ का नाम लिखो।',
-      'एक त्रिभुज (तीन कोनों वाली आकृति) बनाओ।',
-    ],
-    flashcards: [
-      Flashcard(term: 'वृत्त', meaning: 'गोल आकृति'),
-      Flashcard(term: 'वर्ग', meaning: 'चार बराबर भुजाओं वाली आकृति'),
-      Flashcard(term: 'त्रिभुज', meaning: 'तीन भुजाओं वाली आकृति'),
-      Flashcard(term: 'आयत', meaning: 'चार भुजाओं वाली लंबी आकृति'),
-      Flashcard(term: 'आकृति', meaning: 'किसी वस्तु का रूप या आकार'),
-    ],
-    assessment: [
-      AssessmentQuestion(
-        question: 'गेंद किस आकृति की होती है?',
-        options: ['वर्ग', 'वृत्त', 'त्रिभुज', 'आयत'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'त्रिभुज में कितनी भुजाएँ होती हैं?',
-        options: ['दो', 'तीन', 'चार', 'पाँच'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'खिड़की सामान्यतः किस आकृति की होती है?',
-        options: ['वृत्त', 'त्रिभुज', 'आयत', 'तारा'],
+        question: 'Which game does Romi like to play?',
+        options: ['Football', 'Cricket', 'Hockey', 'Chess'],
         correctIndex: 2,
       ),
     ],
   ),
-  'Class 1|Mathematics|संख्याएँ (1-9)': ChapterContent(
+  'Class 1|English|Gilli-Danda': ChapterContent(
     worksheet: [
-      '1 से 9 तक की संख्याएँ क्रम में लिखो।',
-      'अपने कमरे में 3 चीज़ें गिनकर लिखो कि उनकी संख्या क्या है।',
-      '5 के बाद कौन सी संख्या आती है?',
+      'What happened to the gilli when Babli tried to throw it back across the pond?',
+      'How did Babli get the gilli back from the pond? What could she do that helped her?',
+      'Have you ever played a game like gilli-danda? Which game do you like to play with friends?',
     ],
     flashcards: [
-      Flashcard(term: 'संख्या', meaning: 'गिनती बताने वाला अंक'),
+      Flashcard(term: 'gilli-danda', meaning: 'a game played with two sticks, a small one called gilli and a big one called danda'),
+      Flashcard(term: 'pond', meaning: 'a small area of still water'),
+      Flashcard(term: 'swim', meaning: 'to move through water using your arms and legs'),
+      Flashcard(term: 'joy', meaning: 'a feeling of great happiness'),
+      Flashcard(term: 'toss', meaning: 'to throw something lightly up into the air'),
+    ],
+    assessment: [
+      AssessmentQuestion(
+        question: 'Where did the gilli fall when Babli tried to throw it back?',
+        options: ['On the ground', 'Into the pond', 'Onto the roof', 'Into a tree'],
+        correctIndex: 1,
+      ),
+      AssessmentQuestion(
+        question: 'How did Babli get the gilli out of the pond?',
+        options: ['She used a stick', 'She asked a friend', 'She swam and brought it back', 'She waited for it to float'],
+        correctIndex: 2,
+      ),
+      AssessmentQuestion(
+        question: 'What did Babli do after bringing the gilli back?',
+        options: ['She went home', 'She started playing gilli-danda too', 'She cried', 'She gave up the game'],
+        correctIndex: 1,
+      ),
+    ],
+  ),
+  'Class 1|English|A Little Bird': ChapterContent(
+    worksheet: [
+      'What was the little bird doing when the child first saw it?',
+      'What did the child want to say to the bird? Did the bird stay to listen?',
+      'What sound or action does a bird make that you like to watch?',
+    ],
+    flashcards: [
+      Flashcard(term: 'hop', meaning: 'to jump on one or both feet, like a bird or a rabbit'),
+      Flashcard(term: 'window', meaning: 'an opening in a wall, usually with glass, that lets in light and air'),
+      Flashcard(term: 'tail', meaning: 'the part at the back of an animal\'s or bird\'s body'),
+      Flashcard(term: 'shook', meaning: 'moved quickly from side to side'),
+      Flashcard(term: 'flew', meaning: 'moved through the air, like a bird'),
+    ],
+    assessment: [
+      AssessmentQuestion(
+        question: 'What was the little bird doing in the poem?',
+        options: ['Sleeping', 'Hopping', 'Singing', 'Swimming'],
+        correctIndex: 1,
+      ),
+      AssessmentQuestion(
+        question: 'What did the child want to ask the bird?',
+        options: ['What is your name?', 'How do you do?', 'Where do you live?', 'Can you fly?'],
+        correctIndex: 1,
+      ),
+      AssessmentQuestion(
+        question: 'What did the bird do instead of stopping?',
+        options: ['It hopped closer', 'It shook its tail and flew away', 'It went to sleep', 'It started singing'],
+        correctIndex: 1,
+      ),
+    ],
+  ),
+  'Class 1|Mathematics|मेरे आस पास': ChapterContent(
+    worksheet: [
+      'बारिश आने पर घर के बाहर रखी कौन-कौन सी चीज़ें अंदर रखी गईं? दो नाम लिखो।',
+      'अपने घर के अंदर की तीन चीज़ों के नाम और बाहर की तीन चीज़ों के नाम लिखो।',
+      'राष्ट्रीय झंडे में सबसे ऊपर और सबसे नीचे कौन सा रंग होता है?',
+    ],
+    flashcards: [
+      Flashcard(term: 'अंदर', meaning: 'घर या किसी जगह के भीतर'),
+      Flashcard(term: 'बाहर', meaning: 'घर या किसी जगह से बाहर की तरफ'),
+      Flashcard(term: 'ऊपर', meaning: 'किसी चीज़ के ऊपरी हिस्से में'),
+      Flashcard(term: 'नीचे', meaning: 'किसी चीज़ के निचले हिस्से में'),
+      Flashcard(term: 'पास-दूर', meaning: 'किसी चीज़ के नज़दीक या दूरी पर होना'),
+    ],
+    assessment: [
+      AssessmentQuestion(
+        question: 'बारिश आने पर धान और कपड़े कहाँ रखे गए?',
+        options: ['बाहर ही रहने दिया', 'अंदर', 'पेड़ पर', 'छत पर'],
+        correctIndex: 1,
+      ),
+      AssessmentQuestion(
+        question: 'राष्ट्रीय झंडे में सबसे ऊपर कौन सा रंग है?',
+        options: ['हरा', 'सफेद', 'केसरिया', 'नीला'],
+        correctIndex: 2,
+      ),
+      AssessmentQuestion(
+        question: 'पाठ के अनुसार खिड़की बोर्ड से कैसी है?',
+        options: ['पास', 'दूर', 'ऊपर', 'नीचे'],
+        correctIndex: 1,
+      ),
+    ],
+  ),
+  'Class 1|Mathematics|मिलते जुलते': ChapterContent(
+    worksheet: [
+      'रमा की मदद के लिए एक जैसी सब्ज़ियों को अलग-अलग टोकरी में रखने का अभ्यास करो।',
+      'गोलू और भोलू के जामुन बराबर कैसे हुए, अपने शब्दों में लिखो।',
+      'सखुआ (साल) पेड़ की पत्तियों का उपयोग किन चीज़ों को बनाने में होता है?',
+    ],
+    flashcards: [
+      Flashcard(term: 'अधिक', meaning: 'जो संख्या में ज़्यादा हो'),
+      Flashcard(term: 'कम', meaning: 'जो संख्या में थोड़ा हो'),
+      Flashcard(term: 'बराबर', meaning: 'जो संख्या में समान हों'),
+      Flashcard(term: 'समूह', meaning: 'एक जैसी चीज़ों का इकट्ठा होना'),
+      Flashcard(term: 'सखुआ', meaning: 'झारखंड का राजकीय वृक्ष (साल का पेड़)'),
+    ],
+    assessment: [
+      AssessmentQuestion(
+        question: 'गोलू के दोने में जामुन ज़्यादा थे, माँ ने क्या किया?',
+        options: ['सारे जामुन खुद खा लिए', 'दोनों भाइयों में बराबर बाँट दिए', 'जामुन फेंक दिए', 'गोलू को और जामुन दे दिए'],
+        correctIndex: 1,
+      ),
+      AssessmentQuestion(
+        question: 'सखुआ पेड़ की पत्तियों से क्या बनाया जाता है?',
+        options: ['कुर्सी', 'दोना और पत्तल', 'किताब', 'कपड़ा'],
+        correctIndex: 1,
+      ),
+      AssessmentQuestion(
+        question: 'रमा टमाटर तोड़ते समय किस रंग का ध्यान रखने को कहा गया?',
+        options: ['हरा', 'पीला', 'लाल', 'काला'],
+        correctIndex: 2,
+      ),
+    ],
+  ),
+  'Class 1|Mathematics|एक, दो, तीन....गिनें': ChapterContent(
+    worksheet: [
+      '1 से 5 तक की संख्याएँ क्रम में लिखो।',
+      'कविता में हाथी मकड़ी के जाल में क्यों फँस गया? कविता को अपनी भाषा में सुनाओ।',
+      'अपने आस-पास 4 ऐसी चीज़ें गिनो जो एक जैसी हों और उनकी संख्या लिखो।',
+    ],
+    flashcards: [
+      Flashcard(term: 'गिनती', meaning: 'वस्तुओं को क्रम में गिनने की क्रिया'),
       Flashcard(term: 'एक', meaning: 'संख्या 1'),
-      Flashcard(term: 'गिनती', meaning: 'वस्तुओं को गिनने की क्रिया'),
+      Flashcard(term: 'पाँच', meaning: 'संख्या 5'),
+      Flashcard(term: 'जोड़ा', meaning: 'दो चीज़ों का एक साथ होना (संख्या 2)'),
       Flashcard(term: 'क्रम', meaning: 'संख्याओं का सही सिलसिला'),
-      Flashcard(term: 'अंक', meaning: 'संख्या लिखने का चिन्ह'),
     ],
     assessment: [
       AssessmentQuestion(
-        question: '1 के बाद कौन सी संख्या आती है?',
-        options: ['3', '2', '5', '0'],
+        question: 'कविता में पहले कितने हाथी मकड़ी के जाल में फँसे थे?',
+        options: ['एक', 'दो', 'तीन', 'चार'],
+        correctIndex: 0,
+      ),
+      AssessmentQuestion(
+        question: '3 के बाद कौन सी संख्या आती है?',
+        options: ['2', '4', '5', '1'],
         correctIndex: 1,
       ),
       AssessmentQuestion(
-        question: 'इनमें सबसे बड़ी संख्या कौन सी है?',
-        options: ['4', '9', '2', '6'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'पाँच सेबों की गिनती करने पर कुल कितने सेब हैं?',
-        options: ['4', '5', '6', '3'],
-        correctIndex: 1,
+        question: 'अगर चित्र में 5 गायें हैं और 3 मुर्गियाँ, किसकी संख्या ज़्यादा है?',
+        options: ['गाय', 'मुर्गी', 'बराबर हैं', 'पता नहीं'],
+        correctIndex: 0,
       ),
     ],
   ),
-  'Class 1|Mathematics|जोड़': ChapterContent(
+  'Class 1|Mathematics|बोल भाई कितने': ChapterContent(
     worksheet: [
-      '2 + 3 = ?',
-      '4 + 4 = ?',
-      '5 + 1 = ?',
-      'अगर तुम्हारे पास 3 गेंदें हैं और दोस्त तुम्हें 2 और दे, तो कुल कितनी गेंदें होंगी?',
+      '2 तितलियाँ और 2 तितलियाँ मिलकर कुल कितनी हुईं?',
+      'टोकरी में 5 टोपियाँ थीं, बंदर एक-एक करके टोपी ले गए। हर बार कितनी टोपियाँ बचीं, क्रम में लिखो।',
+      'अगर तुम्हारे पास 4 इमली के बीज हैं और तुम्हें 1 और बीज मिले, तो कुल कितने बीज होंगे?',
     ],
     flashcards: [
-      Flashcard(term: 'जोड़', meaning: 'दो या दो से अधिक संख्याओं को मिलाना'),
-      Flashcard(term: 'योग', meaning: 'जोड़ का उत्तर'),
-      Flashcard(term: 'प्लस', meaning: 'जोड़ का चिन्ह (+)'),
-      Flashcard(term: 'कुल', meaning: 'सब मिलाकर बनी संख्या'),
-      Flashcard(term: 'मिलाना', meaning: 'साथ रखना'),
-    ],
-    assessment: [
-      AssessmentQuestion(
-        question: '3 + 2 = ?',
-        options: ['4', '5', '6', '7'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: '4 + 4 = ?',
-        options: ['6', '7', '8', '9'],
-        correctIndex: 2,
-      ),
-      AssessmentQuestion(
-        question: 'जोड़ का चिन्ह कौन सा है?',
-        options: ['-', '+', 'x', '÷'],
-        correctIndex: 1,
-      ),
-    ],
-  ),
-  'Class 1|Mathematics|घटाव': ChapterContent(
-    worksheet: [
-      '5 - 2 = ?',
-      '8 - 3 = ?',
-      '6 - 6 = ?',
-      'अगर तुम्हारे पास 7 चॉकलेट थीं और तुमने 4 खा लीं, तो कितनी बची?',
-    ],
-    flashcards: [
+      Flashcard(term: 'जोड़ना', meaning: 'दो संख्याओं को मिलाना'),
       Flashcard(term: 'घटाव', meaning: 'किसी संख्या में से कुछ कम करना'),
-      Flashcard(term: 'शेष', meaning: 'घटाने के बाद बची संख्या'),
-      Flashcard(term: 'माइनस', meaning: 'घटाव का चिन्ह (-)'),
-      Flashcard(term: 'कम करना', meaning: 'संख्या को घटाना'),
-      Flashcard(term: 'बचना', meaning: 'शेष रह जाना'),
+      Flashcard(term: 'शून्य', meaning: 'कुछ भी न बचने की संख्या (0)'),
+      Flashcard(term: 'बाकी/बचे', meaning: 'घटाने के बाद बची संख्या'),
+      Flashcard(term: 'मिलकर', meaning: 'साथ रखने पर बनी संख्या'),
     ],
     assessment: [
       AssessmentQuestion(
-        question: '5 - 2 = ?',
+        question: '2 अमरूद और 1 अमरूद मिलकर कुल कितने अमरूद हुए?',
         options: ['2', '3', '4', '5'],
         correctIndex: 1,
       ),
       AssessmentQuestion(
-        question: '8 - 3 = ?',
-        options: ['4', '5', '6', '7'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'घटाव का चिन्ह कौन सा है?',
-        options: ['+', '-', 'x', '='],
-        correctIndex: 1,
-      ),
-    ],
-  ),
-  'Class 1|Mathematics|संख्याएँ (10 to 20)': ChapterContent(
-    worksheet: [
-      '10 से 20 तक की संख्याएँ क्रम में लिखो।',
-      '15 के बाद कौन सी संख्या आती है?',
-      '12 और 18 में कौन सी संख्या बड़ी है?',
-    ],
-    flashcards: [
-      Flashcard(term: 'दस', meaning: 'संख्या 10'),
-      Flashcard(term: 'बीस', meaning: 'संख्या 20'),
-      Flashcard(term: 'पंद्रह', meaning: 'संख्या 15'),
-      Flashcard(term: 'बड़ी संख्या', meaning: 'जो गिनती में अधिक हो'),
-      Flashcard(term: 'छोटी संख्या', meaning: 'जो गिनती में कम हो'),
-    ],
-    assessment: [
-      AssessmentQuestion(
-        question: '10 के बाद कौन सी संख्या आती है?',
-        options: ['9', '11', '20', '12'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: '20 से पहले कौन सी संख्या आती है?',
-        options: ['18', '19', '21', '17'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: '14 और 19 में बड़ी संख्या कौन सी है?',
-        options: ['14', '19', 'दोनों बराबर', 'कोई नहीं'],
-        correctIndex: 1,
-      ),
-    ],
-  ),
-  'Class 1|Mathematics|समय': ChapterContent(
-    worksheet: [
-      'सुबह हम किस समय स्कूल जाते हैं?',
-      'घड़ी में कितनी सुइयाँ होती हैं?',
-      'रात को हम क्या करते हैं - सोते हैं या खेलते हैं?',
-    ],
-    flashcards: [
-      Flashcard(term: 'घड़ी', meaning: 'समय बताने वाला यंत्र'),
-      Flashcard(term: 'घंटा', meaning: 'समय की एक इकाई'),
-      Flashcard(term: 'सुबह', meaning: 'दिन का पहला भाग'),
-      Flashcard(term: 'रात', meaning: 'दिन का अंधेरा भाग'),
-      Flashcard(term: 'समय', meaning: 'घटनाओं के होने की अवधि'),
-    ],
-    assessment: [
-      AssessmentQuestion(
-        question: 'समय बताने के लिए किसका उपयोग करते हैं?',
-        options: ['घड़ी', 'किताब', 'चम्मच', 'बैग'],
-        correctIndex: 0,
-      ),
-      AssessmentQuestion(
-        question: 'दिन के पहले भाग को क्या कहते हैं?',
-        options: ['रात', 'सुबह', 'शाम', 'दोपहर'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'हम रात में क्या करते हैं?',
-        options: ['सोते हैं', 'स्कूल जाते हैं', 'खेत जोतते हैं', 'तैरते हैं'],
-        correctIndex: 0,
-      ),
-    ],
-  ),
-  'Class 1|Mathematics|मापन': ChapterContent(
-    worksheet: [
-      'अपने घर में एक लंबी और एक छोटी वस्तु का नाम लिखो।',
-      'कौन सी चीज़ भारी होती है - पत्थर या गुब्बारा?',
-      'अपनी पेंसिल की लंबाई अपनी उंगली से नापो।',
-    ],
-    flashcards: [
-      Flashcard(term: 'लंबाई', meaning: 'किसी वस्तु का माप जो लंबा-छोटा बताए'),
-      Flashcard(term: 'वज़न', meaning: 'किसी वस्तु का भारीपन'),
-      Flashcard(term: 'भारी', meaning: 'जिसका वज़न अधिक हो'),
-      Flashcard(term: 'हल्का', meaning: 'जिसका वज़न कम हो'),
-      Flashcard(term: 'नापना', meaning: 'लंबाई या वज़न को मापना'),
-    ],
-    assessment: [
-      AssessmentQuestion(
-        question: 'पत्थर और गुब्बारे में भारी कौन है?',
-        options: ['गुब्बारा', 'पत्थर', 'दोनों बराबर', 'कोई नहीं'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'लंबाई नापने के लिए क्या उपयोग होता है?',
-        options: ['स्केल', 'चम्मच', 'कटोरी', 'घड़ी'],
-        correctIndex: 0,
-      ),
-      AssessmentQuestion(
-        question: 'जिसका वज़न कम हो, वह कहलाता है:',
-        options: ['भारी', 'हल्का', 'लंबा', 'छोटा'],
-        correctIndex: 1,
-      ),
-    ],
-  ),
-  'Class 1|Mathematics|संख्याएँ (21 to 50)': ChapterContent(
-    worksheet: [
-      '21 से 30 तक की संख्याएँ लिखो।',
-      '35 के बाद कौन सी संख्या आती है?',
-      '28 और 42 में कौन सी संख्या बड़ी है?',
-    ],
-    flashcards: [
-      Flashcard(term: 'इक्कीस', meaning: 'संख्या 21'),
-      Flashcard(term: 'पचास', meaning: 'संख्या 50'),
-      Flashcard(term: 'तीस', meaning: 'संख्या 30'),
-      Flashcard(term: 'चालीस', meaning: 'संख्या 40'),
-      Flashcard(term: 'दहाई', meaning: 'दस-दस के समूह में संख्या गिनना'),
-    ],
-    assessment: [
-      AssessmentQuestion(
-        question: '30 के बाद कौन सी संख्या आती है?',
-        options: ['29', '31', '40', '21'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: '50 से पहले कौन सी संख्या आती है?',
-        options: ['48', '49', '51', '45'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: '25 और 45 में बड़ी संख्या कौन सी है?',
-        options: ['25', '45', 'दोनों बराबर', 'कोई नहीं'],
-        correctIndex: 1,
-      ),
-    ],
-  ),
-  'Class 2|Hindi|मेरा विद्यालय': ChapterContent(
-    worksheet: [
-      'अपने विद्यालय का नाम लिखिए।',
-      'आपके विद्यालय में कौन-कौन सी चीज़ें हैं? किन्हीं तीन का नाम लिखिए।',
-      'आपको विद्यालय क्यों अच्छा लगता है? एक वाक्य में लिखिए।',
-      '"विद्यालय" शब्द से एक वाक्य बनाइए।',
-    ],
-    flashcards: [
-      Flashcard(term: 'विद्यालय', meaning: 'पढ़ने-लिखने की जगह, स्कूल'),
-      Flashcard(term: 'अध्यापक', meaning: 'पढ़ाने वाला व्यक्ति'),
-      Flashcard(term: 'कक्षा', meaning: 'विद्यार्थियों के पढ़ने का कमरा'),
-      Flashcard(term: 'मित्र', meaning: 'दोस्त, साथी'),
-      Flashcard(term: 'पुस्तक', meaning: 'किताब, ज्ञान का स्रोत'),
-    ],
-    assessment: [
-      AssessmentQuestion(
-        question: 'हम कहाँ पढ़ने जाते हैं?',
-        options: ['बाज़ार', 'विद्यालय', 'खेत', 'नदी'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: '"अध्यापक" कौन होता है?',
-        options: ['दुकानदार', 'किसान', 'पढ़ाने वाला', 'डाक्टर'],
-        correctIndex: 2,
-      ),
-      AssessmentQuestion(
-        question: 'विद्यार्थी विद्यालय में क्या करते हैं?',
-        options: [
-          'खेलते ही रहते हैं',
-          'पढ़ते-लिखते हैं',
-          'सोते हैं',
-          'खाना बनाते हैं',
-        ],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'कक्षा में कौन बैठते हैं?',
-        options: ['पशु', 'विद्यार्थी', 'पक्षी', 'मछली'],
-        correctIndex: 1,
-      ),
-    ],
-  ),
-  'Class 2|Hindi|आई एक खबर': ChapterContent(
-    worksheet: [
-      '"खबर" शब्द का अर्थ अपने शब्दों में लिखिए।',
-      'आपने घर में कोई अच्छी खबर सुनी हो तो एक वाक्य में लिखिए।',
-      'खबर सुनकर हमें कैसा महसूस होता है? एक शब्द में लिखिए।',
-      '"खबर" शब्द से एक वाक्य बनाइए।',
-    ],
-    flashcards: [
-      Flashcard(term: 'खबर', meaning: 'समाचार, सूचना'),
-      Flashcard(term: 'संदेश', meaning: 'किसी बात की सूचना'),
-      Flashcard(term: 'खुशी', meaning: 'प्रसन्नता'),
-      Flashcard(term: 'हैरानी', meaning: 'आश्चर्य'),
-      Flashcard(term: 'जल्दी', meaning: 'शीघ्रता'),
-    ],
-    assessment: [
-      AssessmentQuestion(
-        question: '"खबर" का मतलब है?',
-        options: ['खाना', 'समाचार', 'खेल', 'पानी'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'अच्छी खबर सुनकर हमें कैसा लगता है?',
-        options: ['दुख', 'खुशी', 'गुस्सा', 'डर'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'खबर हमें कौन दे सकता है?',
-        options: ['पेड़', 'पत्थर', 'व्यक्ति', 'कुर्सी'],
-        correctIndex: 2,
-      ),
-      AssessmentQuestion(
-        question: '"समाचार" का दूसरा शब्द है?',
-        options: ['खबर', 'खेल', 'किताब', 'पानी'],
-        correctIndex: 0,
-      ),
-    ],
-  ),
-  'Class 2|Hindi|मैं भी': ChapterContent(
-    worksheet: [
-      '"मैं भी" शीर्षक किस बारे में हो सकता है, अपने शब्दों में बताइए।',
-      'आप भी क्या करना चाहते हैं जो बड़े करते हैं? एक वाक्य लिखिए।',
-      '"मैं भी पढ़ूँगा" जैसा एक वाक्य स्वयं बनाइए।',
-      'अपने बारे में तीन बातें लिखिए जो आप कर सकते हैं।',
-    ],
-    flashcards: [
-      Flashcard(term: 'इच्छा', meaning: 'चाहत, कामना'),
-      Flashcard(term: 'बराबर', meaning: 'समान'),
-      Flashcard(term: 'कोशिश', meaning: 'प्रयत्न'),
-      Flashcard(term: 'साहस', meaning: 'हिम्मत'),
-      Flashcard(term: 'सहभागिता', meaning: 'साथ मिलकर भाग लेना'),
-    ],
-    assessment: [
-      AssessmentQuestion(
-        question: '"मैं भी" वाक्य में "भी" शब्द क्या दर्शाता है?',
-        options: ['मना करना', 'शामिल होना', 'डरना', 'रोना'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'जब हम कुछ नया करना चाहते हैं तो हमें क्या दिखाना चाहिए?',
-        options: ['डर', 'साहस', 'गुस्सा', 'आलस्य'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: '"इच्छा" शब्द का अर्थ है?',
-        options: ['डर', 'चाहत', 'थकान', 'नींद'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'बड़ों की तरह काम करने की कोशिश करना कैसा गुण है?',
-        options: ['बुरा', 'अच्छा', 'गलत', 'खतरनाक'],
-        correctIndex: 1,
-      ),
-    ],
-  ),
-  'Class 2|Hindi|किसी से कहना मत': ChapterContent(
-    worksheet: [
-      '"राज़" शब्द का अर्थ अपने शब्दों में लिखिए।',
-      'क्या हमें हर बात राज़ रखनी चाहिए? अपने विचार लिखिए।',
-      '"किसी से कहना मत" इस वाक्य को अपने शब्दों में समझाइए।',
-      'एक वाक्य बनाइए जिसमें "राज़" शब्द का प्रयोग हो।',
-    ],
-    flashcards: [
-      Flashcard(term: 'राज़', meaning: 'गुप्त बात, भेद'),
-      Flashcard(term: 'गुप्त', meaning: 'छिपी हुई'),
-      Flashcard(term: 'भरोसा', meaning: 'विश्वास'),
-      Flashcard(term: 'सच', meaning: 'सत्य'),
-      Flashcard(term: 'चुप', meaning: 'खामोश'),
-    ],
-    assessment: [
-      AssessmentQuestion(
-        question: '"राज़" का अर्थ है?',
-        options: ['खेल', 'गुप्त बात', 'खाना', 'गीत'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: '"गुप्त" शब्द का विपरीत क्या है?',
-        options: ['प्रकट', 'छिपा', 'अंधेरा', 'शांत'],
-        correctIndex: 0,
-      ),
-      AssessmentQuestion(
-        question: 'दोस्तों के बीच क्या होना चाहिए?',
-        options: ['झगड़ा', 'भरोसा', 'डर', 'चोरी'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: '"चुप" शब्द का अर्थ है?',
-        options: ['शोर करना', 'खामोश रहना', 'दौड़ना', 'गाना'],
-        correctIndex: 1,
-      ),
-    ],
-  ),
-  'Class 2|Hindi|रसोई में भगदड़': ChapterContent(
-    worksheet: [
-      'रसोई में कौन-कौन सी चीज़ें रखी होती हैं? किन्हीं चार का नाम लिखिए।',
-      '"भगदड़" शब्द का अर्थ अपने शब्दों में लिखिए।',
-      'रसोई में भगदड़ क्यों मच सकती है? एक कारण लिखिए।',
-      'रसोई से जुड़ा एक वाक्य बनाइए।',
-    ],
-    flashcards: [
-      Flashcard(term: 'रसोई', meaning: 'खाना बनाने की जगह'),
-      Flashcard(term: 'भगदड़', meaning: 'अफरा-तफरी, हड़बड़ी'),
-      Flashcard(term: 'बर्तन', meaning: 'खाना पकाने-खाने के सामान'),
-      Flashcard(term: 'चूल्हा', meaning: 'खाना पकाने का साधन'),
-      Flashcard(term: 'मसाला', meaning: 'स्वाद बढ़ाने वाली चीज़'),
-    ],
-    assessment: [
-      AssessmentQuestion(
-        question: '"रसोई" किसे कहते हैं?',
-        options: [
-          'सोने का कमरा',
-          'खाना बनाने की जगह',
-          'खेल का मैदान',
-          'पढ़ने का कमरा',
-        ],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: '"भगदड़" का अर्थ है?',
-        options: ['शांति', 'अफरा-तफरी', 'नींद', 'खुशी'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'रसोई में खाना किस पर पकाया जाता है?',
-        options: ['चूल्हे पर', 'पलंग पर', 'मेज़ पर', 'कुर्सी पर'],
-        correctIndex: 0,
-      ),
-      AssessmentQuestion(
-        question: 'भोजन में स्वाद बढ़ाने के लिए क्या डाला जाता है?',
-        options: ['पानी', 'मसाला', 'मिट्टी', 'रेत'],
-        correctIndex: 1,
-      ),
-    ],
-  ),
-  'Class 2|Hindi|नटखट बंदर': ChapterContent(
-    worksheet: [
-      'बंदर कैसा जानवर होता है? दो गुण लिखिए।',
-      '"नटखट" शब्द का अर्थ अपने शब्दों में लिखिए।',
-      'बंदर को खाने में क्या पसंद है?',
-      'बंदर से जुड़ी एक कहानी में क्या हो सकता है, अपने शब्दों में लिखिए।',
-    ],
-    flashcards: [
-      Flashcard(term: 'नटखट', meaning: 'शरारती'),
-      Flashcard(term: 'बंदर', meaning: 'एक चंचल जानवर जो पेड़ों पर रहता है'),
-      Flashcard(term: 'शरारत', meaning: 'नटखटपन, उपद्रव'),
-      Flashcard(term: 'पेड़', meaning: 'वृक्ष'),
-      Flashcard(term: 'उछल-कूद', meaning: 'कूदना-फांदना'),
-    ],
-    assessment: [
-      AssessmentQuestion(
-        question: '"नटखट" का अर्थ है?',
-        options: ['शांत', 'शरारती', 'उदास', 'बीमार'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'बंदर आमतौर पर कहाँ रहना पसंद करता है?',
-        options: ['पानी में', 'पेड़ों पर', 'बर्फ में', 'रेगिस्तान में'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'बंदर को कौन सा फल बहुत पसंद है?',
-        options: ['केला', 'मिर्च', 'प्याज', 'करेला'],
-        correctIndex: 0,
-      ),
-      AssessmentQuestion(
-        question: '"उछल-कूद" का अर्थ है?',
-        options: ['सोना', 'कूदना-फांदना', 'खाना', 'रोना'],
-        correctIndex: 1,
-      ),
-    ],
-  ),
-  'Class 2|Hindi|मैडम जी': ChapterContent(
-    worksheet: [
-      '"मैडम जी" किसे कहा जाता है?',
-      'अपनी अध्यापिका के बारे में एक वाक्य लिखिए।',
-      'अध्यापिका का हमें आदर क्यों करना चाहिए?',
-      'अध्यापिका से जुड़ा एक वाक्य बनाइए।',
-    ],
-    flashcards: [
-      Flashcard(
-        term: 'मैडम',
-        meaning: 'महिला अध्यापिका के लिए सम्मानसूचक शब्द',
-      ),
-      Flashcard(term: 'आदर', meaning: 'सम्मान'),
-      Flashcard(term: 'अनुशासन', meaning: 'नियमों का पालन'),
-      Flashcard(term: 'शिक्षा', meaning: 'ज्ञान'),
-      Flashcard(term: 'विनम्रता', meaning: 'नम्र व्यवहार'),
-    ],
-    assessment: [
-      AssessmentQuestion(
-        question: '"मैडम जी" शब्द किसके लिए प्रयोग होता है?',
-        options: ['दुकानदार', 'महिला अध्यापिका', 'डाक्टर', 'किसान'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'अध्यापिका के प्रति हमें कैसा व्यवहार रखना चाहिए?',
-        options: ['असम्मान', 'आदर', 'गुस्सा', 'झगड़ा'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: '"अनुशासन" का अर्थ है?',
-        options: ['नियमों का पालन', 'खेल', 'झगड़ा', 'नींद'],
-        correctIndex: 0,
-      ),
-      AssessmentQuestion(
-        question: 'विद्यालय में हमें क्या सीखने को मिलता है?',
-        options: ['शिक्षा', 'सिर्फ खेल', 'सिर्फ नींद', 'कुछ नहीं'],
-        correctIndex: 0,
-      ),
-    ],
-  ),
-  'Class 2|Hindi|गुब्बारा': ChapterContent(
-    worksheet: [
-      'गुब्बारा किस चीज़ से भरा होता है?',
-      'गुब्बारे किन-किन रंगों के होते हैं? तीन रंगों के नाम लिखिए।',
-      'हम गुब्बारे कब उड़ाते या खरीदते हैं?',
-      '"गुब्बारा" शब्द से एक वाक्य बनाइए।',
-    ],
-    flashcards: [
-      Flashcard(term: 'गुब्बारा', meaning: 'हवा से भरा रबर का खिलौना'),
-      Flashcard(term: 'हवा', meaning: 'वायु'),
-      Flashcard(term: 'रंग-बिरंगा', meaning: 'कई रंगों वाला'),
-      Flashcard(term: 'त्योहार', meaning: 'उत्सव'),
-      Flashcard(term: 'उड़ना', meaning: 'हवा में जाना'),
-    ],
-    assessment: [
-      AssessmentQuestion(
-        question: 'गुब्बारे में क्या भरा होता है?',
-        options: ['पानी', 'हवा', 'रेत', 'दूध'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'गुब्बारा किस चीज़ का बना होता है?',
-        options: ['लकड़ी', 'रबर', 'लोहा', 'कागज़'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'हम गुब्बारे किस अवसर पर सजाते हैं?',
-        options: ['जन्मदिन', 'परीक्षा', 'सोते समय', 'बीमारी में'],
-        correctIndex: 0,
-      ),
-      AssessmentQuestion(
-        question: '"रंग-बिरंगा" का अर्थ है?',
-        options: ['एक रंग वाला', 'कई रंगों वाला', 'रंगहीन', 'काला'],
-        correctIndex: 1,
-      ),
-    ],
-  ),
-  'Class 2|Hindi|सरहुल': ChapterContent(
-    worksheet: [
-      'सरहुल पर्व कब मनाया जाता है?',
-      'सरहुल में किस पेड़ की पूजा की जाती है?',
-      'सरहुल पर्व में पूजा कौन कराता है?',
-      'सरहुल पर्व झारखंड में क्यों खास है, एक वाक्य में लिखिए।',
-    ],
-    flashcards: [
-      Flashcard(term: 'सरहुल', meaning: 'झारखंड का प्रसिद्ध आदिवासी पर्व'),
-      Flashcard(term: 'साल वृक्ष', meaning: 'सरहुल में पूजा जाने वाला पेड़'),
-      Flashcard(term: 'पाहन', meaning: 'पूजा कराने वाला पुजारी'),
-      Flashcard(term: 'प्रकृति', meaning: 'कुदरत'),
-      Flashcard(term: 'नृत्य', meaning: 'नाच'),
-    ],
-    assessment: [
-      AssessmentQuestion(
-        question: 'सरहुल पर्व किस पेड़ से जुड़ा है?',
-        options: ['आम', 'साल', 'नीम', 'पीपल'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'सरहुल पर्व मुख्यतः कहाँ मनाया जाता है?',
-        options: ['झारखंड', 'केरल', 'पंजाब', 'गुजरात'],
-        correctIndex: 0,
-      ),
-      AssessmentQuestion(
-        question: 'सरहुल पूजा कौन कराता है?',
-        options: ['डाक्टर', 'पाहन (पुजारी)', 'शिक्षक', 'किसान'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'सरहुल पर्व किस ऋतु में मनाया जाता है?',
-        options: ['सर्दी', 'वसंत', 'वर्षा', 'पतझड़'],
-        correctIndex: 1,
-      ),
-    ],
-  ),
-  'Class 2|Hindi|ऊँट और सियार': ChapterContent(
-    worksheet: [
-      'ऊँट कैसा जानवर होता है? दो विशेषताएँ लिखिए।',
-      'सियार कैसा जानवर होता है? एक विशेषता लिखिए।',
-      'जानवरों की कहानियों से हमें क्या सीख मिलती है, अपने विचार लिखिए।',
-      '"ऊँट" और "सियार" शब्दों से एक-एक वाक्य बनाइए।',
-    ],
-    flashcards: [
-      Flashcard(
-        term: 'ऊँट',
-        meaning: 'रेगिस्तान में रहने वाला लंबी गर्दन का जानवर',
-      ),
-      Flashcard(
-        term: 'सियार',
-        meaning: 'चालाक जंगली जानवर, कुत्ते जैसा दिखने वाला',
-      ),
-      Flashcard(term: 'चालाक', meaning: 'होशियार, चतुर'),
-      Flashcard(term: 'मित्रता', meaning: 'दोस्ती'),
-      Flashcard(term: 'रेगिस्तान', meaning: 'सूखा, रेतीला क्षेत्र'),
-    ],
-    assessment: [
-      AssessmentQuestion(
-        question: 'ऊँट किस स्थान पर अधिक पाया जाता है?',
-        options: ['बर्फीले क्षेत्र', 'रेगिस्तान', 'समुद्र', 'पहाड़ की चोटी'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'सियार को किस गुण के लिए जाना जाता है?',
-        options: ['आलस्य', 'चालाकी', 'कमजोरी', 'उदासी'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'जानवरों की कहानियाँ हमें क्या सिखाती हैं?',
-        options: ['अच्छी सीख', 'डरना', 'झूठ बोलना', 'आलस्य'],
-        correctIndex: 0,
-      ),
-      AssessmentQuestion(
-        question: '"चालाक" शब्द का अर्थ है?',
-        options: ['कमजोर', 'होशियार', 'उदास', 'बीमार'],
-        correctIndex: 1,
-      ),
-    ],
-  ),
-  'Class 2|Hindi|हाँ जी, ना जी': ChapterContent(
-    worksheet: [
-      '"हाँ जी" और "ना जी" कब कहा जाता है, अपने शब्दों में लिखिए।',
-      'बड़ों से बात करते समय हमें कैसे शब्दों का प्रयोग करना चाहिए?',
-      'विनम्रता से बात करने के दो तरीके लिखिए।',
-      '"हाँ जी" और "ना जी" का प्रयोग करते हुए एक-एक वाक्य बनाइए।',
-    ],
-    flashcards: [
-      Flashcard(term: 'हाँ', meaning: 'स्वीकृति दिखाने वाला शब्द'),
-      Flashcard(term: 'ना', meaning: 'अस्वीकृति दिखाने वाला शब्द'),
-      Flashcard(term: 'विनम्रता', meaning: 'नम्र व्यवहार'),
-      Flashcard(term: 'सम्मान', meaning: 'आदर'),
-      Flashcard(term: 'उत्तर', meaning: 'जवाब'),
-    ],
-    assessment: [
-      AssessmentQuestion(
-        question: 'जब हम किसी बात से सहमत होते हैं तो क्या कहते हैं?',
-        options: ['ना जी', 'हाँ जी', 'चुप', 'शोर'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'बड़ों से बात करते समय कैसा व्यवहार होना चाहिए?',
-        options: ['असभ्य', 'विनम्र', 'गुस्सैल', 'उदासीन'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: '"विनम्रता" का अर्थ है?',
-        options: ['गुस्सा', 'नम्र व्यवहार', 'झूठ', 'आलस्य'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'जब हम किसी बात से असहमत होते हैं तो क्या कहते हैं?',
-        options: ['हाँ जी', 'ना जी', 'शाबाश', 'धन्यवाद'],
-        correctIndex: 1,
-      ),
-    ],
-  ),
-  'Class 2|Hindi|बूझिए मेरा नाम': ChapterContent(
-    worksheet: [
-      'पहेली किसे कहते हैं, अपने शब्दों में लिखिए।',
-      'एक सरल पहेली स्वयं बनाइए।',
-      'पहेलियाँ बूझने से हमें क्या फायदा होता है?',
-      'अपने किसी पसंदीदा जानवर या वस्तु की एक पहेली लिखिए।',
-    ],
-    flashcards: [
-      Flashcard(term: 'पहेली', meaning: 'बूझने वाला सवाल'),
-      Flashcard(term: 'अनुमान', meaning: 'अंदाज़ा'),
-      Flashcard(term: 'बुद्धि', meaning: 'समझ, सोचने की शक्ति'),
-      Flashcard(term: 'उत्तर', meaning: 'जवाब'),
-      Flashcard(term: 'चतुराई', meaning: 'होशियारी'),
-    ],
-    assessment: [
-      AssessmentQuestion(
-        question: '"पहेली" किसे कहते हैं?',
-        options: ['कहानी', 'बूझने वाला सवाल', 'गीत', 'चित्र'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'पहेलियाँ हल करने से क्या बढ़ता है?',
-        options: ['बुद्धि', 'आलस्य', 'डर', 'नींद'],
-        correctIndex: 0,
-      ),
-      AssessmentQuestion(
-        question: '"अनुमान" का अर्थ है?',
-        options: ['निश्चित उत्तर', 'अंदाज़ा लगाना', 'भूल जाना', 'रोना'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'पहेली का सही जवाब देने के लिए क्या ज़रूरी है?',
-        options: ['सोचना', 'सोना', 'भागना', 'रोना'],
-        correctIndex: 0,
-      ),
-    ],
-  ),
-  'Class 2|Hindi|बब्बू और झब्बू': ChapterContent(
-    worksheet: [
-      'बब्बू और झब्बू के नाम सुनकर आपको क्या लगता है ये कौन हो सकते हैं?',
-      'दोस्ती में कौन-कौन सी अच्छी बातें होती हैं? दो लिखिए।',
-      '"बब्बू और झब्बू" जैसे तुकांत नामों का एक जोड़ा और बनाइए।',
-      'अपने सबसे अच्छे दोस्त के बारे में एक वाक्य लिखिए।',
-    ],
-    flashcards: [
-      Flashcard(term: 'दोस्ती', meaning: 'मित्रता'),
-      Flashcard(term: 'साथी', meaning: 'संगी'),
-      Flashcard(term: 'तुकांत', meaning: 'एक जैसी ध्वनि वाले शब्द'),
-      Flashcard(term: 'मस्ती', meaning: 'खुशी भरा खेल'),
-      Flashcard(term: 'सहयोग', meaning: 'मिलकर काम करना'),
-    ],
-    assessment: [
-      AssessmentQuestion(
-        question: '"दोस्ती" का अर्थ है?',
-        options: ['झगड़ा', 'मित्रता', 'डर', 'उदासी'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'अच्छे दोस्त एक-दूसरे की क्या करते हैं?',
-        options: ['मदद', 'बुराई', 'नकल', 'अनदेखी'],
-        correctIndex: 0,
-      ),
-      AssessmentQuestion(
-        question: '"तुकांत शब्द" किसे कहते हैं?',
-        options: [
-          'विपरीत शब्द',
-          'एक जैसी ध्वनि वाले शब्द',
-          'कठिन शब्द',
-          'अंग्रेज़ी शब्द',
-        ],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: '"सहयोग" का अर्थ है?',
-        options: ['मिलकर काम करना', 'अकेले रहना', 'झगड़ना', 'सोना'],
-        correctIndex: 0,
-      ),
-    ],
-  ),
-  'Class 2|Hindi|भोर भई': ChapterContent(
-    worksheet: [
-      '"भोर" शब्द का अर्थ क्या है?',
-      'सुबह उठकर आप सबसे पहले क्या करते हैं?',
-      'सुबह के समय प्रकृति में क्या-क्या दिखाई देता है? दो चीज़ें लिखिए।',
-      '"भोर" शब्द से एक वाक्य बनाइए।',
-    ],
-    flashcards: [
-      Flashcard(term: 'भोर', meaning: 'सुबह, प्रातःकाल'),
-      Flashcard(term: 'सूर्योदय', meaning: 'सूरज का निकलना'),
-      Flashcard(term: 'पक्षी', meaning: 'चिड़िया'),
-      Flashcard(term: 'ताज़गी', meaning: 'स्फूर्ति, ताज़ा एहसास'),
-      Flashcard(term: 'प्रातःकाल', meaning: 'सुबह का समय'),
-    ],
-    assessment: [
-      AssessmentQuestion(
-        question: '"भोर" का अर्थ है?',
-        options: ['रात', 'सुबह', 'दोपहर', 'शाम'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'सुबह सबसे पहले आकाश में क्या दिखाई देता है?',
-        options: ['चाँद', 'सूरज', 'तारे', 'बादल'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'सुबह के समय पक्षी क्या करते हैं?',
-        options: ['सोते हैं', 'चहचहाते हैं', 'रोते हैं', 'छिपते हैं'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: '"प्रातःकाल" किस समय को कहते हैं?',
-        options: ['सुबह', 'रात', 'दोपहर', 'शाम'],
-        correctIndex: 0,
-      ),
-    ],
-  ),
-  'Class 2|Hindi|पंचू और चटनी': ChapterContent(
-    worksheet: [
-      '"चटनी" किन-किन चीज़ों से बनाई जाती है? दो चीज़ें लिखिए।',
-      'आपको कौन सी चटनी सबसे ज़्यादा पसंद है?',
-      '"पंचू" नाम सुनकर आपको क्या लगता है यह कौन हो सकता है?',
-      'भोजन से जुड़ा एक वाक्य बनाइए जिसमें "चटनी" शब्द हो।',
-    ],
-    flashcards: [
-      Flashcard(term: 'चटनी', meaning: 'तीखा-खट्टा स्वाद वाला भोजन का साथी'),
-      Flashcard(term: 'स्वाद', meaning: 'जायका'),
-      Flashcard(term: 'खट्टा', meaning: 'नींबू जैसा स्वाद'),
-      Flashcard(term: 'तीखा', meaning: 'मिर्च जैसा तेज़ स्वाद'),
-      Flashcard(term: 'भोजन', meaning: 'खाना'),
-    ],
-    assessment: [
-      AssessmentQuestion(
-        question: 'चटनी किसके साथ खाई जाती है?',
-        options: ['भोजन', 'कपड़े', 'किताब', 'खिलौने'],
-        correctIndex: 0,
-      ),
-      AssessmentQuestion(
-        question: '"खट्टा" स्वाद किसमें पाया जाता है?',
-        options: ['आम (पका)', 'नींबू', 'गन्ना', 'शहद'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: '"तीखा" स्वाद किसमें होता है?',
-        options: ['मिर्च', 'चीनी', 'दूध', 'पानी'],
-        correctIndex: 0,
-      ),
-      AssessmentQuestion(
-        question: '"स्वाद" का दूसरा शब्द है?',
-        options: ['जायका', 'रंग', 'आकार', 'वज़न'],
-        correctIndex: 0,
-      ),
-    ],
-  ),
-  'Class 2|English|I Know': ChapterContent(
-    worksheet: [
-      'Write three things you know how to do.',
-      'Complete: I know how to ____.',
-      'Name one thing you learned recently.',
-      'Write a sentence starting with \'I know\'.',
-    ],
-    flashcards: [
-      Flashcard(
-        term: 'know',
-        meaning: 'to understand or have information about something',
-      ),
-      Flashcard(term: 'learn', meaning: 'to gain knowledge or skill'),
-      Flashcard(term: 'skill', meaning: 'the ability to do something well'),
-      Flashcard(
-        term: 'practice',
-        meaning: 'doing something again and again to improve',
-      ),
-      Flashcard(
-        term: 'understand',
-        meaning: 'to know the meaning of something',
-      ),
-    ],
-    assessment: [
-      AssessmentQuestion(
-        question: 'What does \'I know\' mean?',
-        options: [
-          'I am sleeping',
-          'I understand',
-          'I am eating',
-          'I am running',
-        ],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'Which word means \'to gain knowledge\'?',
-        options: ['learn', 'sleep', 'eat', 'run'],
-        correctIndex: 0,
-      ),
-      AssessmentQuestion(
-        question: '\'Skill\' means:',
-        options: [
-          'ability to do something well',
-          'a type of food',
-          'a color',
-          'a place',
-        ],
-        correctIndex: 0,
-      ),
-      AssessmentQuestion(
-        question: 'Choose the correct sentence:',
-        options: [
-          'I knows how to swim',
-          'I know how to swim',
-          'I knowing swim',
-          'Knows I swim',
-        ],
-        correctIndex: 1,
-      ),
-    ],
-  ),
-  'Class 2|English|Myself': ChapterContent(
-    worksheet: [
-      'Write your name and age.',
-      'Write two things about your family.',
-      'Write one thing you like about yourself.',
-      'Complete: My name is ____ and I am ____ years old.',
-    ],
-    flashcards: [
-      Flashcard(term: 'myself', meaning: 'referring to one\'s own person'),
-      Flashcard(term: 'name', meaning: 'what a person is called'),
-      Flashcard(term: 'age', meaning: 'how old a person is'),
-      Flashcard(term: 'family', meaning: 'parents, siblings, and relatives'),
-      Flashcard(term: 'like', meaning: 'to enjoy something'),
-    ],
-    assessment: [
-      AssessmentQuestion(
-        question: 'Which word describes yourself?',
-        options: ['myself', 'himself', 'herself', 'itself'],
-        correctIndex: 0,
-      ),
-      AssessmentQuestion(
-        question: '\'Age\' means:',
-        options: [
-          'a person\'s name',
-          'how old someone is',
-          'a place',
-          'a color',
-        ],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'Who is part of your family?',
-        options: ['mother', 'teacher', 'shopkeeper', 'doctor'],
-        correctIndex: 0,
-      ),
-      AssessmentQuestion(
-        question: 'Complete: My name ___ Rani.',
-        options: ['is', 'am', 'are', 'be'],
-        correctIndex: 0,
-      ),
-    ],
-  ),
-  'Class 2|English|Daily Routine': ChapterContent(
-    worksheet: [
-      'Write what you do in the morning.',
-      'Write what you do before going to school.',
-      'Write one thing you do at night before sleeping.',
-      'Complete: I brush my teeth in the ____.',
-    ],
-    flashcards: [
-      Flashcard(term: 'routine', meaning: 'things done regularly every day'),
-      Flashcard(term: 'morning', meaning: 'the early part of the day'),
-      Flashcard(term: 'brush', meaning: 'to clean teeth with a toothbrush'),
-      Flashcard(term: 'bath', meaning: 'washing the body with water'),
-      Flashcard(term: 'sleep', meaning: 'to rest at night'),
-    ],
-    assessment: [
-      AssessmentQuestion(
-        question: '\'Routine\' means:',
-        options: [
-          'things done once',
-          'things done every day',
-          'a game',
-          'a food item',
-        ],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'What do we do first in the morning?',
-        options: ['sleep', 'wake up', 'go to school', 'have dinner'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'We brush our teeth with a:',
-        options: ['spoon', 'toothbrush', 'comb', 'plate'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'Choose the correct word: I take a ____ every morning.',
-        options: ['bath', 'chair', 'book', 'shoe'],
-        correctIndex: 0,
-      ),
-    ],
-  ),
-  'Class 2|English|Family': ChapterContent(
-    worksheet: [
-      'Name the members of your family.',
-      'Write who is the oldest person in your family.',
-      'Write one thing your family does together.',
-      'Complete: My mother\'s name is ____.',
-    ],
-    flashcards: [
-      Flashcard(
-        term: 'family',
-        meaning:
-            'a group of people related to each other, like parents and children',
-      ),
-      Flashcard(term: 'mother', meaning: 'a female parent'),
-      Flashcard(term: 'father', meaning: 'a male parent'),
-      Flashcard(term: 'sibling', meaning: 'a brother or sister'),
-      Flashcard(
-        term: 'grandparent',
-        meaning: 'the parent of one\'s mother or father',
-      ),
-    ],
-    assessment: [
-      AssessmentQuestion(
-        question: 'Who is a female parent?',
-        options: ['father', 'mother', 'brother', 'sister'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'Who is a male parent?',
-        options: ['mother', 'sister', 'father', 'aunt'],
-        correctIndex: 2,
-      ),
-      AssessmentQuestion(
-        question: 'A brother or sister is called a:',
-        options: ['parent', 'sibling', 'grandparent', 'neighbour'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: '\'Family\' means:',
-        options: [
-          'a group of friends',
-          'a group of related people',
-          'a group of teachers',
-          'a group of animals',
-        ],
-        correctIndex: 1,
-      ),
-    ],
-  ),
-  'Class 2|English|Daily Routine (Unit 4)': ChapterContent(
-    worksheet: [
-      'Write three activities you do after school.',
-      'Put these in order: sleep, wake up, eat breakfast, go to school.',
-      'Write what time you go to bed.',
-      'Complete: In the evening, I ____.',
-    ],
-    flashcards: [
-      Flashcard(
-        term: 'evening',
-        meaning: 'the time between afternoon and night',
-      ),
-      Flashcard(term: 'breakfast', meaning: 'the first meal of the day'),
-      Flashcard(term: 'homework', meaning: 'school work done at home'),
-      Flashcard(term: 'bedtime', meaning: 'the time to go to sleep'),
-      Flashcard(
-        term: 'schedule',
-        meaning: 'a plan of things to do at certain times',
-      ),
-    ],
-    assessment: [
-      AssessmentQuestion(
-        question: '\'Breakfast\' is:',
-        options: [
-          'the last meal of the day',
-          'the first meal of the day',
-          'a game',
-          'a toy',
-        ],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'What do we do after coming home from school?',
-        options: ['homework', 'fly', 'swim in the sea', 'drive a car'],
-        correctIndex: 0,
-      ),
-      AssessmentQuestion(
-        question: '\'Bedtime\' means:',
-        options: [
-          'time to eat',
-          'time to sleep',
-          'time to play',
-          'time to study',
-        ],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'Choose the correct order:',
-        options: [
-          'sleep, wake up, breakfast',
-          'wake up, breakfast, school',
-          'school, wake up, breakfast',
-          'breakfast, sleep, wake up',
-        ],
-        correctIndex: 1,
-      ),
-    ],
-  ),
-  'Class 2|English|Food': ChapterContent(
-    worksheet: [
-      'Name three foods you eat every day.',
-      'Write your favourite food.',
-      'Write one fruit and one vegetable.',
-      'Complete: I like to eat ____.',
-    ],
-    flashcards: [
-      Flashcard(term: 'food', meaning: 'things we eat'),
-      Flashcard(
-        term: 'fruit',
-        meaning: 'a sweet part of a plant we eat, like an apple',
-      ),
-      Flashcard(
-        term: 'vegetable',
-        meaning: 'a plant part we eat, like a carrot',
-      ),
-      Flashcard(term: 'meal', meaning: 'food eaten at a particular time'),
-      Flashcard(term: 'healthy', meaning: 'good for the body'),
-    ],
-    assessment: [
-      AssessmentQuestion(
-        question: 'Which of these is a fruit?',
-        options: ['potato', 'apple', 'spinach', 'onion'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'Which of these is a vegetable?',
-        options: ['mango', 'banana', 'carrot', 'grapes'],
-        correctIndex: 2,
-      ),
-      AssessmentQuestion(
-        question: '\'Healthy\' food is good for our:',
-        options: ['toys', 'body', 'books', 'clothes'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'A \'meal\' is:',
-        options: ['a game', 'food eaten at a time', 'a toy', 'a song'],
-        correctIndex: 1,
-      ),
-    ],
-  ),
-  'Class 2|English|House': ChapterContent(
-    worksheet: [
-      'Name three rooms in a house.',
-      'Write what you do in the kitchen.',
-      'Write where you sleep in your house.',
-      'Complete: My house has a ____.',
-    ],
-    flashcards: [
-      Flashcard(term: 'house', meaning: 'a place where people live'),
-      Flashcard(term: 'kitchen', meaning: 'room where food is cooked'),
-      Flashcard(term: 'bedroom', meaning: 'room where people sleep'),
-      Flashcard(term: 'door', meaning: 'an opening to enter or leave a room'),
-      Flashcard(term: 'roof', meaning: 'the top covering of a house'),
-    ],
-    assessment: [
-      AssessmentQuestion(
-        question: 'Where do we cook food?',
-        options: ['bedroom', 'kitchen', 'roof', 'garden'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'Where do we sleep?',
-        options: ['kitchen', 'bathroom', 'bedroom', 'garage'],
-        correctIndex: 2,
-      ),
-      AssessmentQuestion(
-        question: 'The top part of a house is called:',
-        options: ['door', 'window', 'roof', 'wall'],
-        correctIndex: 2,
-      ),
-      AssessmentQuestion(
-        question: 'We enter a room through the:',
-        options: ['roof', 'door', 'floor', 'wall'],
-        correctIndex: 1,
-      ),
-    ],
-  ),
-  'Class 2|English|Means of Transport': ChapterContent(
-    worksheet: [
-      'Name three means of transport.',
-      'Which transport travels on water?',
-      'Which transport travels in the sky?',
-      'Complete: I go to school by ____.',
-    ],
-    flashcards: [
-      Flashcard(
-        term: 'transport',
-        meaning: 'a way of moving from one place to another',
-      ),
-      Flashcard(term: 'bicycle', meaning: 'a two-wheeled vehicle we pedal'),
-      Flashcard(term: 'train', meaning: 'a vehicle that runs on rails'),
-      Flashcard(term: 'boat', meaning: 'a vehicle that travels on water'),
-      Flashcard(term: 'airplane', meaning: 'a vehicle that flies in the sky'),
-    ],
-    assessment: [
-      AssessmentQuestion(
-        question: 'Which vehicle flies in the sky?',
-        options: ['car', 'airplane', 'boat', 'bicycle'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'Which vehicle travels on water?',
-        options: ['boat', 'train', 'bus', 'bicycle'],
-        correctIndex: 0,
-      ),
-      AssessmentQuestion(
-        question: 'A train runs on:',
-        options: ['roads', 'rails', 'water', 'sky'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'Which of these has two wheels?',
-        options: ['car', 'bus', 'bicycle', 'train'],
-        correctIndex: 2,
-      ),
-    ],
-  ),
-  'Class 2|English|The Village Market': ChapterContent(
-    worksheet: [
-      'Name three things you can buy at a market.',
-      'Who sells vegetables in the market?',
-      'Write one thing you like about a village market.',
-      'Complete: At the market, I saw a ____.',
-    ],
-    flashcards: [
-      Flashcard(
-        term: 'market',
-        meaning: 'a place where goods are bought and sold',
-      ),
-      Flashcard(term: 'vendor', meaning: 'a person who sells goods'),
-      Flashcard(term: 'vegetables', meaning: 'plant food sold in the market'),
-      Flashcard(term: 'price', meaning: 'the amount of money for something'),
-      Flashcard(term: 'basket', meaning: 'a container to carry things'),
-    ],
-    assessment: [
-      AssessmentQuestion(
-        question: 'A \'market\' is a place where we:',
-        options: ['sleep', 'buy and sell things', 'study', 'swim'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'A person who sells goods is called a:',
-        options: ['teacher', 'vendor', 'doctor', 'driver'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'We carry things from the market in a:',
-        options: ['basket', 'book', 'bed', 'shoe'],
-        correctIndex: 0,
-      ),
-      AssessmentQuestion(
-        question: '\'Price\' means:',
-        options: [
-          'the color of a thing',
-          'the amount of money for something',
-          'the shape of a thing',
-          'the size of a thing',
-        ],
-        correctIndex: 1,
-      ),
-    ],
-  ),
-  'Class 2|Mathematics|आकृति और स्थान': ChapterContent(
-    worksheet: [
-      'अपने आस-पास की तीन गोल (वृत्ताकार) वस्तुओं के नाम लिखिए।',
-      'त्रिभुज की कितनी भुजाएँ होती हैं?',
-      'वर्ग और आयत में क्या अंतर है, एक वाक्य में लिखिए।',
-      'अपनी कक्षा में एक चौकोर वस्तु और एक गोल वस्तु का नाम लिखिए।',
-    ],
-    flashcards: [
-      Flashcard(term: 'वृत्त', meaning: 'गोल आकृति'),
-      Flashcard(term: 'त्रिभुज', meaning: 'तीन भुजाओं वाली आकृति'),
-      Flashcard(term: 'वर्ग', meaning: 'चार बराबर भुजाओं वाली आकृति'),
-      Flashcard(
-        term: 'आयत',
-        meaning: 'चार भुजाओं वाली आकृति जिसकी विपरीत भुजाएँ बराबर होती हैं',
-      ),
-      Flashcard(
-        term: 'घन',
-        meaning: 'एक ठोस आकृति जिसके छह बराबर फलक होते हैं',
-      ),
-    ],
-    assessment: [
-      AssessmentQuestion(
-        question: 'त्रिभुज की भुजाएँ कितनी होती हैं?',
-        options: ['2', '3', '4', '5'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'गेंद किस आकृति जैसी होती है?',
-        options: ['वर्ग', 'त्रिभुज', 'वृत्त (गोला)', 'आयत'],
-        correctIndex: 2,
-      ),
-      AssessmentQuestion(
-        question: 'वर्ग की सभी भुजाएँ कैसी होती हैं?',
-        options: ['असमान', 'बराबर', 'टेढ़ी', 'गोल'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'दरवाज़ा प्रायः किस आकृति का होता है?',
-        options: ['वृत्त', 'त्रिभुज', 'आयत', 'तारा'],
-        correctIndex: 2,
-      ),
-    ],
-  ),
-  'Class 2|Mathematics|संख्याएँ': ChapterContent(
-    worksheet: [
-      '1 से 20 तक की संख्याएँ लिखिए।',
-      '45 के बाद कौन सी संख्या आती है?',
-      '30 और 40 के बीच की कोई पाँच संख्याएँ लिखिए।',
-      'इनमें से सबसे बड़ी और सबसे छोटी संख्या चुनिए: 67, 23, 89, 12',
-    ],
-    flashcards: [
-      Flashcard(
-        term: 'संख्या',
-        meaning: 'गिनती करने के लिए प्रयोग होने वाला अंक',
-      ),
-      Flashcard(
-        term: 'इकाई',
-        meaning: 'किसी संख्या के दायीं ओर का पहला स्थान मान',
-      ),
-      Flashcard(term: 'दहाई', meaning: 'दस-दस के समूह का स्थान मान'),
-      Flashcard(term: 'बड़ी संख्या', meaning: 'अधिक मूल्य वाली संख्या'),
-      Flashcard(term: 'छोटी संख्या', meaning: 'कम मूल्य वाली संख्या'),
-    ],
-    assessment: [
-      AssessmentQuestion(
-        question: '45 के बाद कौन सी संख्या आती है?',
-        options: ['44', '46', '54', '40'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'इनमें सबसे बड़ी संख्या कौन सी है?',
-        options: ['34', '43', '24', '42'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: '27 में दहाई के स्थान पर कौन सा अंक है?',
-        options: ['7', '2', '9', '0'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'इनमें सबसे छोटी संख्या कौन सी है?',
-        options: ['56', '65', '45', '54'],
-        correctIndex: 2,
-      ),
-    ],
-  ),
-  'Class 2|Mathematics|जोड़': ChapterContent(
-    worksheet: [
-      '23 + 15 = ?',
-      '34 + 42 = ?',
-      'रीना के पास 12 पेंसिलें हैं और उसकी बहन के पास 8 पेंसिलें हैं। दोनों के पास कुल कितनी पेंसिलें हैं?',
-      '45 + 30 = ?',
-    ],
-    flashcards: [
-      Flashcard(term: 'जोड़', meaning: 'दो या दो से अधिक संख्याओं को मिलाना'),
-      Flashcard(term: 'योग', meaning: 'जोड़ का परिणाम'),
-      Flashcard(term: 'कुल', meaning: 'सब मिलाकर'),
-      Flashcard(
-        term: 'संख्या रेखा',
-        meaning: 'संख्याओं को क्रम में दिखाने वाली रेखा',
-      ),
-      Flashcard(term: 'मिलाना', meaning: 'एक साथ रखना'),
-    ],
-    assessment: [
-      AssessmentQuestion(
-        question: '20 + 15 = ?',
-        options: ['30', '35', '40', '25'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: '18 + 12 = ?',
-        options: ['20', '28', '30', '32'],
-        correctIndex: 2,
-      ),
-      AssessmentQuestion(
-        question: '25 + 25 = ?',
-        options: ['40', '45', '50', '55'],
-        correctIndex: 2,
-      ),
-      AssessmentQuestion(
-        question: 'जोड़ का परिणाम क्या कहलाता है?',
-        options: ['अंतर', 'योग', 'गुणनफल', 'भागफल'],
-        correctIndex: 1,
-      ),
-    ],
-  ),
-  'Class 2|Mathematics|घटाव': ChapterContent(
-    worksheet: [
-      '50 - 20 = ?',
-      '48 - 15 = ?',
-      'सोहन के पास 25 गेंदें थीं, उसने 10 गेंदें अपने दोस्त को दे दीं। अब सोहन के पास कितनी गेंदें बचीं?',
-      '60 - 35 = ?',
-    ],
-    flashcards: [
-      Flashcard(
-        term: 'घटाव',
-        meaning: 'एक संख्या में से दूसरी संख्या को कम करना',
-      ),
-      Flashcard(term: 'अंतर', meaning: 'घटाव का परिणाम'),
-      Flashcard(term: 'बचा हुआ', meaning: 'शेष'),
-      Flashcard(term: 'कम करना', meaning: 'घटाना'),
-      Flashcard(term: 'शेष', meaning: 'बचा हुआ भाग'),
-    ],
-    assessment: [
-      AssessmentQuestion(
-        question: '30 - 10 = ?',
-        options: ['10', '20', '30', '40'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: '45 - 20 = ?',
-        options: ['15', '20', '25', '30'],
-        correctIndex: 2,
-      ),
-      AssessmentQuestion(
-        question: '100 - 50 = ?',
-        options: ['40', '50', '60', '70'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'घटाव का परिणाम क्या कहलाता है?',
-        options: ['योग', 'अंतर', 'गुणनफल', 'भागफल'],
-        correctIndex: 1,
-      ),
-    ],
-  ),
-  'Class 2|Mathematics|समय': ChapterContent(
-    worksheet: [
-      'एक दिन में कितने घंटे होते हैं?',
-      'घड़ी में कितनी सुइयाँ होती हैं?',
-      'सुबह के 7 बजे आप क्या करते हैं?',
-      'एक घंटे में कितने मिनट होते हैं?',
-    ],
-    flashcards: [
-      Flashcard(term: 'घड़ी', meaning: 'समय बताने वाला यंत्र'),
-      Flashcard(term: 'घंटा', meaning: 'समय की एक इकाई (60 मिनट)'),
-      Flashcard(term: 'मिनट', meaning: 'समय की एक छोटी इकाई'),
-      Flashcard(term: 'सुई', meaning: 'घड़ी में समय दिखाने वाली छड़ी'),
-      Flashcard(term: 'सुबह', meaning: 'दिन का पहला भाग'),
-    ],
-    assessment: [
-      AssessmentQuestion(
-        question: 'एक दिन में कितने घंटे होते हैं?',
-        options: ['12', '24', '60', '30'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'एक घंटे में कितने मिनट होते हैं?',
-        options: ['30', '45', '60', '100'],
-        correctIndex: 2,
-      ),
-      AssessmentQuestion(
-        question: 'घड़ी में सामान्यतः कितनी सुइयाँ होती हैं (घंटे और मिनट की)?',
+        question: 'टोकरी में 5 सेब थे, 3 निकाल लिए गए, अब कितने बचे?',
         options: ['1', '2', '3', '4'],
         correctIndex: 1,
       ),
       AssessmentQuestion(
-        question: 'रात में हम आमतौर पर क्या करते हैं?',
-        options: ['सोते हैं', 'स्कूल जाते हैं', 'खेलते हैं', 'नहाते हैं'],
+        question: 'जब टोकरी में एक भी टोपी नहीं बचती, तो उसे क्या कहते हैं?',
+        options: ['एक', 'दस', 'शून्य', 'पाँच'],
+        correctIndex: 2,
+      ),
+    ],
+  ),
+  'Class 1|Mathematics|कोई लुढ़के कोई सरके': ChapterContent(
+    worksheet: [
+      'अपने घर में गोल आकार की दो चीज़ों के नाम लिखो।',
+      'रेलगाड़ी की कहानी में कौन-कौन से स्टेशन आए? उनके नाम लिखो।',
+      'कोई एक वस्तु लो और बताओ वह लुढ़कती है या सरकती है या दोनों।',
+    ],
+    flashcards: [
+      Flashcard(term: 'गोल (वृत्ताकार)', meaning: 'जिस आकृति के कोई कोने न हों, जैसे गेंद'),
+      Flashcard(term: 'लुढ़कना', meaning: 'गोल आकार की वस्तु का घूमते हुए चलना'),
+      Flashcard(term: 'सरकना', meaning: 'सपाट वस्तु का फिसलते हुए चलना'),
+      Flashcard(term: 'सपाट', meaning: 'जिसकी सतह चपटी/समतल हो'),
+      Flashcard(term: 'आकृति', meaning: 'किसी वस्तु का रूप या बनावट'),
+    ],
+    assessment: [
+      AssessmentQuestion(
+        question: 'गाड़ी का पहला स्टेशन कौन सा था?',
+        options: ['बेलनगंज', 'गोलपुरी', 'डिब्बानगर', 'शंकुशहर'],
+        correctIndex: 1,
+      ),
+      AssessmentQuestion(
+        question: 'गेंद कैसे चलती है?',
+        options: ['सरकती है', 'लुढ़कती है', 'उड़ती है', 'रुकी रहती है'],
+        correctIndex: 1,
+      ),
+      AssessmentQuestion(
+        question: 'किताब जैसी सपाट वस्तु कैसे चलती है?',
+        options: ['लुढ़कती है', 'उड़ती है', 'सरकती है', 'तैरती है'],
+        correctIndex: 2,
+      ),
+    ],
+  ),
+  'Class 1|Mathematics|मईयाँ का छठवाँ जन्मदिन': ChapterContent(
+    worksheet: [
+      'मईयाँ के जन्मदिन के केक पर कितनी मोमबत्तियाँ थीं, और अगले साल कितनी होंगी?',
+      'अपनी अँगुलियों से 6 से 9 तक की संख्याएँ दिखाओ और लिखो।',
+      'रांची के सूर्य मंदिर के मुख्य द्वार पर क्या बना है?',
+    ],
+    flashcards: [
+      Flashcard(term: 'छह (6)', meaning: 'संख्या 6'),
+      Flashcard(term: 'सात (7)', meaning: 'संख्या 7'),
+      Flashcard(term: 'आठ (8)', meaning: 'संख्या 8'),
+      Flashcard(term: 'नौ (9)', meaning: 'संख्या 9'),
+      Flashcard(term: 'जन्मदिन', meaning: 'वह दिन जब किसी का जन्म हुआ था'),
+    ],
+    assessment: [
+      AssessmentQuestion(
+        question: 'मईयाँ के केक पर कितनी मोमबत्तियाँ थीं?',
+        options: ['5', '6', '7', '8'],
+        correctIndex: 1,
+      ),
+      AssessmentQuestion(
+        question: 'दीदी की उम्र कितने साल हो गई थी?',
+        options: ['6 साल', '7 साल', '8 साल', '9 साल'],
+        correctIndex: 2,
+      ),
+      AssessmentQuestion(
+        question: 'बुंडू के सूर्य मंदिर के द्वार पर कितने घोड़े बने हैं?',
+        options: ['पाँच', 'छह', 'सात', 'आठ'],
+        correctIndex: 2,
+      ),
+    ],
+  ),
+  'Class 1|Mathematics|छठ का दिन': ChapterContent(
+    worksheet: [
+      'सीमा और रोहन छठ घाट पर कब गए थे और कब जाएँगे? (बीता हुआ कल / आने वाला कल में बताओ)',
+      'एक सप्ताह में कितने दिन होते हैं? सभी दिनों के नाम क्रम से लिखो।',
+      'अपने दिन के कामों को सुबह, दोपहर, शाम और रात में बाँटकर लिखो।',
+    ],
+    flashcards: [
+      Flashcard(term: 'बीता हुआ कल', meaning: 'जो दिन आज से पहले आया था'),
+      Flashcard(term: 'आने वाला कल', meaning: 'जो दिन आज के बाद आएगा'),
+      Flashcard(term: 'सप्ताह', meaning: 'सात दिनों का समूह'),
+      Flashcard(term: 'स्वतंत्रता दिवस', meaning: 'भारत की आज़ादी का दिन'),
+      Flashcard(term: 'दिनचर्या', meaning: 'दिन में किए जाने वाले काम'),
+    ],
+    assessment: [
+      AssessmentQuestion(
+        question: 'आज रविवार है, तो कल कौन सा दिन था?',
+        options: ['सोमवार', 'शनिवार', 'मंगलवार', 'बुधवार'],
+        correctIndex: 1,
+      ),
+      AssessmentQuestion(
+        question: 'एक सप्ताह में कुल कितने दिन होते हैं?',
+        options: ['पाँच', 'छह', 'सात', 'आठ'],
+        correctIndex: 2,
+      ),
+      AssessmentQuestion(
+        question: 'झंडा फहराने के बाद सीमा और रोहन ने क्या किया?',
+        options: ['सो गए', 'सांस्कृतिक समारोह में भाग लिया', 'घर चले गए', 'खाना खाया'],
+        correctIndex: 1,
+      ),
+    ],
+  ),
+  'Class 1|Mathematics|दस में करें झूमर': ChapterContent(
+    worksheet: [
+      '10 से 20 तक की संख्याएँ क्रम में लिखो।',
+      '9 और 1 मिलकर कितने होते हैं?',
+      '13 और 15 में कौन सी संख्या बड़ी है और कैसे पता चलता है?',
+    ],
+    flashcards: [
+      Flashcard(term: 'दस (10)', meaning: 'संख्या 10, जब 9 में 1 और मिल जाए'),
+      Flashcard(term: 'ग्यारह (11)', meaning: 'संख्या 11'),
+      Flashcard(term: 'बीस (20)', meaning: 'संख्या 20, दस और दस मिलकर'),
+      Flashcard(term: 'सरहुल', meaning: 'झारखंड का एक प्रमुख पर्व, जिसमें नाच होता है'),
+      Flashcard(term: 'बड़ा-छोटा', meaning: 'संख्याओं की आपस में तुलना करना'),
+    ],
+    assessment: [
+      AssessmentQuestion(
+        question: '9 महिलाओं में 1 और महिला मिलने पर कितनी महिलाएँ हो गईं?',
+        options: ['9', '10', '11', '19'],
+        correctIndex: 1,
+      ),
+      AssessmentQuestion(
+        question: '10 और 10 मिलकर कितने होते हैं?',
+        options: ['10', '15', '20', '12'],
+        correctIndex: 2,
+      ),
+      AssessmentQuestion(
+        question: '13 और 15 में कौन सी संख्या बड़ी है?',
+        options: ['13', '15', 'दोनों बराबर', 'पता नहीं'],
+        correctIndex: 1,
+      ),
+    ],
+  ),
+  'Class 2|Hindi|दादा जी का छाता': ChapterContent(
+    worksheet: [
+      'दादा जी का छाता बारिश और तेज़ धूप के अलावा और किस-किस काम आता है? कविता के आधार पर लिखो।',
+      'कविता में दादा जी का छाता कैसा बताया गया है? उसका रंग और आकार लिखो।',
+      'तुम्हारे घर में छाता किसका है और वह कैसा दिखता है?',
+    ],
+    flashcards: [
+      Flashcard(term: 'छाता', meaning: 'बारिश और धूप से बचाने वाली वस्तु'),
+      Flashcard(term: 'छम-छम', meaning: 'बारिश की बूँदों की आवाज़'),
+      Flashcard(term: 'उल्टा-पुल्टा', meaning: 'तेज़ हवा से मुड़ा-तुड़ा हुआ'),
+      Flashcard(term: 'पतला-लम्बा', meaning: 'पतला और लंबा आकार'),
+      Flashcard(term: 'भगाना', meaning: 'दूर हटाना, दूर भेजना'),
+    ],
+    assessment: [
+      AssessmentQuestion(
+        question: 'कविता में दादा जी का छाता कुत्तों को क्या करता है?',
+        options: ['पास बुलाता है', 'दूर भगाता है', 'सुला देता है', 'खाना देता है'],
+        correctIndex: 1,
+      ),
+      AssessmentQuestion(
+        question: 'तेज़ हवा चलने पर दादा जी का छाता कैसा हो जाता है?',
+        options: ['नया जैसा', 'उल्टा-पुल्टा', 'फट जाता है', 'खो जाता है'],
+        correctIndex: 1,
+      ),
+      AssessmentQuestion(
+        question: 'दादा जी का छाता किस रंग का बताया गया है?',
+        options: ['सफ़ेद', 'लाल', 'काला', 'पीला'],
+        correctIndex: 2,
+      ),
+    ],
+  ),
+  'Class 2|Hindi|लालू और पीलू': ChapterContent(
+    worksheet: [
+      'लालू ने भूल से क्या खा लिया और उसे क्या हुआ?',
+      'पीलू ने अपने भाई लालू की मदद कैसे की?',
+      'अगर तुम्हारे भाई-बहन को कुछ तकलीफ़ हो तो तुम उसकी मदद कैसे करोगे?',
+    ],
+    flashcards: [
+      Flashcard(term: 'मिर्च', meaning: 'तीखी लाल सब्ज़ी, खाने में जलन पैदा करती है'),
+      Flashcard(term: 'गुड़', meaning: 'गन्ने से बनी मीठी चीज़'),
+      Flashcard(term: 'चूज़ा', meaning: 'मुर्गी का बच्चा'),
+      Flashcard(term: 'जलन', meaning: 'तीखा खाने से मुँह में होने वाली गर्मी जैसी अनुभूति'),
+      Flashcard(term: 'प्यार', meaning: 'स्नेह, अपनापन'),
+    ],
+    assessment: [
+      AssessmentQuestion(
+        question: 'मुर्गी के दो बच्चों के नाम क्या थे?',
+        options: ['राजू और मोनू', 'लालू और पीलू', 'गुड्डू और मुन्नी', 'टिंकू और छोटू'],
+        correctIndex: 1,
+      ),
+      AssessmentQuestion(
+        question: 'लालू का मुँह किस चीज़ से जला?',
+        options: ['गरम दूध से', 'लाल मिर्च से', 'धूप से', 'आग से'],
+        correctIndex: 1,
+      ),
+      AssessmentQuestion(
+        question: 'पीलू लालू के लिए क्या लाया?',
+        options: ['पानी', 'दूध', 'पीले-पीले गुड़', 'रोटी'],
+        correctIndex: 2,
+      ),
+    ],
+  ),
+  'Class 2|Hindi|मैं भी…': ChapterContent(
+    worksheet: [
+      'अंडे से पहले कौन बाहर निकला — बत्तख का बच्चा या मुर्गी का चूज़ा?',
+      'जब चूज़ा पानी में डूबने लगा तो बत्तख के बच्चे ने क्या किया?',
+      'इस कहानी का नाम \'मैं भी…\' क्यों रखा गया होगा, अपने शब्दों में लिखो।',
+    ],
+    flashcards: [
+      Flashcard(term: 'बत्तख', meaning: 'पानी में तैरने वाला एक पक्षी'),
+      Flashcard(term: 'चूज़ा', meaning: 'मुर्गी का छोटा बच्चा'),
+      Flashcard(term: 'केंचुआ', meaning: 'मिट्टी में रहने वाला एक कीड़ा'),
+      Flashcard(term: 'तैरना', meaning: 'पानी के ऊपर चलना'),
+      Flashcard(term: 'बचाना', meaning: 'किसी को खतरे से निकालना'),
+    ],
+    assessment: [
+      AssessmentQuestion(
+        question: 'अंडे से सबसे पहले कौन निकला?',
+        options: ['चूज़ा', 'बत्तख का बच्चा', 'तितली', 'केंचुआ'],
+        correctIndex: 1,
+      ),
+      AssessmentQuestion(
+        question: 'चूज़ा पानी में क्यों डूबने लगा?',
+        options: ['वह तैरना नहीं जानता था', 'वह सो गया था', 'पानी बहुत गरम था', 'उसे भूख लगी थी'],
+        correctIndex: 0,
+      ),
+      AssessmentQuestion(
+        question: 'चूज़े को पानी से बाहर किसने निकाला?',
+        options: ['मुर्गी माँ ने', 'बत्तख के बच्चे ने', 'किसान ने', 'तितली ने'],
+        correctIndex: 1,
+      ),
+    ],
+  ),
+  'Class 2|Hindi|मेरी प्यारी दादी माँ': ChapterContent(
+    worksheet: [
+      'कविता में दादी माँ सुबह बच्चे के लिए क्या-क्या करती हैं? कोई तीन काम लिखो।',
+      'जब बच्चा रूठ जाता है तो दादी माँ क्या करती हैं?',
+      'तुम्हारे घर में तुम्हें प्यार से कौन सुलाता है या कहानी सुनाता है?',
+    ],
+    flashcards: [
+      Flashcard(term: 'न्यारी', meaning: 'सबसे अलग, खास'),
+      Flashcard(term: 'नहलाना', meaning: 'स्नान कराना'),
+      Flashcard(term: 'रूठना', meaning: 'नाराज़ होना'),
+      Flashcard(term: 'लोरी', meaning: 'सुलाने के लिए गाया जाने वाला गीत'),
+      Flashcard(term: 'समझाना', meaning: 'सही-गलत बताना'),
+    ],
+    assessment: [
+      AssessmentQuestion(
+        question: 'कविता में दादी माँ बच्चे का बैग लेकर कहाँ जाती हैं?',
+        options: ['बाज़ार', 'स्कूल', 'मंदिर', 'अस्पताल'],
+        correctIndex: 1,
+      ),
+      AssessmentQuestion(
+        question: 'दादी माँ बच्चे को सुलाने के लिए क्या देती हैं?',
+        options: ['खिलौना', 'लोरी', 'किताब', 'चित्र'],
+        correctIndex: 1,
+      ),
+      AssessmentQuestion(
+        question: 'कविता के अनुसार दादी माँ बच्चे को खिलाकर खुद क्या करती हैं?',
+        options: ['वह भी खाती हैं', 'वह खुद नहीं खातीं', 'वह सो जाती हैं', 'वह बाहर चली जाती हैं'],
+        correctIndex: 1,
+      ),
+    ],
+  ),
+  'Class 2|Hindi|तिल के लड्डू': ChapterContent(
+    worksheet: [
+      'साक्षी और अक्षत ने दादी की मदद करने की क्या सोची और लड्डू बनाने में उन्हें क्या परेशानी हुई?',
+      'दादी ने बच्चों को लड्डू बनाने की कौन-सी तरकीब बताई?',
+      'तिल-गुड़ का त्योहार किस मौसम में आता है और तुम्हारे घर में इसे कैसे मनाया जाता है?',
+    ],
+    flashcards: [
+      Flashcard(term: 'तिल', meaning: 'एक छोटा बीज जिससे लड्डू बनाया जाता है'),
+      Flashcard(term: 'चिक्की', meaning: 'तिल-गुड़ को चपटा करके काटी गई मिठाई'),
+      Flashcard(term: 'त्रिकोण', meaning: 'तीन कोनों वाला आकार'),
+      Flashcard(term: 'चौकोर', meaning: 'चार कोनों वाला आकार'),
+      Flashcard(term: 'पतंग', meaning: 'डोर से उड़ाई जाने वाली रंगीन वस्तु'),
+    ],
+    assessment: [
+      AssessmentQuestion(
+        question: 'साक्षी और अक्षत किस चीज़ के लड्डू बनाने में दादी की मदद कर रहे थे?',
+        options: ['तिल-गुड़ के', 'चावल के', 'बेसन के', 'आटे के'],
+        correctIndex: 0,
+      ),
+      AssessmentQuestion(
+        question: 'अक्षत ने चिक्की किस आकार में काटी?',
+        options: ['गोल', 'त्रिकोण', 'चौकोर', 'लंबी'],
+        correctIndex: 2,
+      ),
+      AssessmentQuestion(
+        question: 'यह त्योहार किस दिन मनाया जाता है, जिसमें पतंग भी उड़ाई जाती है?',
+        options: ['होली', 'दीपावली', 'मकर संक्रांति', 'रक्षाबंधन'],
+        correctIndex: 2,
+      ),
+    ],
+  ),
+  'Class 2|Hindi|होली': ChapterContent(
+    worksheet: [
+      'कविता के अनुसार लोग होली कैसे मनाते हैं? कोई तीन बातें लिखो।',
+      'होली में रंगों के अलावा और क्या-क्या खाने-पीने की चीज़ें बनाई जाती हैं?',
+      'तुम्हारे घर में होली या किसी और त्योहार पर कौन-सा रंग या पकवान सबसे पसंद किया जाता है?',
+    ],
+    flashcards: [
+      Flashcard(term: 'गुलाल', meaning: 'होली में उड़ाया जाने वाला रंगीन सूखा रंग'),
+      Flashcard(term: 'पिचकारी', meaning: 'रंग-पानी छिड़कने वाला यंत्र'),
+      Flashcard(term: 'टोली', meaning: 'मित्रों का समूह'),
+      Flashcard(term: 'पुआ', meaning: 'होली में बनाया जाने वाला एक पकवान'),
+      Flashcard(term: 'रंगीली', meaning: 'रंगों से भरी, रंग-बिरंगी'),
+    ],
+    assessment: [
+      AssessmentQuestion(
+        question: 'कविता में मित्रों की टोली मिलकर क्या खेलती है?',
+        options: ['क्रिकेट', 'होली', 'लुका-छिपी', 'कैरम'],
+        correctIndex: 1,
+      ),
+      AssessmentQuestion(
+        question: 'होली में रंग छिड़कने के लिए किसका उपयोग होता है?',
+        options: ['गिलास', 'पिचकारी', 'थाली', 'टोकरी'],
+        correctIndex: 1,
+      ),
+      AssessmentQuestion(
+        question: 'होली में बनाए जाने वाले पकवान का नाम क्या है?',
+        options: ['पूआ', 'इडली', 'डोसा', 'समोसा'],
         correctIndex: 0,
       ),
     ],
   ),
-  'Class 2|Mathematics|मापन': ChapterContent(
+  'Class 2|Hindi|मेला': ChapterContent(
     worksheet: [
-      'लंबाई मापने के लिए किस यंत्र का प्रयोग करते हैं?',
-      'भार (वज़न) मापने के लिए किसका प्रयोग होता है?',
-      'अपने कमरे में किसी वस्तु की लंबाई का अनुमान लगाइए और लिखिए।',
-      'एक मीटर में कितने सेंटीमीटर होते हैं?',
+      'मेले में कविता के बच्चों ने क्या-क्या देखा और खरीदा? कोई तीन चीज़ें लिखो।',
+      'मेले में गुड़िया, गुनगुन और छोटू ने मिलकर क्या किया?',
+      'तुमने किसी मेले में क्या-क्या देखा या खाया है, लिखो।',
     ],
     flashcards: [
-      Flashcard(term: 'मापन', meaning: 'किसी वस्तु की लंबाई, भार आदि नापना'),
-      Flashcard(term: 'स्केल', meaning: 'लंबाई मापने का यंत्र'),
-      Flashcard(term: 'मीटर', meaning: 'लंबाई मापने की इकाई'),
-      Flashcard(term: 'किलोग्राम', meaning: 'भार मापने की इकाई'),
-      Flashcard(term: 'तराजू', meaning: 'वज़न मापने का यंत्र'),
+      Flashcard(term: 'मेला', meaning: 'एक जगह लगने वाला बड़ा जमावड़ा जहाँ खाना, खिलौने और झूले मिलते हैं'),
+      Flashcard(term: 'ठेला', meaning: 'खाने-पीने का सामान बेचने की छोटी गाड़ी'),
+      Flashcard(term: 'झूला', meaning: 'झूलने के लिए बनी वस्तु'),
+      Flashcard(term: 'चाट', meaning: 'मेले में मिलने वाला एक चटपटा खाना'),
+      Flashcard(term: 'खिलौना', meaning: 'बच्चों के खेलने की वस्तु'),
     ],
     assessment: [
       AssessmentQuestion(
-        question: 'लंबाई मापने के लिए किसका प्रयोग होता है?',
-        options: ['तराजू', 'स्केल', 'घड़ी', 'थर्मामीटर'],
+        question: 'कविता के अनुसार मेले में सबसे पहले कौन-सा ठेला आया था?',
+        options: ['आइसक्रीम का', 'चाट का', 'फल का', 'खिलौने का'],
         correctIndex: 1,
       ),
       AssessmentQuestion(
-        question: 'वज़न मापने के लिए किसका प्रयोग होता है?',
-        options: ['स्केल', 'तराजू', 'घड़ी', 'कप'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'एक मीटर में कितने सेंटीमीटर होते हैं?',
-        options: ['10', '100', '1000', '50'],
-        correctIndex: 1,
-      ),
-      AssessmentQuestion(
-        question: 'भार मापने की इकाई कौन सी है?',
-        options: ['मीटर', 'किलोग्राम', 'लीटर', 'घंटा'],
-        correctIndex: 1,
-      ),
-    ],
-  ),
-  'Class 2|Mathematics|मुद्रा': ChapterContent(
-    worksheet: [
-      '5 रुपये के 4 सिक्के मिलाकर कुल कितने रुपये होंगे?',
-      'रीता के पास 20 रुपये का एक नोट है। उसने 12 रुपये की पेंसिल खरीदी। उसके पास कितने रुपये बचे?',
-      '10 रुपये के 3 नोट और 5 रुपये का 1 सिक्का मिलाकर कुल कितने रुपये होंगे?',
-      '2 रुपये और 3 रुपये के सिक्कों को मिलाकर कुल राशि लिखिए।',
-    ],
-    flashcards: [
-      Flashcard(term: 'मुद्रा', meaning: 'पैसे, रुपये'),
-      Flashcard(term: 'सिक्का', meaning: 'धातु का पैसा'),
-      Flashcard(term: 'नोट', meaning: 'कागज़ का पैसा'),
-      Flashcard(term: 'रुपया', meaning: 'भारत की मुद्रा'),
-      Flashcard(term: 'खरीदना', meaning: 'पैसे देकर वस्तु लेना'),
-    ],
-    assessment: [
-      AssessmentQuestion(
-        question: '10 रुपये के 2 नोट कुल कितने रुपये होंगे?',
-        options: ['10', '12', '20', '22'],
+        question: 'बच्चों ने खिलौने वाले से कितने खिलौने लिए?',
+        options: ['दो', 'तीन', 'चार', 'पाँच'],
         correctIndex: 2,
       ),
       AssessmentQuestion(
-        question: 'भारत की मुद्रा को क्या कहते हैं?',
-        options: ['डॉलर', 'रुपया', 'पाउंड', 'यूरो'],
-        correctIndex: 1,
+        question: 'छोटू ने मेले में किसका हाथ पकड़ा था?',
+        options: ['गुड़िया और गुनगुन का', 'दादी का', 'ठेलेवाले का', 'झूलेवाले का'],
+        correctIndex: 0,
+      ),
+    ],
+  ),
+  'Class 2|Hindi|उपहार बड़ा दिन का': ChapterContent(
+    worksheet: [
+      'निम्मी ने अपना उपहार ढूँढ़ते हुए किन-किन लोगों के उपहार देखे?',
+      'निम्मी को अपना उपहार आख़िर में कहाँ मिला?',
+      'बड़ा दिन (क्रिसमस) पर तुम्हें कोई उपहार मिले तो तुम कैसा महसूस करोगे?',
+    ],
+    flashcards: [
+      Flashcard(term: 'उपहार', meaning: 'भेंट, तोहफ़ा'),
+      Flashcard(term: 'बड़ा दिन', meaning: 'क्रिसमस का त्योहार'),
+      Flashcard(term: 'अलमारी', meaning: 'कपड़े/सामान रखने की जगह'),
+      Flashcard(term: 'परचा', meaning: 'पर्ची, छोटा लिखा हुआ कागज़'),
+      Flashcard(term: 'लिपटा', meaning: 'कागज़ से ढका हुआ'),
+    ],
+    assessment: [
+      AssessmentQuestion(
+        question: 'निम्मी को अपना उपहार आख़िर में कहाँ मिला?',
+        options: ['अलमारी में', 'पापा की मेज़ के पीछे', 'पलंग के नीचे', 'रसोई में'],
+        correctIndex: 2,
       ),
       AssessmentQuestion(
-        question:
-            'यदि आपके पास 50 रुपये हैं और आप 30 रुपये खर्च करते हैं, तो कितने बचेंगे?',
-        options: ['10', '20', '30', '80'],
-        correctIndex: 1,
+        question: 'निम्मी का उपहार किस रंग के कागज़ में लिपटा था?',
+        options: ['लाल', 'पीला', 'जामुनी', 'हरा'],
+        correctIndex: 3,
       ),
       AssessmentQuestion(
-        question: 'सिक्के किस चीज़ के बने होते हैं?',
-        options: ['कागज़', 'धातु', 'कपड़ा', 'लकड़ी'],
+        question: 'माँ और पापा किचन में क्या बना रहे थे?',
+        options: ['खीर', 'अरसा और गुलगुले', 'पूड़ी', 'हलवा'],
         correctIndex: 1,
       ),
     ],
   ),
-  'Class 2|Mathematics|पैटर्न': ChapterContent(
+  'Class 2|Hindi|दोस्त की मदद': ChapterContent(
     worksheet: [
-      'इस पैटर्न को आगे बढ़ाइए: 2, 4, 6, 8, __, __',
-      'लाल, नीला, लाल, नीला, ___, ___ - पैटर्न पूरा कीजिए।',
-      '5, 10, 15, 20, __ - अगली संख्या लिखिए।',
-      'अपनी कॉपी में एक रंगीन पैटर्न बनाइए (गोला, त्रिभुज, गोला, त्रिभुज)।',
+      'जब तेंदुआ आया, तब लोमड़ी और कछुआ ने क्या किया और किसे पकड़ा गया?',
+      'लोमड़ी ने कछुए को बचाने के लिए तेंदुए से क्या तरकीब कही?',
+      'अगर तुम्हारा कोई दोस्त मुसीबत में हो, तो तुम उसकी मदद कैसे करोगे?',
     ],
     flashcards: [
-      Flashcard(
-        term: 'पैटर्न',
-        meaning: 'एक क्रम में दोहराई जाने वाली आकृति या संख्या',
-      ),
-      Flashcard(term: 'क्रम', meaning: 'तरतीब'),
-      Flashcard(term: 'दोहराव', meaning: 'बार-बार आना'),
-      Flashcard(term: 'अगला', meaning: 'आने वाला'),
-      Flashcard(term: 'समूह', meaning: 'एक साथ रखी चीज़ें'),
+      Flashcard(term: 'कछुआ', meaning: 'सख्त खोल वाला धीमी चाल का जीव'),
+      Flashcard(term: 'तेंदुआ', meaning: 'एक तेज़ और खतरनाक जंगली जानवर'),
+      Flashcard(term: 'माँद', meaning: 'जंगली जानवर के रहने की जगह'),
+      Flashcard(term: 'तरकीब', meaning: 'किसी काम को करने की चतुराई भरी युक्ति'),
+      Flashcard(term: 'खोल', meaning: 'कछुए के शरीर के ऊपर की सख्त परत'),
     ],
     assessment: [
       AssessmentQuestion(
-        question: '2, 4, 6, 8, __ में अगली संख्या क्या होगी?',
-        options: ['9', '10', '12', '11'],
+        question: 'कछुआ तेंदुए से बचकर तालाब तक क्यों नहीं पहुँच सका?',
+        options: ['वह सो रहा था', 'उसकी चाल धीमी थी', 'वह रास्ता भूल गया', 'वह डर गया'],
         correctIndex: 1,
       ),
       AssessmentQuestion(
-        question: '5, 10, 15, __ में अगली संख्या क्या होगी?',
-        options: ['18', '20', '25', '16'],
+        question: 'लोमड़ी ने तेंदुए को कछुए के साथ क्या करने की सलाह दी?',
+        options: ['उसे पेड़ पर चढ़ाने की', 'उसे पानी में फेंकने की', 'उसे आग में डालने की', 'उसे दौड़ाने की'],
         correctIndex: 1,
       ),
       AssessmentQuestion(
-        question: '"पैटर्न" शब्द का अर्थ है?',
-        options: ['एक बार आना', 'क्रम में दोहराना', 'कभी न आना', 'उल्टा होना'],
+        question: 'कछुए को पानी में फेंकने से असल में क्या हुआ?',
+        options: ['उसका खोल टूट गया', 'वह डूब गया', 'वह बच गया, क्योंकि कछुए पानी में रह सकते हैं', 'तेंदुआ भी पानी में गिर गया'],
+        correctIndex: 2,
+      ),
+    ],
+  ),
+  'Class 2|English|Somu Goes Fishing': ChapterContent(
+    worksheet: [
+      'Where did Somu and Dadu go fishing, and what did they use to try to catch a fish?',
+      'What jumped out of the water instead of a fish? How do you think Somu felt at that moment?',
+      'Have you ever gone fishing, or would you like to try it? What do you think you would catch?',
+    ],
+    flashcards: [
+      Flashcard(term: 'pokhar', meaning: 'a small pond, often used for fishing'),
+      Flashcard(term: 'bansi', meaning: 'a fishing rod or line used to catch fish'),
+      Flashcard(term: 'silvery', meaning: 'shiny like silver in colour'),
+      Flashcard(term: 'field', meaning: 'open land where crops are grown'),
+      Flashcard(term: 'hook', meaning: 'a curved piece of metal used to catch fish'),
+    ],
+    assessment: [
+      AssessmentQuestion(
+        question: 'Who takes Somu fishing in the story?',
+        options: ['Dadi', 'Dadu', 'his teacher', 'his friend'],
         correctIndex: 1,
       ),
       AssessmentQuestion(
-        question: 'लाल, नीला, लाल, नीला के बाद क्या आएगा?',
-        options: ['पीला', 'लाल', 'हरा', 'सफेद'],
+        question: 'What jumped out of the pokhar instead of a fish?',
+        options: ['a frog', 'a snake', 'a duck', 'a turtle'],
+        correctIndex: 0,
+      ),
+      AssessmentQuestion(
+        question: 'What did Dadi ask Somu and Dadu to bring back?',
+        options: ['a big silvery rohu', 'a frog', 'a peepal leaf', 'a toy'],
+        correctIndex: 0,
+      ),
+    ],
+  ),
+  'Class 2|English|Tara Rum Pum Pum': ChapterContent(
+    worksheet: [
+      'What things does the poem say you can see and do at a mela?',
+      'What foods are mentioned in the poem that people eat at the mela?',
+      'Have you ever been to a mela? What did you enjoy the most there?',
+    ],
+    flashcards: [
+      Flashcard(term: 'mela', meaning: 'a fair with games, rides, and stalls'),
+      Flashcard(term: 'jhoola', meaning: 'a swing ride found at a fair'),
+      Flashcard(term: 'dhuska', meaning: 'a fried snack made of rice and lentil batter'),
+      Flashcard(term: 'lori', meaning: 'a lullaby sung to put someone to sleep'),
+      Flashcard(term: 'jatra', meaning: 'a festive journey or fair procession'),
+    ],
+    assessment: [
+      AssessmentQuestion(
+        question: 'According to the poem, what does the mela bring?',
+        options: ['joy and lights', 'sadness', 'silence', 'hunger'],
+        correctIndex: 0,
+      ),
+      AssessmentQuestion(
+        question: 'Who sings a lori at the end of the day in the poem?',
+        options: ['Papa', 'Dadu', 'Ammi', 'the teacher'],
+        correctIndex: 2,
+      ),
+      AssessmentQuestion(
+        question: 'What do the goats and cows do in the poem?',
+        options: ['walk in the lane', 'fly in the sky', 'dance on stage', 'read books'],
+        correctIndex: 0,
+      ),
+    ],
+  ),
+  'Class 2|English|I Can Help': ChapterContent(
+    worksheet: [
+      'Name two people the girl in the story helps, and how she helps each of them.',
+      'Why do you think the girl\'s mother and father sometimes tell her not to help?',
+      'Who do you help at home, and how does it make you feel?',
+    ],
+    flashcards: [
+      Flashcard(term: 'shop', meaning: 'a place where things are bought and sold'),
+      Flashcard(term: 'evening', meaning: 'the time of day after afternoon, before night'),
+      Flashcard(term: 'sometimes', meaning: 'on some occasions, not always'),
+      Flashcard(term: 'grandmother', meaning: 'your mother\'s or father\'s mother'),
+      Flashcard(term: 'people', meaning: 'more than one person'),
+    ],
+    assessment: [
+      AssessmentQuestion(
+        question: 'Where does the girl help her father in the evening?',
+        options: ['in the kitchen', 'in his shop', 'in the garden', 'at school'],
+        correctIndex: 1,
+      ),
+      AssessmentQuestion(
+        question: 'Who tells the girl stories in the story?',
+        options: ['her brother', 'her mother', 'her grandmother', 'her teacher'],
+        correctIndex: 2,
+      ),
+      AssessmentQuestion(
+        question: 'Why can\'t the girl\'s little brother help?',
+        options: ['he is lazy', 'he is still small', 'he is at school', 'he is sleeping'],
         correctIndex: 1,
       ),
     ],
   ),
-  'Class 2|Mathematics|गुणा': ChapterContent(
+  'Class 2|English|Nani\'s Rooftop': ChapterContent(
     worksheet: [
-      '2 × 3 = ?',
-      '4 × 5 = ?',
-      'एक डिब्बे में 3 चॉकलेट हैं। 4 डिब्बों में कुल कितनी चॉकलेट होंगी?',
-      '5 × 2 = ?',
+      'Name three things the two sisters like to do on Nani\'s rooftop.',
+      'What does Nani dry on the rooftop, and why do the children shoo the birds away?',
+      'Do your grandparents live with you or nearby? What do you like to do with them?',
     ],
     flashcards: [
-      Flashcard(
-        term: 'गुणा',
-        meaning: 'किसी संख्या को बार-बार जोड़ने की प्रक्रिया',
-      ),
-      Flashcard(term: 'गुणनफल', meaning: 'गुणा का परिणाम'),
-      Flashcard(term: 'गुणनखंड', meaning: 'गुणा में प्रयुक्त संख्याएँ'),
-      Flashcard(term: 'बार', meaning: 'कितनी बार जोड़ना है'),
-      Flashcard(term: 'सारणी', meaning: 'पहाड़ा'),
+      Flashcard(term: 'rooftop', meaning: 'the flat top of a house, used like an open room'),
+      Flashcard(term: 'pluck', meaning: 'to pick or pull off, like fruit from a tree'),
+      Flashcard(term: 'nearby', meaning: 'close by, not far away'),
+      Flashcard(term: 'favourite', meaning: 'the one you like the most'),
+      Flashcard(term: 'steal', meaning: 'to take something without permission'),
     ],
     assessment: [
       AssessmentQuestion(
-        question: '3 × 3 = ?',
-        options: ['6', '9', '12', '3'],
+        question: 'Where do the two sisters love spending time at Nani\'s house?',
+        options: ['the kitchen', 'the rooftop', 'the garden', 'the garage'],
         correctIndex: 1,
       ),
       AssessmentQuestion(
-        question: '2 × 5 = ?',
-        options: ['7', '10', '12', '25'],
+        question: 'What does Nani dry on the rooftop?',
+        options: ['clothes', 'papad, achaar and chips', 'books', 'flowers'],
         correctIndex: 1,
       ),
       AssessmentQuestion(
-        question: '4 × 2 = ?',
+        question: 'What did the girl once see on the guava tree?',
+        options: ['a bird', 'a monkey', 'a cat', 'a snake'],
+        correctIndex: 1,
+      ),
+    ],
+  ),
+  'Class 2|English|School Chale Hum!': ChapterContent(
+    worksheet: [
+      'According to the poem, what do children do on their way to school?',
+      'What are "kanche" and "lattu"? Have you ever played with them?',
+      'What do you like the most about coming to school every day?',
+    ],
+    flashcards: [
+      Flashcard(term: 'kanche', meaning: 'small glass marbles used in a game'),
+      Flashcard(term: 'lattu', meaning: 'a spinning top toy'),
+      Flashcard(term: 'cross', meaning: 'to go from one side to the other, like a road'),
+      Flashcard(term: 'count', meaning: 'to say numbers one by one to find how many'),
+      Flashcard(term: 'dream', meaning: 'to imagine or hope for something'),
+    ],
+    assessment: [
+      AssessmentQuestion(
+        question: 'What do the children pick on the way to school, according to the poem?',
+        options: ['flowers and leaves', 'kanche and lattu', 'books and pens', 'fruits and vegetables'],
+        correctIndex: 1,
+      ),
+      AssessmentQuestion(
+        question: 'Who do the children go to school with, according to the poem?',
+        options: ['alone', 'with their dear friends', 'with strangers', 'with pets'],
+        correctIndex: 1,
+      ),
+      AssessmentQuestion(
+        question: 'What do the children go to school to learn, according to the poem?',
+        options: ['cooking and cleaning', 'singing and dreaming', 'swimming and running', 'only counting'],
+        correctIndex: 1,
+      ),
+    ],
+  ),
+  'Class 2|Mathematics|रंग-बिरंगी वस्तुएँ': ChapterContent(
+    worksheet: [
+      'अपने घर से किसी एक गोला जैसी और किसी एक घन जैसी वस्तु के नाम लिखो।',
+      'घन में कितनी सतहें, कितने किनारे और कितने कोने होते हैं?',
+      'कौन सी आकृति सिर्फ लुढ़कती है और कौन सी सिर्फ सरकती है — गोला या घनाभ? क्यों?',
+    ],
+    flashcards: [
+      Flashcard(term: 'घन', meaning: 'छह बराबर सपाट सतहों वाली ठोस आकृति, जैसे पासा'),
+      Flashcard(term: 'घनाभ', meaning: 'सपाट सतहों, किनारों और कोनों वाली आकृति, जैसे ट्रंक'),
+      Flashcard(term: 'गोला', meaning: 'पूरी तरह गोल सतह वाली आकृति जिसमें कोई किनारा या कोना नहीं होता, जैसे गेंद'),
+      Flashcard(term: 'बेलन', meaning: 'एक सपाट और एक गोल सतह वाली आकृति जो सरकती और लुढ़कती दोनों है, जैसे मांदर'),
+      Flashcard(term: 'शंकु', meaning: 'एक सपाट और एक गोल सतह वाली आकृति जिसमें किनारा और कोना दोनों होते हैं, जैसे टोपी'),
+    ],
+    assessment: [
+      AssessmentQuestion(
+        question: 'घन में कितने किनारे होते हैं?',
+        options: ['8', '12', '6', '5'],
+        correctIndex: 1,
+      ),
+      AssessmentQuestion(
+        question: 'गोला में कितने कोने होते हैं?',
+        options: ['2', '3', '1', 'एक भी नहीं'],
+        correctIndex: 3,
+      ),
+      AssessmentQuestion(
+        question: 'कौन सी आकृति सिर्फ लुढ़कती है, सरकती नहीं?',
+        options: ['घन', 'गोला', 'घनाभ', 'शंकु'],
+        correctIndex: 1,
+      ),
+    ],
+  ),
+  'Class 2|Mathematics|दस का दम': ChapterContent(
+    worksheet: [
+      '34 में दहाई और इकाई के अंक बताओ।',
+      '2 दहाई और 6 इकाई मिलकर कौन सी संख्या बनाते हैं?',
+      '43 और 34 में से कौन सी संख्या बड़ी है? क्यों?',
+    ],
+    flashcards: [
+      Flashcard(term: 'दहाई', meaning: 'दस वस्तुओं के एक बंडल का स्थानीय मान'),
+      Flashcard(term: 'इकाई', meaning: 'अकेली, बिना बंडल की एक वस्तु का स्थानीय मान'),
+      Flashcard(term: 'बंडल', meaning: 'दस-दस वस्तुओं को साथ बाँधकर बनाया गया समूह'),
+      Flashcard(term: 'गणित माला', meaning: 'संख्याओं को क्रम में दिखाने वाली माला जिस पर गिनती की जाती है'),
+      Flashcard(term: 'क्रम संख्या', meaning: 'पहला, दूसरा, तीसरा जैसे स्थान बताने वाली संख्या'),
+    ],
+    assessment: [
+      AssessmentQuestion(
+        question: '27 में कितनी दहाई और कितनी इकाई है?',
+        options: ['2 दहाई, 7 इकाई', '7 दहाई, 2 इकाई', '2 दहाई, 0 इकाई', '0 दहाई, 27 इकाई'],
+        correctIndex: 0,
+      ),
+      AssessmentQuestion(
+        question: 'दस अगरबत्तियों के 2 बंडल और 3 खुली अगरबत्तियाँ मिलाकर कुल कितनी अगरबत्तियाँ हैं?',
+        options: ['13', '23', '32', '30'],
+        correctIndex: 1,
+      ),
+      AssessmentQuestion(
+        question: 'इनमें से कौन सी संख्या सबसे बड़ी है?',
+        options: ['35', '71', '45', '39'],
+        correctIndex: 1,
+      ),
+    ],
+  ),
+  'Class 2|Mathematics|जोड़े-घटाएँ': ChapterContent(
+    worksheet: [
+      'सोनी के पास 5 माला और 7 मोती हैं, मोनू के पास 3 माला और 2 मोती हैं। दोनों को मिलाकर कुल कितने मोती हुए?',
+      'एक बच्चा बाज़ार से 34 बेर लाया। अगले दिन उसने 23 बेर और खरीदीं। अब उसके पास कुल कितनी बेर हैं?',
+      'एक खेत में पहले 53 मक्के के पौधे थे। कुछ पौधे सूख गए और अब 38 पौधे बचे हैं। कितने पौधे सूख गए?',
+    ],
+    flashcards: [
+      Flashcard(term: 'जोड़', meaning: 'दो या अधिक संख्याओं को मिलाकर कुल पता करना'),
+      Flashcard(term: 'घटाव', meaning: 'किसी संख्या में से कुछ कम करना'),
+      Flashcard(term: 'पुनः समूहीकरण', meaning: '10 इकाइयों को मिलाकर 1 दहाई बनाना'),
+      Flashcard(term: 'संख्या रेखा', meaning: 'संख्याओं को क्रम में दिखाने वाली रेखा जिस पर छलांग लगाकर जोड़-घटाव किया जाता है'),
+      Flashcard(term: 'माला-मोती', meaning: 'जोड़-घटाव सिखाने की सामग्री, जहाँ एक माला बराबर 10 मोती होते हैं'),
+    ],
+    assessment: [
+      AssessmentQuestion(
+        question: '15 और 20 जोड़ने पर क्या मिलता है?',
+        options: ['25', '30', '35', '45'],
+        correctIndex: 2,
+      ),
+      AssessmentQuestion(
+        question: 'सोनी के पास 57 मोती थे, उसने सुखराम को 5 मोती दे दिए। अब सोनी के पास कितने मोती बचे?',
+        options: ['62', '52', '47', '57'],
+        correctIndex: 1,
+      ),
+      AssessmentQuestion(
+        question: 'एक नाव झूले में पहले 42 बच्चे थे, अब 29 बच्चे झूल रहे हैं। कितने बच्चे नाव झूले से उतर गए?',
+        options: ['13', '71', '19', '23'],
+        correctIndex: 0,
+      ),
+    ],
+  ),
+  'Class 2|Mathematics|मौसम': ChapterContent(
+    worksheet: [
+      'तुम्हें कौन सा मौसम सबसे ज्यादा पसंद है और क्यों?',
+      'साल के 12 महीनों के नाम क्रम से लिखो।',
+      'घड़ी में छोटी सुई 7 पर और बड़ी सुई 12 पर हो, तो समय क्या होगा?',
+    ],
+    flashcards: [
+      Flashcard(term: 'मौसम', meaning: 'वर्ष में बदलता समय, जैसे गर्मी, बरसात, जाड़ा और बसंत'),
+      Flashcard(term: 'कैलेंडर', meaning: 'महीनों और तारीखों को दिखाने वाली तालिका'),
+      Flashcard(term: 'घंटा', meaning: 'समय मापने की एक इकाई, एक दिन में 24 घंटे होते हैं'),
+      Flashcard(term: 'छोटी सुई', meaning: 'घड़ी में घंटे बताने वाली सुई'),
+      Flashcard(term: 'बड़ी सुई', meaning: 'घड़ी में मिनट बताने वाली सुई'),
+    ],
+    assessment: [
+      AssessmentQuestion(
+        question: 'एक दिन में कितने घंटे होते हैं?',
+        options: ['12', '24', '7', '30'],
+        correctIndex: 1,
+      ),
+      AssessmentQuestion(
+        question: 'साल का पहला महीना कौन सा है?',
+        options: ['दिसंबर', 'जनवरी', 'मार्च', 'जून'],
+        correctIndex: 1,
+      ),
+      AssessmentQuestion(
+        question: 'घड़ी में छोटी सुई 10 पर और बड़ी सुई 12 पर हो तो समय क्या है?',
+        options: ['10 बजे', '12 बजे', '2 बजे', '10:30 बजे'],
+        correctIndex: 0,
+      ),
+    ],
+  ),
+  'Class 2|Mathematics|समूह बनाएँ': ChapterContent(
+    worksheet: [
+      '4 बैलगाड़ी हैं, हर बैलगाड़ी में 2 पहिए हैं। कुल कितने पहिए हुए?',
+      '2 का पहाड़ा (2 बार 1 से 2 बार 5 तक) लिखो।',
+      '12 आम को 4 बच्चों में बराबर-बराबर बाँटना है। हर बच्चे को कितने आम मिलेंगे?',
+    ],
+    flashcards: [
+      Flashcard(term: 'बार (गुणा)', meaning: 'किसी संख्या को बार-बार जोड़ना, जैसे 4 बार 2 यानी 2+2+2+2'),
+      Flashcard(term: 'पहाड़ा', meaning: 'किसी संख्या के गुणनफलों की सूची, जैसे 2 का पहाड़ा'),
+      Flashcard(term: 'समूह', meaning: 'बराबर संख्या में वस्तुओं का इकट्ठा, जैसे 5 के 6 समूह'),
+      Flashcard(term: 'बराबर-बराबर बाँटना', meaning: 'सभी को समान हिस्सा देना'),
+      Flashcard(term: 'गुणनफल', meaning: 'गुणा करने पर मिलने वाला उत्तर'),
+    ],
+    assessment: [
+      AssessmentQuestion(
+        question: '4 बैलगाड़ी में हर एक के 2 पहिए हों, तो कुल कितने पहिए हुए?',
         options: ['6', '8', '10', '4'],
         correctIndex: 1,
       ),
       AssessmentQuestion(
-        question: 'गुणा का परिणाम क्या कहलाता है?',
-        options: ['योग', 'अंतर', 'गुणनफल', 'भागफल'],
+        question: '5 का 4 गुना (4 बार 5) कितना होता है?',
+        options: ['9', '15', '20', '25'],
         correctIndex: 2,
+      ),
+      AssessmentQuestion(
+        question: '18 रोटियों को 6 प्लेटों में बराबर बाँटा जाए तो हर प्लेट में कितनी रोटियाँ होंगी?',
+        options: ['2', '3', '4', '6'],
+        correctIndex: 1,
       ),
     ],
   ),

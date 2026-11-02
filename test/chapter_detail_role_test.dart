@@ -12,7 +12,7 @@ import 'package:vaanisetu/screens/chapter_detail_screen.dart';
 /// screens rather than the placeholder.
 const _classNumber = 1;
 const _subject = 'Hindi';
-const _chapter = 'मेरा गाँव';
+const _chapter = 'मीरा का परिवार';
 
 Widget _app(AppRole role, Widget child) {
   return AppRoleScope(
