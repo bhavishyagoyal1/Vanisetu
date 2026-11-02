@@ -1,3 +1,4 @@
+
 # VaaniSetu
  
 **वाणी सेतु** — an offline, on-device voice bridge from Hindi to Santali (Ol Chiki),
@@ -51,15 +52,11 @@ teacher can use directly in the classroom.
  
 ## Demo
  
-<video src="[[https://raw.githubusercontent.com/samarthverma4/VaaniSetu/main/docs/0911.mp4](https://youtu.be/_iSc7zdFXjc)](https://youtu.be/_iSc7zdFXjc)z" controls width="720">
-  Your viewer doesn't render inline video — watch it directly:
-  [https://raw.githubusercontent.com/samarthverma4/VaaniSetu/main/docs/0911.mp4](https://youtu.be/_iSc7zdFXjc)
-</video>
-[Watch the demo video directly]([https://raw.githubusercontent.com/samarthverma4/VaaniSetu/main/docs/0911.mp4](https://youtu.be/_iSc7zdFXjc))
+[![Watch the VaaniSetu demo](https://img.youtube.com/vi/_iSc7zdFXjc/maxresdefault.jpg)](https://youtu.be/_iSc7zdFXjc)
  
-> The video is tracked with Git LFS (`docs/0911.mp4`). If it doesn't render inline
-> on your platform, use the link above — GitHub will serve the raw file instead of
-> trying to preview it.
+**[Watch the demo on YouTube →](https://youtu.be/_iSc7zdFXjc)**
+ 
+> The source recording is also tracked in-repo via Git LFS at `docs/0911.mp4`.
  
 ## Architecture
  
