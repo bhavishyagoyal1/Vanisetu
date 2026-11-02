@@ -9,11 +9,13 @@ import 'package:vaanisetu/screens/main_shell.dart';
 import 'package:vaanisetu/screens/role_selection_screen.dart';
 import 'package:vaanisetu/screens/splash_screen.dart';
 
-/// Steps past the splash screen's 2600ms delay and its 600ms route
-/// transition. Deliberately not pumpAndSettle: the splash runs two repeating
+/// Steps past the splash screen's minimum 2600ms delay, the up-to-4000ms
+/// extra bound the splash also gives HindiAsrService.prewarm() (see
+/// SplashScreen._navigateAfterDelay), and its 600ms route transition.
+/// Deliberately not pumpAndSettle: the splash runs two repeating
 /// AnimationControllers, so it never settles (see widget_test.dart).
 Future<void> _passSplash(WidgetTester tester) async {
-  await tester.pump(const Duration(milliseconds: 2600));
+  await tester.pump(const Duration(milliseconds: 6600));
   await tester.pump();
   await tester.pump(const Duration(milliseconds: 900));
 }

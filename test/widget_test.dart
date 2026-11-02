@@ -25,10 +25,14 @@ void main() {
     //
     // The delay completes *during* the first pump, so pushReplacement only
     // builds on the following frame - the 600ms transition therefore starts
-    // after 2600ms, not at it. Stepping frames explicitly avoids depending on
-    // a magic total. Completing the transition also disposes the splash's
+    // after the wait, not at it. Stepping frames explicitly avoids depending
+    // on a magic total. Completing the transition also disposes the splash's
     // controllers, so they do not leak into the next test.
-    await tester.pump(const Duration(milliseconds: 2600)); // delay elapses
+    //
+    // 6600ms, not 2600ms: SplashScreen._navigateAfterDelay also waits (up to
+    // an extra 4000ms) on HindiAsrService.prewarm() before navigating, so
+    // the wait is minSplashTime + maxExtraWait, not minSplashTime alone.
+    await tester.pump(const Duration(milliseconds: 6600)); // delay elapses
     await tester.pump(); // pushReplacement builds the new route
     await tester.pump(
       const Duration(milliseconds: 900),

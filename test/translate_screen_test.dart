@@ -46,6 +46,13 @@ Future<void> _pumpTranslate(
   await tester.pump();
 }
 
+/// The prompt strip ships collapsed so it costs no vertical space between
+/// the source card and the mic — open it before asserting on the chips.
+Future<void> _expandPrompts(WidgetTester tester) async {
+  await tester.tap(find.text('CLASSROOM PROMPTS'));
+  await tester.pumpAndSettle();
+}
+
 void main() {
   testWidgets('the header identifies the app', (tester) async {
     await _pumpTranslate(tester, role: AppRole.teacher);
@@ -97,8 +104,16 @@ void main() {
     expect(find.text('Santhali'), findsOneWidget);
   });
 
-  testWidgets('classroom prompt chips are offered', (tester) async {
+  testWidgets('the prompt strip starts collapsed', (tester) async {
     await _pumpTranslate(tester);
+
+    expect(find.text('CLASSROOM PROMPTS'), findsOneWidget);
+    expect(find.text(classroomPrompts.first.label), findsNothing);
+  });
+
+  testWidgets('expanding the strip offers the prompt chips', (tester) async {
+    await _pumpTranslate(tester);
+    await _expandPrompts(tester);
 
     expect(find.text(classroomPrompts.first.label), findsOneWidget);
   });
@@ -107,6 +122,7 @@ void main() {
     tester,
   ) async {
     await _pumpTranslate(tester);
+    await _expandPrompts(tester);
 
     await tester.tap(find.text(classroomPrompts.first.label));
     await tester.pump();
@@ -116,6 +132,7 @@ void main() {
 
   testWidgets('View All lists every prompt', (tester) async {
     await _pumpTranslate(tester);
+    await _expandPrompts(tester);
 
     await tester.tap(find.text('View All (${classroomPrompts.length})'));
     await tester.pumpAndSettle();

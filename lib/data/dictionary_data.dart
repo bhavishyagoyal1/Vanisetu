@@ -16,9 +16,28 @@
 /// words all decoding to the same wrong string, which is why no numbers
 /// beyond ten were added in the second pass at all: the failure was
 /// consistent enough across that whole category to distrust the ones that
-/// happened not to collide, too). No native-speaker verification has been
-/// done on the entries that were kept; treat this as a best-effort offline
-/// reference, not an authoritative dictionary.
+/// happened not to collide, too).
+///
+/// Audited a third time (2026-09-12) against the full 229-entry set:
+/// removed 26 entries caught by that same class of failure that review had
+/// missed — exact-duplicate Santali strings shared by two unrelated Hindi
+/// words (e.g. 'cat'/'buffalo' both -> ᱵᱳᱭᱥ, 'thank you'... no, 'small'/
+/// 'thin' both -> ᱦᱩᱰᱤᱧ), Hindi source-word homographs where the MT model
+/// picked the wrong sense (चीनी 'sugar' -> "China's person", आम 'mango' ->
+/// "ordinary", दाएँ 'right' -> "south side", प्यार 'love' -> "with me"),
+/// outright garbled non-words (आँधी 'storm' -> "wind wind wind", मिट्टी
+/// 'soil' -> a malformed run-on sentence), and the generic "X is/exists"
+/// sentence template a sentence-level model falls back to on words it
+/// can't translate in isolation (दो 'two', बकरी 'goat', बंदर 'monkey', कौन
+/// सा 'which', शहर 'city'). None of that requires Santali fluency to catch
+/// — it's provable from the data itself (duplicate strings) or from Hindi
+/// alone (homograph sense).
+///
+/// What this audit does *not* establish: correctness. No native-speaker
+/// verification has been done on the 203 entries that remain — this pass
+/// only removed what could be shown wrong without one. Treat this as a
+/// best-effort offline reference, not an authoritative dictionary, and
+/// get native-speaker review before relying on any entry for instruction.
 library;
 
 class DictionaryEntry {
@@ -98,12 +117,6 @@ const List<DictionaryEntry> dictionaryData = [
   ),
   DictionaryEntry(
     category: 'Numbers',
-    hindi: 'दो',
-    gloss: 'two',
-    santali: 'ᱱᱚᱶᱟ ᱫᱚ ᱦᱩᱭᱩᱜ ᱠᱟᱱᱟ ᱾',
-  ),
-  DictionaryEntry(
-    category: 'Numbers',
     hindi: 'तीन',
     gloss: 'three',
     santali: 'ᱯᱮᱭᱟ ᱾',
@@ -152,12 +165,6 @@ const List<DictionaryEntry> dictionaryData = [
   ),
   DictionaryEntry(
     category: 'Days',
-    hindi: 'गुरुवार',
-    gloss: 'Thursday',
-    santali: 'ᱦᱚᱭᱦᱩᱫᱤᱥ ᱢᱟᱦᱟ ᱾',
-  ),
-  DictionaryEntry(
-    category: 'Days',
     hindi: 'शुक्रवार',
     gloss: 'Friday',
     santali: 'ᱥᱟᱨᱵᱚᱨ ᱢᱟᱦᱟ ᱾',
@@ -179,12 +186,6 @@ const List<DictionaryEntry> dictionaryData = [
     hindi: 'आज',
     gloss: 'today',
     santali: 'ᱛᱮᱦᱮᱧ ᱾',
-  ),
-  DictionaryEntry(
-    category: 'Days',
-    hindi: 'कल',
-    gloss: 'tomorrow/yesterday',
-    santali: 'ᱦᱚᱭᱦᱩᱫᱤᱥ ᱾',
   ),
   DictionaryEntry(
     category: 'Family',
@@ -230,18 +231,6 @@ const List<DictionaryEntry> dictionaryData = [
   ),
   DictionaryEntry(
     category: 'School',
-    hindi: 'शिक्षक',
-    gloss: 'teacher',
-    santali: 'ᱥᱮᱪᱮᱫᱤᱭᱟᱹ ᱾',
-  ),
-  DictionaryEntry(
-    category: 'School',
-    hindi: 'छात्र',
-    gloss: 'student',
-    santali: 'ᱥᱮᱪᱮᱫᱤᱭᱟᱹ ᱠᱚ ᱾',
-  ),
-  DictionaryEntry(
-    category: 'School',
     hindi: 'किताब',
     gloss: 'book',
     santali: 'ᱯᱚᱛᱚᱵ ᱾',
@@ -266,21 +255,9 @@ const List<DictionaryEntry> dictionaryData = [
   ),
   DictionaryEntry(
     category: 'School',
-    hindi: 'पाठ',
-    gloss: 'lesson',
-    santali: 'ᱚᱞ ᱾',
-  ),
-  DictionaryEntry(
-    category: 'School',
     hindi: 'गृहकार्य',
     gloss: 'homework',
     santali: 'ᱚᱲᱟᱜ ᱨᱮᱭᱟᱜ ᱠᱟᱹᱢᱤ ᱾',
-  ),
-  DictionaryEntry(
-    category: 'School',
-    hindi: 'परीक्षा',
-    gloss: 'exam',
-    santali: 'ᱵᱤᱰᱟᱹᱣ ᱾',
   ),
   DictionaryEntry(
     category: 'School',
@@ -392,12 +369,6 @@ const List<DictionaryEntry> dictionaryData = [
   ),
   DictionaryEntry(
     category: 'Nature',
-    hindi: 'पेड़',
-    gloss: 'tree',
-    santali: 'ᱵᱤᱨ ᱾',
-  ),
-  DictionaryEntry(
-    category: 'Nature',
     hindi: 'पहाड़',
     gloss: 'mountain',
     santali: 'ᱵᱩᱨᱩ ᱾',
@@ -425,12 +396,6 @@ const List<DictionaryEntry> dictionaryData = [
     hindi: 'कुत्ता',
     gloss: 'dog',
     santali: 'ᱜᱳᱲᱟᱹᱜ ᱾',
-  ),
-  DictionaryEntry(
-    category: 'Animals',
-    hindi: 'बिल्ली',
-    gloss: 'cat',
-    santali: 'ᱵᱳᱭᱥ ᱾',
   ),
   DictionaryEntry(
     category: 'Animals',
@@ -479,12 +444,6 @@ const List<DictionaryEntry> dictionaryData = [
     hindi: 'आना',
     gloss: 'to come',
     santali: 'ᱦᱮᱡ ᱢᱮ ᱾',
-  ),
-  DictionaryEntry(
-    category: 'Verbs',
-    hindi: 'पीना',
-    gloss: 'to drink',
-    santali: 'ᱰᱟᱣᱩᱱᱞᱳᱰ ᱢᱮ ᱾',
   ),
   DictionaryEntry(
     category: 'Verbs',
@@ -613,12 +572,6 @@ const List<DictionaryEntry> dictionaryData = [
     santali: 'ᱛᱤᱱᱟᱹᱜ ᱛᱤᱱᱟᱹᱜ ᱾',
   ),
   DictionaryEntry(
-    category: 'Questions',
-    hindi: 'कौन सा',
-    gloss: 'which',
-    santali: 'ᱪᱮᱫ ᱫᱚ ᱦᱩᱭᱩᱜ ᱠᱟᱱᱟ ᱾',
-  ),
-  DictionaryEntry(
     category: 'Time',
     hindi: 'रात',
     gloss: 'night',
@@ -697,12 +650,6 @@ const List<DictionaryEntry> dictionaryData = [
     santali: 'ᱟᱭᱤᱥ ᱾',
   ),
   DictionaryEntry(
-    category: 'Weather',
-    hindi: 'आँधी',
-    gloss: 'storm',
-    santali: 'ᱦᱚᱭ ᱦᱚᱭ ᱦᱚᱭ ᱾',
-  ),
-  DictionaryEntry(
     category: 'Directions',
     hindi: 'ऊपर',
     gloss: 'up',
@@ -746,12 +693,6 @@ const List<DictionaryEntry> dictionaryData = [
   ),
   DictionaryEntry(
     category: 'Directions',
-    hindi: 'दाएँ',
-    gloss: 'right',
-    santali: 'ᱫᱚᱠᱠᱷᱤᱱ ᱥᱮᱪ ᱾',
-  ),
-  DictionaryEntry(
-    category: 'Directions',
     hindi: 'पास',
     gloss: 'near',
     santali: 'ᱯᱟᱥ ᱾',
@@ -767,12 +708,6 @@ const List<DictionaryEntry> dictionaryData = [
     hindi: 'चाचा',
     gloss: 'uncle (father\'s brother)',
     santali: 'ᱠᱟᱪᱟ ᱾',
-  ),
-  DictionaryEntry(
-    category: 'Family',
-    hindi: 'मामा',
-    gloss: 'uncle (mother\'s brother)',
-    santali: 'ᱟᱭᱳ ᱾',
   ),
   DictionaryEntry(
     category: 'Family',
@@ -896,12 +831,6 @@ const List<DictionaryEntry> dictionaryData = [
   ),
   DictionaryEntry(
     category: 'Food',
-    hindi: 'चीनी',
-    gloss: 'sugar',
-    santali: 'ᱪᱤᱱ ᱨᱮᱱ ᱦᱚᱲ ᱾',
-  ),
-  DictionaryEntry(
-    category: 'Food',
     hindi: 'तेल',
     gloss: 'oil',
     santali: 'ᱳᱭᱮᱞ ᱾',
@@ -929,12 +858,6 @@ const List<DictionaryEntry> dictionaryData = [
     hindi: 'अंडा',
     gloss: 'egg',
     santali: 'ᱮᱝᱰᱟᱹ ᱾',
-  ),
-  DictionaryEntry(
-    category: 'Food',
-    hindi: 'आम',
-    gloss: 'mango',
-    santali: 'ᱥᱟᱫᱷᱟᱨᱚᱱ ᱾',
   ),
   DictionaryEntry(
     category: 'Food',
@@ -1010,12 +933,6 @@ const List<DictionaryEntry> dictionaryData = [
   ),
   DictionaryEntry(
     category: 'Nature',
-    hindi: 'मिट्टी',
-    gloss: 'soil',
-    santali: 'ᱚᱛ ᱨᱮᱭᱟᱜ ᱚᱛ ᱨᱮᱭᱟᱜ ᱞᱟᱛᱟᱨ ᱨᱮ ᱢᱮᱱᱟᱜᱼᱟ ᱾',
-  ),
-  DictionaryEntry(
-    category: 'Nature',
     hindi: 'पत्थर',
     gloss: 'stone',
     santali: 'ᱫᱷᱤᱨᱤ ᱾',
@@ -1025,30 +942,6 @@ const List<DictionaryEntry> dictionaryData = [
     hindi: 'तारा',
     gloss: 'star',
     santali: 'ᱥᱴᱟᱨ ᱾',
-  ),
-  DictionaryEntry(
-    category: 'Animals',
-    hindi: 'बकरी',
-    gloss: 'goat',
-    santali: 'ᱵᱟᱠᱩ ᱫᱚ ᱦᱩᱭᱩᱜ ᱠᱟᱱᱟ ᱾',
-  ),
-  DictionaryEntry(
-    category: 'Animals',
-    hindi: 'भैंस',
-    gloss: 'buffalo',
-    santali: 'ᱵᱳᱭᱥ ᱾',
-  ),
-  DictionaryEntry(
-    category: 'Animals',
-    hindi: 'बंदर',
-    gloss: 'monkey',
-    santali: 'ᱢᱟᱱᱠ ᱫᱚ ᱾',
-  ),
-  DictionaryEntry(
-    category: 'Animals',
-    hindi: 'शेर',
-    gloss: 'lion',
-    santali: 'ᱥᱤᱝ ᱾',
   ),
   DictionaryEntry(
     category: 'Animals',
@@ -1100,12 +993,6 @@ const List<DictionaryEntry> dictionaryData = [
   ),
   DictionaryEntry(
     category: 'Emotions',
-    hindi: 'प्यार',
-    gloss: 'love',
-    santali: 'ᱤᱧᱟᱹᱜ ᱥᱟᱸᱶᱛᱮ ᱾',
-  ),
-  DictionaryEntry(
-    category: 'Emotions',
     hindi: 'थका',
     gloss: 'tired',
     santali: 'ᱜᱷᱟᱹᱞ ᱟᱠᱟᱱᱟ ᱾',
@@ -1127,12 +1014,6 @@ const List<DictionaryEntry> dictionaryData = [
     hindi: 'मोटा',
     gloss: 'fat/thick',
     santali: 'ᱜᱩᱴ ᱾',
-  ),
-  DictionaryEntry(
-    category: 'Adjectives',
-    hindi: 'पतला',
-    gloss: 'thin',
-    santali: 'ᱦᱩᱰᱤᱧ ᱾',
   ),
   DictionaryEntry(
     category: 'Adjectives',
@@ -1274,12 +1155,6 @@ const List<DictionaryEntry> dictionaryData = [
   ),
   DictionaryEntry(
     category: 'Verbs',
-    hindi: 'धोना',
-    gloss: 'to wash',
-    santali: 'ᱰᱟᱣᱩᱱᱞᱳᱰ ᱢᱮ ᱾',
-  ),
-  DictionaryEntry(
-    category: 'Verbs',
     hindi: 'साफ करना',
     gloss: 'to clean',
     santali: 'ᱥᱟᱨᱦᱟᱶ ᱢᱮ ᱾',
@@ -1367,18 +1242,6 @@ const List<DictionaryEntry> dictionaryData = [
     hindi: 'अस्पताल',
     gloss: 'hospital',
     santali: 'ᱦᱟᱥᱯᱟᱛᱟᱞ ᱾',
-  ),
-  DictionaryEntry(
-    category: 'Places',
-    hindi: 'खेत',
-    gloss: 'farm/field',
-    santali: 'ᱵᱤᱨ ᱫᱚ ᱦᱩᱭᱩᱜ ᱠᱟᱱᱟ ᱾',
-  ),
-  DictionaryEntry(
-    category: 'Places',
-    hindi: 'शहर',
-    gloss: 'city',
-    santali: 'ᱥᱟᱦᱟᱨ ᱫᱚ ᱾',
   ),
   DictionaryEntry(
     category: 'Places',

@@ -102,8 +102,15 @@ call on the calling isolate; a translate is up to 128 greedy-decode steps × 2 g
 the UI thread outright on the 2GB tablet. One long-lived worker isolate serves MT and both TTS
 voices (they are never used concurrently), which also keeps the large ONNX sessions off the UI
 isolate's heap entirely. Do not add a direct `HindiSantaliMtService`/`*TtsService` call from a
-widget. ASR is the exception — sherpa-onnx streams through its own plugin and stays on the main
-isolate.
+widget.
+
+**ASR gets its own isolate too** (`lib/services/asr_isolate.dart`). It is separate from the
+MT/TTS worker rather than sharing it, because recognition is live: audio chunks stream in every
+100 ms for the whole time the mic is held, so it must not queue behind a 128-step translate on a
+shared worker. `HindiAsrService` is the main-isolate façade — it owns the mic and the permission
+check and forwards PCM to `AsrIsolate`, which owns the recognizer. `SplashScreen` calls
+`HindiAsrService.prewarm()` and holds the logo up to 4 s extra for it, so the multi-second first
+build happens behind the splash instead of after the first mic tap.
 
 **No `rootBundle` on the worker isolate.** `PlatformAssetBundle.load` goes through
 `ServicesBinding.instance`, and `ServicesBinding` exists only on the root isolate — a spawned one
@@ -184,6 +191,10 @@ can only mean the script was rewritten. Anything similar you add should stay fal
 no English gloss on this screen because the bundled IndicTrans2 is indic-indic and cannot produce
 one.
 
+The prompt strip ships **collapsed** — it only costs vertical space for a teacher who opens it,
+rather than sitting permanently between the source card and the mic. Widget tests must expand it
+before asserting on the chips.
+
 `lib/data/classroom_prompts.dart` holds the one-tap sentence chips, copied verbatim from
 `models/test/classroom_sentences.txt` and pinned to it by a test. Chip labels must be a subset of the
 sentence they insert.
@@ -206,6 +217,14 @@ built to mirror the `AppLanguage` trio exactly. Three things to know:
   students get Flashcards + the quiz. The worksheet is teacher-only because `ChapterContent.worksheet`
   is a plain `List<String>` with **no answer data for any of the 221 chapters** — adding a
   student-facing worksheet means authoring answers first. Settings switches role at any time.
+
+### Vendored onnxruntime
+
+`third_party/onnxruntime_dart/` is a checked-in copy of the `onnxruntime` plugin at 1.4.1, wired
+up through `dependency_overrides: path:` in `pubspec.yaml`. It exists because the published
+package's Windows support ships two bugs that make every model fail to load — read
+`third_party/onnxruntime_dart/LOCAL_PATCHES.md` before touching it or bumping the dependency.
+`analysis_options.yaml` excludes it: it is not our code to lint.
 
 ### Localization
 

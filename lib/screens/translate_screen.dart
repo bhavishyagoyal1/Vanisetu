@@ -26,7 +26,18 @@ class TranslateScreen extends StatefulWidget {
   State<TranslateScreen> createState() => _TranslateScreenState();
 }
 
-class _TranslateScreenState extends State<TranslateScreen> {
+class _TranslateScreenState extends State<TranslateScreen>
+    with AutomaticKeepAliveClientMixin {
+  // MainShell's PageView doesn't actually keep offscreen tabs alive on its
+  // own despite what its doc comment implies — a tab scrolled far enough
+  // from the viewport (e.g. Curriculum <-> Dictionary, two tabs from
+  // Translate) falls outside the default scrollable cache extent and gets
+  // disposed, so returning to it rebuilt this State from scratch: source
+  // text, direction, and any translation already on screen, all gone. This
+  // mixin is what the PageView doc comment's claim actually depends on.
+  @override
+  bool get wantKeepAlive => true;
+
   static final TranslateLanguage _hindi = translateLanguages.firstWhere(
     (lang) => lang.code == 'hi',
   );
@@ -102,11 +113,31 @@ class _TranslateScreenState extends State<TranslateScreen> {
   void _onSourceChanged() => _scheduleTranslate();
 
   void _scheduleTranslate({Duration delay = _liveTranslateDelay}) {
-    _translateDebounce?.cancel();
     if (_sourceController.text.trim().isEmpty) {
-      if (_targetText != null) setState(() => _targetText = null);
+      // Deliberately doesn't clear _targetText: the last translation stays
+      // on screen (matches the source card's own "keep whatever's there"
+      // behavior) rather than blanking out just because the source box is
+      // momentarily empty — e.g. mid-edit, or between mic recordings.
+      _translateDebounce?.cancel();
       return;
     }
+    // Callers that want an immediate translate right now (stopping the mic,
+    // swapping languages, picking a target) always cancel-and-fire.
+    if (delay == Duration.zero) {
+      _translateDebounce?.cancel();
+      _translateDebounce = Timer(Duration.zero, _translate);
+      return;
+    }
+    // Throttle, not debounce, for the live-dictation case: onPartial fires
+    // far faster than `delay` during continuous speech (every decode step,
+    // ~100-300ms), so cancelling and restarting this timer on every partial
+    // — the previous behavior — meant it never elapsed until the user
+    // paused for a full `delay` or stopped recording, i.e. translation only
+    // ever ran after the fact rather than live. Letting an already-pending
+    // timer keep counting down instead fires roughly every `delay` during
+    // continuous speech; _translate() re-reads the controller's current
+    // text when it fires, so this never sends stale text.
+    if (_translateDebounce?.isActive ?? false) return;
     _translateDebounce = Timer(delay, _translate);
   }
 
@@ -209,10 +240,15 @@ class _TranslateScreenState extends State<TranslateScreen> {
       return;
     }
 
-    setState(() {
-      _translating = true;
-      _targetText = null;
-    });
+    // Deliberately doesn't clear _targetText here: with live translation
+    // re-running roughly every _liveTranslateDelay during continuous
+    // speech, nulling it at the start of every single run blanked the card
+    // back to its "Translating…" hint on every cycle — a constant flicker
+    // rather than a stable live view, worse the longer a decode pass takes
+    // on slower hardware. The last good translation now stays on screen
+    // until a new result (or a genuine context change — target language,
+    // swap) replaces it.
+    setState(() => _translating = true);
     try {
       final result = _sourceIsHindi
           ? await InferenceIsolate.instance.translateToSantali(text)
@@ -539,6 +575,7 @@ class _TranslateScreenState extends State<TranslateScreen> {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context); // required by AutomaticKeepAliveClientMixin
     return Scaffold(
       body: DecoratedBox(
         decoration: const BoxDecoration(
@@ -1164,8 +1201,14 @@ class _TargetCard extends StatelessWidget {
                 ),
               ),
               const Spacer(),
-              if (body != null)
+              if (body != null) ...[
+                _CardIconButton(
+                  icon: Icons.volume_up_rounded,
+                  loading: speaking,
+                  onTap: onSpeak,
+                ),
                 _CardIconButton(icon: Icons.copy_rounded, onTap: onCopy),
+              ],
             ],
           ),
           const SizedBox(height: 12),
@@ -1201,38 +1244,6 @@ class _TargetCard extends StatelessWidget {
                 color: const Color(0xFF0F3D2E),
               ),
             ),
-          if (body != null) ...[
-            const SizedBox(height: 14),
-            SizedBox(
-              width: double.infinity,
-              child: FilledButton.icon(
-                onPressed: speaking ? null : onSpeak,
-                icon: speaking
-                    ? const SizedBox(
-                        width: 16,
-                        height: 16,
-                        child: CircularProgressIndicator(
-                          strokeWidth: 2,
-                          color: Colors.white,
-                        ),
-                      )
-                    : const Icon(Icons.volume_up_rounded, size: 20),
-                label: Text(
-                  language.code == 'sat'
-                      ? tr(context, 'santali_voice_tts')
-                      : tr(context, 'hindi_voice_tts'),
-                  style: const TextStyle(fontWeight: FontWeight.w700),
-                ),
-                style: FilledButton.styleFrom(
-                  backgroundColor: AppColors.teal,
-                  padding: const EdgeInsets.symmetric(vertical: 13),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                ),
-              ),
-            ),
-          ],
         ],
       ),
     );
@@ -1241,96 +1252,142 @@ class _TargetCard extends StatelessWidget {
 
 /// One-tap classroom sentences. Horizontal because the row is a shortcut,
 /// not a menu — the full list is one tap further, behind View All.
-class _PromptStrip extends StatelessWidget {
+/// Collapsed by default — a single compact toggle row — so the chip strip
+/// only costs vertical space for the teacher who actually wants it, rather
+/// than sitting permanently between the source card and the mic on every
+/// visit.
+class _PromptStrip extends StatefulWidget {
   const _PromptStrip({required this.onSelected, required this.onViewAll});
 
   final ValueChanged<ClassroomPrompt> onSelected;
   final VoidCallback onViewAll;
 
   @override
+  State<_PromptStrip> createState() => _PromptStripState();
+}
+
+class _PromptStripState extends State<_PromptStrip> {
+  bool _expanded = false;
+
+  @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Row(
-          children: [
-            Expanded(
-              child: Text(
-                tr(context, 'classroom_prompts').toUpperCase(),
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                  fontSize: 11.5,
-                  fontWeight: FontWeight.w700,
-                  letterSpacing: 0.8,
+        InkWell(
+          borderRadius: BorderRadius.circular(8),
+          onTap: () => setState(() => _expanded = !_expanded),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 2),
+            child: Row(
+              children: [
+                Icon(
+                  Icons.auto_stories_rounded,
+                  size: 15,
                   color: Colors.grey[600],
                 ),
-              ),
-            ),
-            InkWell(
-              borderRadius: BorderRadius.circular(8),
-              onTap: onViewAll,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-                child: Text(
-                  tr(context, 'view_all_n', {
-                    'n': '${classroomPrompts.length}',
-                  }),
-                  style: const TextStyle(
-                    fontSize: 12.5,
-                    fontWeight: FontWeight.w600,
-                    color: AppColors.teal,
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
-        const SizedBox(height: 8),
-        SizedBox(
-          height: 40,
-          child: ListView.separated(
-            scrollDirection: Axis.horizontal,
-            itemCount: classroomPrompts.length,
-            separatorBuilder: (context, _) => const SizedBox(width: 8),
-            itemBuilder: (context, index) {
-              final prompt = classroomPrompts[index];
-              return Material(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
-                child: InkWell(
-                  borderRadius: BorderRadius.circular(20),
-                  onTap: () => onSelected(prompt),
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 12),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      border: Border.all(
-                        color: AppColors.teal.withValues(alpha: 0.25),
-                      ),
-                    ),
-                    child: Row(
-                      children: [
-                        Text(
-                          prompt.emoji,
-                          style: const TextStyle(fontSize: 14),
-                        ),
-                        const SizedBox(width: 6),
-                        Text(
-                          prompt.label,
-                          style: const TextStyle(
-                            fontSize: 13.5,
-                            fontWeight: FontWeight.w600,
-                            color: Color(0xFF14213D),
-                          ),
-                        ),
-                      ],
+                const SizedBox(width: 6),
+                Expanded(
+                  child: Text(
+                    tr(context, 'classroom_prompts').toUpperCase(),
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      fontSize: 11.5,
+                      fontWeight: FontWeight.w700,
+                      letterSpacing: 0.8,
+                      color: Colors.grey[600],
                     ),
                   ),
                 ),
-              );
-            },
+                Icon(
+                  _expanded
+                      ? Icons.keyboard_arrow_up_rounded
+                      : Icons.keyboard_arrow_down_rounded,
+                  size: 18,
+                  color: Colors.grey[600],
+                ),
+              ],
+            ),
           ),
         ),
+        if (_expanded) ...[
+          const SizedBox(height: 8),
+          Row(
+            children: [
+              Expanded(
+                child: SizedBox(
+                  height: 40,
+                  child: ListView.separated(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: classroomPrompts.length,
+                    separatorBuilder: (context, _) =>
+                        const SizedBox(width: 8),
+                    itemBuilder: (context, index) {
+                      final prompt = classroomPrompts[index];
+                      return Material(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20),
+                        child: InkWell(
+                          borderRadius: BorderRadius.circular(20),
+                          onTap: () => widget.onSelected(prompt),
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 12,
+                            ),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              border: Border.all(
+                                color: AppColors.teal.withValues(alpha: 0.25),
+                              ),
+                            ),
+                            child: Row(
+                              children: [
+                                Text(
+                                  prompt.emoji,
+                                  style: const TextStyle(fontSize: 14),
+                                ),
+                                const SizedBox(width: 6),
+                                Text(
+                                  prompt.label,
+                                  style: const TextStyle(
+                                    fontSize: 13.5,
+                                    fontWeight: FontWeight.w600,
+                                    color: Color(0xFF14213D),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ),
+              const SizedBox(width: 8),
+              InkWell(
+                borderRadius: BorderRadius.circular(8),
+                onTap: widget.onViewAll,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 6,
+                    vertical: 10,
+                  ),
+                  child: Text(
+                    tr(context, 'view_all_n', {
+                      'n': '${classroomPrompts.length}',
+                    }),
+                    style: const TextStyle(
+                      fontSize: 12.5,
+                      fontWeight: FontWeight.w600,
+                      color: AppColors.teal,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
       ],
     );
   }

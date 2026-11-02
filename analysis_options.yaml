@@ -16,6 +16,9 @@ analyzer:
     - windows/**
     - macos/**
     - linux/**
+    # Vendored third-party plugin (see third_party/onnxruntime_dart/
+    # LOCAL_PATCHES.md) — not our code to lint or fix.
+    - third_party/**
 include: package:flutter_lints/flutter.yaml
 
 linter:
