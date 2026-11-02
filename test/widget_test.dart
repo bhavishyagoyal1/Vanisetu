@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:vaanisetu/main.dart';
 import 'package:vaanisetu/screens/splash_screen.dart';
 
 void main() {
-  testWidgets('App starts on the splash screen and advances to the shell',
-      (WidgetTester tester) async {
+  testWidgets('App starts on the splash screen and advances past it', (
+    WidgetTester tester,
+  ) async {
+    // A stored role keeps this test about the splash alone; where it lands
+    // with and without one is covered by role_routing_test.dart.
+    SharedPreferences.setMockInitialValues({'app_role': 'teacher'});
+
     await tester.pumpWidget(const VaaniSetuApp());
 
     expect(find.byType(SplashScreen), findsOneWidget);
@@ -24,7 +30,9 @@ void main() {
     // controllers, so they do not leak into the next test.
     await tester.pump(const Duration(milliseconds: 2600)); // delay elapses
     await tester.pump(); // pushReplacement builds the new route
-    await tester.pump(const Duration(milliseconds: 900)); // 600ms transition + margin
+    await tester.pump(
+      const Duration(milliseconds: 900),
+    ); // 600ms transition + margin
 
     expect(find.byType(SplashScreen), findsNothing);
   });

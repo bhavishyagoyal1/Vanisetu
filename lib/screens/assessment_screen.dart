@@ -1,17 +1,30 @@
 import 'package:flutter/material.dart';
 
 import '../data/chapter_content_data.dart';
+import '../l10n/app_strings.dart';
 import '../theme/app_colors.dart';
 
+/// The same questions in one of two modes, chosen by the reader's [AppRole]
+/// (see [ChapterDetailScreen]):
+///
+/// - students get a quiz — pick, submit, then see the score and which
+///   options were right;
+/// - teachers get an answer key — every correct option marked on open, with
+///   no picking, scoring or submitting, since a teacher reading it out does
+///   not need to sit the test first.
 class AssessmentScreen extends StatefulWidget {
   const AssessmentScreen({
     super.key,
     required this.chapter,
     required this.questions,
+    this.showAnswers = false,
   });
 
   final String chapter;
   final List<AssessmentQuestion> questions;
+
+  /// Answer-key mode. Defaults to the quiz.
+  final bool showAnswers;
 
   @override
   State<AssessmentScreen> createState() => _AssessmentScreenState();
@@ -19,7 +32,7 @@ class AssessmentScreen extends StatefulWidget {
 
 class _AssessmentScreenState extends State<AssessmentScreen> {
   late final _selected = List<int?>.filled(widget.questions.length, null);
-  bool _submitted = false;
+  late bool _submitted = widget.showAnswers;
 
   int get _score {
     var score = 0;
@@ -47,7 +60,9 @@ class _AssessmentScreenState extends State<AssessmentScreen> {
               padding: const EdgeInsets.all(16),
               color: AppColors.teal.withValues(alpha: 0.12),
               child: Text(
-                'Score: $_score / ${widget.questions.length}',
+                widget.showAnswers
+                    ? tr(context, 'answer_key')
+                    : 'Score: $_score / ${widget.questions.length}',
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                   fontSize: 16,
@@ -108,27 +123,28 @@ class _AssessmentScreenState extends State<AssessmentScreen> {
               },
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(16, 8, 16, 20),
-            child: SizedBox(
-              width: double.infinity,
-              child: FilledButton(
-                onPressed: _submitted
-                    ? () => setState(() {
-                        _submitted = false;
-                        _selected.fillRange(0, _selected.length, null);
-                      })
-                    : allAnswered
-                    ? () => setState(() => _submitted = true)
-                    : null,
-                style: FilledButton.styleFrom(
-                  backgroundColor: AppColors.navy,
-                  padding: const EdgeInsets.symmetric(vertical: 14),
+          if (!widget.showAnswers)
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 8, 16, 20),
+              child: SizedBox(
+                width: double.infinity,
+                child: FilledButton(
+                  onPressed: _submitted
+                      ? () => setState(() {
+                          _submitted = false;
+                          _selected.fillRange(0, _selected.length, null);
+                        })
+                      : allAnswered
+                      ? () => setState(() => _submitted = true)
+                      : null,
+                  style: FilledButton.styleFrom(
+                    backgroundColor: AppColors.navy,
+                    padding: const EdgeInsets.symmetric(vertical: 14),
+                  ),
+                  child: Text(_submitted ? 'Retry' : 'Submit'),
                 ),
-                child: Text(_submitted ? 'Retry' : 'Submit'),
               ),
             ),
-          ),
         ],
       ),
     );

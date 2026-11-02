@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'main_shell.dart';
+import '../role/app_role.dart';
+import 'role_selection_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -76,13 +77,20 @@ class _SplashScreenState extends State<SplashScreen>
   }
 
   Future<void> _navigateAfterDelay() async {
-    await Future.delayed(const Duration(milliseconds: 2600));
+    final roleController = AppRoleScope.read(context);
+    // The stored role is loaded in parallel with the splash delay — not to
+    // decide where to go (the role screen always follows the logo) but so
+    // that screen can mark the role already in use.
+    await Future.wait(<Future<void>>[
+      Future.delayed(const Duration(milliseconds: 2600)),
+      roleController.load(),
+    ]);
     if (!mounted) return;
+    const next = RoleSelectionScreen();
     Navigator.of(context).pushReplacement(
       PageRouteBuilder(
         transitionDuration: const Duration(milliseconds: 600),
-        pageBuilder: (context, animation, secondaryAnimation) =>
-            const MainShell(),
+        pageBuilder: (context, animation, secondaryAnimation) => next,
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           final curved = CurvedAnimation(
             parent: animation,

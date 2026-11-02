@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../data/chapter_content_data.dart';
 import '../data/chapter_content_map.dart';
 import '../l10n/app_strings.dart';
+import '../role/app_role.dart';
 import '../theme/app_colors.dart';
 import 'assessment_screen.dart';
 import 'content_placeholder_screen.dart';
@@ -12,6 +13,14 @@ import 'worksheet_screen.dart';
 /// Chapter -> {Worksheet, Flashcards, Assessment}. Opens the real content
 /// screen when chapterContentData has an entry for this chapter, otherwise
 /// falls back to a placeholder — see ContentPlaceholderScreen's doc comment.
+///
+/// This is the one screen the chosen [AppRole] changes. Teachers get all
+/// three tiles and an answer key; students get flashcards and the quiz.
+/// The worksheet is teacher-only because its questions ship without
+/// answers (`ChapterContent.worksheet` is a plain `List<String>`), so it is
+/// material to set and read out, not to self-check against. Nothing here is
+/// a permission boundary — the role is switchable in Settings at any
+/// time.
 class ChapterDetailScreen extends StatelessWidget {
   const ChapterDetailScreen({
     super.key,
@@ -53,6 +62,7 @@ class ChapterDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final content = _content;
+    final isTeacher = context.appRole == AppRole.teacher;
     return Scaffold(
       backgroundColor: const Color(0xFFF6F8FA),
       appBar: AppBar(
@@ -78,34 +88,36 @@ class ChapterDetailScreen extends StatelessWidget {
               style: TextStyle(fontSize: 13, color: Colors.grey[600]),
             ),
             const SizedBox(height: 16),
-            _ContentTile(
-              icon: Icons.description_rounded,
-              color: _worksheetColor,
-              title: tr(context, 'content_worksheet'),
-              onTap: () {
-                if (content != null) {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (_) => WorksheetScreen(
-                        chapter: chapter,
-                        questions: content.worksheet,
+            if (isTeacher) ...[
+              _ContentTile(
+                icon: Icons.description_rounded,
+                color: _worksheetColor,
+                title: tr(context, 'content_worksheet'),
+                onTap: () {
+                  if (content != null) {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (_) => WorksheetScreen(
+                          chapter: chapter,
+                          questions: content.worksheet,
+                        ),
                       ),
-                    ),
-                  );
-                } else {
-                  _openPlaceholder(
-                    context,
-                    title: tr(context, 'content_worksheet'),
-                    icon: Icons.description_rounded,
-                    color: _worksheetColor,
-                    subtitle: tr(context, 'content_worksheet_subtitle', {
-                      'chapter': chapter,
-                    }),
-                  );
-                }
-              },
-            ),
-            const SizedBox(height: 12),
+                    );
+                  } else {
+                    _openPlaceholder(
+                      context,
+                      title: tr(context, 'content_worksheet'),
+                      icon: Icons.description_rounded,
+                      color: _worksheetColor,
+                      subtitle: tr(context, 'content_worksheet_subtitle', {
+                        'chapter': chapter,
+                      }),
+                    );
+                  }
+                },
+              ),
+              const SizedBox(height: 12),
+            ],
             _ContentTile(
               icon: Icons.style_rounded,
               color: _flashcardsColor,
@@ -145,6 +157,7 @@ class ChapterDetailScreen extends StatelessWidget {
                       builder: (_) => AssessmentScreen(
                         chapter: chapter,
                         questions: content.assessment,
+                        showAnswers: isTeacher,
                       ),
                     ),
                   );
