@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math' show pi, sin;
 
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
@@ -14,8 +15,10 @@ import '../services/asr/hindi_text_normalizer.dart'
     show isHallucinated, transcriptWasCleaned;
 import '../services/hindi_asr_service.dart';
 import '../services/inference_isolate.dart';
+import '../services/translation_history_service.dart';
 import '../theme/app_colors.dart';
 import 'settings_screen.dart';
+import 'translation_history_screen.dart';
 
 /// Vaani Translate — the app's landing tab. Hindi in, Santali (and, once an
 /// offline model exists for it, Mundari) out — live, as you speak or type.
@@ -265,6 +268,18 @@ class _TranslateScreenState extends State<TranslateScreen>
       // with _listening already false.
       if (!_listening && result.isNotEmpty && result != previousTarget) {
         unawaited(_speakTarget());
+        final sourceLang = _sourceIsHindi ? _hindi : _targetLang;
+        final targetLang = _sourceIsHindi ? _targetLang : _hindi;
+        unawaited(
+          TranslationHistoryService.instance.add(
+            sourceLanguageCode: sourceLang.code,
+            sourceLanguageName: sourceLang.name,
+            targetLanguageCode: targetLang.code,
+            targetLanguageName: targetLang.name,
+            sourceText: text,
+            targetText: result,
+          ),
+        );
       }
     } catch (e) {
       if (!mounted) return;
@@ -596,87 +611,264 @@ class _TranslateScreenState extends State<TranslateScreen>
             colors: [Color(0xFFF7F9FC), Color(0xFFF2F5F9)],
           ),
         ),
-        child: SafeArea(
-          child: LayoutBuilder(
-            builder: (context, constraints) {
-              final m = _Metrics.of(constraints.maxWidth);
-              return Center(
-                child: ConstrainedBox(
-                  // Phone-shaped column even on a tablet: stretching these
-                  // cards to 800px would put the mic miles from the text it
-                  // belongs to.
-                  constraints: const BoxConstraints(maxWidth: 560),
-                  child: SingleChildScrollView(
-                    padding: EdgeInsets.fromLTRB(m.pad, 10, m.pad, 20),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        _AppHeader(metrics: m),
-                        SizedBox(height: m.gap),
-                        _LanguageBar(
-                          source: _sourceIsHindi ? _hindi : _targetLang,
-                          target: _sourceIsHindi ? _targetLang : _hindi,
-                          sourceHasAsr: _sourceIsHindi,
-                          canSwap: _canSwap,
-                          onSwap: _swapLanguages,
-                          onPickTarget: _sourceIsHindi
-                              ? _pickTargetLanguage
-                              : null,
-                          metrics: m,
+        // Full-bleed decoration: sits outside SafeArea (like the gradient
+        // above) so it reaches the true screen edges — including behind the
+        // status/nav bars now that main() puts those in edge-to-edge mode —
+        // rather than being boxed in by the same inset the content respects.
+        child: Stack(
+          children: [
+            const Positioned.fill(child: _BackgroundArt()),
+            // top: false — the full status-bar inset here left a noticeably
+            // dead strip above the header (nothing at all needs to dodge the
+            // status bar except the header row itself, and even that only
+            // needs a fraction of the inset, not the whole thing). A little
+            // breathing room is kept so the logo doesn't sit flush under the
+            // camera cutout on punch-hole phones.
+            SafeArea(
+              top: false,
+              child: LayoutBuilder(
+                builder: (context, constraints) {
+                  final m = _Metrics.of(constraints.maxWidth);
+                  final topInset = MediaQuery.of(context).padding.top;
+                  return Center(
+                    child: ConstrainedBox(
+                      // Phone-shaped column even on a tablet: stretching
+                      // these cards to 800px would put the mic miles from
+                      // the text it belongs to.
+                      constraints: const BoxConstraints(maxWidth: 560),
+                      child: SingleChildScrollView(
+                        padding: EdgeInsets.fromLTRB(
+                          m.pad,
+                          topInset * 0.35 + 6,
+                          m.pad,
+                          20,
                         ),
-                        SizedBox(height: m.gap),
-                        _SourceCard(
-                          language: _sourceIsHindi ? _hindi : _targetLang,
-                          controller: _sourceController,
-                          hint: _sourceIsHindi
-                              ? tr(context, 'speak_in_hindi')
-                              : tr(context, 'type_in_santali'),
-                          cleaned: _cleanedAsr,
-                          speaking: _sourceIsHindi ? _speakingHindi : _speaking,
-                          copied: _copiedSource,
-                          onSpeak: _speakSource,
-                          onCopy: _copySource,
-                          metrics: m,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            _AppHeader(metrics: m),
+                            SizedBox(height: m.gap),
+                            _LanguageBar(
+                              source: _sourceIsHindi ? _hindi : _targetLang,
+                              target: _sourceIsHindi ? _targetLang : _hindi,
+                              sourceHasAsr: _sourceIsHindi,
+                              canSwap: _canSwap,
+                              onSwap: _swapLanguages,
+                              onPickTarget: _sourceIsHindi
+                                  ? _pickTargetLanguage
+                                  : null,
+                              metrics: m,
+                            ),
+                            SizedBox(height: m.gap),
+                            _SourceCard(
+                              language: _sourceIsHindi ? _hindi : _targetLang,
+                              controller: _sourceController,
+                              hint: _sourceIsHindi
+                                  ? tr(context, 'speak_in_hindi')
+                                  : tr(context, 'type_in_santali'),
+                              cleaned: _cleanedAsr,
+                              speaking: _sourceIsHindi
+                                  ? _speakingHindi
+                                  : _speaking,
+                              copied: _copiedSource,
+                              onSpeak: _speakSource,
+                              onCopy: _copySource,
+                              metrics: m,
+                            ),
+                            if (_sourceIsHindi) ...[
+                              SizedBox(height: m.gap),
+                              _PromptStrip(
+                                onSelected: _applyPrompt,
+                                onViewAll: _showAllPrompts,
+                              ),
+                              SizedBox(height: m.gap),
+                              _MicButton(
+                                listening: _listening,
+                                starting: _starting,
+                                elapsedLabel: _formatElapsed(_elapsed),
+                                onTap: _starting ? null : _toggleMic,
+                                metrics: m,
+                              ),
+                            ],
+                            SizedBox(height: m.gap),
+                            _TargetCard(
+                              language: _sourceIsHindi ? _targetLang : _hindi,
+                              text: _targetText,
+                              translating: _translating,
+                              speaking: _sourceIsHindi
+                                  ? _speaking
+                                  : _speakingHindi,
+                              hint: _translating
+                                  ? tr(context, 'translating')
+                                  : _sourceIsHindi && _targetLang.code != 'sat'
+                                  ? tr(context, 'not_available_offline')
+                                  : tr(context, 'translation_appears_here'),
+                              onSpeak: _speakTarget,
+                              onCopy: () => _copy(_targetText ?? ''),
+                              metrics: m,
+                            ),
+                          ],
                         ),
-                        if (_sourceIsHindi) ...[
-                          SizedBox(height: m.gap),
-                          _PromptStrip(
-                            onSelected: _applyPrompt,
-                            onViewAll: _showAllPrompts,
-                          ),
-                          SizedBox(height: m.gap),
-                          _MicButton(
-                            listening: _listening,
-                            starting: _starting,
-                            elapsedLabel: _formatElapsed(_elapsed),
-                            onTap: _starting ? null : _toggleMic,
-                            metrics: m,
-                          ),
-                        ],
-                        SizedBox(height: m.gap),
-                        _TargetCard(
-                          language: _sourceIsHindi ? _targetLang : _hindi,
-                          text: _targetText,
-                          translating: _translating,
-                          speaking: _sourceIsHindi ? _speaking : _speakingHindi,
-                          hint: _translating
-                              ? tr(context, 'translating')
-                              : _sourceIsHindi && _targetLang.code != 'sat'
-                              ? tr(context, 'not_available_offline')
-                              : tr(context, 'translation_appears_here'),
-                          onSpeak: _speakTarget,
-                          onCopy: () => _copy(_targetText ?? ''),
-                          metrics: m,
-                        ),
-                      ],
+                      ),
                     ),
-                  ),
-                ),
-              );
-            },
-          ),
+                  );
+                },
+              ),
+            ),
+          ],
         ),
       ),
+    );
+  }
+}
+
+/// Soft brand-colored shapes behind the screen's content — the plain flat
+/// gradient otherwise looks unfinished once it reaches all the way to the
+/// physical screen edges (see the Stack in build()). Purely decorative:
+/// low-alpha, ignores pointer events, and never affects layout since it
+/// sits behind a Positioned.fill with the real content stacked on top.
+class _BackgroundArt extends StatelessWidget {
+  const _BackgroundArt();
+
+  @override
+  Widget build(BuildContext context) {
+    return IgnorePointer(
+      child: Stack(
+        children: [
+          // Top-left corner — otherwise the only undecorated patch of the
+          // screen, sitting right behind the status bar icons.
+          Positioned(
+            top: -60,
+            left: -70,
+            child: _Blob(
+              color: AppColors.navy.withValues(alpha: 0.08),
+              size: 210,
+            ),
+          ),
+          Positioned(
+            top: -70,
+            right: -60,
+            child: _Blob(
+              color: AppColors.teal.withValues(alpha: 0.10),
+              size: 220,
+            ),
+          ),
+          Positioned(
+            top: 100,
+            left: -90,
+            child: _Blob(
+              color: AppColors.navy.withValues(alpha: 0.06),
+              size: 200,
+            ),
+          ),
+          Positioned(
+            bottom: -100,
+            right: -70,
+            child: _Blob(
+              color: AppColors.orange.withValues(alpha: 0.08),
+              size: 260,
+            ),
+          ),
+          Positioned(
+            bottom: 60,
+            left: -60,
+            child: _Blob(
+              color: AppColors.navy.withValues(alpha: 0.05),
+              size: 160,
+            ),
+          ),
+          // Wavy bands, top and bottom — the blobs alone read as generic
+          // circles; a wave silhouette is the more distinctly "flowing
+          // language" motif this app's brand mark already uses.
+          Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            height: 200,
+            child: SizedBox.expand(
+              child: CustomPaint(
+                painter: _WavePainter(
+                  color: AppColors.teal.withValues(alpha: 0.08),
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 0,
+            left: 0,
+            right: 0,
+            height: 240,
+            child: SizedBox.expand(
+              child: CustomPaint(
+                painter: _WavePainter(
+                  color: AppColors.navy.withValues(alpha: 0.07),
+                  flipY: true,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// One smooth hump filled to the nearer edge — used twice (once flipped) for
+/// the top and bottom wave bands in [_BackgroundArt].
+class _WavePainter extends CustomPainter {
+  const _WavePainter({required this.color, this.flipY = false});
+
+  final Color color;
+  final bool flipY;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final paint = Paint()..color = color;
+    final baseY = flipY ? size.height * 0.4 : size.height * 0.6;
+    final amp = size.height * 0.16;
+    final path = Path()..moveTo(0, baseY + amp * 0.3);
+    path.quadraticBezierTo(
+      size.width * 0.24,
+      baseY - amp,
+      size.width * 0.5,
+      baseY,
+    );
+    path.quadraticBezierTo(
+      size.width * 0.76,
+      baseY + amp,
+      size.width,
+      baseY - amp * 0.2,
+    );
+    if (flipY) {
+      path
+        ..lineTo(size.width, 0)
+        ..lineTo(0, 0);
+    } else {
+      path
+        ..lineTo(size.width, size.height)
+        ..lineTo(0, size.height);
+    }
+    path.close();
+    canvas.drawPath(path, paint);
+  }
+
+  @override
+  bool shouldRepaint(covariant _WavePainter oldDelegate) =>
+      oldDelegate.color != color || oldDelegate.flipY != flipY;
+}
+
+class _Blob extends StatelessWidget {
+  const _Blob({required this.color, required this.size});
+
+  final Color color;
+  final double size;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: size,
+      height: size,
+      decoration: BoxDecoration(shape: BoxShape.circle, color: color),
     );
   }
 }
@@ -703,28 +895,28 @@ class _Metrics {
   final double target;
 
   static const _compact = _Metrics(
-    pad: 12,
-    gap: 10,
-    mic: 78,
-    title: 16,
-    body: 15,
-    target: 19,
+    pad: 14,
+    gap: 12,
+    mic: 84,
+    title: 17,
+    body: 16,
+    target: 21,
   );
   static const _regular = _Metrics(
-    pad: 16,
-    gap: 12,
-    mic: 96,
-    title: 18,
-    body: 16.5,
-    target: 22,
-  );
-  static const _large = _Metrics(
-    pad: 22,
-    gap: 16,
-    mic: 112,
-    title: 20,
+    pad: 18,
+    gap: 14,
+    mic: 104,
+    title: 19,
     body: 18,
     target: 25,
+  );
+  static const _large = _Metrics(
+    pad: 24,
+    gap: 18,
+    mic: 120,
+    title: 21,
+    body: 19.5,
+    target: 28,
   );
 
   factory _Metrics.of(double width) {
@@ -793,17 +985,55 @@ class _AppHeader extends StatelessWidget {
             ],
           ),
         ),
-        const SizedBox(width: 8),
+        const SizedBox(width: 6),
         const _LanguageToggle(),
-        IconButton(
-          icon: const Icon(Icons.settings_outlined, color: AppColors.navy),
+        _HeaderIconButton(
+          icon: Icons.history_rounded,
+          tooltip: tr(context, 'history_open_tooltip'),
+          onPressed: () => Navigator.of(context).push(
+            MaterialPageRoute(builder: (_) => const TranslationHistoryScreen()),
+          ),
+        ),
+        _HeaderIconButton(
+          icon: Icons.settings_outlined,
           tooltip: tr(context, 'settings_title'),
-          visualDensity: VisualDensity.compact,
           onPressed: () => Navigator.of(
             context,
           ).push(MaterialPageRoute(builder: (_) => const SettingsScreen())),
         ),
       ],
+    );
+  }
+}
+
+/// Compact header action button — a plain [IconButton] keeps its Material 3
+/// 48dp minimum tap target no matter what `visualDensity` is set to, which
+/// crowds out the brand name once there are three of these in the row (the
+/// language toggle, history, settings). InkResponse's `radius` gives an
+/// exact splash size instead.
+class _HeaderIconButton extends StatelessWidget {
+  const _HeaderIconButton({
+    required this.icon,
+    required this.tooltip,
+    required this.onPressed,
+  });
+
+  final IconData icon;
+  final String tooltip;
+  final VoidCallback onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return Tooltip(
+      message: tooltip,
+      child: InkResponse(
+        onTap: onPressed,
+        radius: 20,
+        child: Padding(
+          padding: const EdgeInsets.all(6),
+          child: Icon(icon, color: AppColors.navy, size: 22),
+        ),
+      ),
     );
   }
 }
@@ -1112,15 +1342,15 @@ class _SourceCard extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 6),
+          const SizedBox(height: 10),
           TextField(
             controller: controller,
             maxLines: null,
-            minLines: 2,
+            minLines: 3,
             textAlignVertical: TextAlignVertical.top,
             decoration: InputDecoration(
               hintText: hint,
-              hintStyle: TextStyle(color: Colors.grey[400], fontSize: 15),
+              hintStyle: TextStyle(color: Colors.grey[400], fontSize: 16),
               border: InputBorder.none,
               isCollapsed: true,
             ),
@@ -1222,39 +1452,49 @@ class _TargetCard extends StatelessWidget {
               ],
             ],
           ),
-          const SizedBox(height: 12),
-          if (body == null)
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8),
-              child: Row(
-                children: [
-                  if (translating) ...[
-                    const SizedBox(
-                      width: 14,
-                      height: 14,
-                      child: CircularProgressIndicator(strokeWidth: 2),
+          const SizedBox(height: 14),
+          ConstrainedBox(
+            // Matches the source card's ~3-line minimum height so the two
+            // boxes read as the same size at a glance, empty or not.
+            constraints: BoxConstraints(minHeight: metrics.target * 3 * 1.5),
+            child: Align(
+              alignment: Alignment.topLeft,
+              child: body == null
+                  ? Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 8),
+                      child: Row(
+                        children: [
+                          if (translating) ...[
+                            const SizedBox(
+                              width: 14,
+                              height: 14,
+                              child: CircularProgressIndicator(strokeWidth: 2),
+                            ),
+                            const SizedBox(width: 10),
+                          ],
+                          Flexible(
+                            child: Text(
+                              hint,
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.grey[500],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  : SelectableText(
+                      body,
+                      style: TextStyle(
+                        fontSize: metrics.target,
+                        height: 1.5,
+                        fontWeight: FontWeight.w600,
+                        color: const Color(0xFF0F3D2E),
+                      ),
                     ),
-                    const SizedBox(width: 10),
-                  ],
-                  Flexible(
-                    child: Text(
-                      hint,
-                      style: TextStyle(fontSize: 15, color: Colors.grey[500]),
-                    ),
-                  ),
-                ],
-              ),
-            )
-          else
-            SelectableText(
-              body,
-              style: TextStyle(
-                fontSize: metrics.target,
-                height: 1.5,
-                fontWeight: FontWeight.w600,
-                color: const Color(0xFF0F3D2E),
-              ),
             ),
+          ),
         ],
       ),
     );
@@ -1331,8 +1571,7 @@ class _PromptStripState extends State<_PromptStrip> {
                   child: ListView.separated(
                     scrollDirection: Axis.horizontal,
                     itemCount: classroomPrompts.length,
-                    separatorBuilder: (context, _) =>
-                        const SizedBox(width: 8),
+                    separatorBuilder: (context, _) => const SizedBox(width: 8),
                     itemBuilder: (context, index) {
                       final prompt = classroomPrompts[index];
                       return Material(
@@ -1342,9 +1581,7 @@ class _PromptStripState extends State<_PromptStrip> {
                           borderRadius: BorderRadius.circular(20),
                           onTap: () => widget.onSelected(prompt),
                           child: Container(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 12,
-                            ),
+                            padding: const EdgeInsets.symmetric(horizontal: 12),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(20),
                               border: Border.all(
@@ -1425,59 +1662,25 @@ class _MicButton extends StatelessWidget {
     final size = metrics.mic;
     return Column(
       children: [
-        GestureDetector(
-          onTap: onTap,
-          child: AnimatedContainer(
-            duration: const Duration(milliseconds: 220),
-            width: size + (listening ? 28 : 18),
-            height: size + (listening ? 28 : 18),
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: AppColors.navy.withValues(alpha: listening ? 0.14 : 0.06),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            _SoundWaveBars(active: listening, barHeight: size * 0.55),
+            const SizedBox(width: 10),
+            _MicCircle(
+              listening: listening,
+              starting: starting,
+              size: size,
+              onTap: onTap,
             ),
-            child: Center(
-              child: AnimatedContainer(
-                duration: const Duration(milliseconds: 220),
-                width: size,
-                height: size,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    colors: listening
-                        ? [AppColors.navy, const Color(0xFF2B5CA8)]
-                        : [
-                            AppColors.navy.withValues(alpha: 0.92),
-                            AppColors.navy,
-                          ],
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: AppColors.navy.withValues(
-                        alpha: listening ? 0.4 : 0.22,
-                      ),
-                      blurRadius: listening ? 24 : 14,
-                      offset: const Offset(0, 6),
-                    ),
-                  ],
-                ),
-                child: starting
-                    ? Padding(
-                        padding: EdgeInsets.all(size * 0.32),
-                        child: const CircularProgressIndicator(
-                          color: Colors.white,
-                          strokeWidth: 3,
-                        ),
-                      )
-                    : Icon(
-                        listening ? Icons.mic_rounded : Icons.mic_none_rounded,
-                        color: Colors.white,
-                        size: size * 0.42,
-                      ),
-              ),
+            const SizedBox(width: 10),
+            _SoundWaveBars(
+              active: listening,
+              barHeight: size * 0.55,
+              mirrored: true,
             ),
-          ),
+          ],
         ),
         const SizedBox(height: 10),
         Text(
@@ -1519,6 +1722,172 @@ class _MicButton extends StatelessWidget {
               : null,
         ),
       ],
+    );
+  }
+}
+
+/// Just the tappable circle, split out of [_MicButton] so the sound-wave
+/// bars can flank it in a Row without duplicating its animation logic.
+class _MicCircle extends StatelessWidget {
+  const _MicCircle({
+    required this.listening,
+    required this.starting,
+    required this.size,
+    required this.onTap,
+  });
+
+  final bool listening;
+  final bool starting;
+  final double size;
+  final VoidCallback? onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 220),
+        width: size + (listening ? 28 : 18),
+        height: size + (listening ? 28 : 18),
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: AppColors.navy.withValues(alpha: listening ? 0.14 : 0.06),
+        ),
+        child: Center(
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 220),
+            width: size,
+            height: size,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: listening
+                    ? [AppColors.navy, const Color(0xFF2B5CA8)]
+                    : [AppColors.navy.withValues(alpha: 0.92), AppColors.navy],
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: AppColors.navy.withValues(
+                    alpha: listening ? 0.4 : 0.22,
+                  ),
+                  blurRadius: listening ? 24 : 14,
+                  offset: const Offset(0, 6),
+                ),
+              ],
+            ),
+            child: starting
+                ? Padding(
+                    padding: EdgeInsets.all(size * 0.32),
+                    child: const CircularProgressIndicator(
+                      color: Colors.white,
+                      strokeWidth: 3,
+                    ),
+                  )
+                : Icon(
+                    listening ? Icons.mic_rounded : Icons.mic_none_rounded,
+                    color: Colors.white,
+                    size: size * 0.42,
+                  ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// Animator shared by the two flanking [_SoundWaveBars] instances: a small
+/// bank of vertical bars whose heights ride a sine wave, per-bar phase
+/// offset so they don't all move in lockstep — a cheap stand-in for an
+/// actual audio-level visualization (no mic amplitude is available from
+/// [HindiAsrService] to drive this from real input).
+class _SoundWaveBars extends StatefulWidget {
+  const _SoundWaveBars({
+    required this.active,
+    required this.barHeight,
+    this.mirrored = false,
+  });
+
+  final bool active;
+  final double barHeight;
+  final bool mirrored;
+
+  @override
+  State<_SoundWaveBars> createState() => _SoundWaveBarsState();
+}
+
+class _SoundWaveBarsState extends State<_SoundWaveBars>
+    with SingleTickerProviderStateMixin {
+  static const _barCount = 4;
+
+  late final AnimationController _controller = AnimationController(
+    vsync: this,
+    duration: const Duration(milliseconds: 1100),
+  );
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.active) _controller.repeat();
+  }
+
+  // Only ticks while capturing — see _PulsingDotsState's identical note on
+  // why an idle repeating controller here would be wasteful.
+  @override
+  void didUpdateWidget(covariant _SoundWaveBars oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.active == oldWidget.active) return;
+    if (widget.active) {
+      _controller.repeat();
+    } else {
+      _controller.stop();
+      _controller.value = 0;
+    }
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final minHeight = widget.barHeight * 0.25;
+    return AnimatedOpacity(
+      opacity: widget.active ? 1 : 0,
+      duration: const Duration(milliseconds: 200),
+      child: SizedBox(
+        width: 34,
+        height: widget.barHeight,
+        child: AnimatedBuilder(
+          animation: _controller,
+          builder: (context, _) {
+            return Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: List.generate(_barCount, (i) {
+                // Mirrored so the two sides read as a matching pair meeting
+                // the mic, rather than two identical copies sliding by.
+                final phaseIndex = widget.mirrored ? _barCount - 1 - i : i;
+                final phase = _controller.value * 2 * pi + phaseIndex * 1.3;
+                final wave = widget.active ? (sin(phase) + 1) / 2 : 0.0;
+                final height =
+                    minHeight + wave * (widget.barHeight - minHeight);
+                return Container(
+                  width: 4,
+                  height: height,
+                  decoration: BoxDecoration(
+                    color: AppColors.teal.withValues(alpha: 0.85),
+                    borderRadius: BorderRadius.circular(3),
+                  ),
+                );
+              }),
+            );
+          },
+        ),
+      ),
     );
   }
 }

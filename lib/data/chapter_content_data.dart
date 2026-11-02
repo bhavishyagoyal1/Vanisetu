@@ -27,9 +27,13 @@
 library;
 
 class Flashcard {
-  const Flashcard({required this.term, required this.meaning});
+  const Flashcard({required this.term, this.meaning = '', this.imagePath});
   final String term;
   final String meaning;
+
+  /// When set, the flashcard is a pre-illustrated picture card (asset path)
+  /// shown as-is instead of the flip-to-reveal term/meaning card.
+  final String? imagePath;
 }
 
 class AssessmentQuestion {

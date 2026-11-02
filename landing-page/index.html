@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VaaniSetu - Loading</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Loading Screen -->
+    <div id="loader-wrapper">
+        <div class="loader-content">
+            <div class="logo-container">
+                <video autoplay muted playsinline class="loader-video">
+                    <source src="abhi_bhi_proper_tarike_se_back.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="loading-text">
+                LOADING<span class="dots"><span>.</span><span>.</span><span>.</span></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content (Landing Page) -->
+    <div id="main-content"
+        style="display: none; padding: 50px; text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+        <img src="logo.png" alt="VaaniSetu logo" class="landing-logo">
+        <h1 style="color: #1b5583;">Welcome to VaaniSetu</h1>
+        <p style="color: #666; font-size: 1.1rem;">Bridging Languages • Building Futures</p>
+        <p style="margin-top: 20px;">This is your landing page content. The loader has finished!</p>
+    </div>
+
+    <script>
+        window.addEventListener('load', function () {
+            const loader = document.getElementById('loader-wrapper');
+            const mainContent = document.getElementById('main-content');
+            const video = document.querySelector('.loader-video');
+
+            let hidden = false;
+            function hideLoader() {
+                if (hidden) return; // guards against the fallback timer and a
+                                     // video event both firing
+                hidden = true;
+
+                // Start fade out animation
+                loader.classList.add('fade-out');
+
+                // Wait for the fade-out CSS transition (0.5s) to finish before hiding completely
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                    mainContent.style.display = 'block';
+
+                    // Trigger reflow to ensure the fade-in transition works
+                    void mainContent.offsetWidth;
+                    mainContent.classList.add('fade-in');
+                }, 500);
+            }
+
+            // Jab video poori tarah khatam ho jaye, tab loader hide karein
+            if (video) {
+                video.playbackRate = 2.5; // Play at 2x speed (10 sec -> 5 sec)
+                video.addEventListener('ended', hideLoader);
+                // Fallback agar kisi reason se video play na ho ya block ho
+                video.addEventListener('error', hideLoader);
+            } else {
+                setTimeout(hideLoader, 3000);
+            }
+
+            // Absolute fallback: some browsers silently refuse to autoplay a
+            // local (file://) video without ever firing 'error', so neither
+            // handler above runs and the page (with it, the logo) stays
+            // stuck behind the loader forever. This guarantees it reveals
+            // within 6s regardless of what the video does.
+            setTimeout(hideLoader, 6000);
+        });
+    </script>
+</body>
+
+</html>

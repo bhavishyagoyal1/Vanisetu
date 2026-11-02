@@ -96,6 +96,25 @@ class AppStrings {
       'content_assessment_subtitle':
           'A short quiz for "{chapter}" will appear here.',
       'coming_soon': '{title} coming soon',
+
+      'history_title': 'Translation History',
+      'history_open_tooltip': 'Translation history',
+      'history_empty_title': 'No translations yet',
+      'history_empty_subtitle':
+          'Every translation you make is saved here automatically, on this '
+          'device only.',
+      'history_clear_all': 'Clear all',
+      'history_clear_all_title': 'Clear all history?',
+      'history_clear_all_body':
+          'This deletes all {n} saved translations from this device. This '
+          'cannot be undone.',
+      'history_delete_tooltip': 'Delete this entry',
+      'history_delete_title': 'Delete this translation?',
+      'history_delete_body': 'This cannot be undone.',
+      'history_entry_deleted': 'Translation deleted',
+      'history_all_cleared': 'All translation history cleared',
+      'cancel': 'Cancel',
+      'delete': 'Delete',
     },
     AppLanguage.hindi: {
       'nav_curriculum': 'पाठ्यक्रम',
@@ -177,6 +196,24 @@ class AppStrings {
       'content_assessment_subtitle':
           '"{chapter}" के लिए एक छोटी प्रश्नोत्तरी यहाँ दिखाई देगी।',
       'coming_soon': '{title} जल्द आ रहा है',
+
+      'history_title': 'अनुवाद इतिहास',
+      'history_open_tooltip': 'अनुवाद इतिहास',
+      'history_empty_title': 'अभी तक कोई अनुवाद नहीं',
+      'history_empty_subtitle':
+          'आपका हर अनुवाद यहाँ अपने आप सुरक्षित हो जाता है, सिर्फ़ इसी डिवाइस पर।',
+      'history_clear_all': 'सभी हटाएँ',
+      'history_clear_all_title': 'पूरा इतिहास हटाएँ?',
+      'history_clear_all_body':
+          'इससे इस डिवाइस से सभी {n} सुरक्षित अनुवाद हट जाएँगे। यह वापस नहीं '
+          'किया जा सकता।',
+      'history_delete_tooltip': 'यह अनुवाद हटाएँ',
+      'history_delete_title': 'यह अनुवाद हटाएँ?',
+      'history_delete_body': 'यह वापस नहीं किया जा सकता।',
+      'history_entry_deleted': 'अनुवाद हटाया गया',
+      'history_all_cleared': 'पूरा अनुवाद इतिहास हटाया गया',
+      'cancel': 'रद्द करें',
+      'delete': 'हटाएँ',
     },
   };
 

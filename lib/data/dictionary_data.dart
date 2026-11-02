@@ -43,6 +43,77 @@ class DictionaryEntry {
   final String hindi;
   final String gloss;
   final String santali;
+
+  /// Best-effort Hinglish (Latin-script) reading of [santali], derived
+  /// character-by-character from the Ol Chiki text via [romanizeOlChiki].
+  /// Computed rather than stored so it can never drift from [santali].
+  String get santaliRomanized => romanizeOlChiki(santali);
+}
+
+/// Maps each Ol Chiki codepoint (U+1C50-1C7F) to a Latin approximation,
+/// per the character's official Unicode name and standard Santali
+/// romanization conventions (e.g. Ol Chiki Wikipedia, CIIL references).
+///
+/// Consonant + OH (U+1C77, 'h') sequences fall out naturally by simple
+/// concatenation, e.g. AAK+OH -> "kh", OB+OH -> "bh".
+const Map<String, String> _olChikiToLatin = {
+  'ᱚ': 'o', // LA (ɔ)
+  'ᱛ': 't', // AT
+  'ᱜ': 'g', // AG
+  'ᱝ': 'ng', // ANG
+  'ᱞ': 'l', // AL
+  'ᱟ': 'a', // LAA
+  'ᱠ': 'k', // AAK
+  'ᱡ': 'j', // AAJ
+  'ᱢ': 'm', // AAM
+  'ᱣ': 'w', // AAW
+  'ᱤ': 'i', // LI
+  'ᱥ': 's', // IS
+  'ᱦ': 'h', // IH
+  'ᱧ': 'ny', // INY
+  'ᱨ': 'r', // IR
+  'ᱩ': 'u', // LU
+  'ᱪ': 'c', // UC
+  'ᱫ': 'd', // UD
+  'ᱬ': 'n', // UNN (retroflex ṇ)
+  'ᱭ': 'y', // UY
+  'ᱮ': 'e', // LE
+  'ᱯ': 'p', // EP
+  'ᱰ': 'd', // EDD (retroflex ḍ)
+  'ᱱ': 'n', // EN
+  'ᱲ': 'r', // ERR (retroflex flap ṛ)
+  'ᱳ': 'o', // LO
+  'ᱴ': 't', // OTT (retroflex ṭ)
+  'ᱵ': 'b', // OB
+  'ᱶ': 'v', // OV
+  'ᱷ': 'h', // OH (aspiration marker, forms kh/gh/ch/th/dh/ph/bh)
+  'ᱸ': 'n', // MU TTUDDAG (nasalization mark)
+  'ᱹ': "'", // GAAHLAA TTUDDAAG (checked/glottalized vowel)
+  'ᱺ': "n'", // MU-GAAHLAA TTUDDAAG (nasalized + checked vowel)
+  'ᱻ': '', // RELAA (length mark)
+  'ᱼ': "'", // PHAARKAA (glottal protector)
+  'ᱽ': '', // AHAD (deglottalizes; no separate Latin sound)
+  '᱾': '.', // PUNCTUATION MUCAAD
+  '᱿': '..', // PUNCTUATION DOUBLE MUCAAD
+};
+
+final RegExp _spaceBeforePunctuation = RegExp(r"\s+([.,?!'])");
+
+/// Romanizes Ol Chiki text into a readable Hinglish approximation.
+/// Non-Ol Chiki characters (spaces, `/`, `?`, parentheses, ...) pass
+/// through unchanged.
+String romanizeOlChiki(String olChiki) {
+  final buffer = StringBuffer();
+  for (final rune in olChiki.runes) {
+    final char = String.fromCharCode(rune);
+    buffer.write(_olChikiToLatin[char] ?? char);
+  }
+  final collapsed = buffer
+      .toString()
+      .replaceAllMapped(_spaceBeforePunctuation, (m) => m.group(1)!)
+      .trim();
+  if (collapsed.isEmpty) return collapsed;
+  return collapsed[0].toUpperCase() + collapsed.substring(1);
 }
 
 const List<DictionaryEntry> dictionaryData = [

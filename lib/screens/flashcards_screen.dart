@@ -71,6 +71,35 @@ class _FlashcardsScreenState extends State<FlashcardsScreen> {
                 }),
                 itemBuilder: (context, i) {
                   final card = widget.cards[i];
+                  if (card.imagePath != null) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 24,
+                        vertical: 16,
+                      ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(24),
+                        child: Container(
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(24),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withValues(alpha: 0.12),
+                                blurRadius: 16,
+                                offset: const Offset(0, 8),
+                              ),
+                            ],
+                          ),
+                          child: Image.asset(
+                            card.imagePath!,
+                            fit: BoxFit.contain,
+                          ),
+                        ),
+                      ),
+                    );
+                  }
                   return Padding(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 24,
@@ -119,13 +148,19 @@ class _FlashcardsScreenState extends State<FlashcardsScreen> {
                 },
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 4),
-              child: Text(
-                'Tap the card to flip',
-                style: TextStyle(color: Colors.grey[500], fontSize: 12),
-              ),
-            ),
+            if (widget.cards[_index].imagePath == null)
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 24,
+                  vertical: 4,
+                ),
+                child: Text(
+                  'Tap the card to flip',
+                  style: TextStyle(color: Colors.grey[500], fontSize: 12),
+                ),
+              )
+            else
+              const SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.fromLTRB(24, 8, 24, 20),
               child: Row(

@@ -8,11 +8,12 @@ const Map<String, ChapterContent> chapterContentData = {
       'आप अपने चाचा या बुआ को अपनी भाषा में क्या कहते हैं?',
     ],
     flashcards: [
-      Flashcard(term: 'परिवार', meaning: 'माता-पिता, भाई-बहन और अन्य सगे-सम्बन्धी जो साथ रहते हैं'),
-      Flashcard(term: 'बुआ', meaning: 'पापा की बहन'),
-      Flashcard(term: 'दादा-दादी', meaning: 'पापा या माँ के माता-पिता'),
-      Flashcard(term: 'नानी', meaning: 'माँ की माँ'),
-      Flashcard(term: 'भाई', meaning: 'परिवार में बहन का सगा लड़का भाई'),
+      Flashcard(term: 'Maa', imagePath: 'assets/flashcards/class-1/hindi/Chapter_1_Mera_Parivar/1.1_Maa.png'),
+      Flashcard(term: 'Pita', imagePath: 'assets/flashcards/class-1/hindi/Chapter_1_Mera_Parivar/1.2_Pita.png'),
+      Flashcard(term: 'Bhai', imagePath: 'assets/flashcards/class-1/hindi/Chapter_1_Mera_Parivar/1.3_Bhai.png'),
+      Flashcard(term: 'Bahan', imagePath: 'assets/flashcards/class-1/hindi/Chapter_1_Mera_Parivar/1.4_Bahan.png'),
+      Flashcard(term: 'Dada-Dadi', imagePath: 'assets/flashcards/class-1/hindi/Chapter_1_Mera_Parivar/1.5_Dada-Dadi.png'),
+      Flashcard(term: 'Mera Parivar', imagePath: 'assets/flashcards/class-1/hindi/Chapter_1_Mera_Parivar/1.6_Mera_Parivar.png'),
     ],
     assessment: [
       AssessmentQuestion(
@@ -473,11 +474,12 @@ const Map<String, ChapterContent> chapterContentData = {
       'राष्ट्रीय झंडे में सबसे ऊपर और सबसे नीचे कौन सा रंग होता है?',
     ],
     flashcards: [
-      Flashcard(term: 'अंदर', meaning: 'घर या किसी जगह के भीतर'),
-      Flashcard(term: 'बाहर', meaning: 'घर या किसी जगह से बाहर की तरफ'),
-      Flashcard(term: 'ऊपर', meaning: 'किसी चीज़ के ऊपरी हिस्से में'),
-      Flashcard(term: 'नीचे', meaning: 'किसी चीज़ के निचले हिस्से में'),
-      Flashcard(term: 'पास-दूर', meaning: 'किसी चीज़ के नज़दीक या दूरी पर होना'),
+      Flashcard(term: 'Mere Parivar Mein', imagePath: 'assets/flashcards/class-1/math/Chapter_3_Hamare_Aaspaas_Sankhyaen/1_Mere_Parivar_Mein.png'),
+      Flashcard(term: 'Phal Aur Sabziyan', imagePath: 'assets/flashcards/class-1/math/Chapter_3_Hamare_Aaspaas_Sankhyaen/2_Phal_Aur_Sabziyan.png'),
+      Flashcard(term: 'Kaksha Mein', imagePath: 'assets/flashcards/class-1/math/Chapter_3_Hamare_Aaspaas_Sankhyaen/3_Kaksha_Mein.png'),
+      Flashcard(term: 'Aungliyon Se Ginti', imagePath: 'assets/flashcards/class-1/math/Chapter_3_Hamare_Aaspaas_Sankhyaen/4_Aungliyon_Se_Ginti.png'),
+      Flashcard(term: 'Seedhiyan', imagePath: 'assets/flashcards/class-1/math/Chapter_3_Hamare_Aaspaas_Sankhyaen/5_Seedhiyan.png'),
+      Flashcard(term: 'Ped Par Pakshi', imagePath: 'assets/flashcards/class-1/math/Chapter_3_Hamare_Aaspaas_Sankhyaen/6_Ped_Par_Pakshi.png'),
     ],
     assessment: [
       AssessmentQuestion(
@@ -535,11 +537,12 @@ const Map<String, ChapterContent> chapterContentData = {
       'अपने आस-पास 4 ऐसी चीज़ें गिनो जो एक जैसी हों और उनकी संख्या लिखो।',
     ],
     flashcards: [
-      Flashcard(term: 'गिनती', meaning: 'वस्तुओं को क्रम में गिनने की क्रिया'),
-      Flashcard(term: 'एक', meaning: 'संख्या 1'),
-      Flashcard(term: 'पाँच', meaning: 'संख्या 5'),
-      Flashcard(term: 'जोड़ा', meaning: 'दो चीज़ों का एक साथ होना (संख्या 2)'),
-      Flashcard(term: 'क्रम', meaning: 'संख्याओं का सही सिलसिला'),
+      Flashcard(term: 'Ek', imagePath: 'assets/flashcards/class-1/math/Chapter_1_Sankhyaon_Ka_Jadoo_Bhag_1/1_Ek.png'),
+      Flashcard(term: 'Do', imagePath: 'assets/flashcards/class-1/math/Chapter_1_Sankhyaon_Ka_Jadoo_Bhag_1/2_Do.png'),
+      Flashcard(term: 'Teen', imagePath: 'assets/flashcards/class-1/math/Chapter_1_Sankhyaon_Ka_Jadoo_Bhag_1/3_Teen.png'),
+      Flashcard(term: 'Chaar', imagePath: 'assets/flashcards/class-1/math/Chapter_1_Sankhyaon_Ka_Jadoo_Bhag_1/4_Chaar.png'),
+      Flashcard(term: 'Paanch', imagePath: 'assets/flashcards/class-1/math/Chapter_1_Sankhyaon_Ka_Jadoo_Bhag_1/5_Paanch.png'),
+      Flashcard(term: 'Chhah', imagePath: 'assets/flashcards/class-1/math/Chapter_1_Sankhyaon_Ka_Jadoo_Bhag_1/6_Chhah.png'),
     ],
     assessment: [
       AssessmentQuestion(
@@ -597,11 +600,12 @@ const Map<String, ChapterContent> chapterContentData = {
       'कोई एक वस्तु लो और बताओ वह लुढ़कती है या सरकती है या दोनों।',
     ],
     flashcards: [
-      Flashcard(term: 'गोल (वृत्ताकार)', meaning: 'जिस आकृति के कोई कोने न हों, जैसे गेंद'),
-      Flashcard(term: 'लुढ़कना', meaning: 'गोल आकार की वस्तु का घूमते हुए चलना'),
-      Flashcard(term: 'सरकना', meaning: 'सपाट वस्तु का फिसलते हुए चलना'),
-      Flashcard(term: 'सपाट', meaning: 'जिसकी सतह चपटी/समतल हो'),
-      Flashcard(term: 'आकृति', meaning: 'किसी वस्तु का रूप या बनावट'),
+      Flashcard(term: 'Vritt', imagePath: 'assets/flashcards/class-1/math/Chapter_2_Aakritiyan_Aakaron_Ki_Pehchaan/1_Vritt.png'),
+      Flashcard(term: 'Varg', imagePath: 'assets/flashcards/class-1/math/Chapter_2_Aakritiyan_Aakaron_Ki_Pehchaan/2_Varg.png'),
+      Flashcard(term: 'Aayat', imagePath: 'assets/flashcards/class-1/math/Chapter_2_Aakritiyan_Aakaron_Ki_Pehchaan/3_Aayat.png'),
+      Flashcard(term: 'Tribhuj', imagePath: 'assets/flashcards/class-1/math/Chapter_2_Aakritiyan_Aakaron_Ki_Pehchaan/4_Tribhuj.png'),
+      Flashcard(term: 'Lamba Aur Chhota', imagePath: 'assets/flashcards/class-1/math/Chapter_2_Aakritiyan_Aakaron_Ki_Pehchaan/5_Lamba_Aur_Chhota.png'),
+      Flashcard(term: 'Gol Aur Seedha', imagePath: 'assets/flashcards/class-1/math/Chapter_2_Aakritiyan_Aakaron_Ki_Pehchaan/6_Gol_Aur_Seedha.png'),
     ],
     assessment: [
       AssessmentQuestion(
@@ -1124,11 +1128,9 @@ const Map<String, ChapterContent> chapterContentData = {
       'What do you like the most about coming to school every day?',
     ],
     flashcards: [
-      Flashcard(term: 'kanche', meaning: 'small glass marbles used in a game'),
-      Flashcard(term: 'lattu', meaning: 'a spinning top toy'),
-      Flashcard(term: 'cross', meaning: 'to go from one side to the other, like a road'),
-      Flashcard(term: 'count', meaning: 'to say numbers one by one to find how many'),
-      Flashcard(term: 'dream', meaning: 'to imagine or hope for something'),
+      Flashcard(term: 'My School', imagePath: 'assets/flashcards/class-2/english/Chapter_2_My_Home_And_School/3_My_School.png'),
+      Flashcard(term: 'People At School', imagePath: 'assets/flashcards/class-2/english/Chapter_2_My_Home_And_School/4_People_At_School.png'),
+      Flashcard(term: 'Good Habits', imagePath: 'assets/flashcards/class-2/english/Chapter_2_My_Home_And_School/6_Good_Habits.png'),
     ],
     assessment: [
       AssessmentQuestion(
@@ -1155,11 +1157,8 @@ const Map<String, ChapterContent> chapterContentData = {
       'कौन सी आकृति सिर्फ लुढ़कती है और कौन सी सिर्फ सरकती है — गोला या घनाभ? क्यों?',
     ],
     flashcards: [
-      Flashcard(term: 'घन', meaning: 'छह बराबर सपाट सतहों वाली ठोस आकृति, जैसे पासा'),
-      Flashcard(term: 'घनाभ', meaning: 'सपाट सतहों, किनारों और कोनों वाली आकृति, जैसे ट्रंक'),
-      Flashcard(term: 'गोला', meaning: 'पूरी तरह गोल सतह वाली आकृति जिसमें कोई किनारा या कोना नहीं होता, जैसे गेंद'),
-      Flashcard(term: 'बेलन', meaning: 'एक सपाट और एक गोल सतह वाली आकृति जो सरकती और लुढ़कती दोनों है, जैसे मांदर'),
-      Flashcard(term: 'शंकु', meaning: 'एक सपाट और एक गोल सतह वाली आकृति जिसमें किनारा और कोना दोनों होते हैं, जैसे टोपी'),
+      Flashcard(term: 'Aakritiyan Pehchano', imagePath: 'assets/flashcards/class-2/math/Chapter_3_Aakritiyan_Aur_Maap/1_Aakritiyan_Pehchano.png'),
+      Flashcard(term: 'Vastuon Mein Aakritiyan', imagePath: 'assets/flashcards/class-2/math/Chapter_3_Aakritiyan_Aur_Maap/2_Vastuon_Mein_Aakritiyan.png'),
     ],
     assessment: [
       AssessmentQuestion(
@@ -1186,11 +1185,12 @@ const Map<String, ChapterContent> chapterContentData = {
       '43 और 34 में से कौन सी संख्या बड़ी है? क्यों?',
     ],
     flashcards: [
-      Flashcard(term: 'दहाई', meaning: 'दस वस्तुओं के एक बंडल का स्थानीय मान'),
-      Flashcard(term: 'इकाई', meaning: 'अकेली, बिना बंडल की एक वस्तु का स्थानीय मान'),
-      Flashcard(term: 'बंडल', meaning: 'दस-दस वस्तुओं को साथ बाँधकर बनाया गया समूह'),
-      Flashcard(term: 'गणित माला', meaning: 'संख्याओं को क्रम में दिखाने वाली माला जिस पर गिनती की जाती है'),
-      Flashcard(term: 'क्रम संख्या', meaning: 'पहला, दूसरा, तीसरा जैसे स्थान बताने वाली संख्या'),
+      Flashcard(term: 'Ginti', imagePath: 'assets/flashcards/class-2/math/Chapter_1_Sankhyaen_100_Tak/1_Ginti.png'),
+      Flashcard(term: '10 Tak Ki Sankhya', imagePath: 'assets/flashcards/class-2/math/Chapter_1_Sankhyaen_100_Tak/2_10_Tak_Ki_Sankhya.png'),
+      Flashcard(term: 'Sankhya Pehchan', imagePath: 'assets/flashcards/class-2/math/Chapter_1_Sankhyaen_100_Tak/3_Sankhya_Pehchan.png'),
+      Flashcard(term: 'Aage Aur Peeche', imagePath: 'assets/flashcards/class-2/math/Chapter_1_Sankhyaen_100_Tak/4_Aage_Aur_Peeche.png'),
+      Flashcard(term: 'Bada Chhota', imagePath: 'assets/flashcards/class-2/math/Chapter_1_Sankhyaen_100_Tak/5_Bada_Chhota.png'),
+      Flashcard(term: 'Sankhya Ki Tulana', imagePath: 'assets/flashcards/class-2/math/Chapter_1_Sankhyaen_100_Tak/6_Sankhya_Ki_Tulana.png'),
     ],
     assessment: [
       AssessmentQuestion(
@@ -1217,11 +1217,12 @@ const Map<String, ChapterContent> chapterContentData = {
       'एक खेत में पहले 53 मक्के के पौधे थे। कुछ पौधे सूख गए और अब 38 पौधे बचे हैं। कितने पौधे सूख गए?',
     ],
     flashcards: [
-      Flashcard(term: 'जोड़', meaning: 'दो या अधिक संख्याओं को मिलाकर कुल पता करना'),
-      Flashcard(term: 'घटाव', meaning: 'किसी संख्या में से कुछ कम करना'),
-      Flashcard(term: 'पुनः समूहीकरण', meaning: '10 इकाइयों को मिलाकर 1 दहाई बनाना'),
-      Flashcard(term: 'संख्या रेखा', meaning: 'संख्याओं को क्रम में दिखाने वाली रेखा जिस पर छलांग लगाकर जोड़-घटाव किया जाता है'),
-      Flashcard(term: 'माला-मोती', meaning: 'जोड़-घटाव सिखाने की सामग्री, जहाँ एक माला बराबर 10 मोती होते हैं'),
+      Flashcard(term: 'Jod', imagePath: 'assets/flashcards/class-2/math/Chapter_2_Jod_Aur_Ghataav_100_Tak/1_Jod.png'),
+      Flashcard(term: 'Ghataav', imagePath: 'assets/flashcards/class-2/math/Chapter_2_Jod_Aur_Ghataav_100_Tak/2_Ghataav.png'),
+      Flashcard(term: 'Kisi Sankhya Mein Jodna', imagePath: 'assets/flashcards/class-2/math/Chapter_2_Jod_Aur_Ghataav_100_Tak/3_Kisi_Sankhya_Mein_Jodna.png'),
+      Flashcard(term: 'Kisi Sankhya Mein Ghatana', imagePath: 'assets/flashcards/class-2/math/Chapter_2_Jod_Aur_Ghataav_100_Tak/4_Kisi_Sankhya_Mein_Ghatana.png'),
+      Flashcard(term: 'Shobdon Wali Samasya', imagePath: 'assets/flashcards/class-2/math/Chapter_2_Jod_Aur_Ghataav_100_Tak/5_Shobdon_Wali_Samasya.png'),
+      Flashcard(term: 'Dainik Jeevan Mein Jod Ghataav', imagePath: 'assets/flashcards/class-2/math/Chapter_2_Jod_Aur_Ghataav_100_Tak/6_Dainik_Jeevan_Mein_Jod_Ghataav.png'),
     ],
     assessment: [
       AssessmentQuestion(
@@ -1248,11 +1249,7 @@ const Map<String, ChapterContent> chapterContentData = {
       'घड़ी में छोटी सुई 7 पर और बड़ी सुई 12 पर हो, तो समय क्या होगा?',
     ],
     flashcards: [
-      Flashcard(term: 'मौसम', meaning: 'वर्ष में बदलता समय, जैसे गर्मी, बरसात, जाड़ा और बसंत'),
-      Flashcard(term: 'कैलेंडर', meaning: 'महीनों और तारीखों को दिखाने वाली तालिका'),
-      Flashcard(term: 'घंटा', meaning: 'समय मापने की एक इकाई, एक दिन में 24 घंटे होते हैं'),
-      Flashcard(term: 'छोटी सुई', meaning: 'घड़ी में घंटे बताने वाली सुई'),
-      Flashcard(term: 'बड़ी सुई', meaning: 'घड़ी में मिनट बताने वाली सुई'),
+      Flashcard(term: 'Samay Ghadi', imagePath: 'assets/flashcards/class-2/math/Chapter_3_Aakritiyan_Aur_Maap/6_Samay_Ghadi.png'),
     ],
     assessment: [
       AssessmentQuestion(
@@ -1838,17 +1835,12 @@ const Map<String, ChapterContent> chapterContentData = {
       'Write one sentence using the phrase \'my dear one\'.',
     ],
     flashcards: [
-      Flashcard(term: 'Dear', meaning: 'much loved; precious'),
-      Flashcard(
-        term: 'Affection',
-        meaning: 'a gentle feeling of love or fondness',
-      ),
-      Flashcard(
-        term: 'Family',
-        meaning: 'a group of people related to each other',
-      ),
-      Flashcard(term: 'Care', meaning: 'to look after someone with love'),
-      Flashcard(term: 'Bond', meaning: 'a close connection between people'),
+      Flashcard(term: 'Family Members', imagePath: 'assets/flashcards/class-3/english/Chapter_2_My_Family/1_Family_Members.png'),
+      Flashcard(term: 'My Parents', imagePath: 'assets/flashcards/class-3/english/Chapter_2_My_Family/2_My_Parents.png'),
+      Flashcard(term: 'Brothers And Sisters', imagePath: 'assets/flashcards/class-3/english/Chapter_2_My_Family/3_Brothers_And_Sisters.png'),
+      Flashcard(term: 'Helping At Home', imagePath: 'assets/flashcards/class-3/english/Chapter_2_My_Family/4_Helping_At_Home.png'),
+      Flashcard(term: 'Spending Time', imagePath: 'assets/flashcards/class-3/english/Chapter_2_My_Family/5_Spending_Time.png'),
+      Flashcard(term: 'Love And Care', imagePath: 'assets/flashcards/class-3/english/Chapter_2_My_Family/6_Love_And_Care.png'),
     ],
     assessment: [
       AssessmentQuestion(
@@ -2054,17 +2046,12 @@ const Map<String, ChapterContent> chapterContentData = {
       'Write one sentence about your favourite subject taught by your teacher.',
     ],
     flashcards: [
-      Flashcard(term: 'Teacher', meaning: 'a person who helps students learn'),
-      Flashcard(
-        term: 'Respect',
-        meaning: 'treating someone with honour and regard',
-      ),
-      Flashcard(
-        term: 'Knowledge',
-        meaning: 'information and understanding gained through learning',
-      ),
-      Flashcard(term: 'Classroom', meaning: 'a room where students are taught'),
-      Flashcard(term: 'Guide', meaning: 'a person who shows the right way'),
+      Flashcard(term: 'My School', imagePath: 'assets/flashcards/class-3/english/Chapter_3_My_School/1_My_School.png'),
+      Flashcard(term: 'My Teacher', imagePath: 'assets/flashcards/class-3/english/Chapter_3_My_School/2_My_Teacher.png'),
+      Flashcard(term: 'My Classmates', imagePath: 'assets/flashcards/class-3/english/Chapter_3_My_School/3_My_Classmates.png'),
+      Flashcard(term: 'Classroom Things', imagePath: 'assets/flashcards/class-3/english/Chapter_3_My_School/4_Classroom_Things.png'),
+      Flashcard(term: 'School Activities', imagePath: 'assets/flashcards/class-3/english/Chapter_3_My_School/5_School_Activities.png'),
+      Flashcard(term: 'Be Punctual', imagePath: 'assets/flashcards/class-3/english/Chapter_3_My_School/6_Be_Punctual.png'),
     ],
     assessment: [
       AssessmentQuestion(
@@ -2651,17 +2638,8 @@ const Map<String, ChapterContent> chapterContentData = {
       'अपने आस-पास मिलने वाली दो वस्तुओं के नाम लिखिए जो त्रिभुज आकार की हों।',
     ],
     flashcards: [
-      Flashcard(
-        term: 'रेखा',
-        meaning: 'दो बिंदुओं को जोड़ने वाला सीधा या टेढ़ा मार्ग',
-      ),
-      Flashcard(term: 'त्रिभुज', meaning: 'तीन भुजाओं वाली आकृति'),
-      Flashcard(term: 'वर्ग', meaning: 'चार बराबर भुजाओं वाली आकृति'),
-      Flashcard(
-        term: 'आयत',
-        meaning: 'चार भुजाओं वाली आकृति जिसमें विपरीत भुजाएँ बराबर होती हैं',
-      ),
-      Flashcard(term: 'कोण', meaning: 'दो रेखाओं के मिलने से बना स्थान'),
+      Flashcard(term: 'Samtal Akritiyan', imagePath: 'assets/flashcards/class-3/math/Chapter_3_Akritiyan_Aur_Maap/1_Samtal_Akritiyan.png'),
+      Flashcard(term: 'Thos Akritiyan', imagePath: 'assets/flashcards/class-3/math/Chapter_3_Akritiyan_Aur_Maap/2_Thos_Akritiyan.png'),
     ],
     assessment: [
       AssessmentQuestion(
@@ -2741,14 +2719,9 @@ const Map<String, ChapterContent> chapterContentData = {
       '1230 + 1450 का योग ज्ञात कीजिए।',
     ],
     flashcards: [
-      Flashcard(term: 'जोड़', meaning: 'दो या दो से अधिक संख्याओं को मिलाना'),
-      Flashcard(term: 'योग', meaning: 'जोड़ का परिणाम'),
-      Flashcard(
-        term: 'हासिल',
-        meaning: 'जोड़ते समय अगले स्थान पर ले जाई जाने वाली संख्या',
-      ),
-      Flashcard(term: 'इकाई', meaning: 'संख्या का सबसे दायाँ अंक स्थान'),
-      Flashcard(term: 'दहाई', meaning: 'इकाई के बाद वाला अंक स्थान'),
+      Flashcard(term: 'Jod Bina Carry', imagePath: 'assets/flashcards/class-3/math/Chapter_2_Jod_Aur_Ghatav/1_Jod_Bina_Carry.png'),
+      Flashcard(term: 'Jod Carry Ke Sath', imagePath: 'assets/flashcards/class-3/math/Chapter_2_Jod_Aur_Ghatav/2_Jod_Carry_Ke_Sath.png'),
+      Flashcard(term: 'Shobdon Wali Samasya', imagePath: 'assets/flashcards/class-3/math/Chapter_2_Jod_Aur_Ghatav/5_Shobdon_Wali_Samasya.png'),
     ],
     assessment: [
       AssessmentQuestion(
@@ -2781,14 +2754,9 @@ const Map<String, ChapterContent> chapterContentData = {
       '723 - 289 का मान ज्ञात कीजिए।',
     ],
     flashcards: [
-      Flashcard(
-        term: 'घटाव',
-        meaning: 'एक संख्या में से दूसरी संख्या को घटाना',
-      ),
-      Flashcard(term: 'शेष', meaning: 'घटाव का परिणाम'),
-      Flashcard(term: 'उधार', meaning: 'घटाते समय पड़ोसी अंक से लेना'),
-      Flashcard(term: 'बड़ी संख्या', meaning: 'जिसमें से घटाया जाता है'),
-      Flashcard(term: 'छोटी संख्या', meaning: 'जो घटाई जाती है'),
+      Flashcard(term: 'Ghatav Bina Udhar', imagePath: 'assets/flashcards/class-3/math/Chapter_2_Jod_Aur_Ghatav/3_Ghatav_Bina_Udhar.png'),
+      Flashcard(term: 'Ghatav Udhar Ke Sath', imagePath: 'assets/flashcards/class-3/math/Chapter_2_Jod_Aur_Ghatav/4_Ghatav_Udhar_Ke_Sath.png'),
+      Flashcard(term: 'Rozmarra Ka Upyog', imagePath: 'assets/flashcards/class-3/math/Chapter_2_Jod_Aur_Ghatav/6_Rozmarra_Ka_Upyog.png'),
     ],
     assessment: [
       AssessmentQuestion(
@@ -2942,14 +2910,9 @@ const Map<String, ChapterContent> chapterContentData = {
       'वजन मापने के लिए किस यंत्र का उपयोग किया जाता है?',
     ],
     flashcards: [
-      Flashcard(
-        term: 'मापन',
-        meaning: 'किसी वस्तु की लंबाई, वजन या क्षमता जानना',
-      ),
-      Flashcard(term: 'मीटर', meaning: 'लंबाई मापने की इकाई'),
-      Flashcard(term: 'किलोग्राम', meaning: 'वजन मापने की इकाई'),
-      Flashcard(term: 'लीटर', meaning: 'तरल पदार्थ मापने की इकाई'),
-      Flashcard(term: 'तराज़ू', meaning: 'वजन मापने का यंत्र'),
+      Flashcard(term: 'Lambai Ki Maap', imagePath: 'assets/flashcards/class-3/math/Chapter_3_Akritiyan_Aur_Maap/3_Lambai_Ki_Maap.png'),
+      Flashcard(term: 'Wajan Ki Maap', imagePath: 'assets/flashcards/class-3/math/Chapter_3_Akritiyan_Aur_Maap/4_Wajan_Ki_Maap.png'),
+      Flashcard(term: 'Samay Ki Maap', imagePath: 'assets/flashcards/class-3/math/Chapter_3_Akritiyan_Aur_Maap/5_Samay_Ki_Maap.png'),
     ],
     assessment: [
       AssessmentQuestion(
@@ -2982,17 +2945,7 @@ const Map<String, ChapterContent> chapterContentData = {
       'संख्या पैटर्न 3, 6, 9, 12, __ में अगली संख्या क्या होगी?',
     ],
     flashcards: [
-      Flashcard(
-        term: 'पैटर्न',
-        meaning: 'एक निश्चित क्रम में दोहराई जाने वाली व्यवस्था',
-      ),
-      Flashcard(term: 'क्रम', meaning: 'वस्तुओं या संख्याओं का सिलसिला'),
-      Flashcard(term: 'दोहराव', meaning: 'बार-बार होने वाली क्रिया'),
-      Flashcard(term: 'बढ़ता क्रम', meaning: 'छोटी से बड़ी संख्या की ओर बढ़ना'),
-      Flashcard(
-        term: 'आकृति पैटर्न',
-        meaning: 'आकारों की दोहराई जाने वाली व्यवस्था',
-      ),
+      Flashcard(term: 'Pattern', imagePath: 'assets/flashcards/class-3/math/Chapter_3_Akritiyan_Aur_Maap/6_Pattern.png'),
     ],
     assessment: [
       AssessmentQuestion(

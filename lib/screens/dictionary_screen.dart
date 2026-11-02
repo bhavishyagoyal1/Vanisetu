@@ -39,7 +39,8 @@ class _DictionaryScreenState extends State<DictionaryScreen> {
     return dictionaryData.where((e) {
       return e.hindi.contains(_query) ||
           e.gloss.toLowerCase().contains(_query) ||
-          e.santali.contains(_query);
+          e.santali.contains(_query) ||
+          e.santaliRomanized.toLowerCase().contains(_query);
     }).toList();
   }
 
@@ -195,6 +196,15 @@ class _DictionaryTile extends StatelessWidget {
                     fontSize: 16,
                     fontWeight: FontWeight.w600,
                     color: AppColors.teal,
+                  ),
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  entry.santaliRomanized,
+                  style: TextStyle(
+                    fontSize: 12.5,
+                    fontStyle: FontStyle.italic,
+                    color: AppColors.teal.withValues(alpha: 0.75),
                   ),
                 ),
               ],

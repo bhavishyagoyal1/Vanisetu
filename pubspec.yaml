@@ -43,6 +43,7 @@ dependencies:
   shared_preferences: ^2.3.3
   piper_phonemize: ^1.4.11
   video_player: ^2.9.2
+  sqflite: ^2.4.2
 
 dependency_overrides:
   # path_provider_foundation's recent versions moved to Objective-C interop
@@ -103,6 +104,33 @@ flutter:
     - assets/models/tts/sat_piper_model.onnx.json
     - assets/models/tts/hi_IN-pratham-medium.onnx
     - assets/models/tts/hi_IN-pratham-medium.onnx.json
+    - assets/flashcards/class-1/english/Chapter_1_About_Me/
+    - assets/flashcards/class-1/english/Chapter_2_My_Surroundings/
+    - assets/flashcards/class-1/english/Chapter_3_Colours_Shapes_Things_Around_Us/
+    - assets/flashcards/class-1/hindi/Chapter_1_Mera_Parivar/
+    - assets/flashcards/class-1/hindi/Chapter_2_Hamara_Vidyalay/
+    - assets/flashcards/class-1/hindi/Chapter_3_Hamare_Aaspaas_Ki_Prakriti/
+    - assets/flashcards/class-1/math/Chapter_1_Sankhyaon_Ka_Jadoo_Bhag_1/
+    - assets/flashcards/class-1/math/Chapter_2_Aakritiyan_Aakaron_Ki_Pehchaan/
+    - assets/flashcards/class-1/math/Chapter_3_Hamare_Aaspaas_Sankhyaen/
+    - assets/flashcards/class-2/english/Chapter_1_All_About_Me/
+    - assets/flashcards/class-2/english/Chapter_2_My_Home_And_School/
+    - assets/flashcards/class-2/english/Chapter_3_The_World_Around_Me/
+    - assets/flashcards/class-2/hindi/Chapter_1_Mera_Parichay/
+    - assets/flashcards/class-2/hindi/Chapter_2_Hamara_Ghar_Aur_Aas_Paas/
+    - assets/flashcards/class-2/hindi/Chapter_3_Hamari_Prakriti_Aur_Sansar/
+    - assets/flashcards/class-2/math/Chapter_1_Sankhyaen_100_Tak/
+    - assets/flashcards/class-2/math/Chapter_2_Jod_Aur_Ghataav_100_Tak/
+    - assets/flashcards/class-2/math/Chapter_3_Aakritiyan_Aur_Maap/
+    - assets/flashcards/class-3/english/Chapter_1_Meeting_People/
+    - assets/flashcards/class-3/english/Chapter_2_My_Family/
+    - assets/flashcards/class-3/english/Chapter_3_My_School/
+    - assets/flashcards/class-3/hindi/Chapter_1_Hamara_Parivesh/
+    - assets/flashcards/class-3/hindi/Chapter_2_Hamari_Prakritik_Duniya/
+    - assets/flashcards/class-3/hindi/Chapter_3_Hamara_Swasthya_Aur_Suraksha/
+    - assets/flashcards/class-3/math/Chapter_1_Sankhyaein_1000_Tak/
+    - assets/flashcards/class-3/math/Chapter_2_Jod_Aur_Ghatav/
+    - assets/flashcards/class-3/math/Chapter_3_Akritiyan_Aur_Maap/
 
 flutter_launcher_icons:
   android: true
