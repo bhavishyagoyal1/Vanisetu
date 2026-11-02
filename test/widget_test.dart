@@ -16,7 +16,11 @@ void main() {
     await tester.pumpWidget(const VaaniSetuApp());
 
     expect(find.byType(SplashScreen), findsOneWidget);
-    expect(find.byType(Image), findsOneWidget);
+    // No static logo image any more — the splash is the intro video
+    // full-screen (or, before it's ready/in a test with no real video_player
+    // platform to answer to, a plain gradient background) with no other
+    // logo drawn over it.
+    expect(find.byType(Image), findsNothing);
 
     // Deliberately pump() rather than pumpAndSettle(): the splash runs two
     // AnimationControllers with repeat(), which schedule frames forever, so
@@ -29,10 +33,14 @@ void main() {
     // on a magic total. Completing the transition also disposes the splash's
     // controllers, so they do not leak into the next test.
     //
-    // 6600ms, not 2600ms: SplashScreen._navigateAfterDelay also waits (up to
-    // an extra 4000ms) on HindiAsrService.prewarm() before navigating, so
-    // the wait is minSplashTime + maxExtraWait, not minSplashTime alone.
-    await tester.pump(const Duration(milliseconds: 6600)); // delay elapses
+    // 22000ms: SplashScreen._navigateAfterDelay's overall wait is the max of
+    // three futures, and in this test environment (no real video_player or
+    // path_provider platform implementation) the binding one is
+    // HindiAsrService.prewarm() capped at maxVideoInitWait +
+    // maxVideoPlayWait + maxExtraWait (3000 + 15000 + 4000ms) — not the
+    // video's own (much shorter, since it never actually initializes here)
+    // fallbackVisibleTime.
+    await tester.pump(const Duration(milliseconds: 22000)); // delay elapses
     await tester.pump(); // pushReplacement builds the new route
     await tester.pump(
       const Duration(milliseconds: 900),

@@ -9,13 +9,18 @@ import 'package:vaanisetu/screens/main_shell.dart';
 import 'package:vaanisetu/screens/role_selection_screen.dart';
 import 'package:vaanisetu/screens/splash_screen.dart';
 
-/// Steps past the splash screen's minimum 2600ms delay, the up-to-4000ms
-/// extra bound the splash also gives HindiAsrService.prewarm() (see
-/// SplashScreen._navigateAfterDelay), and its 600ms route transition.
-/// Deliberately not pumpAndSettle: the splash runs two repeating
-/// AnimationControllers, so it never settles (see widget_test.dart).
+/// Steps past the splash screen's video-settle wait and the up-to-4000ms
+/// extra bound it also gives HindiAsrService.prewarm() (see
+/// SplashScreen._navigateAfterDelay — in this test environment, with no
+/// real video_player/path_provider platform implementation, prewarm's own
+/// capped timeout of maxVideoInitWait + maxVideoPlayWait + maxExtraWait
+/// (3000 + 15000 + 4000ms) is the binding one, not the video's own — it
+/// never actually initializes here — much shorter fallbackVisibleTime),
+/// plus its 600ms route transition. Deliberately not pumpAndSettle: the
+/// splash runs repeating AnimationControllers, so it never settles (see
+/// widget_test.dart).
 Future<void> _passSplash(WidgetTester tester) async {
-  await tester.pump(const Duration(milliseconds: 6600));
+  await tester.pump(const Duration(milliseconds: 22000));
   await tester.pump();
   await tester.pump(const Duration(milliseconds: 900));
 }

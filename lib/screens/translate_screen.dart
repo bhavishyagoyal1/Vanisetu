@@ -249,12 +249,23 @@ class _TranslateScreenState extends State<TranslateScreen>
     // until a new result (or a genuine context change — target language,
     // swap) replaces it.
     setState(() => _translating = true);
+    final previousTarget = _targetText;
     try {
       final result = _sourceIsHindi
           ? await InferenceIsolate.instance.translateToSantali(text)
           : await InferenceIsolate.instance.translateToHindi(text);
       if (!mounted) return;
       setState(() => _targetText = result);
+      // Auto-play the newly translated audio so a teacher doesn't have to
+      // reach for the speaker button after every sentence. Skipped while the
+      // mic is still capturing: live re-translation re-fires roughly every
+      // _liveTranslateDelay during continuous speech, and replaying audio on
+      // every partial would talk over the teacher mid-sentence — the settled
+      // transcript still gets its auto-play once _endCapture retranslates
+      // with _listening already false.
+      if (!_listening && result.isNotEmpty && result != previousTarget) {
+        unawaited(_speakTarget());
+      }
     } catch (e) {
       if (!mounted) return;
       _showError(tr(context, 'translation_failed', {'error': '$e'}));
