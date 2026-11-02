@@ -157,7 +157,6 @@ flutter test
  
 ## Documentation
  
-- `CLAUDE.md` — full architecture notes and known constraints.
 - The ASR bundle's own `HANDOFF.md` — details specific to the sherpa-onnx
   integration.
 ## Contributing
