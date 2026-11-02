@@ -42,6 +42,7 @@ dependencies:
   flutter_tts: ^4.2.0
   shared_preferences: ^2.3.3
   piper_phonemize: ^1.4.11
+  video_player: ^2.9.2
 
 dependency_overrides:
   # path_provider_foundation's recent versions moved to Objective-C interop
@@ -85,6 +86,7 @@ flutter:
   assets:
     - assets/images/logo.png
     - assets/images/app_icon.png
+    - assets/videos/splash_intro.mp4
     - assets/models/asr/encoder.int8.onnx
     - assets/models/asr/tokens.txt
     - assets/models/vad/silero_vad.onnx
